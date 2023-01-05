@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Tree Views -->
+        <record id="customer_enquiry_details_tree" model="ir.ui.view">
+            <field name="name">customer.enquiry.details.view.tree</field>
+            <field name="model">customer.enquiry.details</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="type_of_event_id"/>
+                    <field name="customer_name"/>
+                    <field name="date"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Kanban Views -->
+<!--        <record id="event_management_view_kanban" model="ir.ui.view">-->
+<!--            <field name="name">customer.enquiry.details.view.kanban</field>-->
+<!--            <field name="model">customer.enquiry.details</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <kanban quick_create="false" >-->
+<!--                    <field name="type_of_event_id"/>-->
+<!--                    <templates>-->
+<!--                        <t t-name="kanban-box">-->
+<!--                            <div t-attf-class="oe_kanban_global_click col-md-2 style_event">-->
+
+
+<!--                                <div class="o_kanban_image" style="width:100%; ">-->
+<!--                                    <t>-->
+<!--                                        <img t-att-src="kanban_image('event.management.type', 'image', record.type_of_event_id.raw_value)" alt="type"-->
+<!--                                             style="width:100%; border-radius: 23px;"/>-->
+<!--                                    </t>-->
+<!--                                </div>-->
+<!--                                <div class="oe_kanban_content" style="padding-left:  0px !important;">-->
+<!--                                    <div style="text-align:  center;;font-size:15px;">-->
+<!--                                        <strong><field name="name"/></strong>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="oe_clear"/>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </templates>-->
+<!--                </kanban>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!-- Form Views -->
+        <record id="customer_enquiry_details_view_form" model="ir.ui.view">
+            <field name="name">customer.enquiry.details.view.form</field>
+            <field name="model">customer.enquiry.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_enquiry_confirm"  string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                        <button name="action_enquiry_cancel" string="Cancel"  type="object" states="draft"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    </header>
+                    <sheet>
+                        <h1 class="mt0">
+                            <field name="name" readonly="1"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="type_of_event_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="customer_name" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="reference" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="auditorium_id"/>
+                            </group>
+                        </group>
+                            <group string="Services">
+                                <field name="services" widget="many2many_checkboxes"/>
+                                <field name="note" class="oe_inline" placeholder="More Suggestions if you have" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+<!--&lt;!&ndash;                                <div class="oe_clear"/>&ndash;&gt;-->
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search Views -->
+        <record id="customer_enquiry_details_view_search" model="ir.ui.view">
+            <field name="name">customer.enquiry.details.view.search</field>
+            <field name="model">customer.enquiry.details</field>
+            <field name="arch" type="xml">
+                <search string="Enquiry">
+                    <field name="reference"/>
+                    <field name="type_of_event_id"/>
+                    <field name="customer_name"/>
+<!--                    <field name="services"/>-->
+                   <group expand="0" string="Group By">
+                        <filter string="Event Type" name="group_by_event" domain="[]" context="{'group_by':'type_of_event_id'}"/>
+                        <filter string="State" name="group_by_state" domain="[]" context="{'group_by':'state'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+        <!-- Calendar View -->
+        <record id="customer_enquiry_details_view_calender" model="ir.ui.view">
+            <field name="name">customer.enquiry.details.view.calendar</field>
+            <field name="model">customer.enquiry.details</field>
+            <field name="arch" type="xml">
+                <calendar string="Customer Enquiries" date_start="start_date" date_stop="end_date" color="type_of_event_id">
+                    <field name="name"/>
+                    <field name="customer_name"/>
+                    <field name="state"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Graph View -->
+        <record id="customer_enquiry_details_view_graph" model="ir.ui.view">
+            <field name="name">customer.enquiry.details.view.graph</field>
+            <field name="model">customer.enquiry.details</field>
+            <field name="arch" type="xml">
+                <graph string="Customer Enquiries">
+                    <field name="customer_name"/>
+                    <field name="type_of_event_id"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <record id="customer_enquiry_details_action_view" model="ir.actions.act_window">
+            <field name="name">CustomerEnquiryDetails</field>
+            <field name="res_model">customer.enquiry.details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="domain">[('state','!=','confirm')]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add an event enquiry.
+              </p><p>
+                Here you can create your event's enquiry.
+              </p>
+            </field>
+        </record>
+
+        <record id="customer_confirmed_enquiry_details_action_view" model="ir.actions.act_window">
+            <field name="name">CustomerEnquiryDetails</field>
+            <field name="res_model">customer.enquiry.details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="domain">[('state','=','confirm')]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add an event enquiry.
+              </p><p>
+                Here you can create your event's enquiry.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+                id="customer_enquiry_details_root_menu"
+                name="Customer Enquiry"/>
+
+            <menuitem
+                    id="customer_enquiry_details_sub_menu1"
+                    name="Customer Enquiry"
+                    parent="customer_enquiry_details_root_menu"
+                    action="customer_enquiry_details_action_view"
+                    sequence="1"/>
+
+<!--                <menuitem-->
+<!--                        id="customer_enquiry_details_form_sub_menu1"-->
+<!--                        name="Customer Enquiry"-->
+<!--                        parent="customer_enquiry_details_sub_menu1"-->
+<!--                        action="customer_enquiry_details_action_view"-->
+<!--                        sequence="1"/>-->
+
+            <menuitem
+                    id="customer_confirmed_enquiry_details_sub_menu2"
+                    name="Confirmed Enquiries"
+                    parent="customer_enquiry_details_root_menu"
+                    action="customer_confirmed_enquiry_details_action_view"
+                    sequence="3"/>
+
+    </data>
+</odoo>
