@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'Event Management',
     'version': '16.0.1.0.0',
@@ -13,14 +11,20 @@
     'depends': ['product', 'account'],
     'data': ['security/event_security.xml',
              'security/ir.model.access.csv',
+             'views/locations.xml',
              'views/event_management_view.xml',
              'views/event_type_view.xml',
              'views/customer_enquiry_details.xml',
+             'views/res_partner_view.xml',
              'views/dashboard.xml',
+             'views/district_dashboard_view.xml',
+             'views/hide_menu.xml',
              'data/event_management.xml',
+             'data/place_districts.xml',
              'reports/event_management_pdf_report.xml',
              'reports/pdf_report_template.xml',
              'wizards/event_management_wizard.xml',
+             'static/src/xml/style_sheet.xml',
              ],
     'assets': {
         'web.assets_backend': [
@@ -33,3 +37,5 @@
     'installable': True,
     'application': True,
 }
+# -*- coding: utf-8 -*-
+

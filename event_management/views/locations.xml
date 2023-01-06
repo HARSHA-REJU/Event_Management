@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="event_management_place_view_form" model="ir.ui.view">
+            <field name="name">place.place</field>
+            <field name="model">place.place</field>
+            <field name="arch" type="xml">
+                <form>
+                     <sheet>
+                         <div style="text-align:center;padding-top:20px;">
+                            <field name="image" widget='image' style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+                        </div>
+
+                         <h4 class="mt0">
+                            <field name="name" string="Place" style="width:50%%" />
+                        </h4>
+                        <group>
+                            <group>
+                                <field name="district_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                            </group>
+                        </group>
+                     </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="event_management_place_view_tree" model="ir.ui.view">
+            <field name="name">place.place.tree</field>
+            <field name="model">place.place</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="district_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="event_place_view_kanban" model="ir.ui.view">
+            <field name="name">event.place.view.kanban</field>
+            <field name="model">place.place</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard" create="0">
+                    <field name="name"/>
+                    <field name="event_count"/>
+                    <field name="id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="col-md-1 oe_kanban_card">
+                                <div>
+                                    <button type="edit" string="Settings" class="button_background" groups="event_management.group_event_manager"
+                                            style="float: right;margin-top: 2px;background: none !important;border: none !IMPORTANT;FONT-SIZE: 16px;">
+                                        <i class="fa fa-cog" title="setting"/>
+                                    </button>
+                                </div>
+                                <div class="o_primary style_event_type col-md-12" style="padding-bottom: 4%;">
+                                    <div class="col-md-12">
+                                        <a type="object" name="get_event_place_action_event">
+                                            <h2 style="text-align:center;font-size: 13px;"><field name="name"/></h2>
+                                            <img t-att-src="kanban_image('place.place', 'image', record.id.raw_value)" alt="Image"
+                                             style="width:100%; border-radius: 13px;"/>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0;">
+                                        <span style="margin-top:  20%;margin-bottom:  2%;font-size: 14px;">
+                                            <span class=" o_primary" style="float: left;margin-top:2px;white-space: nowrap;padding: 0 5px 0 0;">Total Events : <field name="event_count"/></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="event_management_loc_action_view_tree" model="ir.actions.act_window">
+            <field name="name">Places</field>
+            <field name="res_model">place.place</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add an event type.
+              </p><p>
+                Here you can create different types of events.
+              </p>
+            </field>
+        </record>
+        <record id="action_event_place_view_kanban" model="ir.actions.act_window">
+            <field name="name">Places</field>
+            <field name="res_model">place.place</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add an event type.
+              </p><p>
+                Here you can create different types of events.
+              </p>
+            </field>
+        </record>
+        <!--        Venue menus and actions-->
+<!--        <record id="event_management_district_action_view_tree" model="ir.actions.act_window">-->
+<!--            <field name="name">Event District</field>-->
+<!--            <field name="res_model">place.district</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="help" type="html">-->
+<!--              <p class="oe_view_nocontent_create">-->
+<!--                Click to add an event type.-->
+<!--              </p><p>-->
+<!--                Here you can create different types of events.-->
+<!--              </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+
+<!--        <menuitem id="event_management_district_menu" name="Districts" parent="event_management_configuration_menu"-->
+<!--                  groups="event_management.group_event_manager" action="event_management_venue_action_view_tree"/>-->
+        <menuitem
+                id="event_management_loc_menu"
+                name="Places"
+                parent="event_management_configuration_menu"
+                groups="event_management.group_event_manager"
+                action="event_management_loc_action_view_tree"/>
+
+
+
+    </data>
+</odoo>

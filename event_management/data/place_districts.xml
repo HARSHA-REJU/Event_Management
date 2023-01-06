@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="district1" model="place.district">
+            <field name="name">TRIVANDRUM</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+        <record id="district2" model="place.district">
+            <field name="name">KOLLAM</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+        <record id="district3" model="place.district">
+            <field name="name">PATHANAMTHITTA</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district4" model="place.district">
+            <field name="name">AALAPUZHA</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district5" model="place.district">
+            <field name="name">KOTTAYAM</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district6" model="place.district">
+            <field name="name">IDUKKI</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district7" model="place.district">
+            <field name="name">ERNAKULAM</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district8" model="place.district">
+            <field name="name">THRISSUR</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district9" model="place.district">
+            <field name="name">PALAKKAD</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district10" model="place.district">
+            <field name="name">MALAPPURAM</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district11" model="place.district">
+            <field name="name">KOZHIKODE</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district12" model="place.district">
+            <field name="name">WAYANAD</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district13" model="place.district">
+            <field name="name">KANNUR</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+         <record id="district14" model="place.district">
+            <field name="name">KASARAGOD</field>
+            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+        </record>
+
+    </data>
+</odoo>

@@ -37,7 +37,7 @@
     </record>
 
     <menuitem id="event_management_wizard_menu" name="Reporting"
-              parent="event_management.event_management_root_menu" sequence="5">
+              parent="event_management.event_management_root_menu" sequence="15">
         <menuitem id="event_managements_reports_menu"
                   name="Event Management Report">
             <menuitem id="event_management_wizard_menu_do_stuff"

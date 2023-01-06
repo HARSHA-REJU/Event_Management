@@ -14,6 +14,8 @@ class EventManagement(models.Model):
     ref = fields.Char(string='Ref', readonly=True)
     type_of_event_id = fields.Many2one('event.management.type', string="Type",
                                        required=True)
+    venue_id = fields.Many2one('res.partner', domain=[('venue','=',True)], string="Venue", required=True)
+    place_id = fields.Many2one('place.place', string="Place", required=True)
     partner_id = fields.Many2one('res.partner', string="Customer",
                                  required=True)
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
@@ -42,6 +44,26 @@ class EventManagement(models.Model):
                                    copy=False)
     pending_invoice = fields.Boolean(string="Invoice Pending",
                                      compute='_compute_pending_invoice')
+    district_id = fields.Many2one('place.district')
+
+    @api.onchange('district_id')
+    def onchange_district_id(self):
+        if self.district_id:
+            return {'domain':{'place_id':[('district_id','=',self.district_id.id)]}}
+
+    @api.onchange('place_id')
+    def onchange_place_id(self):
+        if self.place_id:
+            return {'domain':{'venue_id':[('place_id','=',self.place_id.id)]}}\
+
+    @api.onchange('venue_id')
+    def onchange_venue_id(self):
+        if self.venue_id:
+            self.place_id = self.venue_id.place_id
+            self.district_id = self.venue_id.district_id
+
+
+
 
     @api.depends('service_line_ids', 'service_line_ids.state')
     def _compute_pending_invoice(self):
@@ -191,10 +213,10 @@ class EventServiceLine(models.Model):
     event_id = fields.Many2one('event.management', string="Event")
     date_from = fields.Datetime(string="Date from", required=True)
     date_to = fields.Datetime(string="Date to", required=True)
-    amount = fields.Float(string="Amount", readonly=True)
+    amount = fields.Float(string="Amount")
     state = fields.Selection([('done', 'Done'), ('pending', 'Pending')],
                              string="State", default="pending",
-                             readonly=True)
+                             )
     currency_id = fields.Many2one('res.currency', readonly=True,
                                   default=lambda self:
                                   self.env.user.company_id.currency_id)
@@ -221,6 +243,136 @@ class EventServices(models.Model):
     _name = 'event.services'
 
     name = fields.Char(string="Service Name")
+
+
+class EventPlace(models.Model):
+    _name = 'place.place'
+
+    name = fields.Char(string="Name")
+    # district = fields.Selection([('admin', 'Administrators'),
+    #                                   ('TV', 'THIRUVANANTHAPURAM'),
+    #                                   ('KL', 'KOLLAM'),
+    #                                   ('PT', 'PATHANAMTHITTA'),
+    #                                   ('AL', 'AALAPUZHA'),
+    #                                   ('KT', 'KOTTAYAM'),
+    #                                   ('ID', 'IDUKKI'),
+    #                                   ('ER', 'ERNAKULAM'),
+    #                                   ('TS', 'THRISSUR'),
+    #                                   ('PL', 'PALAKKAD'),
+    #                                   ('MA', 'MALAPPURAM'),
+    #                                   ('KZ', 'KOZHIKODE'),
+    #                                   ('WA', 'WAYANAD'),
+    #                                   ('KN', 'KANNUR'),
+    #                                   ('KS', 'KASARAGOD'),
+    #                                   ], default='admin', string='District Category', required=True)
+
+    district_id = fields.Many2one('place.district')
+    image = fields.Binary("Image", attachment=True,
+                          help="This field holds the image used as "
+                               "image for the event, limited to 1080x720px.")
+    event_count = fields.Integer(string="# of Events",
+                                 compute='_compute_place_wise_event_count')
+
+    def _compute_place_wise_event_count(self):
+        for records in self:
+            events = self.env['event.management'].search([
+                ('place_id', '=', records.id)])
+            records.event_count = len(events)
+        return
+
+    def _get_action(self, action_xml_id):
+        action = self.env['ir.actions.actions']._for_xml_id(action_xml_id)
+        if self:
+            action['display_name'] = self.display_name
+        context = {
+            'search_default_place_id': [self.id],
+            'search_default_district_id': [self.district_id.id],
+            'default_place_id': self.id,
+            'default_district_id': self.district_id.id,
+        }
+        domain=[('place_id','=',self.id)]
+
+        action_context = literal_eval(action['context'])
+        context = {**action_context, **context}
+        action['context'] = context
+        action['domain'] = domain
+        return action
+
+
+    def get_event_place_action_event(self):
+        return self._get_action(
+            'event_management.res_partner_action_events_kanban')
+
+#
+class PlaceDistrict(models.Model):
+    _name = 'place.district'
+
+    name = fields.Char(string="Name")
+    state_id = fields.Many2one('res.country.state',
+                               string="State", domain="[('country_id', '=?', country_id)]")
+    image = fields.Binary("Image", attachment=True,
+                          help="This field holds the image used as "
+                               "image for the event, limited to 1080x720px.")
+    event_count = fields.Integer(string="# of Events",
+                                 compute='_compute_district_wise_event_count')
+    event_type_id = fields.Many2one('event.management.type')
+    #
+    # type_event_count = fields.Integer(string="# of Events",
+    #                              compute='_compute_event_type_count')
+
+    def _compute_district_wise_event_count(self):
+        for records in self:
+            events = self.env['event.management'].search([
+                ('district_id', '=', records.id)])
+            records.event_count = len(events)
+        return
+
+    def _get_action(self, action_xml_id):
+        action = self.env['ir.actions.actions']._for_xml_id(action_xml_id)
+        if self:
+            action['display_name'] = self.display_name
+        context = {
+            'search_default_district_id': [self.id],
+            'default_district_id': self.id,
+        }
+        domain=[('district_id','=',self.id)]
+
+        action_context = literal_eval(action['context'])
+        context = {**action_context, **context}
+        action['context'] = context
+        action['domain'] = domain
+        return action
+
+
+    def get_event_district_action_event(self):
+        return self._get_action(
+            'event_management.action_event_place_view_kanban')
+
+
+    # def _compute_event_type_count(self):
+    #     for records in self.env['event.management.type'].search([]):
+    #         events = self.env['event.management'].search([
+    #             ('type_of_event_id', '=', records.id)])
+    #         records.type_event_count = len(events)
+    #
+    # def _get_type_action(self, action_xml_id):
+    #     action = self.env['ir.actions.actions']._for_xml_id(action_xml_id)
+    #     if self:
+    #         action['display_name'] = self.display_name
+    #     context = {
+    #         'search_default_type_of_event_id': [self.id],
+    #         'default_type_of_event_id': self.id,
+    #     }
+    #
+    #     action_context = literal_eval(action['context'])
+    #     context = {**action_context, **context}
+    #     action['context'] = context
+    #     return action
+    #
+    # def get_event_type_action_event(self):
+    #     return self._get_type_action(
+    #         'event_management.event_management_action_view_kanban')
+
 
 
 class EventManagementType(models.Model):
@@ -257,3 +409,5 @@ class EventManagementType(models.Model):
     def get_event_type_action_event(self):
         return self._get_action(
             'event_management.event_management_action_view_kanban')
+
+

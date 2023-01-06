@@ -9,6 +9,7 @@
                 <tree>
                     <field name="name"/>
                     <field name="type_of_event_id"/>
+                    <field name="venue_id"/>
                     <field name="partner_id"/>
                     <field name="date"/>
                     <field name="start_date"/>
@@ -78,13 +79,16 @@
                         <group>
                             <group>
                                 <field name="type_of_event_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="district_id" required="1" options="{'no_create': True, 'no_create_edit':True}" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="place_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="partner_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="ref" readonly="1"/>
                             </group>
                             <group>
                                 <field name="date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="ref" readonly="1"/>
                                 <field name="currency_id" invisible="1"/>
                                 <field name="pending_invoice" invisible="1"/>
                             </group>
@@ -106,8 +110,8 @@
                                         <field name="service" class="oe_inline"/>
                                         <field name="date_from"/>
                                         <field name="date_to"/>
-                                        <field name="state" readonly="1"/>
-                                        <field name="invoiced" readonly="1"/>
+                                        <field name="state" invisible="1"/>
+                                        <field name="invoiced" invisible="1"/>
                                         <field name="currency_id" invisible="1"/>
                                         <field name="related_product_id" invisible="1"/>
                                         <field name="invoiced" invisible="1"/>
@@ -187,13 +191,28 @@
               </p>
             </field>
         </record>
+        <record id="event_services_action_view" model="ir.actions.act_window">
+            <field name="name">Services</field>
+            <field name="res_model">event.services</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add an event order.
+              </p><p>
+                Here you can create and manage your events.
+              </p>
+            </field>
+        </record>
 
-        <menuitem id="event_management_root_menu" name="Event Management"/>
-        <menuitem id="event_management_sub_menu1" name="Event Management" parent="event_management_root_menu"
+        <menuitem id="event_management_root_menu" name="Event Management" sequence="10"/>
+        <menuitem id="event_management_sub_menu1" name="Events" action="event_management_action_view_kanban" parent="event_management_root_menu"
                   sequence="5"/>
-        <menuitem id="event_management_sub_menu2" name="Event Management" parent="event_management_sub_menu1"
-                  action="event_management_action_view_kanban" sequence="2"/>
-        <menuitem id="event_management_service_menu" name="Service" parent="event_management_sub_menu1" sequence="4"/>
+<!--        <menuitem id="event_management_sub_menu2" name="Event Management" parent="event_management_sub_menu1"-->
+<!--                  action="event_management_action_view_kanban" sequence="2"/>-->
+        <menuitem id="event_management_service_menu"
+                  name="Service" action="event_services_action_view"
+                  parent="event_management_configuration_menu" sequence="4"/>
 
     </data>
 </odoo>

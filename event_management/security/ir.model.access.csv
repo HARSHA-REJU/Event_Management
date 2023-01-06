@@ -5,3 +5,5 @@ access_event_management_type_event_manager,event.management.type.event.manager,e
 access_event_management_wizard_event_manager,event.management.wizard.event.manager,event_management.model_event_management_wizard,event_management.group_event_manager,1,1,1,1
 access_customer_enquiry_details,customer.enquiry.details,event_management.model_customer_enquiry_details,event_management.group_event_manager,1,1,1,1
 access_event_services,event.services,event_management.model_event_services,event_management.group_event_manager,1,1,1,1
+access_place_place,place.place,event_management.model_place_place,event_management.group_event_manager,1,1,1,1
+access_place_district,place.district,event_management.model_place_district,event_management.group_event_manager,1,1,1,1

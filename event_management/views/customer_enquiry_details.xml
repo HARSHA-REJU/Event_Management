@@ -17,8 +17,8 @@
             </field>
         </record>
 
-        <!-- Kanban Views -->
-<!--        <record id="event_management_view_kanban" model="ir.ui.view">-->
+        <!-- Kanban Views need to update as per customer enquiry -->
+<!--        <record id="customer_event_enquiry_view_kanban" model="ir.ui.view">-->
 <!--            <field name="name">customer.enquiry.details.view.kanban</field>-->
 <!--            <field name="model">customer.enquiry.details</field>-->
 <!--            <field name="arch" type="xml">-->
@@ -56,6 +56,7 @@
                 <form>
                     <header>
                         <button name="action_enquiry_confirm"  string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                        <button name="action_create_event"  string="Create Event" type="object" class="oe_highlight" states="confirm"/>
                         <button name="action_enquiry_cancel" string="Cancel"  type="object" states="draft"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
                     </header>
@@ -67,20 +68,23 @@
                             <group>
                                 <field name="type_of_event_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="customer_name" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="reference" readonly="1"/>
+                                <field name="mobile" string="Contact No" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="district_id" options="{'no_create': True, 'no_create_edit':True}" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="place_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                             </group>
                             <group>
+                                <field name="address" string="Contact Address" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="auditorium_id"/>
+                                <field name="reference" readonly="1"/>
                             </group>
                         </group>
                             <group string="Services">
-                                <field name="services" widget="many2many_checkboxes"/>
-                                <field name="note" class="oe_inline" placeholder="More Suggestions if you have" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-<!--&lt;!&ndash;                                <div class="oe_clear"/>&ndash;&gt;-->
+                                <field name="services" widget="many2many_checkboxes" no="label"/>
                             </group>
+<!--                        <field name="note" class="oe_inline" placeholder="More Suggestions if you have" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
                     </sheet>
                 </form>
             </field>
@@ -162,7 +166,8 @@
 
         <menuitem
                 id="customer_enquiry_details_root_menu"
-                name="Customer Enquiry"/>
+                name="Customer Enquiry"
+                sequence="5"/>
 
             <menuitem
                     id="customer_enquiry_details_sub_menu1"
@@ -171,12 +176,6 @@
                     action="customer_enquiry_details_action_view"
                     sequence="1"/>
 
-<!--                <menuitem-->
-<!--                        id="customer_enquiry_details_form_sub_menu1"-->
-<!--                        name="Customer Enquiry"-->
-<!--                        parent="customer_enquiry_details_sub_menu1"-->
-<!--                        action="customer_enquiry_details_action_view"-->
-<!--                        sequence="1"/>-->
 
             <menuitem
                     id="customer_confirmed_enquiry_details_sub_menu2"
