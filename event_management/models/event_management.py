@@ -385,12 +385,19 @@ class EventManagementType(models.Model):
                                "image for the event, limited to 1080x720px.")
     event_count = fields.Integer(string="# of Events",
                                  compute='_compute_event_count')
+    event_count_dashboard = fields.Integer(string="# of Events",
+                                 compute='_compute_event_count_dashboard')
 
     def _compute_event_count(self):
         for records in self:
             events = self.env['event.management'].search([
-                ('type_of_event_id', '=', records.id)])
+                ('type_of_event_id', '=', records.id),('venue_id', '=', self._context.get('default_venue_id'))])
             records.event_count = len(events)
+    def _compute_event_count_dashboard(self):
+        for records in self:
+            events = self.env['event.management'].search([
+                ('type_of_event_id', '=', records.id)])
+            records.event_count_dashboard = len(events)
 
     def _get_action(self, action_xml_id):
         action = self.env['ir.actions.actions']._for_xml_id(action_xml_id)
@@ -400,6 +407,12 @@ class EventManagementType(models.Model):
             'search_default_type_of_event_id': [self.id],
             'default_type_of_event_id': self.id,
         }
+        if self._context.get('default_venue_id'):
+            venue_id = self._context.get('default_venue_id')
+            context.update({
+                'search_default_venue_id': [venue_id],
+                'default_venue_id': venue_id,
+            })
 
         action_context = literal_eval(action['context'])
         context = {**action_context, **context}

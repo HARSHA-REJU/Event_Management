@@ -142,8 +142,10 @@
                     <field name="type_of_event_id"/>
                     <field name="partner_id"/>
                     <field name="service_line_ids"/>
+                    <field name="venue_id"/>
                    <group expand="0" string="Group By">
                         <filter string="Event Type" name="group_by_event" domain="[]" context="{'group_by':'type_of_event_id'}"/>
+                        <filter string="Event Venue" name="group_by_venue" domain="[]" context="{'group_by':'venue_id'}"/>
                         <filter string="State" name="group_by_state" domain="[]" context="{'group_by':'state'}"/>
                     </group>
                </search>
