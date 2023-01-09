@@ -24,17 +24,16 @@
             <field name="name">event.management.view.kanban</field>
             <field name="model">event.management</field>
             <field name="arch" type="xml">
-                <kanban quick_create="false" >
+                <kanban quick_create="false">
                     <field name="type_of_event_id"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click col-md-2 style_event">
 
-
                                 <div class="o_kanban_image" style="width:100%; ">
                                     <t>
                                         <img t-att-src="kanban_image('event.management.type', 'image', record.type_of_event_id.raw_value)" alt="type"
-                                             style="width:100%; border-radius: 23px;"/>
+                                             style="width:100%; object-fit: cover; border-radius: 23px;"/>
                                     </t>
                                 </div>
                                 <div class="oe_kanban_content" style="padding-left:  0px !important;">
@@ -110,12 +109,12 @@
                                         <field name="service" class="oe_inline"/>
                                         <field name="date_from"/>
                                         <field name="date_to"/>
-                                        <field name="state" invisible="1"/>
-                                        <field name="invoiced" invisible="1"/>
-                                        <field name="currency_id" invisible="1"/>
-                                        <field name="related_product_id" invisible="1"/>
-                                        <field name="invoiced" invisible="1"/>
-                                        <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+<!--                                        <field name="state" invisible="1"/>-->
+<!--                                        <field name="invoiced" invisible="1"/>-->
+<!--                                        <field name="currency_id" invisible="1"/>-->
+<!--                                        <field name="related_product_id" invisible="1"/>-->
+<!--                                        <field name="invoiced" invisible="1"/>-->
+<!--                                        <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
                                     </tree>
                                 </field>
                                 <group class="oe_subtotal_footer oe_right" colspan="2" name="event_total">

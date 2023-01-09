@@ -15,7 +15,7 @@
             <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
         </record>
          <record id="district4" model="place.district">
-            <field name="name">AALAPUZHA</field>
+            <field name="name">ALAPPUZHA</field>
             <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
         </record>
          <record id="district5" model="place.district">

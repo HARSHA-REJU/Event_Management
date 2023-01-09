@@ -135,7 +135,7 @@
 
 
         <record id="customer_enquiry_details_action_view" model="ir.actions.act_window">
-            <field name="name">CustomerEnquiryDetails</field>
+            <field name="name">Customer Enquiry Details</field>
             <field name="res_model">customer.enquiry.details</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form,calendar,graph</field>
@@ -150,7 +150,7 @@
         </record>
 
         <record id="customer_confirmed_enquiry_details_action_view" model="ir.actions.act_window">
-            <field name="name">CustomerEnquiryDetails</field>
+            <field name="name">Customer Enquiry Details</field>
             <field name="res_model">customer.enquiry.details</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form,calendar,graph</field>
