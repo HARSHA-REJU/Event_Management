@@ -68,7 +68,7 @@
 
         <record id="event_partner_view_kanban" model="ir.ui.view">
             <field name="name">event.partner.view.kanban</field>
-            <field name="priority">20000</field>
+            <field name="priority">1</field>
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
                 <kanban class="oe_background_grey o_kanban_dashboard">
@@ -79,10 +79,10 @@
                         <t t-name="kanban-box">
                             <div class="col-md-1 oe_kanban_card">
                                 <div>
-<!--                                    <button type="edit" string="Settings" class="button_background" groups="event_management.group_event_manager"-->
-<!--                                            style="float: right;margin-top: 2px;background: none !important;border: none !IMPORTANT;FONT-SIZE: 16px;">-->
-<!--                                        <i class="fa fa-cog" title="setting"/>-->
-<!--                                    </button>-->
+                                    <button type="edit" string="Settings" class="button_background" groups="event_management.group_event_manager"
+                                            style="float: right;margin-top: 2px;background: none !important;border: none !IMPORTANT;FONT-SIZE: 16px;">
+                                        <i class="fa fa-cog" title="setting"/>
+                                    </button>
                                 </div>
                                 <div class="o_primary style_event_type col-md-12" style="padding-bottom: 4%;">
                                     <div class="col-md-12">
@@ -110,8 +110,7 @@
             <field name="name">Venues</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
-            <field name="view_mode">kanban</field>
-            <field name="view_id" ref="event_partner_view_kanban"/>
+            <field name="view_mode">kanban,form</field>
             <field name="domain">[('venue','=',True)]</field>
             <field name="context">{'default_venue': True,'default_is_company': True,}</field>
             <field name="help" type="html">
