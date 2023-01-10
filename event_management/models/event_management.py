@@ -395,8 +395,11 @@ class EventManagementType(models.Model):
             records.event_count = len(events)
     def _compute_event_count_dashboard(self):
         for records in self:
-            events = self.env['event.management'].search([
-                ('type_of_event_id', '=', records.id)])
+            domain = [('type_of_event_id', '=', records.id)]
+            if self._context.get('default_venue_id'):
+                venue_id = self._context.get('default_venue_id')
+                domain += [('venue_id', '=', venue_id)]
+            events = self.env['event.management'].search(domain)
             records.event_count_dashboard = len(events)
 
     def _get_action(self, action_xml_id):
