@@ -25,6 +25,7 @@
              'reports/pdf_report_template.xml',
              'wizards/event_management_wizard.xml',
              'static/src/xml/style_sheet.xml',
+             'static/src/xml/home_page.xml',
              ],
     'assets': {
         'web.assets_backend': [

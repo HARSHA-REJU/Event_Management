@@ -4,7 +4,45 @@
         <template id="assets_backend" name="dashboard assets" inherit_id="web.assets_backend">
                 <xpath expr="." position="inside">
                     <link rel="stylesheet" href="/event_management/static/src/css/event_dashboard.css"/>
+
                 </xpath>
         </template>
+<!--         <template id="assets_frontend" name="dashboard assets" inherit_id="web.assets_frontend">-->
+<!--                <xpath expr="." position="inside">-->
+<!--                    <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
+<!--                    <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>-->
+<!--                    &lt;!&ndash; Additional CSS Files &ndash;&gt;-->
+<!--                    <link rel="stylesheet" href="event_management/assets/css/fontawesome.css"/>-->
+<!--                    <link rel="stylesheet" href="event_management/assets/css/templatemo-plot-listing.css"/>-->
+<!--                    <link rel="stylesheet" href="event_management/assets/css/animated.css"/>-->
+<!--                    <link rel="stylesheet" href="/event_management/assets/css/owl.css"/>-->
+
+
+<!--                    <script type="text/javascript" src="event_management/assets/js/animation.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/assets/js/custom.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/assets/js/imagesloaded.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/assets/js/isotope.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/assets/js/owl-carousel.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/assets/js/tabs.js"></script>-->
+
+<!--                    <script type="text/javascript" src="event_management/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
+<!--                    <script type="text/javascript" src="event_management/vendor/bootstrap/js/bootstrap.min.js"></script>-->
+
+<!--                    <script type="text/javascript" src="event_management/vendor/jquery/jquery.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/vendor/jquery/jquery.min.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/vendor/jquery/jquery.slim.js"></script>-->
+<!--                    <script type="text/javascript" src="event_management/vendor/jquery/jquery.slim.min.js"></script>-->
+
+<!--                </xpath>-->
+<!--        </template>-->
+        <!--        <template id="assets_backend" name="xls_assets" inherit_id="web.assets_backend">-->
+        <!--            <xpath expr="." position="inside">-->
+        <!--                <script type="text/javascript" src="/event_management/static/src/js/action_manager.js"/>-->
+        <!--            </xpath>-->
+<!--        </template>-->
+
+
+
     </data>
 </odoo>
