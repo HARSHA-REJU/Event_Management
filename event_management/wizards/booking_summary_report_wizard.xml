@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="booking_summary_wizard_view_form" model="ir.ui.view">
+        <field name="name">booking.summary.wizard.view.form</field>
+        <field name="model">booking.summary.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Booking Summary Report">
+                <group col="3">
+                    <group>
+                        <field name="district_id"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="print_summary_pdf_report" type="object"
+                            class="oe_highlight" string="Print PDF"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="booking_summary_wizard_action_view_form"
+            model="ir.actions.act_window">
+        <field name="name">Booking Summary Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">booking.summary.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="booking_summary_wizard_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <report id="report_booking_summary_report" string="Event Booking Summary"
+			model="booking.summary.wizard" report_type="qweb-pdf"
+			name="event_management.report_booking_summary"/>
+            <menuitem id="booking_summary_menu_do_stuff"
+                      name="Booking Summary Report"
+                       parent="event_management.event_district_dashboard_menu" action="booking_summary_wizard_action_view_form"/>
+
+</odoo>

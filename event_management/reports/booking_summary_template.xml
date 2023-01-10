@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_booking_summary">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>
+                                <span>Booking Summary Report</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+
+                    <div>
+                        <span t-if="o.date_from">
+                            <b>From:</b>
+                            <span style="margin-left:3px;margin-right:17px;margin-bottom:3px" t-esc="o.date_from"/>
+                        </span>
+                        <span t-if="o.date_to">
+                            <b>To:</b>
+                            <span style="margin-left:3px;margin-right:17px;margin-bottom:3px" t-esc="o.date_to"/>
+                        </span>
+                        <span t-if="o.district_id">
+                            <b>District:</b>
+                            <span style="margin-left:3px;margin-bottom:3px" t-esc="o.district_id.name"/>
+                        </span>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>District</th>
+                                        <th>No Of Venues</th>
+<!--                                        <th>Date</th>-->
+                                        <th>Total Bookings</th>
+                                        <th>Booked Venues</th>
+                                        <th>Available Venues</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs.get_details()" t-as="l">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="l['district']"/>
+                                            </td>
+                                            <td><span t-esc="l['total_audi']"/></td>
+
+<!--                                            <td>-->
+<!--                                                <span t-esc="l['district_id']"/>-->
+<!--                                            </td>-->
+                                            <td>
+                                                <span t-esc="l['count']"/>
+                                            </td>
+                                            <td><span t-esc="l['booked']"/></td>
+                                            <td><span t-esc="l['not_booked']"/></td>
+
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+            </t>
+        </t>
+    </template>
+</odoo>
