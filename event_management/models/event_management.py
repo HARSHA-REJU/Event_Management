@@ -5,6 +5,20 @@ from ast import literal_eval
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 
+class FacilitiesEvent(models.Model):
+    _name = 'facility.event'
+
+    product_id = fields.Many2one('product.product', string="Facility")
+    facility_id2 = fields.Many2one('event.management', string="Facility")
+    price = fields.Float('Price')
+    quantity = fields.Float('Nos',default= 1)
+    total = fields.Float('Total',compute="_compute_total")
+
+    @api.depends("total", "price", "quantity")
+    def _compute_total(self):
+        for rec in self:
+            print("inside compute")
+            rec.total = rec.price * rec.quantity
 
 class EventManagement(models.Model):
     """Model for managing Event Management"""
@@ -45,6 +59,9 @@ class EventManagement(models.Model):
     pending_invoice = fields.Boolean(string="Invoice Pending",
                                      compute='_compute_pending_invoice')
     district_id = fields.Many2one('place.district')
+    facility_ids = fields.Many2many('product.product')
+    facilities_ids2 = fields.One2many('facility.event','facility_id2')
+
 
     @api.onchange('district_id')
     def onchange_district_id(self):

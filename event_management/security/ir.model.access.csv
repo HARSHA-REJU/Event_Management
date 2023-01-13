@@ -9,3 +9,5 @@ access_customer_enquiry_details,customer.enquiry.details,event_management.model_
 access_event_services,event.services,event_management.model_event_services,event_management.group_event_manager,1,1,1,1
 access_place_place,place.place,event_management.model_place_place,event_management.group_event_manager,1,1,1,1
 access_place_district,place.district,event_management.model_place_district,event_management.group_event_manager,1,1,1,1
+access_facility_facility,facility.facility,event_management.model_facility_facility,event_management.group_event_manager,1,1,1,1
+access_facility_event,facility.event,event_management.model_facility_event,event_management.group_event_manager,1,1,1,1

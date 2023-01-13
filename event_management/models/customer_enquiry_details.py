@@ -19,6 +19,7 @@ class CustomerEnquiryDetails(models.Model):
     mobile = fields.Char()
     address = fields.Text()
     venue_id = fields.Many2one('res.partner', string="Venue")
+    venue_ids = fields.Many2many('res.partner', string="Venues")
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
     start_date = fields.Datetime(string="Start date",
                                  default=lambda self: fields.datetime.now(),
@@ -26,7 +27,7 @@ class CustomerEnquiryDetails(models.Model):
     end_date = fields.Datetime(string="End date", required=True)
     no_of_attendees = fields.Integer(string='Total Persons')
     note = fields.Text('Terms and conditions')
-    state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'),('event','Event Booked'),('cancel', 'Canceled')],
+    state = fields.Selection([('draft', 'Draft'),('quote','Quotation Created'), ('confirm', 'Confirmed'),('event','Event Booked'),('cancel', 'Canceled')],
                              string="State", default="draft")
     services = fields.Many2many('event.services', string="Services")
     place_id = fields.Many2one('place.place')
@@ -64,22 +65,53 @@ class CustomerEnquiryDetails(models.Model):
     def action_enquiry_confirm(self):
         """Button action to confirm"""
         self.state = "confirm"
+    def action_create_quote(self):
+        """Button action to confirm"""
+        self.state = "quote"
+    def print_quote(self):
+        pass
+
+
+
 
     def action_enquiry_cancel(self):
         """Button action to confirm"""
         self.state = "cancel"
 
     def action_create_event(self):
+
+        venue_obj_id = self.env['res.partner'].browse(self.venue_id.id)
+        vals = []
+        for rec in venue_obj_id.facilities_ids:
+            dict={
+
+                    'product_id': rec.product_id.id,
+                    'price': rec.price,
+                    'quantity':rec.quantity,
+                    'total':rec.total,
+
+            }
+            vals.append((0, 0, dict))
+
+
         event_id = self.env['event.management'].create({
             'start_date':self.start_date,
             'end_date':self.end_date,
+            # 'partner_id':self.customer_name.id,
             'partner_id':self.env['res.partner'].create({'name':self.customer_name,}).id,
             'type_of_event_id':self.type_of_event_id.id,
             'date':fields.Date.today(),
-            'service_line_ids':[
-                (0,0,{
-                    'tax_src_id': self.src_tax.id,
-                    'tax_dest_id': self.dst1_tax.id
-                }),]
+            'district_id':self.district_id.id,
+            'place_id':self.place_id.id,
+            'venue_id':self.venue_id.id,
+            'facilities_ids2': vals,
         })
-        return
+        return {
+            'name': _('Event Booking Form'),
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_model': 'event.management',
+            'type': 'ir.actions.act_window',
+            'res_id':event_id.id,
+            'target': 'current',
+        }

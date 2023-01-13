@@ -2,11 +2,33 @@ from odoo import models, fields, api, _
 from ast import literal_eval
 
 
+class Facilities(models.Model):
+    _name = 'facility.facility'
+
+
+
+    product_id = fields.Many2one('product.product', string="Facility")
+    facility_id = fields.Many2one('res.partner', string="Facility")
+    price = fields.Float('Price')
+    quantity = fields.Float('Nos',default= 1)
+    total = fields.Float('Total',compute="_compute_total")
+
+    @api.depends("total","price","quantity")
+    def _compute_total(self):
+        for rec in self:
+            print("inside compute")
+            rec.total = rec.price * rec.quantity
+
+
+
+
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
     place_id = fields.Many2one('place.place')
     district_id = fields.Many2one('place.district')
+    facility_id = fields.Many2many('product.product',string='Facilities')
+    facilities_ids = fields.One2many('facility.facility','facility_id')
 
     venue = fields.Boolean()
 

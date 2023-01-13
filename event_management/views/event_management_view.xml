@@ -93,39 +93,49 @@
                             </group>
                         </group>
                         <notebook>
-                            <page string="Service Lines">
-                                <field name="service_line_ids" mode="tree" attrs="{'readonly': [('state', 'not in', ['draft'])]}">
-                                    <form string="Service Lines Form">
-                                        <group>
-                                            <group>
-                                                <field name="service"/>
-                                                <field name="date_from"/>
-                                                <field name="date_to"/>
-                                                <field name="amount"/>
-                                            </group>
-                                        </group>
-                                    </form>
-                                    <tree string="Service Lines Tree" editable="bottom">
-                                        <field name="service" class="oe_inline"/>
-                                        <field name="date_from"/>
-                                        <field name="date_to"/>
-<!--                                        <field name="state" invisible="1"/>-->
-<!--                                        <field name="invoiced" invisible="1"/>-->
-<!--                                        <field name="currency_id" invisible="1"/>-->
-<!--                                        <field name="related_product_id" invisible="1"/>-->
-<!--                                        <field name="invoiced" invisible="1"/>-->
-<!--                                        <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
+                            <page string="Facility and Services">
+                                <field name="facilities_ids2">
+                                    <tree editable="bottom">
+                                        <field name="product_id" string="Service Name"/>
+                                        <field name="price" string="Price"/>
+                                        <field name="quantity" string="Nos"/>
+                                        <field name="total" string="Total" sum="Total Amount"/>
                                     </tree>
                                 </field>
-                                <group class="oe_subtotal_footer oe_right" colspan="2" name="event_total">
-                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
-                                        <label for="price_subtotal"/>
-                                    </div>
-                                    <field name="price_subtotal" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                </group>
-                                <field name="note" class="oe_inline" placeholder="Setup default terms and conditions in your company settings." attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <div class="oe_clear"/>
                             </page>
+<!--                            <page string="Service Lines">-->
+<!--                                <field name="service_line_ids" mode="tree" attrs="{'readonly': [('state', 'not in', ['draft'])]}">-->
+<!--                                    <form string="Service Lines Form">-->
+<!--                                        <group>-->
+<!--                                            <group>-->
+<!--                                                <field name="service"/>-->
+<!--                                                <field name="date_from"/>-->
+<!--                                                <field name="date_to"/>-->
+<!--                                                <field name="amount"/>-->
+<!--                                            </group>-->
+<!--                                        </group>-->
+<!--                                    </form>-->
+<!--                                    <tree string="Service Lines Tree" editable="bottom">-->
+<!--                                        <field name="service" class="oe_inline"/>-->
+<!--                                        <field name="date_from"/>-->
+<!--                                        <field name="date_to"/>-->
+<!--&lt;!&ndash;                                        <field name="state" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="invoiced" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="currency_id" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="related_product_id" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="invoiced" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>&ndash;&gt;-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                                <group class="oe_subtotal_footer oe_right" colspan="2" name="event_total">-->
+<!--                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">-->
+<!--                                        <label for="price_subtotal"/>-->
+<!--                                    </div>-->
+<!--                                    <field name="price_subtotal" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
+<!--                                </group>-->
+<!--                                <field name="note" class="oe_inline" placeholder="Setup default terms and conditions in your company settings." attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
+<!--                                <div class="oe_clear"/>-->
+<!--                            </page>-->
                         </notebook>
                     </sheet>
                 </form>

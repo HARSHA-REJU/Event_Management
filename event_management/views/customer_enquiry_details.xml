@@ -55,10 +55,14 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="action_enquiry_confirm"  string="Confirm" type="object" class="oe_highlight" states="draft"/>
-                        <button name="action_create_event"  string="Create Event" type="object" class="oe_highlight" states="confirm"/>
+                        <button name="print_quote"  string="Print Quote" type="object" class="oe_highlight" states="quote"/>
+                        <button name="action_create_quote"  string="Create Quote" type="object" class="oe_highlight" states="draft"/>
+                        <button name="action_enquiry_confirm"  string="Confirm" type="object" class="oe_highlight" states="quote"/>
+                        <button name="action_create_event"  string="Create Event" type="object" class="oe_highlight" states="confirm"
+
+                        />
                         <button name="action_enquiry_cancel" string="Cancel"  type="object" states="draft"/>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,quote,confirm"/>
                     </header>
                     <sheet>
                         <h1 class="mt0">
@@ -71,7 +75,8 @@
                                 <field name="mobile" string="Contact No" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="district_id" options="{'no_create': True, 'no_create_edit':True}" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="place_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'invisible':[('state', 'not in', ['confirm'])],'required': [('state', '=', 'confirm')]}"/>
+
                             </group>
                             <group>
                                 <field name="address" string="Contact Address" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
@@ -81,9 +86,16 @@
                                 <field name="reference" readonly="1"/>
                             </group>
                         </group>
-                            <group string="Services">
-                                <field name="services" widget="many2many_checkboxes" no="label"/>
-                            </group>
+<!--                            <group string="Services">-->
+<!--                                <field name="services" widget="many2many_checkboxes" no="label"/>-->
+<!--                            </group>-->
+                        <notebook>
+                            <page string="Select Venues" attrs="{'invisible':[('state', '=', 'confirm')]}">
+
+                                <field name="venue_ids" domain="[('venue','=',True)]" widget="many2many_tags" />
+
+                            </page>
+                        </notebook>
 <!--                        <field name="note" class="oe_inline" placeholder="More Suggestions if you have" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
                     </sheet>
                 </form>
@@ -139,7 +151,7 @@
             <field name="res_model">customer.enquiry.details</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form,calendar,graph</field>
-            <field name="domain">[('state','!=','confirm')]</field>
+<!--            <field name="domain">[('state','!=','confirm')]</field>-->
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to add an event enquiry.

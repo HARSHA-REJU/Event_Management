@@ -38,6 +38,48 @@
                 <xpath expr="//field[@name='category_id']" position="after">
                     <field name="venue" invisible="1"/>
                 </xpath>
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                 <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                 <xpath expr="//field[@name='category_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//notebook//page[1]" position="before">
+                    <page string="Facilities">
+<!--                        <group col="2">-->
+                            <group>
+                                <field name="facilities_ids">
+                            <tree editable="bottom">
+                                <field name="product_id" string="Service Name"/>
+                                <field name="price" string="Price"/>
+                                <field name="quantity" string="Nos"/>
+                                <field name="total" string="total"/>
+                            </tree>
+                        </field>
+                            </group>
+                            <group>
+
+                            </group>
+
+<!--                        </group>-->
+
+                    </page>
+                </xpath>
+<!--                <xpath expr="//notebook//page['@string='Contacts &amp; Addresses']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                 <xpath expr="//notebook//page['@string='Sales &amp; Purchase']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                 <xpath expr="//notebook//page['@string='Invoicing']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                 <xpath expr="//notebook//page['@string='Internal Notes']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
 
             </field>
         </record>
