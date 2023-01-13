@@ -271,23 +271,49 @@ header
   transition: all .5s ease 0s;
 }
 
+
+.main-banner {
+    position: relative;
+}
+
+.main-banner:before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.main-banner .container {
+    z-index: 2;
+    position: relative;
+}
+
+
 .header-area .main-nav {
   min-height: 80px;
   background: transparent;
 }
 
 .header-area .main-nav a.logo {
-  background-image: url(/event_management/static/img/white-logo.png);
-  width: 166px;
-  height: 58px;
+  background-image: url(/event_management/static/img/hiworth-bg-logo.png);
+  width: 164px;
+  height: 50px;
   display: inline-block;
   margin-top: 20px;
 }
 
 .background-header .main-nav a.logo {
-  background-image: url(/event_management/static/img/black-logo.png);
+  background-image: url(/event_management/static/img/hiworth-bg-logo.png);
   width: 164px;
-  height: 58px;
+  height: 50px;
   display: inline-block;
   margin-top: 10px;
 }
@@ -725,7 +751,7 @@ Banner Style
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(/event_management/static/img/banner-bg.jpg);
+  background-image: url(/event_management/static/img/banner-2.png);
   padding: 290px 0px 180px 0px;
   position: relative;
   overflow: hidden;
@@ -788,7 +814,7 @@ Banner Style
 }
 
 .main-banner ul.categories li .icon img {
-  max-width: 27px;
+  max-width: 35px;
 }
 
 form#search-form {
@@ -859,7 +885,7 @@ Popular Categories
 */
 
 .popular-categories {
-  margin-top: 120px;
+  margin-top: 70px;
 }
 
 .popular-categories .section-heading {
@@ -986,15 +1012,15 @@ Recent Listing
 */
 
 .recent-listing {
-  margin-top: 120px;
-  padding-top: 120px;
-  margin-bottom: 120px;
+  margin-top: 0px;
+  padding-top: 70px;
+  margin-bottom: 70px;
   border-top: 1px solid #eee;
 }
 
 .recent-listing .section-heading {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 
 .recent-listing .item .listing-item {
@@ -1300,7 +1326,7 @@ form#contact textarea::placeholder {
 }
 
 form#contact button {
-  margin-bottom: -15px;
+  margin-bottom: 12px;
   display: inline-block;
   background-color: #8d99af;
   font-size: 15px;
@@ -1344,7 +1370,7 @@ Page Heading
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(../images/heading-bg.jpg);
+  background-image: url(/event_management/static/img/heading-bg.jpg);
   padding: 230px 0px 120px 0px;
   position: relative;
   overflow: hidden;
@@ -1687,6 +1713,7 @@ Listing Page
   border-bottom-left-radius: 7px;
   position: relative;
   z-index: 1;
+  width: 60%;
 }
 
 .listing-page .item .left-image .hover-content .main-white-button a i {
@@ -2061,7 +2088,7 @@ responsive
     color: transparent;
   }
   .header-area .main-nav a.logo {
-    background-image: url(/event_management/static/img/black-logo.png;
+    background-image: url(/event_management/static/img/hiworth-bg-logo.png;
     float: left;
   }
   .header-area .logo {

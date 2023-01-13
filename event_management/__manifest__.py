@@ -29,6 +29,9 @@
              'wizards/booking_summary_report_wizard.xml',
              'static/src/xml/style_sheet.xml',
              'static/src/xml/home_page.xml',
+             'static/src/xml/contact_page.xml',
+             'static/src/xml/venu_list_page.xml',
+             'static/src/xml/venue_filter_page.xml',
              ],
     'assets': {
         'web.assets_backend': [

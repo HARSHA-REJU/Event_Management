@@ -37,26 +37,25 @@ class XLSXReportController(http.Controller):
             return request.make_response(html_escape(json.dumps(error)))
 
 
-class ServiceRequest(http.Controller):
-
-    @http.route(['/home'], type='http', auth="public", website=True)
-    def service_request(self):
-        # products = request.env['product.product'].search([])
-        #
-        # values = {
-        #
-        #     'products': products
-
-        # }
-
-        return request.render(
-
-            "event_management.custom_home_page")
+# class ServiceRequest(http.Controller):
+#
+#     @http.route(['/home'], type='http', auth="public", website=True)
+#     def service_request(self):
+#         # products = request.env['product.product'].search([])
+#         #
+#         # values = {
+#         #
+#         #     'products': products
+#
+#         # }
+#
+#         return request.render(
+#
+#             "event_management.custom_home_page")
 
 class HomePage(http.Controller):
 
-    @http.route(['/test'], type='http', auth="public",website=True)
-
+    @http.route(['/'], type='http', auth="public",website=True)
     def home_page_controller(self):
 
         # venues = request.env['res.partner'].search([])
@@ -72,5 +71,65 @@ class HomePage(http.Controller):
         }
         return request.render(
 
-        "event_management.odoo_home_page",values)
+        "event_management.custom_home_page",values)
+
+class ContactUsPage(http.Controller):
+    @http.route(['/contactus'], type='http', auth="public",website=True)
+    def contact_page_controller(self):
+
+        # venues = request.env['res.partner'].search([])
+        # districts = request.env['place.district'].search([])
+        # types = request.env['event.management.type'].search([])
+        # places = request.env['place.place'].search([])
+
+        values = {
+            # 'venues':venues,
+            # 'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.contact_page",values)
+
+class VenueListingPage(http.Controller):
+    @http.route(['/venuelist'], type='http', auth="public",website=True)
+    def venue_page_controller(self):
+
+        venues = request.env['res.partner'].search([])
+        districts = request.env['place.district'].search([])
+        # types = request.env['event.management.type'].search([])
+        # places = request.env['place.place'].search([])
+
+        values = {
+            'venues':venues,
+            'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.venue_page",values)
+class SearchListPage(http.Controller):
+    @http.route(['/searchlist'], type='http', auth="public",website=True)
+    def search_page_controller(self, **args):
+        # print (self)
+        # print ('..........')
+        # print (district_id)
+        print (args.get('price'))
+        venues = request.env['res.partner'].search([('district_id','=',args.get('district_id'))])
+        # venues = request.env['res.partner'].search([])
+        districts = request.env['place.district'].search([('id','=',args.get('district_id'))])
+        # types = request.env['event.management.type'].search([])
+        # places = request.env['place.place'].search([])
+
+        values = {
+            'venues':venues,
+            'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.venue_search_page",values)
 
