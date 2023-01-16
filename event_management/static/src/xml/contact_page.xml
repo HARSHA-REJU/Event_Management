@@ -2,48 +2,7 @@
 <odoo>
     <data>
         <template id="contact_page" name="ContactPAge">
-            <html lang="en">
-<!--                <head>-->
-
-<!--                    <meta charset="UTF-8"/>-->
-<!--                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>-->
-<!--                    <meta name="description" content=""/>-->
-<!--                    <meta name="author" content=""/>-->
-<!--                    <link rel="preconnect" href="https://fonts.gstatic.com"/>-->
-<!--                    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>-->
-
-<!--                    <title>Hiworth Booking</title>-->
-
-<!--                    &lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->
-<!--                    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
-
-
-<!--                    &lt;!&ndash; Additional CSS Files &ndash;&gt;-->
-<!--                    <link rel="stylesheet" href="assets/css/fontawesome.css"/>-->
-<!--                    <link rel="stylesheet" href="assets/css/templatemo-plot-listing.css"/>-->
-<!--                    <link rel="stylesheet" href="assets/css/animated.css"/>-->
-<!--                    <link rel="stylesheet" href="assets/css/owl.css"/>-->
-<!--                &lt;!&ndash;-->
-
-<!--                TemplateMo 564 Plot Listing-->
-
-<!--                https://templatemo.com/tm-564-plot-listing-->
-
-<!--                &ndash;&gt;-->
-<!--                </head>-->
-<!--                <body>-->
-<!--                  &lt;!&ndash; ***** Preloader Start ***** &ndash;&gt;-->
-<!--                  <div id="js-preloader" class="js-preloader">-->
-<!--                    <div class="preloader-inner">-->
-<!--                      <span class="dot"></span>-->
-<!--                      <div class="dots">-->
-<!--                        <span></span>-->
-<!--                        <span></span>-->
-<!--                        <span></span>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                    &lt;!&ndash; ***** Preloader End ***** &ndash;&gt;-->
+          <html lang="en">
             <head>
 
     <meta charset="UTF-8"/>
@@ -53,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
 
-    <title>Hiworth Booking</title>
+    <title>Fortuna Events</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -83,7 +42,7 @@
     </xpath>
 <!--
 
-TemplateMo 564 Hiworth Booking
+TemplateMo 564 Hiworth
 
 https://templatemo.com/tm-564-plot-listing
 
@@ -108,7 +67,7 @@ https://templatemo.com/tm-564-plot-listing
               <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
                 <div class="container">
                   <div class="row">
-                    <div class="col-12">
+                    <div class="col-12" >
                       <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="/" class="logo">
@@ -154,17 +113,60 @@ https://templatemo.com/tm-564-plot-listing
 
 
 
+<!--<div class="dropdown show">-->
+<!--  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--    Dropdown link-->
+<!--  </a>-->
 
-
+<!--  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--    <a class="dropdown-item" href="#">Action</a>-->
+<!--    <a class="dropdown-item" href="#">Another action</a>-->
+<!--    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--  </div>-->
+<!--</div>-->
 
 
 
                                     <ul class="nav">
+<!--                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--    Dropdown link-->
+<!--  </a>-->
+<!--                                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--    <a class="dropdown-item" href="#">Action</a>-->
+<!--    <a class="dropdown-item" href="#">Another action</a>-->
+<!--    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--  </div>-->
             <!--            <ul class="rr_megamenu navbar-nav flex-fill">-->
-                          <li><a href="/">Home</a></li>
+                          <li><a class="active" href="/">Home</a></li>
+
+                          <li>
+                            <div class="col-md-12 dropdown show">
+                            <a href="#">Services</a>
+                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="/makeup">Makeup</a>
+                                  <a class="dropdown-item" href="#">Decorations</a>
+                                  <a class="dropdown-item" href="#">Pre-Wedding</a>
+                                  <a class="dropdown-item" href="#">Engagement</a>
+                                  <a class="dropdown-item" href="#">Other events</a>
+                                </div>
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="#">Marriage41</a>-->
+<!--                                  <a class="dropdown-item" href="#">Ceremony1</a>-->
+<!--                                  <a class="dropdown-item" href="#">Pre-Wedding14</a>-->
+<!--                                  <a class="dropdown-item" href="#">Engagement41</a>-->
+<!--                                  <a class="dropdown-item" href="#">Other events11</a>-->
+<!--                                </div>-->
+<!--                            <ul class="dropdown-menu">-->
+<!--                                <li><a href="#" >Link1</a></li>-->
+<!--                                <li><a href="#">Link2</a></li>-->
+<!--                            </ul>-->
+                            </div>
+                          </li>
+
                           <li><a href="/venuelist">Venues</a></li>
 <!--                          <li><a href="#">Category</a></li>-->
-                          <li><a href="#">Other Services</a></li>
+<!--                          <li><a href="#">Services</a></li>-->
+                          <li><a href="#">Gallery</a></li>
 
 
             <!--              <li class=" nav-item dropdown">-->
@@ -204,8 +206,11 @@ https://templatemo.com/tm-564-plot-listing
                           <!--              <li><a href="index.html" class="active">Home</a></li>-->
 
             <!--              <li><a href="listing.html">Special Offers</a></li>-->
-                          <li><a href="/contactus">Contact Us</a></li>
+                                      <li><a href="/eventdetails">Event Details</a></li>
+                                      <li><a href="/contactus">Contact Us</a></li>
+<!--
                           <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
+-->
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -296,7 +301,7 @@ https://templatemo.com/tm-564-plot-listing
                       <div class="col-lg-4">
                         <div class="about">
                           <div class="logo">
-                            <img src="/event_management/static/img/hiworth-bg-logo.png" alt="Hiworth Template"/>
+                            <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth Template"/>
                           </div>
                           <p>If you consider that template is useful for your website, please support us</p>
                         </div>

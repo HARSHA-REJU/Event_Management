@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
 
-    <title>Hiworth Booking</title>
+    <title>Fortuna Events</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -42,7 +42,7 @@
     </xpath>
 <!--
 
-TemplateMo 564 Hiworth Booking
+TemplateMo 564 Hiworth
 
 https://templatemo.com/tm-564-plot-listing
 
@@ -1156,7 +1156,7 @@ https://templatemo.com/tm-564-plot-listing
                   <div class="col-lg-4">
                     <div class="about">
                       <div class="logo">
-                        <img src="/event_management/static/img/hiworth-bg-logo.png" alt=""/>
+                        <img src="/event_management/static/img/fortuna-logo89*98.png" alt=""/>
                       </div>
                           <p>If you consider that template is useful for your website, please support us</p>
                     </div>

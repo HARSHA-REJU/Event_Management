@@ -32,6 +32,8 @@
              'static/src/xml/contact_page.xml',
              'static/src/xml/venu_list_page.xml',
              'static/src/xml/venue_filter_page.xml',
+             'static/src/xml/makeup.xml',
+             'static/src/xml/event_details_page.xml',
              ],
     'assets': {
         'web.assets_backend': [
