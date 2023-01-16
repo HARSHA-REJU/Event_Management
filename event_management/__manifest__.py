@@ -18,6 +18,7 @@
              'views/locations.xml',
              'views/event_management_view.xml',
              'views/dashboard.xml',
+             'views/category.xml',
 
              'views/hide_menu.xml',
              'data/event_management.xml',

@@ -56,8 +56,9 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
+                        <button name="action_event_invoice"  string="Create Invoice" type="object" class="oe_highlight" states="confirm"/>
                         <button name="action_event_confirm"  string="Confirm" type="object" class="oe_highlight" states="draft"/>
-                        <button name="action_event_invoice_create"  string="Create Invoice" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'not in', ['invoice', 'confirm']), ('pending_invoice', '=', False)]}"/>
+<!--                        <button name="action_event_invoice_create"  string="Create Invoice" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'not in', ['invoice', 'confirm']), ('pending_invoice', '=', False)]}"/>-->
                         <button name="action_event_cancel" string="Cancel"  type="object" states="draft"/>
                         <button name="action_event_close" string="Close" type="object" states="invoice"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirm,invoice,close"/>

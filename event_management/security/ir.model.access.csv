@@ -11,3 +11,7 @@ access_place_place,place.place,event_management.model_place_place,event_manageme
 access_place_district,place.district,event_management.model_place_district,event_management.group_event_manager,1,1,1,1
 access_facility_facility,facility.facility,event_management.model_facility_facility,event_management.group_event_manager,1,1,1,1
 access_facility_event,facility.event,event_management.model_facility_event,event_management.group_event_manager,1,1,1,1
+access_makeup_artist,makeup.artist,event_management.model_makeup_artist,event_management.group_event_manager,1,1,1,1
+access_makeup_package,makeup.package,event_management.model_makeup_package,event_management.group_event_manager,1,1,1,1
+access_package_service,package.service,event_management.model_package_service,event_management.group_event_manager,1,1,1,1
+access_artist_artist,artist.artist,event_management.model_artist_artist,event_management.group_event_manager,1,1,1,1
