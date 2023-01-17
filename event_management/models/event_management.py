@@ -5,6 +5,20 @@ from ast import literal_eval
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 
+class FacilitiesEvent(models.Model):
+    _name = 'facility.event'
+
+    product_id = fields.Many2one('product.product', string="Facility")
+    facility_id2 = fields.Many2one('event.management', string="Facility")
+    price = fields.Float('Price')
+    quantity = fields.Float('Nos',default= 1)
+    total = fields.Float('Total',compute="_compute_total")
+
+    @api.depends("total", "price", "quantity")
+    def _compute_total(self):
+        for rec in self:
+            print("inside compute")
+            rec.total = rec.price * rec.quantity
 
 class EventManagement(models.Model):
     """Model for managing Event Management"""
@@ -45,6 +59,9 @@ class EventManagement(models.Model):
     pending_invoice = fields.Boolean(string="Invoice Pending",
                                      compute='_compute_pending_invoice')
     district_id = fields.Many2one('place.district')
+    facility_ids = fields.Many2many('product.product')
+    facilities_ids2 = fields.One2many('facility.event','facility_id2')
+
 
     @api.onchange('district_id')
     def onchange_district_id(self):
@@ -105,6 +122,80 @@ class EventManagement(models.Model):
     def action_event_confirm(self):
         """Button action to confirm"""
         self.state = "confirm"
+
+    def action_event_invoice(self):
+        # vals = {
+        #     'name': 'Customer Invoices - Test',
+        #     'code': 'TINV',
+        #     'type': 'sale',
+        #     # 'default_account_id': a_sale.id,
+        #     'refund_sequence': True,
+        #
+        # }
+        # self.env['account.journal'].create(vals)
+        vals=[]
+        a_sale = self.env['account.account'].search([])
+        # a_sale = self.env['account.account'].create({
+        #     'code': 'X2020',
+        #     'name': 'Product Sales - (test)',
+        #     'user_type_id': self.env.ref('account.data_account_type_revenue').id,
+        # })
+        for rec in self.facilities_ids2:
+            dict={
+
+                    'product_id': rec.product_id.id,
+                    'name': rec.product_id.name,
+                    'price_unit': rec.price,
+                    'quantity':rec.quantity,
+
+            }
+            vals.append((0, 0, dict))
+        invoice_id = self.env['account.move'].create({
+                'move_type': 'out_invoice',
+                'date': self.date,
+                'partner_id': self.partner_id.id,
+                'invoice_date': self.date,
+                # 'account': a_sale.id,
+                'invoice_line_ids':vals,
+        })
+        return {
+            'name': _('Invoice'),
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_model': 'account.move',
+            'type': 'ir.actions.act_window',
+            'res_id': invoice_id.id,
+            'target': 'current',
+        }
+
+        # move = self.env['account.move'].create({
+        #     'move_type': 'in_invoice',
+        #     'date': self.date,
+        #     'partner_id': self.partner_id.id,
+        #     'invoice_date': self.date,
+        #     # 'currency_id': self.currency_data['currency'].id,
+        #     # 'invoice_payment_term_id': self.pay_terms_a.id,
+        #     'invoice_line_ids': [
+        #         (0, None, {
+        #             'name': self.product_id.name,
+        #             'product_id': self.product_id.id,
+        #             # 'product_uom_id': self.product_line_vals_1['product_uom_id'],
+        #             'quantity': self.quantity,
+        #             'price_unit': self.price,
+        #             # 'tax_ids': self.product_line_vals_1['tax_ids'],
+        #         }),
+        #         (0, None, {
+        #             'name': self.product_line_vals_2['name'],
+        #             'product_id': self.product_line_vals_2['product_id'],
+        #             'product_uom_id': self.product_line_vals_2['product_uom_id'],
+        #             'quantity': self.product_line_vals_2['quantity'],
+        #             'price_unit': self.product_line_vals_2['price_unit'],
+        #             'tax_ids': self.product_line_vals_2['tax_ids'],
+        #
+        #         }),
+        #
+        #     ]
+        # })
 
     def action_event_cancel(self):
         """Button action to cancel"""
