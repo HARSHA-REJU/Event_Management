@@ -55,9 +55,10 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="print_quote"  string="Print Quote" type="object" class="oe_highlight" states="quote"/>
                         <button name="action_create_quote"  string="Create Quote" type="object" class="oe_highlight" states="draft"/>
-                        <button name="action_enquiry_confirm"  string="Confirm" type="object" class="oe_highlight" states="quote"/>
+                        <button name="print_quote"  string="Print Quote" type="object" class="oe_highlight" states="draft"/>
+                        <button name="action_enquiry_confirm"  string="Send" type="object" class="oe_highlight" states="quote"/>
+                        <button name="action_send_mail"  string="Send By Email" type="object" class="oe_highlight" states="confirm"/>
                         <button name="action_create_event"  string="Create Event" type="object" class="oe_highlight" states="confirm"
 
                         />
@@ -72,10 +73,12 @@
                             <group>
                                 <field name="type_of_event_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="customer_name" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="mobile" string="Contact No" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="mobile" string="Mobile No" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="email" string="Email" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="district_id" options="{'no_create': True, 'no_create_edit':True}" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="place_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'invisible':[('state', 'not in', ['confirm'])],'required': [('state', '=', 'confirm')]}"/>
+<!--                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'invisible':[('state', 'not in', ['confirm'])],'required': [('state', '=', 'confirm')]}"/>-->
+                                <field name="venue_id" domain="[('venue','=',True)]"/>
 
                             </group>
                             <group>
@@ -84,6 +87,9 @@
                                 <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="reference" readonly="1"/>
+                                <field name="remarks"/>
+                                <field name="customer_id" invisible="1"/>
+                                <field name="customer_ids" invisible="1"/>
                             </group>
                         </group>
 <!--                            <group string="Services">-->
@@ -92,7 +98,7 @@
                         <notebook>
                             <page string="Select Venues" attrs="{'invisible':[('state', '=', 'confirm')]}">
 
-                                <field name="venue_ids" domain="[('venue','=',True)]" widget="many2many_tags" />
+<!--                                <field name="venue_ids" domain="[('venue','=',True)]" widget="many2many_tags" />-->
 
                             </page>
                         </notebook>
