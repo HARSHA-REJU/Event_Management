@@ -59,9 +59,9 @@ class HomePage(http.Controller):
     def home_page_controller(self):
 
         # venues = request.env['res.partner'].search([])
-        districts = request.env['place.district'].search([])
-        types = request.env['event.management.type'].search([])
-        places = request.env['place.place'].search([])
+        districts = request.env['place.district'].sudo().search([])
+        types = request.env['event.management.type'].sudo().search([])
+        places = request.env['place.place'].sudo().search([])
 
         values = {
             # 'venues':venues,
@@ -96,8 +96,8 @@ class VenueListingPage(http.Controller):
     @http.route(['/venuelist'], type='http', auth="public",website=True)
     def venue_page_controller(self):
 
-        venues = request.env['res.partner'].search([])
-        districts = request.env['place.district'].search([])
+        venues = request.env['res.partner'].sudo().search([])
+        districts = request.env['place.district'].sudo().search([])
         # types = request.env['event.management.type'].search([])
         # places = request.env['place.place'].search([])
 
@@ -117,9 +117,9 @@ class SearchListPage(http.Controller):
         # print ('..........')
         # print (district_id)
         print (args.get('price'))
-        venues = request.env['res.partner'].search([('district_id','=',args.get('district_id'))])
+        venues = request.env['res.partner'].sudo().search([('district_id','=',args.get('district_id'))])
         # venues = request.env['res.partner'].search([])
-        districts = request.env['place.district'].search([('id','=',args.get('district_id'))])
+        districts = request.env['place.district'].sudo().search([('id','=',args.get('district_id'))])
         # types = request.env['event.management.type'].search([])
         # places = request.env['place.place'].search([])
 
@@ -132,4 +132,49 @@ class SearchListPage(http.Controller):
         return request.render(
 
         "event_management.venue_search_page",values)
+
+class MakeupPage(http.Controller):
+    @http.route(['/makeup'], type='http', auth="public",website=True)
+    def search_page_controller(self, **args):
+        # print (self)
+        # print ('..........')
+        # print (district_id)
+        print (args.get('price'))
+        venues = request.env['res.partner'].sudo().search([('district_id','=',args.get('district_id'))])
+        # venues = request.env['res.partner'].search([])
+        districts = request.env['place.district'].sudo().search([('id','=',args.get('district_id'))])
+        # types = request.env['event.management.type'].search([])
+        # places = request.env['place.place'].search([])
+
+        values = {
+            'venues':venues,
+            'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.makeup_page",values)
+class EventDetailsPage(http.Controller):
+    @http.route(['/eventdetails'], type='http', auth="public",website=True)
+    def event_page_controller(self, **args):
+        # print (self)
+        # print ('..........')
+        # print (district_id)
+        print (args.get('price'))
+        venues = request.env['res.partner'].sudo().search([('district_id','=',args.get('district_id'))])
+        # venues = request.env['res.partner'].search([])
+        districts = request.env['place.district'].sudo().search([('id','=',args.get('district_id'))])
+        # types = request.env['event.management.type'].search([])
+        # places = request.env['place.place'].search([])
+
+        values = {
+            'venues':venues,
+            'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.event_details_page",values)
 

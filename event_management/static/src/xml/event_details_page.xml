@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="event_details_page" name="MakeupPAge">
+
+
+          <html lang="en">
+            <head>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
+
+    <title>Fortuna Events</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Additional CSS Files -->
+
+    <xpath expr="." position="inside">
+      <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/style.css"/>
+
+
+      <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
+      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/index.js"></script>
+<!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
+<!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
+
+<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
+<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.min.js"></script>-->
+
+    </xpath>
+
+               <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      .glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
+}
+
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item:nth-of-type(odd)
+{
+    background: #eeeeee;
+}
+
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
+}
+
+.item.list-group-item img
+{
+    float: left;
+}
+.item.list-group-item:after
+{
+    clear: both;
+}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}
+
+                   .page-heading {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(/event_management/static/img/heading-bg.jpg);
+    padding: 230px 0px 0px 0px;
+    position: relative;
+    overflow: hidden;
+}
+.category-post .naccs .menu div {
+    color: #fff;
+    margin: 0px;
+    width: 50%;
+    font-size: 10px;
+    background-color: #8d99af;
+    height: 132px;
+    line-height: 132px;
+    display: inline-block;
+    float: left;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+    </style>
+
+<!--
+
+TemplateMo 564 Hiworth
+
+https://templatemo.com/tm-564-plot-listing
+
+-->
+  </head>
+            <body>
+
+              <!-- ***** Preloader Start ***** -->
+              <div id="js-preloader" class="js-preloader">
+                <div class="preloader-inner">
+                  <span class="dot"></span>
+                  <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <!-- ***** Preloader End ***** -->
+
+              <!-- ***** Header Area Start ***** -->
+              <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12" >
+                      <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/" class="logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+
+
+
+            <!--              <li class=" nav-item dropdown">-->
+            <!--                <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false"> Information Desk </a>-->
+            <!--                  <ul class="dropdown-menu">-->
+            <!--                    <li class="rr_megamenu_column nav-item chumm_left_padding">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge#admission" id="membdrop">Admissions & Discharge</a></li>-->
+            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop" id="membdrop">Cafeteria & Gift Shop</a></li>-->
+            <!--                        <li><a href="/internal-medicine-residency" id="membdrop">Internal Medicine Residency</a></li>-->
+            <!--                        <li><a href="/careers#practice" id="membdrop">Physician Practice Opportunities</a></li>-->
+            <!--                        <li><a href="/careers#vol" id="membdrop">Volunteer Opportunities</a></li>-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                    <li class="rr_megamenu_column nav-item">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge#advance" id="membdrop">Advance Directives</a></li>-->
+            <!--                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Check Application Status</a></li>-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge#patient_right" id="membdrop">Patient Rights and Responsibilites</a></li>-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge#prep_sur" id="membdrop">Preparing for Surgery</a></li>-->
+            <!--                        <li><a href="/virtual-nursery" id="membdrop">Virtual Nursery</a></li>-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                    <li class="rr_megamenu_column nav-item">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Apply Today</a></li>-->
+            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop#emailpatient" id="membdrop">Email a Patient</a></li>-->
+            <!--                        <li><a href="/pgy1-pharmacy-residency" id="membdrop">PGY1 Pharmacy Residency</a></li>-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge" id="membdrop">Pre-Service Scheduling</a></li>-->
+            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop#visitinfo" id="membdrop">Visiting Information</a></li>-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                  </ul>-->
+            <!--              </li>-->
+
+
+
+
+<!--<div class="dropdown show">-->
+<!--  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--    Dropdown link-->
+<!--  </a>-->
+
+<!--  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--    <a class="dropdown-item" href="#">Action</a>-->
+<!--    <a class="dropdown-item" href="#">Another action</a>-->
+<!--    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+                                    <ul class="nav">
+<!--                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--    Dropdown link-->
+<!--  </a>-->
+<!--                                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--    <a class="dropdown-item" href="#">Action</a>-->
+<!--    <a class="dropdown-item" href="#">Another action</a>-->
+<!--    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--  </div>-->
+            <!--            <ul class="rr_megamenu navbar-nav flex-fill">-->
+                          <li><a class="active" href="/">Home</a></li>
+
+                          <li>
+                            <div class="col-md-12 dropdown show">
+                            <a href="/contactus">Services</a>
+                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="#">Makeup</a>
+                                  <a class="dropdown-item" href="#">Decorations</a>
+                                  <a class="dropdown-item" href="#">Pre-Wedding</a>
+                                  <a class="dropdown-item" href="#">Engagement</a>
+                                  <a class="dropdown-item" href="#">Other events</a>
+                                </div>
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="#">Marriage41</a>-->
+<!--                                  <a class="dropdown-item" href="#">Ceremony1</a>-->
+<!--                                  <a class="dropdown-item" href="#">Pre-Wedding14</a>-->
+<!--                                  <a class="dropdown-item" href="#">Engagement41</a>-->
+<!--                                  <a class="dropdown-item" href="#">Other events11</a>-->
+<!--                                </div>-->
+<!--                            <ul class="dropdown-menu">-->
+<!--                                <li><a href="#" >Link1</a></li>-->
+<!--                                <li><a href="#">Link2</a></li>-->
+<!--                            </ul>-->
+                            </div>
+                          </li>
+
+                          <li><a href="/venuelist">Venues</a></li>
+<!--                          <li><a href="#">Category</a></li>-->
+<!--                          <li><a href="#">Services</a></li>-->
+                          <li><a href="#">Gallery</a></li>
+
+
+            <!--              <li class=" nav-item dropdown">-->
+            <!--                <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false"> Other Services </a>-->
+            <!--                <ul class="dropdown-menu">-->
+            <!--                    <li class="rr_megamenu_column nav-item chumm_left_padding">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="/" id="membdrop">Makeup Artists</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Music band</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Food &amp; catering</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Decorations</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Room Stays</a></li>-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                    <li class="rr_megamenu_column nav-item">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="/" id="membdrop">Food servers</a></li>-->
+            <!--                        &lt;!&ndash;                        <li><a href="/" id="membdrop" target="_blank">Entertainers</a></li>&ndash;&gt;-->
+            <!--                        <li><a href="/" id="membdrop">Photo and Videography</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Entertainers</a></li>-->
+            <!--                        &lt;!&ndash;                        <li><a href="/">Virtual Nursery</a></li>&ndash;&gt;-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                    &lt;!&ndash;                    <li class="rr_megamenu_column nav-item">&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                      <ul class="rr_megamenu_level2">&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Apply Today</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/cafeteria-and-gift-shop#emailpatient" id="membdrop">Email a Patient</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="/pgy1-pharmacy-residency" id="membdrop">PGY1 Pharmacy Residency</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/admissions-and-discharge" id="membdrop">Pre-Service Scheduling</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/cafeteria-and-gift-shop#visitinfo" id="membdrop">Visiting Information</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                      </ul>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    </li>&ndash;&gt;-->
+            <!--                  </ul>-->
+            <!--              </li>-->
+
+
+                          <!--              <li><a href="index.html" class="active">Home</a></li>-->
+
+            <!--              <li><a href="listing.html">Special Offers</a></li>-->
+                                      <li><a href="/contactus">Event Details</a></li>
+                                      <li><a href="/contactus">Contact Us</a></li>
+<!--
+                          <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
+-->
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </header>
+              <!-- ***** Header Area End ***** -->
+
+
+  <div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="top-text header-text">
+<!--            <h6>Makeup Services</h6>-->
+<!--            <h2>We have a wide range of Makeup artists and Packages for you</h2>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="category-post">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="naccs">
+            <div class="grid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="menu">
+                    <div class="first-thumb active">
+                      <div class="thumb">
+<!--                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>-->
+                        <span><h4>Completed Events</h4></span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="thumb">
+                        <span><h4>Upcoming Events</h4></span>
+<!--                        <span class="icon"><img src="assets/images/search-icon-04.png" alt=""/><h4>Mehandi Artists</h4></span>-->
+                      </div>
+                    </div>
+<!--                    <div>-->
+<!--                      <div class="thumb">-->
+<!--                          <span><h4>Attractive Packages</h4></span>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                      <div>-->
+<!--                          <div class="thumb">-->
+<!--                              <span><h4>Makeup Services</h4></span>-->
+<!--                          </div>-->
+<!--                    </div>-->
+<!--                    <div class="last-thumb">-->
+<!--                      <div class="thumb">-->
+<!--                        <span class="icon"><img src="assets/images/search-icon-05.png" alt=""/><h4>Traveling</h4></span>-->
+<!--                      </div>-->
+<!--                    </div>-->
+                  </div>
+                </div>
+
+                  <div class="col-lg-12">
+                  <ul class="nacc">
+                    <li class="active">
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="top-content">
+                                <div class="row">
+                                    <div class="container">
+<!--    <div class="well well-sm">-->
+<!--        <strong>Display</strong>-->
+<!--        <div class="btn-group">-->
+<!--            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">-->
+<!--            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span-->
+<!--                class="glyphicon glyphicon-th"></span>Grid</a>-->
+<!--        </div>-->
+<!--    </div>-->
+                                        <div id="products" class="row">
+                                            <div class="item  col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?mobile" alt="" />
+                                                    <div class="caption">
+                                                        <h4 class="group inner list-group-item-heading">
+                                                            Product title</h4>
+                                                        <p class="group inner list-group-item-text">
+                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <p class="lead">
+                                                                    $21.000</p>
+                                                            </div>
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <a class="btn btn-success" href="#1">Add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item  col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?watch" alt="" />
+                                                    <div class="caption">
+                                                        <h4 class="group inner list-group-item-heading">
+                                                            Codehim.com</h4>
+                                                        <p class="group inner list-group-item-text">
+                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <p class="lead">
+                                                                    $21.000</p>
+                                                            </div>
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <a class="btn btn-success" href="#2">Add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item  col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?t-shirt" alt="" />
+                                                    <div class="caption">
+                                                        <h4 class="group inner list-group-item-heading">
+                                                            Product title</h4>
+                                                        <p class="group inner list-group-item-text">
+                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <p class="lead">
+                                                                    $21.000</p>
+                                                            </div>
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <a class="btn btn-success" href="#3">Add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item  col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?laptop" alt="" />
+                                                    <div class="caption">
+                                                        <h4 class="group inner list-group-item-heading">
+                                                            Product title</h4>
+                                                        <p class="group inner list-group-item-text">
+                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <p class="lead">
+                                                                    $311.000</p>
+                                                            </div>
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <a class="btn btn-success" href="#4">Add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item  col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?girl" alt="" />
+                                                    <div class="caption">
+                                                        <h4 class="group inner list-group-item-heading">
+                                                            Product title</h4>
+                                                        <p class="group inner list-group-item-text">
+                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <p class="lead">
+                                                                    $5.000</p>
+                                                            </div>
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <a class="btn btn-success" href="#5">Add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item  col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?keyboard" alt="" />
+                                                    <div class="caption">
+                                                        <h4 class="group inner list-group-item-heading">
+                                                            Product title</h4>
+                                                        <p class="group inner list-group-item-text">
+                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <p class="lead">
+                                                                    $10.000</p>
+                                                            </div>
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <a class="btn btn-success" href="#6">Add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                      <li>
+                      <div>
+                                                        <div class="thumb">
+                              <div class="row">
+                                  <div class="col-lg-12">
+                                  <div class="top-content">
+                                    <div class="row">
+                                        <div class="container">
+    <!--    <div class="well well-sm">-->
+    <!--        <strong>Display</strong>-->
+    <!--        <div class="btn-group">-->
+    <!--            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">-->
+    <!--            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span-->
+    <!--                class="glyphicon glyphicon-th"></span>Grid</a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+                                            <div id="products" class="row">
+                                                <div class="item  col-xs-4 col-lg-4">
+                                                    <div class="thumbnail">
+                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?mobile" alt="" />
+                                                        <div class="caption">
+                                                            <h4 class="group inner list-group-item-heading">
+                                                                Product titlergdfg</h4>
+                                                            <p class="group inner list-group-item-text">
+                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="lead">
+                                                                        $21.000</p>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <a class="btn btn-success" href="#1">Add to cart</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item  col-xs-4 col-lg-4">
+                                                    <div class="thumbnail">
+                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?watch" alt="" />
+                                                        <div class="caption">
+                                                            <h4 class="group inner list-group-item-heading">
+                                                                Codehim.com</h4>
+                                                            <p class="group inner list-group-item-text">
+                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="lead">
+                                                                        $21.cvbcxbvnxcnxc000</p>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <a class="btn btn-success" href="#2">Add to cart</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item  col-xs-4 col-lg-4">
+                                                    <div class="thumbnail">
+                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?t-shirt" alt="" />
+                                                        <div class="caption">
+                                                            <h4 class="group inner list-group-item-heading">
+                                                                Produccncxnxcnct title</h4>
+                                                            <p class="group inner list-group-item-text">
+                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="lead">
+                                                                        $21.000</p>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <a class="btn btn-success" href="#3">Add to cart</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item  col-xs-4 col-lg-4">
+                                                    <div class="thumbnail">
+                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?laptop" alt="" />
+                                                        <div class="caption">
+                                                            <h4 class="group inner list-group-item-heading">
+                                                                Product title</h4>
+                                                            <p class="group inner list-group-item-text">
+                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="lead">
+                                                                        $311.000</p>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <a class="btn btn-success" href="#4">Add to cart</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item  col-xs-4 col-lg-4">
+                                                    <div class="thumbnail">
+                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?girl" alt="" />
+                                                        <div class="caption">
+                                                            <h4 class="group inner list-group-item-heading">
+                                                                Product title</h4>
+                                                            <p class="group inner list-group-item-text">
+                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="lead">
+                                                                        $5.000</p>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <a class="btn btn-success" href="#5">Add to cart</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item  col-xs-4 col-lg-4">
+                                                    <div class="thumbnail">
+                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?keyboard" alt="" />
+                                                        <div class="caption">
+                                                            <h4 class="group inner list-group-item-heading">
+                                                                Product title</h4>
+                                                            <p class="group inner list-group-item-text">
+                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="lead">
+                                                                        $10.000</p>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <a class="btn btn-success" href="#6">Add to cart</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                                          </li>
+
+                  </ul>
+                                  </div>
+
+
+<!--                <div class="col-lg-12">-->
+<!--                  <ul class="nacc">-->
+<!--                    <li class="active">-->
+<!--                      <div>-->
+<!--                        <div class="thumb">-->
+<!--                          <div class="row">-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="top-content">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="top-icon">-->
+<!--                                      <span class="icon"><img src="event_management/static/img/makeup.jpg" alt=""/><h4>Makeup Ar</h4></span>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="main-white-button">-->
+<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="description">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-9">-->
+<!--                                    <h4>Description for Apartments</h4>-->
+<!--                                    <p>If you feel that Plot Listing HTML template is useful, please <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little via PayPal. You are allowed to use this template for your commercial websites. You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites. You may contact us for more information. Thank you.</p>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-3">-->
+<!--                                    <div class="text-icon">-->
+<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
+<!--                                    </div>-->
+<!--                                    <span class="list-item">This Week: 200 Listings &amp; 150 Sales<br>This Month: 1,800 Listings &amp; 1,560 Sales<br>This Year: 16,000 Listings &amp; 14,000 Sales</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="general-info">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-12">-->
+<!--                                    <h4>General Info. about Apartments</h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
+<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
+<!--                                    <br>** Listing will be checked by our team members.-->
+<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                      <div>-->
+<!--                        <div class="thumb">-->
+<!--                          <div class="row">-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="top-content">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="top-icon">-->
+<!--                                      <span class="icon"><img src="assets/images/search-icon-02.png" alt=""><h4>Food &amp; Life</h4></span>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="main-white-button">-->
+<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="description">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-9">-->
+<!--                                    <h4>Description for Food and Life</h4>-->
+<!--                                    <p>Plot Listing template is a responsive website layout that included four HTML pages. Please tell your friends about TemplateMo website. You can download and apply this template for your dynamic CMS websites.</p>-->
+<!--                                    <br>-->
+<!--                                    <p><strong>Did you know?</strong>-->
+<!--                                    <br>You can get the best free HTML templates on Too CSS blog. Visit the blog pages and explore fresh and latest website templates.</p>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-3">-->
+<!--                                    <div class="text-icon">-->
+<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
+<!--                                    </div>-->
+<!--                                    <span class="list-item">This Week: 124 Listings &amp; 84 Sales<br>This Month: 1,040 Listings &amp; 720 Sales<br>This Year: 10,640 Listings &amp; 9,600 Sales</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="general-info">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-12">-->
+<!--                                    <h4>General Info</h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
+<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
+<!--                                    <br>** Listing will be checked by our team members.-->
+<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                      <div>-->
+<!--                        <div class="thumb">-->
+<!--                          <div class="row">-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="top-content">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="top-icon">-->
+<!--                                      <span class="icon"><img src="assets/images/search-icon-03.png" alt=""><h4>Cars</h4></span>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="main-white-button">-->
+<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="description">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-9">-->
+<!--                                    <h4>Description about cars</h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-3">-->
+<!--                                    <div class="text-icon">-->
+<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
+<!--                                    </div>-->
+<!--                                    <span class="list-item">This Week: 800 Listings &amp; 400 Sales<br>This Month: 1,600 Listings &amp; 1,200 Sales<br>This Year: 14,000 Listings &amp; 12,000 Sales</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="general-info">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-12">-->
+<!--                                    <h4>General Info. about cars</h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
+<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
+<!--                                    <br>** Listing will be checked by our team members.-->
+<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                      <div>-->
+<!--                        <div class="thumb">-->
+<!--                          <div class="row">-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="top-content">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="top-icon">-->
+<!--                                      <span class="icon"><img src="assets/images/search-icon-04.png" alt=""><h4>Shopping</h4></span>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="main-white-button">-->
+<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="description">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-9">-->
+<!--                                    <h4>Description about Shopping</h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-3">-->
+<!--                                    <div class="text-icon">-->
+<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
+<!--                                    </div>-->
+<!--                                    <span class="list-item">This Week: 150 Listings &amp; 140 Sales<br>This Month: 1,500 Listings &amp; 1,100 Sales<br>This Year: 15,000 Listings &amp; 14,000 Sales</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="general-info">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-12">-->
+<!--                                    <h4>General Info. for Shopping</h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
+<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
+<!--                                    <br>** Listing will be checked by our team members.-->
+<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                      <div>-->
+<!--                        <div class="thumb">-->
+<!--                          <div class="row">-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="top-content">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="top-icon">-->
+<!--                                      <span class="icon"><img src="assets/images/search-icon-05.png" alt=""><h4>Traveling</h4></span>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-6">-->
+<!--                                    <div class="main-white-button">-->
+<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="description">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-9">-->
+<!--                                    <h4>Description of Traveling</h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>-->
+<!--                                  </div>-->
+<!--                                  <div class="col-lg-3">-->
+<!--                                    <div class="text-icon">-->
+<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
+<!--                                    </div>-->
+<!--                                    <span class="list-item">This Week: 200 Listings &amp; 120 Sales<br>This Month: 1,400 Listings &amp; 900 Sales<br>This Year: 14,000 Listings &amp; 12,000 Sales</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="general-info">-->
+<!--                                <div class="row">-->
+<!--                                  <div class="col-lg-12">-->
+<!--                                    <h4>General Info. about Traveling</h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
+<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
+<!--                                    <br>** Listing will be checked by our team members.-->
+<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+              <footer>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="about">
+                        <div class="logo">
+                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
+                        </div>
+                        <p>If you consider that template is useful for your website, pleaseb support us</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="helpful-links">
+                        <h4>Helpful Links</h4>
+                        <div class="row">
+                          <div class="col-lg-6 col-sm-6">
+                            <ul>
+                              <li><a href="#">Categories</a></li>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="#">Listing</a></li>
+                              <li><a href="#">Contact Us</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-6">
+                            <ul>
+                              <li><a href="#">About Us</a></li>
+                              <li><a href="#">Awards</a></li>
+                              <li><a href="#">Useful Sites</a></li>
+                              <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="contact-us">
+                        <h4>Contact Us</h4>
+                        <p>Technopark, Trivandrum</p>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <a href="#">010-020-0340</a>
+                          </div>
+                          <div class="col-lg-6">
+                            <a href="#">090-080-0760</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="sub-footer">
+                        <p>Copyright © 2021 Hiworth Solutions, Ltd. All Rights Reserved.
+                        <br/>
+                        Design: <a rel="nofollow" href="https://templatemo.com" title="CSS Templates">TemplateMo</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  </footer>
+
+
+</body>
+
+</html>
+
+
+
+        </template>
+    </data>
+</odoo>

@@ -1,3 +1,12 @@
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    if (scroll <= 200) {
+        $(".header-area").removeClass("background-header");
+    }
+});
+
+
+
 (function ($) {
 	
 	"use strict";
@@ -86,3 +95,10 @@ $(document).ready(function(){
 		  }
 	})
 })
+
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    if (scroll <= 200) {
+        $(".header-area").removeClass("background-header");
+    }
+});
