@@ -98,7 +98,7 @@ $(document).ready(function(){
 
 $(window).scroll(function() {
     var scroll = $(window).scrollTop();
-    if (scroll <= 200) {
+    if (scroll <= 0) {
         $(".header-area").removeClass("background-header");
     }
 });

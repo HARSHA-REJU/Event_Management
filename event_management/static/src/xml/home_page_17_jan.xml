@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+<!--      <template id="odoo_home_page" name="Homepage" t-name="website.homepage1">-->
+<!--        <t t-call="website.layout">-->
+<!--          <div id="wrap" class="oe_structure oe_empty">-->
+<!--            <section class="s_references o_colored_level s_parallax_no_overflow_hidden pt0 pb0" data-snippet="s_references" data-name="References" style="background-position: 100% 100%;" data-scroll-background-ratio="0">-->
+<!--              <div class="container">-->
+<!--                <p style="text-align: center;">&amp;nbsp;</p>-->
+<!--                      <section class="s_title pt32 o_colored_level s_parallax_no_overflow_hidden pb216 oe_img_bg" data-vcss="001" data-snippet="s_title" data-name="Title"-->
+<!--                               style="background-image: url('event_management/static/img/event_type_image1.jpg');" data-scroll-background-ratio="0">-->
+<!--      &lt;!&ndash;                         style="background-position: 100% 56.3127%; background-image: url('event_management/static/img/event_type_image1.jpg');" data-scroll-background-ratio="0">&ndash;&gt;-->
+<!--      &lt;!&ndash;                         style="background-position: 100% 56.3127%; background-image: url(&quot;data:image/jpeg;base64,event_management/static/img/event_type_image1.jpg&quot;);" data-scroll-background-ratio="0">&ndash;&gt;-->
+<!--              <div class="s_allow_columns container">-->
+<!--                <h1 style="text-align: center;">-->
+<!--                  <br/>-->
+<!--                </h1>-->
+<!--                <div class="row">-->
+<!--                  <div class="col-lg-12">-->
+<!--                    <div class="top-text header-text">-->
+<!--                      <h6>Over 36,500+ Active Listings</h6>-->
+<!--                      <h2>Find Nearby Places &amp;amp; Things</h2>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-12 o_colored_level search_bar">-->
+<!--                    <form id="search-form" name="gs" method="submit" role="search" action="#">-->
+<!--                      <div class="row">-->
+<!--                        <div style="padding:0px;" class="col-lg-3 align-self-center o_colored_level pb16">-->
+<!--                          <select name="district_id" id="district_id"-->
+<!--                                class="form-control link-style">-->
+<!--                            <option value="">District...</option>-->
+<!--                            <t t-foreach="districts" t-as="record">-->
+<!--                                <option t-att-value="record.id">-->
+<!--                                    <t t-esc="record.name" t-att-value="record.id"/>-->
+<!--                                </option>-->
+<!--                            </t>-->
+<!--                          </select>-->
+<!--                        </div>-->
+<!--                        <div style="padding:0px;" class="col-lg-3 row_space align-self-center o_colored_level pb16">-->
+<!--                          <select name="place_id" id="place_id"-->
+<!--                                class="form-control link-style">-->
+<!--                            <option value="">Place...</option>-->
+<!--                            <t t-foreach="places" t-as="record">-->
+<!--                                <option t-att-value="record.id">-->
+<!--                                    <t t-esc="record.name" t-att-value="record.id"/>-->
+<!--                                </option>-->
+<!--                            </t>-->
+<!--                        </select>-->
+<!--                        </div>-->
+<!--                        <div style="padding:0px;" class="col-lg-3 row_space align-self-center o_colored_level pb16">-->
+<!--                          <select name="type_id" id="type_id"-->
+<!--                                class="form-control link-style">-->
+<!--                            <option value="">Event Type...</option>-->
+<!--                            <t t-foreach="types" t-as="record">-->
+<!--                                <option t-att-value="record.id">-->
+<!--                                    <t t-esc="record.name" t-att-value="record.id"/>-->
+<!--                                </option>-->
+<!--                            </t>-->
+<!--                        </select>-->
+<!--                        </div>-->
+<!--      &lt;!&ndash;                  <div class="form-group col-lg-3 s_website_form_submit" data-name="Submit Button">&ndash;&gt;-->
+<!--      &lt;!&ndash;                  <div style="padding:0px;" class="col-lg-3 align-self-center o_colored_level pb16" data-name="Submit Button">&ndash;&gt;-->
+<!--      &lt;!&ndash;                    <a href="#" style="width: 90%;height: 39px;padding: unset;padding: unset;" role="button" class=" fa fa-search btn-primary s_website_form_send">&ndash;&gt;-->
+<!--      &lt;!&ndash;                                        	Search&ndash;&gt;-->
+<!--      &lt;!&ndash;                                    	</a>&ndash;&gt;-->
+<!--      &lt;!&ndash;                                	</div>&ndash;&gt;-->
+
+<!--                        &lt;!&ndash;                  <div class="form-group col-lg-3 s_website_form_submit" data-name="Submit Button">&ndash;&gt;-->
+<!--                        <div style="padding:0px;" class="col-lg-3 align-self-center o_colored_level pb16" data-name="Submit Button">-->
+<!--                                              &lt;!&ndash;<div style="width: 300px; padding: 0px;" class="s_website_form_label"/>&ndash;&gt;-->
+<!--                                              <a href="#" style="width: 90%;height: 39px;padding: unset;padding: unset;" role="button" class=" fa fa-search btn btn-primary btn-lg s_website_form_send">-->
+<!--                                                  Search-->
+<!--                                              </a>-->
+<!--                                          </div>-->
+<!--                      </div>-->
+<!--                    </form>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </section>-->
+
+
+<!--                <div class="row">-->
+<!--                  <div class="col-lg-2 o_colored_level pb16 pt16">-->
+<!--                    <div style="text-align: center;">-->
+<!--                      <br/>-->
+<!--                    </div>-->
+
+<!--                    <div style="text-align: center;">-->
+<!--                      <span style="font-size: 1rem;">&amp;nbsp;</span>-->
+<!--                      <a href="/web#action=262&amp;active_id=1&amp;model=event.management&amp;view_type=kanban&amp;cids=1&amp;menu_id=178" data-original-title="" title="" aria-describedby="tooltip833646">Wedding</a>-->
+<!--                      <img class="img-fluid o_we_custom_image" src="/web/image/313-26a0e534/event_type_image1.jpg" alt="" loading="lazy" style=""/>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-2 o_colored_level pb0 pt40">-->
+<!--                    <div style="text-align: center;">-->
+<!--                      <span style="font-size: 1rem;">Birthday Party</span>-->
+<!--                    </div>-->
+<!--                    <img src="/web/image/374-15ab5366/event_type_image7.png" class="img img-fluid mx-auto" alt="" loading="lazy" data-original-title="" title="" aria-describedby="tooltip398253" style="text-align: center;" data-original-id="373" data-original-src="/web/image/373-5ab288e4/event_type_image7.png" data-mimetype="image/png" data-resize-width="690"/>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-2 pb16 o_colored_level pt40">-->
+<!--                    <div style="text-align: center;">-->
+<!--                      <span style="font-size: 1rem;">Seminar</span>-->
+<!--                    </div>-->
+<!--                    <img src="/web/image/316-6bfd137b/event_type_image4.jpeg" class="img img-fluid mx-auto" alt="" loading="lazy" data-original-title="" title="" aria-describedby="tooltip56123" data-original-id="310" data-original-src="/web/image/310-04c064d4/event_type_image4.jpeg" data-mimetype="image/jpeg" data-resize-width="640" style=""/>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-2 pb16 o_colored_level pt40">-->
+<!--                    <div style="text-align: center;">-->
+<!--                      <span style="font-size: 1rem;">Conference</span>-->
+<!--                    </div>-->
+<!--                    <img src="/web/image/317-39b02df6/event_type_image5.jpeg" class="img img-fluid mx-auto" alt="" loading="lazy" data-original-title="" title="" aria-describedby="tooltip459130" data-original-id="311" data-original-src="/web/image/311-6a8958ed/event_type_image5.jpeg" data-mimetype="image/jpeg" data-resize-width="640" style=""/>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-2 pb16 o_colored_level pt40">-->
+<!--                    <div style="text-align: center;">-->
+<!--                      <span style="font-size: 1rem;">Get Together</span>-->
+<!--                    </div>-->
+<!--                    <img src="/web/image/319-e2e6cdcf/event_type_image3.jpeg" class="img img-fluid mx-auto" alt="" loading="lazy" data-original-title="" title="" aria-describedby="tooltip107285" data-original-id="312" data-original-src="/web/image/312-3e830803/event_type_image3.jpeg" data-mimetype="image/jpeg" data-resize-width="640" style=""/>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-2 pb16 o_colored_level pt40" style="">-->
+<!--                    <div style="text-align: center;">-->
+<!--                      <span style="font-size: 1rem;">Meeting</span>-->
+<!--                    </div>-->
+<!--                    <img src="/web/image/320-37780c6f/event_type_image6.jpeg" class="img img-fluid mx-auto" alt="" loading="lazy" data-original-title="" title="" aria-describedby="tooltip660302" data-original-id="314" data-original-src="/web/image/314-b5392339/event_type_image6.jpeg" data-mimetype="image/jpeg" data-resize-width="640" style=""/>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </section>-->
+<!--          </div>-->
+<!--        </t>-->
+<!--</template>-->
+
+		<template id="custom_home_page" name="Homepage2" t-name="website.homepage2">
+          <html lang="en">
+            <head>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
+
+    <title>Fortuna Events</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Additional CSS Files -->
+
+    <xpath expr="." position="inside">
+      <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
+
+
+      <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
+      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
+<!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
+<!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
+
+<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
+<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.min.js"></script>-->
+
+    </xpath>
+<!--
+
+TemplateMo 564 Hiworth
+
+https://templatemo.com/tm-564-plot-listing
+
+-->
+  </head>
+            <body>
+
+              <!-- ***** Preloader Start ***** -->
+              <div id="js-preloader" class="js-preloader">
+                <div class="preloader-inner">
+                  <span class="dot"></span>
+                  <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <!-- ***** Preloader End ***** -->
+
+              <!-- ***** Header Area Start ***** -->
+              <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12" >
+                      <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/" class="logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+
+
+
+            <!--              <li class=" nav-item dropdown">-->
+            <!--                <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false"> Information Desk </a>-->
+            <!--                  <ul class="dropdown-menu">-->
+            <!--                    <li class="rr_megamenu_column nav-item chumm_left_padding">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge#admission" id="membdrop">Admissions & Discharge</a></li>-->
+            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop" id="membdrop">Cafeteria & Gift Shop</a></li>-->
+            <!--                        <li><a href="/internal-medicine-residency" id="membdrop">Internal Medicine Residency</a></li>-->
+            <!--                        <li><a href="/careers#practice" id="membdrop">Physician Practice Opportunities</a></li>-->
+            <!--                        <li><a href="/careers#vol" id="membdrop">Volunteer Opportunities</a></li>-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                    <li class="rr_megamenu_column nav-item">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge#advance" id="membdrop">Advance Directives</a></li>-->
+            <!--                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Check Application Status</a></li>-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge#patient_right" id="membdrop">Patient Rights and Responsibilites</a></li>-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge#prep_sur" id="membdrop">Preparing for Surgery</a></li>-->
+            <!--                        <li><a href="/virtual-nursery" id="membdrop">Virtual Nursery</a></li>-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                    <li class="rr_megamenu_column nav-item">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Apply Today</a></li>-->
+            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop#emailpatient" id="membdrop">Email a Patient</a></li>-->
+            <!--                        <li><a href="/pgy1-pharmacy-residency" id="membdrop">PGY1 Pharmacy Residency</a></li>-->
+            <!--                        <li><a href="/information-desk/admissions-and-discharge" id="membdrop">Pre-Service Scheduling</a></li>-->
+            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop#visitinfo" id="membdrop">Visiting Information</a></li>-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                  </ul>-->
+            <!--              </li>-->
+
+
+
+
+<!--<div class="dropdown show">-->
+<!--  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--    Dropdown link-->
+<!--  </a>-->
+
+<!--  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--    <a class="dropdown-item" href="#">Action</a>-->
+<!--    <a class="dropdown-item" href="#">Another action</a>-->
+<!--    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+                                    <ul class="nav">
+<!--                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--    Dropdown link-->
+<!--  </a>-->
+<!--                                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--    <a class="dropdown-item" href="#">Action</a>-->
+<!--    <a class="dropdown-item" href="#">Another action</a>-->
+<!--    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--  </div>-->
+            <!--            <ul class="rr_megamenu navbar-nav flex-fill">-->
+                          <li><a class="active" href="/">Home</a></li>
+
+                          <li>
+                            <div class="col-md-12 dropdown show">
+                            <a href="#">Services</a>
+                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="/makeup">Makeup</a>
+                                  <a class="dropdown-item" href="#">Decorations</a>
+                                  <a class="dropdown-item" href="#">Pre-Wedding</a>
+                                  <a class="dropdown-item" href="#">Engagement</a>
+                                  <a class="dropdown-item" href="#">Other events</a>
+                                </div>
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="#">Marriage41</a>-->
+<!--                                  <a class="dropdown-item" href="#">Ceremony1</a>-->
+<!--                                  <a class="dropdown-item" href="#">Pre-Wedding14</a>-->
+<!--                                  <a class="dropdown-item" href="#">Engagement41</a>-->
+<!--                                  <a class="dropdown-item" href="#">Other events11</a>-->
+<!--                                </div>-->
+<!--                            <ul class="dropdown-menu">-->
+<!--                                <li><a href="#" >Link1</a></li>-->
+<!--                                <li><a href="#">Link2</a></li>-->
+<!--                            </ul>-->
+                            </div>
+                          </li>
+
+                          <li><a href="/venuelist">Venues</a></li>
+<!--                          <li><a href="#">Category</a></li>-->
+<!--                          <li><a href="#">Services</a></li>-->
+                                      <li><a href="/booking">Booking</a></li>
+
+                                      <li><a href="#">Gallery</a></li>
+
+
+            <!--              <li class=" nav-item dropdown">-->
+            <!--                <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false"> Other Services </a>-->
+            <!--                <ul class="dropdown-menu">-->
+            <!--                    <li class="rr_megamenu_column nav-item chumm_left_padding">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="/" id="membdrop">Makeup Artists</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Music band</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Food &amp; catering</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Decorations</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Room Stays</a></li>-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                    <li class="rr_megamenu_column nav-item">-->
+            <!--                      <ul class="rr_megamenu_level2">-->
+            <!--                        <li><a href="/" id="membdrop">Food servers</a></li>-->
+            <!--                        &lt;!&ndash;                        <li><a href="/" id="membdrop" target="_blank">Entertainers</a></li>&ndash;&gt;-->
+            <!--                        <li><a href="/" id="membdrop">Photo and Videography</a></li>-->
+            <!--                        <li><a href="/" id="membdrop">Entertainers</a></li>-->
+            <!--                        &lt;!&ndash;                        <li><a href="/">Virtual Nursery</a></li>&ndash;&gt;-->
+            <!--                      </ul>-->
+            <!--                    </li>-->
+            <!--                    &lt;!&ndash;                    <li class="rr_megamenu_column nav-item">&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                      <ul class="rr_megamenu_level2">&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Apply Today</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/cafeteria-and-gift-shop#emailpatient" id="membdrop">Email a Patient</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="/pgy1-pharmacy-residency" id="membdrop">PGY1 Pharmacy Residency</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/admissions-and-discharge" id="membdrop">Pre-Service Scheduling</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/cafeteria-and-gift-shop#visitinfo" id="membdrop">Visiting Information</a></li>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                      </ul>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    </li>&ndash;&gt;-->
+            <!--                  </ul>-->
+            <!--              </li>-->
+
+
+                          <!--              <li><a href="index.html" class="active">Home</a></li>-->
+
+                                      <!--              <li><a href="listing.html">Special Offers</a></li>-->
+                                      <li><a href="/eventdetails">Event Details</a></li>
+                                      <li><a href="/contactus">Contact Us</a></li>
+<!--
+                          <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
+-->
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </header>
+              <!-- ***** Header Area End ***** -->
+
+              <div class="main-banner">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="top-text header-text">
+                        <h6>Over 36,500+ Active Listings</h6>
+                        <h2>Find Nearby Venues</h2>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <form id="search-form" name="gs" method="submit" role="search" action="/">
+                        <div class="row">
+                          <div class="col-lg-3 align-self-center">
+                            <fieldset>
+                                <select name="type_id" id="type_id"
+                                      class="form-control form-select link-style">
+                                  <option value="">Select Event Type</option>
+                                  <t t-foreach="types" t-as="record">
+                                      <option t-att-value="record.id">
+                                          <t t-esc="record.name" t-att-value="record.id"/>
+                                      </option>
+                                  </t>
+                              </select>
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-3 align-self-center">
+                              <fieldset>
+                                <select name="type_id" id="type_id"
+                                      class="form-control form-select link-style">
+                                  <option value="">Select Event Type</option>
+                                  <t t-foreach="types" t-as="record">
+                                      <option t-att-value="record.id">
+                                          <t t-esc="record.name" t-att-value="record.id"/>
+                                      </option>
+                                  </t>
+                              </select>
+
+                              </fieldset>
+                          </div>
+                          <div class="col-lg-3 align-self-center">
+                              <fieldset>
+                                  <select name="price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                                      <option selected="">Select Price Range</option>
+                                      <option value="10000">below ₹10000</option>
+                                      <option value="10001 - 50000">₹10001 - ₹50000</option>
+                                      <option value="50001 - 100000">₹50001 - ₹100000</option>
+                                      <option value="100000+">₹100000 or more</option>
+                                  </select>
+                              </fieldset>
+                          </div>
+                          <div class="col-lg-3">
+                              <fieldset>
+                                  <button class="main-button" formaction="/searchlist"><i class="fa fa-search"></i> Search </button>
+                              </fieldset>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="col-lg-10 offset-lg-1">
+                      <ul class="categories">
+            <!--            <t t-foreach="types" t-as="record">-->
+            <!--              <li><a href="#"><span class="icon">-->
+            <!--                		                <img t-if="record.image" t-att-src="'data:image/jpg;base64,%s' % record.image" style="max-height: 80px;"/>-->
+
+            <!--&lt;!&ndash;                <img t-att-src="'data:image/png;base64,%s' % to_text(obj.company_id.extra_logo)" style="max-height:1cm; max-width:4cm;"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <img t-att-src="image('event.management.type', 'image', record.id)" alt=""&ndash;&gt;-->
+            <!--&lt;!&ndash;                                             style="width:100%; border-radius: 13px;"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <img src="event_management/static/img/search-icon-01.png" alt="Home"/>&ndash;&gt;-->
+            <!--                </span> <t t-esc="record.name"/></a></li>-->
+            <!--&lt;!&ndash;                          <option t-att-value="record.id">&ndash;&gt;-->
+            <!--&lt;!&ndash;                              <t t-esc="record.name" t-att-value="record.id"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;                          </option>&ndash;&gt;-->
+            <!--            </t>-->
+
+
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/706439.png" alt="Home"/></span> Wedding</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/reception.jpeg" alt="Food"/></span> Wedding Reception</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/ring.jpg" alt="Vehicle"/></span> Engagement</a></li>
+            <!--            <li><a href="#"><span class="icon"><img src="event_management/static/img/search-icon-04.png" alt="Shopping"/></span> Bachelor's Party</a></li>-->
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/baby.png" alt="Travel"/></span> Baby Shower</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/birthday.png" alt="Travel"/></span> Birthday Party</a></li>
+                      </ul>
+                    </div>
+                  </div>
+      </div>
+  </div>
+
+
+              <div class="popular-categories">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="section-heading">
+                        <h2>Special Services</h2>
+            <!--            <h6>Check Them Out</h6>-->
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="naccs">
+                        <div class="grid">
+                          <div class="row">
+                            <div class="col-lg-3">
+                              <div class="menu">
+                                <div class="first-thumb active">
+                                  <div class="thumb">
+                                    <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/></span>
+                                    Bridal Makeup
+                                  </div>
+                                </div>
+                                <div>
+                                  <div class="thumb">
+                                    <span class="icon"><img src="event_management/static/img/photo-icon.png" alt=""/></span>
+                                    Photo &amp; Video
+                                  </div>
+                                </div>
+                                <div>
+                                  <div class="thumb">
+                                    <span class="icon"><img src="event_management/static/img/decoration-icon.png" alt=""/></span>
+                                    Decorations
+                                  </div>
+                                </div>
+                                <div>
+                                  <div class="thumb">
+                                    <span class="icon"><img src="event_management/static/img/food-icon.png" alt=""/></span>
+                                    Food &amp; Caters
+                                  </div>
+                                </div>
+                                <div class="last-thumb">
+                                  <div class="thumb">
+                                    <span class="icon"><img src="event_management/static/img/music-icon.jpg" alt=""/></span>
+                                    Music &amp; Dance
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-9 align-self-center">
+                              <ul class="nacc">
+                                <li class="active">
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-5 align-self-center">
+                                          <div class="left-text">
+                                            <h4>One Of The Most Trending Stuffs Right Now!</h4>
+                                            <p>Plot Listing is a responsive Bootstrap 5 website template that included 4 different HTML pages. This template is provided by TemplateMo website. You can apply this layout for your static or dynamic CMS websites.</p>
+                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-7 align-self-center">
+                                          <div class="right-image">
+                                            <img src="event_management/static/img/makeup.jpg" alt=""/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-5 align-self-center">
+                                          <div class="left-text">
+                                            <h4>Food and Lifestyle category is here</h4>
+                                            <p>You can feel free to download, edit and apply this template for your website. Please tell your friends about TemplateMo website.</p>
+                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-7 align-self-center">
+                                          <div class="right-image">
+                                            <img src="event_management/static/img/photography.jpeg" alt="Foods on the table"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-5 align-self-center">
+                                          <div class="left-text">
+                                            <h4>Best car rentals for your trips!</h4>
+                                            <p>Did you know? You can get the best free HTML templates on Too CSS blog. Visit the blog pages and explore fresh and latest website templates.</p>
+                                            <div class="main-white-button"><a href="listing.html"><i class="fa fa-eye"></i> More Listing</a></div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-7 align-self-center">
+                                          <div class="right-image">
+                                            <img src="event_management/static/img/wedding-decoration.jpg" alt="cars in the city"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-5 align-self-center">
+                                          <div class="left-text">
+                                            <h4>Shopping List: Images from Unsplash</h4>
+                                            <p>Image credits go to Unsplash website that provides free stock photos for anyone. Images used in this template are from Unsplash.</p>
+                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-7 align-self-center">
+                                          <div class="right-image">
+                                            <img src="event_management/static/img/food.jpg" alt="Shopping Girl"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-5 align-self-center">
+                                          <div class="left-text">
+                                            <h4>Information and Safety Tips for Traveling</h4>
+                                            <p>You are allowed to use this template for your commercial websites. You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites.</p>
+                                            <div class="main-white-button"><a rel="nofollow" href="https://templatemo.com/contact"><i class="fa fa-eye"></i> Read More</a></div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-7 align-self-center">
+                                          <div class="right-image">
+                                            <img src="event_management/static/img/music-band.png" alt="Traveling Beach"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  </div>
+
+
+              <div class="recent-listing">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="section-heading">
+                        <h2>Popular Auditoriums</h2>
+                        <h6>Check Them Out</h6>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="owl-carousel owl-listing">
+                      <div class="owl-listing">
+                        <div class="item">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="listing-item">
+                                <div class="left-image">
+                                  <a href="#"><img src="event_management/static/img/al_saj.jpg" alt=""/></a>
+                                </div>
+                                <div class="right-content align-self-center">
+                                  <a href="#"><h4>1. Al Saj Convention Center</h4></a>
+                                  <h6>by: Sale Agent</h6>
+                                  <ul class="rate">
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li>(18) Reviews</li>
+                                  </ul>
+                                  <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $450 - $950 / month with taxes</span>
+                                  <span class="details">Details: <em>2760 sq ft</em></span>
+                                  <ul class="info">
+                                    <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 4 Bedrooms</li>
+                                    <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 4 Bathrooms</li>
+                                  </ul>
+                                  <div class="main-white-button">
+                                    <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-12">
+                              <div class="listing-item">
+                                <div class="left-image">
+                                  <a href="#"><img src="event_management/static/img/devamrutham.jpeg" alt=""/></a>
+                                </div>
+                                <div class="right-content align-self-center">
+                                  <a href="#"><h4>2. Devamrutham Auditorium</h4></a>
+                                  <h6>by: Top Sale Agent</h6>
+                                  <ul class="rate">
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li>(24) Reviews</li>
+                                  </ul>
+                                  <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $1,400 - $3,500 / month with taxes</span>
+                                  <span class="details">Details: <em>3650 sq ft</em></span>
+                                  <ul class="info">
+                                    <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 4 Bedrooms</li>
+                                    <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 3 Bathrooms</li>
+                                  </ul>
+                                  <div class="main-white-button">
+                                    <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-12">
+                              <div class="listing-item">
+                                <div class="left-image">
+                                  <a href="#"><img src="event_management/static/img/anantha.jpg" alt=""/></a>
+                                </div>
+                                <div class="right-content align-self-center">
+                                  <a href="#"><h4>3. Ananthapuri Auditorium</h4></a>
+                                  <h6>by: Best Property</h6>
+                                  <ul class="rate">
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li>(36) Reviews</li>
+                                  </ul>
+                                  <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $1,500 - $3,600 / month with taxes</span>
+                                  <span class="details">Details: <em>5500 sq ft</em></span>
+                                  <ul class="info">
+                                    <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 4 Bedrooms</li>
+                                    <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 3 Bathrooms</li>
+                                  </ul>
+                                  <div class="main-white-button">
+                                    <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="listing-item">
+                                <div class="left-image">
+                                  <a href="#"><img src="event_management/static/img/Sreevalsam-4.png" alt=""/></a>
+                                </div>
+                                <div class="right-content align-self-center">
+                                  <a href="#"><h4>4. Sreevalsam Auditorium</h4></a>
+                                  <h6>by: Sale Agent</h6>
+                                  <ul class="rate">
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li>(24) Reviews</li>
+                                  </ul>
+                                  <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $3,600 / month with taxes</span>
+                                  <span class="details">Details: <em>3660 sq ft</em></span>
+                                  <ul class="info">
+                                    <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 5 Bedrooms</li>
+                                    <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 3 Bathrooms</li>
+                                  </ul>
+                                  <div class="main-white-button">
+                                    <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-12">
+                              <div class="listing-item">
+                                <div class="left-image">
+                                  <a href="#"><img src="event_management/static/img/Trivandrum_RDR.jpg" alt=""/></a>
+                                </div>
+                                <div class="right-content align-self-center">
+                                  <a href="#"><h4>5. RDR Trivandrum</h4></a>
+                                  <h6>by: Sale Agent</h6>
+                                  <ul class="rate">
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li>(32) Reviews</li>
+                                  </ul>
+                                  <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $5,600 / month with taxes</span>
+                                  <span class="details">Details: <em>1750 sq ft</em></span>
+                                  <ul class="info">
+                                    <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 6 Bedrooms</li>
+                                    <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 3 Bathrooms</li>
+                                  </ul>
+                                  <div class="main-white-button">
+                                    <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-12">
+                              <div class="listing-item">
+                                <div class="left-image">
+                                  <a href="#"><img src="event_management/static/img/listing-06.jpg" alt=""/></a>
+                                </div>
+                                <div class="right-content align-self-center">
+                                  <a href="#"><h4>6. Amazing Pool Party Villa</h4></a>
+                                  <h6>by: Sale Agent</h6>
+                                  <ul class="rate">
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li><i class="fa fa-star-o"></i></li>
+                                    <li>(40) Reviews</li>
+                                  </ul>
+                                  <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $3,850 / month with taxes</span>
+                                  <span class="details">Details: <em>3660 sq ft</em></span>
+                                  <ul class="info">
+                                    <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 4 Bedrooms</li>
+                                    <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 3 Bathrooms</li>
+                                  </ul>
+                                  <div class="main-white-button">
+                                    <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            <!--            <div class="item">-->
+            <!--              <div class="row">-->
+            <!--                <div class="col-lg-12">-->
+            <!--                  <div class="listing-item">-->
+            <!--                    <div class="left-image">-->
+            <!--                      <a href="#"><img src="event_management/static/img/Trivandrum_RDR.jpg" alt=""/></a>-->
+            <!--                    </div>-->
+            <!--                    <div class="right-content align-self-center">-->
+            <!--                      <a href="#"><h4>7. Sunny Apartment</h4></a>-->
+            <!--                      <h6>by: Sale Agent</h6>-->
+            <!--                      <ul class="rate">-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li>(24) Reviews</li>-->
+            <!--                      </ul>-->
+            <!--                      <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $5,450 / month with taxes</span>-->
+            <!--                      <span class="details">Details: <em>1640 sq ft</em></span>-->
+            <!--                      <ul class="info">-->
+            <!--                        <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 8 Bedrooms</li>-->
+            <!--                        <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 5 Bathrooms</li>-->
+            <!--                      </ul>-->
+            <!--                      <div class="main-white-button">-->
+            <!--                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>-->
+            <!--                      </div>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-12">-->
+            <!--                  <div class="listing-item">-->
+            <!--                    <div class="left-image">-->
+            <!--                      <a href="#"><img src="event_management/static/img/listing-02.jpg" alt=""/></a>-->
+            <!--                    </div>-->
+            <!--                    <div class="right-content align-self-center">-->
+            <!--                      <a href="#"><h4>8. Third House of Gaming</h4></a>-->
+            <!--                      <h6>by: Sale Agent</h6>-->
+            <!--                      <ul class="rate">-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li>(15) Reviews</li>-->
+            <!--                      </ul>-->
+            <!--                      <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $5,520 / month with taxes</span>-->
+            <!--                      <span class="details">Details: <em>1660 sq ft</em></span>-->
+            <!--                      <ul class="info">-->
+            <!--                        <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 5 Bedrooms</li>-->
+            <!--                        <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 4 Bathrooms</li>-->
+            <!--                      </ul>-->
+            <!--                      <div class="main-white-button">-->
+            <!--                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>-->
+            <!--                      </div>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-12">-->
+            <!--                  <div class="listing-item">-->
+            <!--                    <div class="left-image">-->
+            <!--                      <a href="#"><img src="event_management/static/img/listing-06.jpg" alt=""/></a>-->
+            <!--                    </div>-->
+            <!--                    <div class="right-content align-self-center">-->
+            <!--                      <a href="#"><h4>9. Relaxing BBQ Party Villa</h4></a>-->
+            <!--                      <h6>by: Sale Agent</h6>-->
+            <!--                      <ul class="rate">-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li><i class="fa fa-star-o"></i></li>-->
+            <!--                        <li>(20) Reviews</li>-->
+            <!--                      </ul>-->
+            <!--                      <span class="price"><div class="icon"><img src="event_management/static/img/listing-icon-01.png" alt=""/></div> $4,760 / month with taxes</span>-->
+            <!--                      <span class="details">Details: <em>2880 sq ft</em></span>-->
+            <!--                      <ul class="info">-->
+            <!--                        <li><img src="event_management/static/img/listing-icon-02.png" alt=""/> 6 Bedrooms</li>-->
+            <!--                        <li><img src="event_management/static/img/listing-icon-03.png" alt=""/> 4 Bathrooms</li>-->
+            <!--                      </ul>-->
+            <!--                      <div class="main-white-button">-->
+            <!--                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>-->
+            <!--                      </div>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  </div>
+
+
+              <footer>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="about">
+                        <div class="logo">
+                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
+                        </div>
+                        <p>If you consider that template is useful for your website, pleaseb support us</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="helpful-links">
+                        <h4>Helpful Links</h4>
+                        <div class="row">
+                          <div class="col-lg-6 col-sm-6">
+                            <ul>
+                              <li><a href="/">Home</a></li>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="/contactus">Contact Us</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-6">
+                            <ul>
+                              <li><a href="#">About Us</a></li>
+                              <li><a href="#">Gallery</a></li>
+                              <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="contact-us">
+                        <h4>Contact Us</h4>
+                        <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <a href="#">Phone <br/> +91 6282842112</a>
+                          </div>
+                          <div class="col-lg-6">
+                            <a href="#">Email info@fortunaevent.com</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="sub-footer">
+                        <p>Copyright © 2021 FORTUNA EVENTS, Ltd. All Rights Reserved.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  </footer>
+
+
+              <!-- Scripts -->
+            <!--  <script src="event_management/vendor/jquery/jquery.min.js"></script>-->
+            <!--  <script src="event_management/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+            <!--  <script src="event_management/assets/js/owl-carousel.js"></script>-->
+            <!--  <script src="event_management/assets/js/animation.js"></script>-->
+            <!--  <script src="event_management/assets/js/imagesloaded.js"></script>-->
+            <!--  <script src="event_management/assets/js/custom.js"></script>-->
+
+            </body>
+
+            </html>
+            <!--                  </div>-->
+            <!--            </t>-->
+
+
+		</template>
+	</data>
+</odoo>

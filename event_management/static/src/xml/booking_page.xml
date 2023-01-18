@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="booking_page" name="BookingPage">
+            <html lang="en">
+                <head>
+              <meta charset="UTF-8"/>
+              <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+              <meta name="description" content=""/>
+              <meta name="author" content=""/>
+              <link rel="preconnect" href="https://fonts.gstatic.com"/>
+              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
+
+              <title>Fortuna Events</title>
+
+              <xpath expr="." position="inside">
+
+                <!-- Bootstrap core CSS -->
+
+                <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+                <!-- Additional CSS Files -->
+
+
+                <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
+                <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
+                <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
+                <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
+                <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
+                  <!-- Additional CSS Files form booking form-->
+<!--                <link rel="stylesheet" href="/event_management/static/src/xml/bootstrap.min.css"/>-->
+
+
+                <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
+                <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
+                <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
+                <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
+                <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
+              </xpath>
+                    <style>
+                        .section {
+                            position: relative;
+<!--	                                height: 100vh;-->
+                          background-repeat: no-repeat;
+                          background-position: center center;
+                          background-size: cover;
+                          padding: 290px 0px 180px 0px;
+                          overflow: hidden;
+
+                        }
+
+                        .section .section-center {
+                            position: relative;
+                            top: 50%;
+                            left: 0;
+                            right: 0;
+                            -webkit-transform: translateY(-50%);
+                            transform: translateY(-50%);
+                        }
+
+                        #booking {
+                            font-family: 'Cabin', sans-serif;
+<!--                            background-color: #f7f9fa;-->
+                            margin: -150px 0 0;
+
+                        }
+
+                        .booking-form {
+                            position: relative;
+                            max-width: 900px;
+                            width: 100%;
+                            margin: auto;
+                            background: #fff;
+                            -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+                            box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+                        }
+
+                        .booking-form>.booking-bg {
+                            position: absolute;
+                            left: 0px;
+                            top: 0px;
+                            bottom: 0px;
+                            width: 250px;
+                            background-image: url('/event_management/static/img/background.jpg');
+                            background-size: cover;
+                            background-position: center;
+                        }
+
+                        .booking-form>form {
+                            margin-left: 250px;
+                            padding: 30px;
+                            border: 1px solid #f9fafc;
+                            border-left: 0px;
+                        }
+
+                        .booking-form .form-header {
+                            margin-bottom: 30px;
+                        }
+
+                        .booking-form .form-header h2 {
+                            margin: 0;
+                            margin-bottom: 0px;
+                            font-weight: 700;
+                            color: #122244;
+                            font-size: 35px;
+                            text-transform: capitalize;
+                        }
+
+                        .booking-form .form-group {
+                            position: relative;
+                            margin-bottom: 20px;
+                        }
+
+                        .booking-form .form-control {
+                            background-color: #f7f9fa;
+                            height: 40px;
+                            padding: 0px 10px;
+                            border-radius: 0px;
+                            -webkit-transition: 0.2s;
+                            transition: 0.2s;
+                            color: #122244;
+                            border: 0px;
+                            font-size: 16px;
+                            font-weight: 700;
+                            -webkit-box-shadow: inset 0 1px 4px rgba(181, 193, 204, 0.3);
+                            box-shadow: inset 0 1px 4px rgba(181, 193, 204, 0.3);
+                        }
+
+                        .booking-form .form-control::-webkit-input-placeholder {
+                            color: #dde3e8;
+                        }
+
+                        .booking-form .form-control:-ms-input-placeholder {
+                            color: #dde3e8;
+                        }
+
+                        .booking-form .form-control::placeholder {
+                            color: #dde3e8;
+                        }
+
+                        .booking-form .form-control:focus {
+                            -webkit-box-shadow: inset 0 1px 4px rgba(181, 193, 204, 0.3);
+                            box-shadow: inset 0 1px 4px rgba(181, 193, 204, 0.3);
+                        }
+
+                        .booking-form input[type="date"].form-control:invalid {
+                            color: #dde3e8;
+                        }
+
+                        .booking-form select.form-control {
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+                        }
+
+                        .booking-form select.form-control+.select-arrow {
+                            position: absolute;
+                            right: 0px;
+                            bottom: 4px;
+                            width: 32px;
+                            line-height: 32px;
+                            height: 32px;
+                            text-align: center;
+                            pointer-events: none;
+                        }
+
+                        .booking-form select.form-control+.select-arrow:after {
+                            content: '\279C';
+                            display: block;
+                            -webkit-transform: rotate(90deg);
+                            transform: rotate(90deg);
+                            color: #dddee9;
+                            font-size: 14px;
+                        }
+
+                        .booking-form .form-label {
+                            color: #b5c1cc;
+                            font-weight: 700;
+                            -webkit-transition: 0.2s;
+                            transition: 0.2s;
+                            text-transform: uppercase;
+                            line-height: 24px;
+                            height: 24px;
+                            font-size: 14px;
+                            z-index: 1;
+                        }
+
+                        .booking-form .form-btn {
+                            margin-top: 10px;
+                        }
+
+                        .booking-form .submit-btn {
+                            color: #fff;
+                            background-color: #6499ff;
+                            font-weight: 700;
+                            padding: 13px 35px;
+                            font-size: 16px;
+                            border: none;
+                            width: 100%;
+                        }
+
+<!--                        @media only screen and (max-width: 480px) {-->
+<!--                            .booking-form>.booking-bg {-->
+<!--                                display: none;-->
+<!--                            }-->
+<!--                            .booking-form>form {-->
+<!--                                margin-left: 0px;-->
+<!--                            }-->
+<!--                        }-->
+
+                        .page-heading {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(/event_management/static/img/heading-bg.jpg);
+  padding: 210 0px 180px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-heading .top-text {
+  text-align: left;
+}
+
+.page-heading .top-text h6 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.page-heading .top-text h2 {
+  color: #fff;
+  line-height: 70px;
+  font-size: 45px;
+  font-weight: 800;
+  text-transform: capitalize;
+  margin-top: 15px;
+}
+
+                    </style>
+
+            </head>
+
+                <body>
+                  <!-- ***** Preloader Start ***** -->
+                  <div id="js-preloader" class="js-preloader">
+                    <div class="preloader-inner">
+                      <span class="dot"></span>
+                      <div class="dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ***** Preloader End ***** -->
+
+                  <!-- ***** Header Area Start ***** -->
+              <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12" >
+                      <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/" class="logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                          <li><a class="active" href="/">Home</a></li>
+                          <li>
+                            <div class="col-md-12 dropdown show">
+                            <a href="#">Services</a>
+                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="/makeup">Makeup</a>
+                                  <a class="dropdown-item" href="#">Decorations</a>
+                                  <a class="dropdown-item" href="#">Pre-Wedding</a>
+                                  <a class="dropdown-item" href="#">Engagement</a>
+                                  <a class="dropdown-item" href="#">Other events</a>
+                                </div>
+                            </div>
+                          </li>
+<!--                          <li><a href="#">Services</a></li>-->
+                          <li><a href="/venuelist">Venues</a></li>
+<!--                          <li><a href="/booking">Booking</a></li>-->
+                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>
+                          <li><a href="#">Gallery</a></li>
+                          <li><a href="/eventdetails">Event Details</a></li>
+                          <li><a href="/contactus">Contact Us</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </header>
+                  <!-- ***** Header Area End ***** -->
+
+                  <!-- ***** Main Content Div Start ***** -->
+
+                    <div class="page-heading">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-8">
+                              <div class="top-text header-text">
+                                <h6>Book Your Events Now</h6>
+                                <h2>Make your dream event More Beautiful..</h2>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <div id="booking" class="section">
+                        <div class="section-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="booking-form">
+                                        <div class="booking-bg"></div>
+                                        <form>
+                                            <div class="form-header">
+                                                <h2>Book your Event</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Your Name</span>
+                                                        <input class="form-control" type="name" placeholder="Enter your Name" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Mobile No</span>
+                                                        <input class="form-control" type="name" placeholder="Mobile No" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Start Date</span>
+                                                        <input class="form-control" type="date" required="1"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Time</span>
+                                                        <input class="form-control" type="time" required="1"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <span class="form-label">End Date</span>
+                                                        <input class="form-control" type="date" required="1"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Time</span>
+                                                        <input class="form-control" type="time" required="1"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">District</span>
+                                                         <select name="district_id" id="district_id" placeholder="Select District"
+                                                                  class="form-control form-select link-style" onchange="onchange_function()">
+                                                             <option value="" disabled="" selected="">Select District</option>
+                                                             <t t-foreach="districts" t-as="record">
+                                                                    <option t-att-value="record.id">
+                                                                          <t t-esc="record.name" t-att-value="record.id"/>
+                                                                    </option>
+                                                                </t>
+                                                            </select>
+                                                        <span class="select-arrow"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">place</span>
+                                                            <select name="place_id" id="place_id"
+                                                                  class="form-control form-select link-style">
+                                                             <option value="" disabled="" selected="">Select Place</option>
+                                                                <t t-foreach="places" t-as="record">
+                                                                    <option t-att-value="record.id">
+                                                                        <t t-esc="record.name" t-att-value="record.id"/>
+                                                                    </option>
+                                                                </t>
+                                                            </select>
+                                                        <span class="select-arrow"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Venue</span>
+                                                        <select name="venue_id" id="venue_id"
+                                                                class="form-control form-select link-style">
+                                                                     <option value="" disabled="" selected="">Select Venue</option>
+                                                            <t t-foreach="venues" t-as="record">
+                                                                <option t-att-value="record.id">
+                                                                    <t t-esc="record.name" t-att-value="record.id"/>
+                                                                </option>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Event Type</span>
+                                                        <select name="type_id" id="type_id"
+                                                                class="form-control form-select link-style">
+                                                            <option value="" disabled="" selected="">Select Event</option>
+                                                            <t t-foreach="types" t-as="record">
+                                                                <option t-att-value="record.id">
+                                                                    <t t-esc="record.name" t-att-value="record.id"/>
+                                                                </option>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-btn">
+                                                <button class="submit-btn">Book Now</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- ***** Main Content Div End ***** -->
+
+
+
+
+              <footer>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="about">
+                        <div class="logo">
+                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
+                          <p>If you consider that template is useful for your website, pleaseb support us</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="helpful-links">
+                        <h4>Helpful Links</h4>
+                        <div class="row">
+                          <div class="col-lg-6 col-sm-6">
+                            <ul>
+                              <li><a href="/">Home</a></li>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="/contactus">Contact Us</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-6">
+                            <ul>
+                              <li><a href="#">About Us</a></li>
+                              <li><a href="#">Gallery</a></li>
+                              <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="contact-us">
+                        <h4>Contact Us</h4>
+                        <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <a href="#">Phone <br/> +91 6282842112</a>
+                          </div>
+                          <div class="col-lg-6">
+                            <a href="#">Email info@fortunaevent.com</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="sub-footer">
+                        <p>Copyright © 2021 FORTUNA EVENTS, Ltd. All Rights Reserved.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+
+                </body>
+            </html>
+
+
+
+		</template>
+	</data>
+</odoo>

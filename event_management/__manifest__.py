@@ -35,6 +35,7 @@
              'static/src/xml/venue_filter_page.xml',
              'static/src/xml/makeup.xml',
              'static/src/xml/event_details_page.xml',
+             'static/src/xml/booking_page.xml',
              ],
     'assets': {
         'web.assets_backend': [
