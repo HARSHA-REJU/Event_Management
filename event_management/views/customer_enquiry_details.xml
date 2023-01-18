@@ -86,8 +86,8 @@
                                 <field name="date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="reference" readonly="1"/>
                                 <field name="remarks"/>
+                                <field name="reference" readonly="1"/>
                                 <field name="customer_id" invisible="1"/>
                                 <field name="customer_ids" invisible="1"/>
                             </group>
@@ -95,13 +95,13 @@
 <!--                            <group string="Services">-->
 <!--                                <field name="services" widget="many2many_checkboxes" no="label"/>-->
 <!--                            </group>-->
-                        <notebook>
-                            <page string="Select Venues" attrs="{'invisible':[('state', '=', 'confirm')]}">
+<!--                        <notebook>-->
+<!--                            <page string="Select Venues" attrs="{'invisible':[('state', '=', 'confirm')]}">-->
 
-<!--                                <field name="venue_ids" domain="[('venue','=',True)]" widget="many2many_tags" />-->
+<!--&lt;!&ndash;                                <field name="venue_ids" domain="[('venue','=',True)]" widget="many2many_tags" />&ndash;&gt;-->
 
-                            </page>
-                        </notebook>
+<!--                            </page>-->
+<!--                        </notebook>-->
 <!--                        <field name="note" class="oe_inline" placeholder="More Suggestions if you have" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
                     </sheet>
                 </form>
