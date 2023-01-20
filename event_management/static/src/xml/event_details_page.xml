@@ -227,15 +227,15 @@ https://templatemo.com/tm-564-plot-listing
                     <div class="first-thumb active">
                       <div class="thumb">
 <!--                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>-->
-                        <span><h4>Completed Events</h4></span>
+                        <span><h4>Our Events</h4></span>
                       </div>
                     </div>
-                    <div>
-                      <div class="thumb">
-                        <span><h4>Upcoming Events</h4></span>
-<!--                        <span class="icon"><img src="assets/images/search-icon-04.png" alt=""/><h4>Mehandi Artists</h4></span>-->
-                      </div>
-                    </div>
+<!--                    <div>-->
+<!--                      <div class="thumb">-->
+<!--                        <span><h4>Upcoming Events</h4></span>-->
+<!--&lt;!&ndash;                        <span class="icon"><img src="assets/images/search-icon-04.png" alt=""/><h4>Mehandi Artists</h4></span>&ndash;&gt;-->
+<!--                      </div>-->
+<!--                    </div>-->
 <!--                    <div>-->
 <!--                      <div class="thumb">-->
 <!--                          <span><h4>Attractive Packages</h4></span>-->
@@ -853,7 +853,6 @@ https://templatemo.com/tm-564-plot-listing
                       <div class="about">
                         <div class="logo">
                           <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
-                          <p>If you consider that template is useful for your website, pleaseb support us</p>
                         </div>
                       </div>
                     </div>
