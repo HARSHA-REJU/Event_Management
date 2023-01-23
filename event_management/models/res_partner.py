@@ -29,6 +29,8 @@ class ResPartner(models.Model):
     district_id = fields.Many2one('place.district')
     facility_id = fields.Many2many('product.product',string='Facilities')
     facilities_ids = fields.One2many('facility.facility','facility_id')
+    makeup_artist = fields.Boolean(string="Makeup Artist ?")
+    mehndi_artist = fields.Boolean(string="Mehndi Artist ?")
 
     venue = fields.Boolean()
 
