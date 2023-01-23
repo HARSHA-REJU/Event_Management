@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="enquiry_wizard_view_form" model="ir.ui.view">
+        <field name="name">enquiry.report.wizard.form</field>
+        <field name="model">enquiry.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Customer Enquiry Report">
+                <group col="3">
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="state"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="print_enquiries_pdf_report" type="object"
+                            class="oe_highlight" string="Print PDF"/>
+                    <button name="view_summary_pdf_report" type="object"
+                            class="oe_highlight" string="View"/>
+<!--                    <button name="cancel" string="Cancel" type="object" class="oe_highlight"/>-->
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_customer_enquiry_reports" model="ir.actions.act_window">
+            <field name="name">Customer Enquiry Reports</field>
+            <field name="res_model">enquiry.report.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="enquiry_wizard_view_form"/>
+            <field name="target">new</field>
+    </record>
+    <report id="report_customer_enquiry_report" string="Customer Enquiry Report"
+			model="enquiry.report.wizard" report_type="qweb-pdf"
+			name="event_management.report_customer_enquiry"/>
+
+
+    <template id="report_customer_enquiry">
+        <style>
+            table, th, td {
+            border: 1px solid;
+            }
+        </style>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>
+                                <span>Customer Enquiry Report</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div>
+                        <span t-if="o.date_from">
+                            <b>From:</b>
+                            <span style="margin-left:3px;margin-right:17px;margin-bottom:3px" t-esc="o.date_from"/>
+                        </span>
+                        <span t-if="o.date_to">
+                            <b>To:</b>
+                            <span style="margin-left:3px;margin-right:17px;margin-bottom:3px" t-esc="o.date_to"/>
+                        </span>
+                        <span t-if="o.state">
+                            <b>Enquiry Status:</b>
+                            <span style="margin-left:3px;margin-bottom:3px" t-esc="o.state"/>
+                        </span>
+                        <t t-set="sl_no" t-value="1" />
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Reference</th>
+                                        <th>Customer Name</th>
+                                        <th>Contact No</th>
+                                        <th>Venue</th>
+                                        <th>Event</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs.get_details()" t-as="l">
+                                        <tr>
+                                            <td >
+                                                <span t-esc="sl_no" />
+                                                <t t-set="sl_no" t-value="sl_no+1" />
+                                            </td>
+                                            <td><span t-esc="l['reference']"/></td>
+                                            <td><span t-esc="l['customer_name']"/></td>
+                                            <td><span t-esc="l['contact']"/></td>
+                                            <td><span t-esc="l['venue_id']"/></td>
+                                            <td><span t-esc="l['type']"/></td>
+                                            <td><span t-esc="l['start_date']"/></td>
+                                            <td><span t-esc="l['end_date']"/></td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td colspan="8"  align="center"><center><h3><b></b></h3></center></td>
+                                    </tr>
+<!--                                    <tr><h3></h3></tr>-->
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+            </t>
+        </t>
+    </template>
+    <menuitem id="reports_root_menu" name="Reports" sequence="7"/>
+    <menuitem id="reports_customer_enquiry" name="Customer Enquiry Report" sequence="1" action="action_customer_enquiry_reports" parent="reports_root_menu"/>
+</odoo>

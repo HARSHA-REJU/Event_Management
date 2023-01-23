@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="makeup_wizard_view_form" model="ir.ui.view">
+        <field name="name">makeup.report.wizard.form</field>
+        <field name="model">makeup.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Makeup Booking Details Report">
+                <group col="3">
+                    <group>
+                        <field name="artist"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="print_makeup_pdf_report" type="object"
+                            class="oe_highlight" string="Print PDF"/>
+<!--                    <button name="view_makeup_pdf_report" type="object"-->
+<!--                            class="oe_highlight" string="View"/>-->
+<!--                    <button name="cancel" string="Cancel" type="object" class="oe_highlight"/>-->
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_makeup_booking_reports" model="ir.actions.act_window">
+            <field name="name">Makeup Booking Reports</field>
+            <field name="res_model">makeup.report.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="makeup_wizard_view_form"/>
+            <field name="target">new</field>
+    </record>
+    <report id="report_makeup_booking_report" string="Makeup Booking Report"
+			model="makeup.report.wizard" report_type="qweb-pdf"
+			name="event_management.report_makeup_artist_booking"/>
+
+
+    <template id="report_makeup_artist_booking">
+        <style>
+            table, th, td {
+            border: 1px solid;
+            }
+        </style>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>
+                                <span>Makeup Artist Booking Report</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div>
+<!--                        <span t-if="o.date_from">-->
+<!--                            <b>From:</b>-->
+<!--                            <span style="margin-left:3px;margin-right:17px;margin-bottom:3px" t-esc="o.date_from"/>-->
+<!--                        </span>-->
+<!--                        <span t-if="o.date_to">-->
+<!--                            <b>To:</b>-->
+<!--                            <span style="margin-left:3px;margin-right:17px;margin-bottom:3px" t-esc="o.date_to"/>-->
+<!--                        </span>-->
+<!--                        <span t-if="o.artist">-->
+<!--                            <b>Enquiry Status:</b>-->
+<!--                            <span style="margin-left:3px;margin-bottom:3px" t-esc="o.artist"/>-->
+<!--                        </span>-->
+                        <t t-set="sl_no" t-value="1" />
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Artist Name</th>
+                                        <th>Customer Name</th>
+                                        <th>Event Type</th>
+                                        <th>Package</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs.get_details()" t-as="l">
+                                        <tr>
+                                            <td >
+                                                <span t-esc="sl_no" />
+                                                <t t-set="sl_no" t-value="sl_no+1" />
+                                            </td>
+                                            <td><span t-esc="l['artist']"/></td>
+                                            <td><span t-esc="l['customer_name']"/></td>
+                                            <td><span t-esc="l['type']"/></td>
+                                            <td><span t-esc="l['package']"/></td>
+                                            <td><span t-esc="l['date_from']"/></td>
+                                            <td><span t-esc="l['date_to']"/></td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td colspan="7"  align="center"><center><h3><b></b></h3></center></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+            </t>
+        </t>
+    </template>
+    <menuitem id="reports_makeup_booking" name="Makeup Artist Booking Report" sequence="2" action="action_makeup_booking_reports" parent="event_management.reports_root_menu"/>
+</odoo>

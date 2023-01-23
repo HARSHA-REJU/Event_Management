@@ -116,11 +116,14 @@
 
                         <group col="2">
                         <group>
+                            <field name="customer_name"/>
                             <field name="date"/>
-                            <field name="date_of"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
 
                         </group>
                         <group>
+                            <field name="type_of_event_id"/>
                             <field name="package"/>
                             <field name="rate"/>
 

@@ -22,20 +22,27 @@ class MakeupPackages(models.Model):
     package_by = fields.Many2one('res.partner', 'Package By')
     rate = fields.Float('Rate')
     package_services_ids = fields.Many2many('package.service', string='Services')
+    image = fields.Binary("Image", attachment=True,
+                          help="This field holds the image used as image for "
+                               "the event, limited to 1080x720px.")
 
 
 class BookMakeupArtist(models.Model):
     _name = 'makeup.artist'
     _rec_name = 'artist_name'
 
-    artist_name = fields.Many2one('res.partner', 'Name')
-    package = fields.Many2one('makeup.package', string='Package')
-    date_of = fields.Date('Book Date')
+    artist_name = fields.Many2one('artist.artist', string='Artist Name',required=True)
+    customer_name = fields.Many2one('res.partner', string='Customer Name',required=True)
+    package = fields.Many2one('makeup.package', string='Package',required=True)
+    date_from = fields.Date('Date From',required=True)
+    date_to = fields.Date('Date To',required=True)
     date = fields.Date('Date')
     rate = fields.Float('package Rate')
     # service_ids = fields.Many2one('package.services', 'Services')
     service_id = fields.Many2many('package.service', string='Services')
     # subject_ids = fields.Many2many('package.service',)
+    type_of_event_id = fields.Many2one('event.management.type', string="Event Type",
+                                       required=True)
 
     @api.onchange('package')
     def onchange_place_id(self):
@@ -47,4 +54,7 @@ class PackageServices(models.Model):
     _rec_name = 'service_name'
 
     service_name = fields.Char('Service Name')
+    image = fields.Binary("Image", attachment=True,
+                          help="This field holds the image used as image for "
+                               "the event, limited to 1080x720px.")
 

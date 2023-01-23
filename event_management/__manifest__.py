@@ -29,6 +29,8 @@
              'reports/booking_summary_template.xml',
              'wizards/event_management_wizard.xml',
              'wizards/booking_summary_report_wizard.xml',
+             'wizards/enquiry_report_wizard.xml',
+             'wizards/makeup_artist_booking.xml',
              'static/src/xml/style_sheet.xml',
              'static/src/xml/home_page.xml',
              'static/src/xml/contact_page.xml',
