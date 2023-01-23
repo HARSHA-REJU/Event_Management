@@ -213,7 +213,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(/event_management/static/img/heading-bg.jpg);
+  background-image: url(/event_management/static/img/booking_bg2.jpg);
   padding: 210 0px 180px 0px;
   position: relative;
   overflow: hidden;
@@ -238,7 +238,32 @@
   text-transform: capitalize;
   margin-top: 15px;
 }
-
+                        .page-heading:before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 0;
+}
+.page-heading .top-text h2 {
+  color: #fff;
+  font-size: 45px;
+  font-weight: 800;
+  text-transform: capitalize;
+  margin-top: 15px;
+  margin-bottom: 45px;
+}
+                        .page-heading .container {
+    z-index: 2;
+    position: relative;
+}
                     </style>
 
             </head>
@@ -269,27 +294,156 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                          <li><a class="active" href="/">Home</a></li>
+                          <li><a href="/">Home</a></li>
                           <li>
                             <div class="col-md-12 dropdown show">
-                            <a href="#">Services</a>
-                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <a class="dropdown-item" href="/makeup">Makeup</a>
-                                  <a class="dropdown-item" href="#">Decorations</a>
-                                  <a class="dropdown-item" href="#">Pre-Wedding</a>
-                                  <a class="dropdown-item" href="#">Engagement</a>
-                                  <a class="dropdown-item" href="#">Other events</a>
-                                </div>
+                            <a id="menu_service_div_id" href="">Services</a>
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>-->
+<!--                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>-->
+<!--                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>-->
+<!--                                  <a class="dropdown-item" href="#">Food &amp; Caters</a>-->
+<!--                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>-->
+<!--                                </div>-->
                             </div>
                           </li>
 <!--                          <li><a href="#">Services</a></li>-->
                           <li><a href="/venuelist">Venues</a></li>
+<!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
+                          <li><a href="/booking">Booking</a></li>
 <!--                          <li><a href="/booking">Booking</a></li>-->
-                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>
-                          <li><a href="#">Gallery</a></li>
-                          <li><a href="/eventdetails">Event Details</a></li>
+<!--                            <li>-->
+<!--                            <div class="col-md-12 dropdown show">-->
+<!--                            <a href="#">Booking</a>-->
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="/makeup">Auditorium Booking</a>-->
+<!--                                  <a class="dropdown-item" href="#">Event Management Booking</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                          </li>-->
+
+                          <li><a href="/eventdetails">Gallery</a></li>
+<!--                          <li><a href="/eventdetails">Event Details</a></li>-->
                           <li><a href="/contactus">Contact Us</a></li>
+
+                          <li><div class="main-white-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#RegistrationModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
                         </ul>
+                                                <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Register here !</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+<!--                        <h2 class="form-title">Register here</h2>-->
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group" >
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+<!--                            <div class="form-group form-button">-->
+<!--                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>-->
+<!--                            </div>-->
+                        </form>
+                    </div>
+<!--                    <div class="signup-image">-->
+<!--                        <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>-->
+<!--                        <a href="#" class="signup-image-link">I am already member</a>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </section>
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Register</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                                                <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Login here !</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+<!--                        <h2 class="form-title">Register here</h2>-->
+                        <form method="POST" action="user/login" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group" >
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+<!--                    <div class="signup-image">-->
+<!--                        <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>-->
+<!--                        <a href="#" class="signup-image-link">I am already member</a>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </section>
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Register</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -664,6 +818,13 @@
     $('#RegistrationModal').modal('toggle')
     $('#LoginModal').modal('toggle')
                       customFunction();
+})
+                      $('.dropdown > a#menu_service_div_id').on('click', function(e){
+    e.preventDefault();
+                       window.location.href = "/#service_div";
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
 })
 
 

@@ -708,17 +708,17 @@ label.valid {
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                          <li><a class="active" href="/">Home</a></li>
+                          <li><a href="/">Home</a></li>
                           <li>
                             <div class="col-md-12 dropdown show">
                             <a id="menu_service_div_id" href="">Services</a>
-                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>
-                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>
-                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>
-                                  <a class="dropdown-item" href="#">Food &amp; Caters</a>
-                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>
-                                </div>
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>-->
+<!--                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>-->
+<!--                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>-->
+<!--                                  <a class="dropdown-item" href="#">Food &amp; Caters</a>-->
+<!--                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>-->
+<!--                                </div>-->
                             </div>
                           </li>
 <!--                          <li><a href="#">Services</a></li>-->
@@ -1065,9 +1065,11 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>Best car rentals for your trips!</h4>
-                                            <p>Did you know? You can get the best free HTML templates on Too CSS blog. Visit the blog pages and explore fresh and latest website templates.</p>
-                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> More Listing</a></div>
+                                            <h4>Let Us Make Your Event a Success!</h4>
+                                            <p>
+                                              Wedding is the most important day of your life. On the wedding day, the wedding stage plays a huge role in creating the long lasting impression about your wedding. This is the place where the groom and the bride sit, it is also used as the center of attraction.we have lots of  Wedding decorators who can  create beautiful and exclusive wedding stage designs.
+                                            </p>
+                                              <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> More Listing</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1108,8 +1110,12 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>Information and Safety Tips for Traveling</h4>
-                                            <p>You are allowed to use this template for your commercial websites. You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites.</p>
+                                            <h4>
+                                                We have  a well-knit network with the who’s-who of the entertainment industry.
+                                            </h4>
+                                            <p>
+                                              An Indian wedding is a celebration that lasts over many days! An Indian wedding is a mix of cultures,traditions,family bonds and emotions. To celebrate the spirit of Indian weddings, mix in some authentic wedding entertainment and watch your audience spring in their seats with excitement!
+                                            </p>
                                             <div class="main-white-button"><a rel="nofollow" href="#"><i class="fa fa-eye"></i> Read More</a></div>
                                           </div>
                                         </div>

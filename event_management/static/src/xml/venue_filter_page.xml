@@ -115,17 +115,17 @@ https://templatemo.com/tm-564-plot-listing
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                          <li><a class="active" href="/">Home</a></li>
+                          <li><a href="/">Home</a></li>
                           <li>
                             <div class="col-md-12 dropdown show">
-                            <a id="menu_service_div_id" href="">Services</a>
-                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>
-                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>
-                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>
-                                  <a class="dropdown-item" href="#">Food &amp; Caters</a>
-                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>
-                                </div>
+                            <a id="menu_service_div_id" href="/makeup">Services</a>
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>-->
+<!--                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>-->
+<!--                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>-->
+<!--                                  <a class="dropdown-item" href="#">Food &amp; Caters</a>-->
+<!--                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>-->
+<!--                                </div>-->
                             </div>
                           </li>
 <!--                          <li><a href="#">Services</a></li>-->
@@ -1390,6 +1390,15 @@ https://templatemo.com/tm-564-plot-listing
                     </div>
                   </div>
                 </div>
+                  <script>
+                                            $('.dropdown > a#menu_service_div_id').on('click', function(e){
+    e.preventDefault();
+                       window.location.href = "/#service_div";
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
+})
+                  </script>
               </footer>
 
   <!-- Scripts -->

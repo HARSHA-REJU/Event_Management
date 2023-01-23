@@ -265,7 +265,7 @@ https://templatemo.com/tm-564-plot-listing
 <!--    <a class="dropdown-item" href="#">Something else here</a>-->
 <!--  </div>-->
             <!--            <ul class="rr_megamenu navbar-nav flex-fill">-->
-                          <li><a class="active" href="/">Home</a></li>
+                          <li><a href="/">Home</a></li>
 
                           <li>
                             <div class="col-md-12 dropdown show">
@@ -937,6 +937,15 @@ https://templatemo.com/tm-564-plot-listing
                     </div>
                   </div>
                 </div>
+                <script>
+                                        $('.dropdown > a#menu_service_div_id').on('click', function(e){
+    e.preventDefault();
+                       window.location.href = "/#service_div";
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
+})
+                </script>
   </footer>
 
 
