@@ -197,16 +197,29 @@ body {
 }
 
 .main-white-button a {
-  display: inline-block;
-  background-color: #fff;
-  font-size: 15px;
-  font-weight: 400;
-  color: #2a2a2a;
-  text-transform: capitalize;
-  padding: 12px 25px;
-  border-radius: 7px;
-  letter-spacing: 0.25px;
-  transition: all .3s;
+  display: inline-block !important;
+  background-color: #fff !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: #2a2a2a !important;
+  text-transform: capitalize !important;
+  padding: 13px 25px !important;
+  border-radius: 7px !important;
+  letter-spacing: 0.25px !important;
+  transition: all .3s !important;
+}
+
+.nav.main-white-button a {
+  display: inline-block !important;
+  background-color: #fff !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: #2a2a2a !important;
+  text-transform: capitalize !important;
+  padding: 0px 25px !important;
+  border-radius: 7px !important;
+  letter-spacing: 0.25px !important;
+  transition: all .3s !important;
 }
 
 .main-white-button a i {
@@ -344,7 +357,7 @@ header
   padding-right: 0px;
   padding-left: 40px;
 }
-/*
+
 .header-area .main-nav .nav li:last-child a ,
 .background-header .main-nav .nav li:last-child a {
   color: #2a2a2a !important;
@@ -358,7 +371,7 @@ header
   font-size: 12px!important;
   font-weight: 400 !important;
 }
-*/
+
 .background-header .main-nav .nav li:last-child .main-white-button a {
   background-color: #8d99af;
   color: #fff !important;
@@ -400,12 +413,12 @@ header
   color: #8d99af!important;
   opacity: 1;
 }
-/*
+
 .header-area .main-nav .nav li:last-child a:hover ,
 .background-header .main-nav .nav li:last-child a:hover {
   background-color: #8d99af;
 }
-*/
+
 
 .header-area .main-nav .nav li.has-sub {
   position: relative;
@@ -622,6 +635,15 @@ header
   .header-area .main-nav .nav li:last-child  ,
   .background-header .main-nav .nav li:last-child {
     display: none;
+  }
+  .header-area .main-nav .nav li:nth-child(6),
+  .background-header .main-nav .nav li:nth-child(6) {
+    padding-right: 0px;
+  }
+}
+
+
+@media (max-width: 992px) {
   }
   .header-area .main-nav .nav li:nth-child(6),
   .background-header .main-nav .nav li:nth-child(6) {
@@ -1183,8 +1205,8 @@ footer a {
 }
 
 footer .logo img {
-  max-width: 163px;
-  margin-bottom: 30px;
+  max-width: 89px;
+  margin-bottom: 98px;
 }
 
 footer .helpful-links {
@@ -1396,6 +1418,7 @@ Page Heading
   text-transform: capitalize;
   margin-top: 15px;
 }
+
 
 
 

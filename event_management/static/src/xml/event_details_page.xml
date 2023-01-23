@@ -22,7 +22,7 @@
     <!-- Additional CSS Files -->
 
     <xpath expr="." position="inside">
-      <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
+      <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map"/>
       <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
       <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
       <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
@@ -129,6 +129,7 @@
     position: relative;
     transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
     </style>
 
 <!--
@@ -165,143 +166,27 @@ https://templatemo.com/tm-564-plot-listing
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
-
-
-
-            <!--              <li class=" nav-item dropdown">-->
-            <!--                <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false"> Information Desk </a>-->
-            <!--                  <ul class="dropdown-menu">-->
-            <!--                    <li class="rr_megamenu_column nav-item chumm_left_padding">-->
-            <!--                      <ul class="rr_megamenu_level2">-->
-            <!--                        <li><a href="/information-desk/admissions-and-discharge#admission" id="membdrop">Admissions & Discharge</a></li>-->
-            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop" id="membdrop">Cafeteria & Gift Shop</a></li>-->
-            <!--                        <li><a href="/internal-medicine-residency" id="membdrop">Internal Medicine Residency</a></li>-->
-            <!--                        <li><a href="/careers#practice" id="membdrop">Physician Practice Opportunities</a></li>-->
-            <!--                        <li><a href="/careers#vol" id="membdrop">Volunteer Opportunities</a></li>-->
-            <!--                      </ul>-->
-            <!--                    </li>-->
-            <!--                    <li class="rr_megamenu_column nav-item">-->
-            <!--                      <ul class="rr_megamenu_level2">-->
-            <!--                        <li><a href="/information-desk/admissions-and-discharge#advance" id="membdrop">Advance Directives</a></li>-->
-            <!--                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Check Application Status</a></li>-->
-            <!--                        <li><a href="/information-desk/admissions-and-discharge#patient_right" id="membdrop">Patient Rights and Responsibilites</a></li>-->
-            <!--                        <li><a href="/information-desk/admissions-and-discharge#prep_sur" id="membdrop">Preparing for Surgery</a></li>-->
-            <!--                        <li><a href="/virtual-nursery" id="membdrop">Virtual Nursery</a></li>-->
-            <!--                      </ul>-->
-            <!--                    </li>-->
-            <!--                    <li class="rr_megamenu_column nav-item">-->
-            <!--                      <ul class="rr_megamenu_level2">-->
-            <!--                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Apply Today</a></li>-->
-            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop#emailpatient" id="membdrop">Email a Patient</a></li>-->
-            <!--                        <li><a href="/pgy1-pharmacy-residency" id="membdrop">PGY1 Pharmacy Residency</a></li>-->
-            <!--                        <li><a href="/information-desk/admissions-and-discharge" id="membdrop">Pre-Service Scheduling</a></li>-->
-            <!--                        <li><a href="/information-desk/cafeteria-and-gift-shop#visitinfo" id="membdrop">Visiting Information</a></li>-->
-            <!--                      </ul>-->
-            <!--                    </li>-->
-            <!--                  </ul>-->
-            <!--              </li>-->
-
-
-
-
-<!--<div class="dropdown show">-->
-<!--  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--    Dropdown link-->
-<!--  </a>-->
-
-<!--  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-<!--    <a class="dropdown-item" href="#">Action</a>-->
-<!--    <a class="dropdown-item" href="#">Another action</a>-->
-<!--    <a class="dropdown-item" href="#">Something else here</a>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-                                    <ul class="nav">
-<!--                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--    Dropdown link-->
-<!--  </a>-->
-<!--                                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-<!--    <a class="dropdown-item" href="#">Action</a>-->
-<!--    <a class="dropdown-item" href="#">Another action</a>-->
-<!--    <a class="dropdown-item" href="#">Something else here</a>-->
-<!--  </div>-->
-            <!--            <ul class="rr_megamenu navbar-nav flex-fill">-->
+                        <ul class="nav">
                           <li><a class="active" href="/">Home</a></li>
-
                           <li>
                             <div class="col-md-12 dropdown show">
-                            <a href="/contactus">Services</a>
+                            <a href="#">Services</a>
                               <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <a class="dropdown-item" href="#">Makeup</a>
+                                  <a class="dropdown-item" href="/makeup">Makeup</a>
                                   <a class="dropdown-item" href="#">Decorations</a>
                                   <a class="dropdown-item" href="#">Pre-Wedding</a>
                                   <a class="dropdown-item" href="#">Engagement</a>
                                   <a class="dropdown-item" href="#">Other events</a>
                                 </div>
-<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-<!--                                  <a class="dropdown-item" href="#">Marriage41</a>-->
-<!--                                  <a class="dropdown-item" href="#">Ceremony1</a>-->
-<!--                                  <a class="dropdown-item" href="#">Pre-Wedding14</a>-->
-<!--                                  <a class="dropdown-item" href="#">Engagement41</a>-->
-<!--                                  <a class="dropdown-item" href="#">Other events11</a>-->
-<!--                                </div>-->
-<!--                            <ul class="dropdown-menu">-->
-<!--                                <li><a href="#" >Link1</a></li>-->
-<!--                                <li><a href="#">Link2</a></li>-->
-<!--                            </ul>-->
                             </div>
                           </li>
-
-                          <li><a href="/venuelist">Venues</a></li>
-<!--                          <li><a href="#">Category</a></li>-->
 <!--                          <li><a href="#">Services</a></li>-->
+                          <li><a href="/venuelist">Venues</a></li>
+<!--                          <li><a href="/booking">Booking</a></li>-->
+                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>
                           <li><a href="#">Gallery</a></li>
-
-
-            <!--              <li class=" nav-item dropdown">-->
-            <!--                <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false"> Other Services </a>-->
-            <!--                <ul class="dropdown-menu">-->
-            <!--                    <li class="rr_megamenu_column nav-item chumm_left_padding">-->
-            <!--                      <ul class="rr_megamenu_level2">-->
-            <!--                        <li><a href="/" id="membdrop">Makeup Artists</a></li>-->
-            <!--                        <li><a href="/" id="membdrop">Music band</a></li>-->
-            <!--                        <li><a href="/" id="membdrop">Food &amp; catering</a></li>-->
-            <!--                        <li><a href="/" id="membdrop">Decorations</a></li>-->
-            <!--                        <li><a href="/" id="membdrop">Room Stays</a></li>-->
-            <!--                      </ul>-->
-            <!--                    </li>-->
-            <!--                    <li class="rr_megamenu_column nav-item">-->
-            <!--                      <ul class="rr_megamenu_level2">-->
-            <!--                        <li><a href="/" id="membdrop">Food servers</a></li>-->
-            <!--                        &lt;!&ndash;                        <li><a href="/" id="membdrop" target="_blank">Entertainers</a></li>&ndash;&gt;-->
-            <!--                        <li><a href="/" id="membdrop">Photo and Videography</a></li>-->
-            <!--                        <li><a href="/" id="membdrop">Entertainers</a></li>-->
-            <!--                        &lt;!&ndash;                        <li><a href="/">Virtual Nursery</a></li>&ndash;&gt;-->
-            <!--                      </ul>-->
-            <!--                    </li>-->
-            <!--                    &lt;!&ndash;                    <li class="rr_megamenu_column nav-item">&ndash;&gt;-->
-            <!--                    &lt;!&ndash;                      <ul class="rr_megamenu_level2">&ndash;&gt;-->
-            <!--                    &lt;!&ndash;                        <li><a href="https://pm.healthcaresource.com/cs/whiteriver#/search" id="membdrop" target="_blank">Apply Today</a></li>&ndash;&gt;-->
-            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/cafeteria-and-gift-shop#emailpatient" id="membdrop">Email a Patient</a></li>&ndash;&gt;-->
-            <!--                    &lt;!&ndash;                        <li><a href="/pgy1-pharmacy-residency" id="membdrop">PGY1 Pharmacy Residency</a></li>&ndash;&gt;-->
-            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/admissions-and-discharge" id="membdrop">Pre-Service Scheduling</a></li>&ndash;&gt;-->
-            <!--                    &lt;!&ndash;                        <li><a href="/information-desk/cafeteria-and-gift-shop#visitinfo" id="membdrop">Visiting Information</a></li>&ndash;&gt;-->
-            <!--                    &lt;!&ndash;                      </ul>&ndash;&gt;-->
-            <!--                    &lt;!&ndash;                    </li>&ndash;&gt;-->
-            <!--                  </ul>-->
-            <!--              </li>-->
-
-
-                          <!--              <li><a href="index.html" class="active">Home</a></li>-->
-
-            <!--              <li><a href="listing.html">Special Offers</a></li>-->
-                                      <li><a href="/contactus">Event Details</a></li>
-                                      <li><a href="/contactus">Contact Us</a></li>
-<!--
-                          <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
--->
+                          <li><a href="/eventdetails">Event Details</a></li>
+                          <li><a href="/contactus">Contact Us</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -342,15 +227,15 @@ https://templatemo.com/tm-564-plot-listing
                     <div class="first-thumb active">
                       <div class="thumb">
 <!--                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>-->
-                        <span><h4>Completed Events</h4></span>
+                        <span><h4>Our Events</h4></span>
                       </div>
                     </div>
-                    <div>
-                      <div class="thumb">
-                        <span><h4>Upcoming Events</h4></span>
-<!--                        <span class="icon"><img src="assets/images/search-icon-04.png" alt=""/><h4>Mehandi Artists</h4></span>-->
-                      </div>
-                    </div>
+<!--                    <div>-->
+<!--                      <div class="thumb">-->
+<!--                        <span><h4>Upcoming Events</h4></span>-->
+<!--&lt;!&ndash;                        <span class="icon"><img src="assets/images/search-icon-04.png" alt=""/><h4>Mehandi Artists</h4></span>&ndash;&gt;-->
+<!--                      </div>-->
+<!--                    </div>-->
 <!--                    <div>-->
 <!--                      <div class="thumb">-->
 <!--                          <span><h4>Attractive Packages</h4></span>-->
@@ -969,7 +854,6 @@ https://templatemo.com/tm-564-plot-listing
                         <div class="logo">
                           <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
                         </div>
-                        <p>If you consider that template is useful for your website, pleaseb support us</p>
                       </div>
                     </div>
                     <div class="col-lg-4">
@@ -978,17 +862,15 @@ https://templatemo.com/tm-564-plot-listing
                         <div class="row">
                           <div class="col-lg-6 col-sm-6">
                             <ul>
-                              <li><a href="#">Categories</a></li>
+                              <li><a href="/">Home</a></li>
                               <li><a href="#">Reviews</a></li>
-                              <li><a href="#">Listing</a></li>
-                              <li><a href="#">Contact Us</a></li>
+                              <li><a href="/contactus">Contact Us</a></li>
                             </ul>
                           </div>
                           <div class="col-lg-6">
                             <ul>
                               <li><a href="#">About Us</a></li>
-                              <li><a href="#">Awards</a></li>
-                              <li><a href="#">Useful Sites</a></li>
+                              <li><a href="#">Gallery</a></li>
                               <li><a href="#">Privacy Policy</a></li>
                             </ul>
                           </div>
@@ -998,27 +880,25 @@ https://templatemo.com/tm-564-plot-listing
                     <div class="col-lg-4">
                       <div class="contact-us">
                         <h4>Contact Us</h4>
-                        <p>Technopark, Trivandrum</p>
+                        <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
                         <div class="row">
                           <div class="col-lg-6">
-                            <a href="#">010-020-0340</a>
+                            <a href="#">Phone <br/> +91 6282842112</a>
                           </div>
                           <div class="col-lg-6">
-                            <a href="#">090-080-0760</a>
+                            <a href="#">Email info@fortunaevent.com</a>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="sub-footer">
-                        <p>Copyright © 2021 Hiworth Solutions, Ltd. All Rights Reserved.
-                        <br/>
-                        Design: <a rel="nofollow" href="https://templatemo.com" title="CSS Templates">TemplateMo</a></p>
+                        <p>Copyright © 2021 FORTUNA EVENTS, Ltd. All Rights Reserved.</p>
                       </div>
                     </div>
                   </div>
                 </div>
-  </footer>
+              </footer>
 
 
 </body>
