@@ -102,3 +102,10 @@ $(window).scroll(function() {
         $(".header-area").removeClass("background-header");
     }
 });
+
+$('nav.dropdown > a#menu_service_div_id').on('click', function(e){
+    e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
+})
