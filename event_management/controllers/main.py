@@ -164,7 +164,6 @@ class MakeupPage(http.Controller):
     def search_page_controller(self, **args):
 
         print (args.get('price'))
-        # makeup_artists = request.env['artist.artist'].sudo().search([('makeup_artist','=',True)])
         makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
         mehndi_artists = request.env['res.partner'].sudo().search([('mehndi_artist','=',True)])
         packages = request.env['makeup.package'].sudo().search([])

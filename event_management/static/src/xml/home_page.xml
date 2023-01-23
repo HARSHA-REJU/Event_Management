@@ -872,9 +872,9 @@ label.valid {
             <!--            </t>-->
 
 
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/706439.png" alt="Home"/></span> Wedding</a></li>
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/reception.jpeg" alt="Food"/></span> Wedding Reception</a></li>
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/ring.jpg" alt="Vehicle"/></span> Engagement</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/wedding.png" alt="Home"/></span> Wedding</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/reception.png" alt="Food"/></span> Wedding Reception</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/ring.png" alt="Vehicle"/></span> Engagement</a></li>
                         <li><a href="#"><span class="icon"><img src="event_management/static/img/baby.png" alt="Travel"/></span> Baby Shower</a></li>
                         <li><a href="#"><span class="icon"><img src="event_management/static/img/birthday.png" alt="Travel"/></span> Birthday Party</a></li>
                       </ul>
@@ -937,8 +937,12 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>One Of The Most Trending Stuffs Right Now!</h4>
-                                            <p>Plot Listing is a responsive Bootstrap 5 website template that included 4 different HTML pages. This template is provided by TemplateMo website. You can apply this layout for your static or dynamic CMS websites.</p>
+                                            <h4>
+                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!
+                                            </h4>
+                                            <p>
+                                                We are the best and professional bridal make up service providers all over Kerala. Our special services are HD Bridal make up, Engagement and reception make up. HD bridal makeup is a great choice /most wanted one of a bride.
+                                            </p>
                                             <div class="main-white-button"><a href="/makeup"><i class="fa fa-eye"></i> Discover More</a></div>
                                           </div>
                                         </div>
@@ -957,9 +961,13 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>Food and Lifestyle category is here</h4>
-                                            <p>You can feel free to download, edit and apply this template for your website. Please tell your friends about TemplateMo website.</p>
-                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
+                                            <h4>
+                                                The Best Wedding Photographers in Kerala!
+                                            </h4>
+                                            <p>
+                                              Do you want to make your beautiful day more memorable? We know you have such a strong wish in your heart; because We capture most attractive photographs of your special events including weddings, birthday parties, engagements, religious ceremonies and all other awesome occasions. Our professionals know the best way to capture the most creative, lively and incredible photographs for you.
+                                            </p>
+                                              <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
