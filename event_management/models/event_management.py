@@ -61,6 +61,8 @@ class EventManagement(models.Model):
     district_id = fields.Many2one('place.district')
     facility_ids = fields.Many2many('product.product')
     facilities_ids2 = fields.One2many('facility.event','facility_id2')
+    user_id = fields.Many2one('res.users',default= lambda self: self.env.user.id )
+
 
 
     @api.onchange('district_id')

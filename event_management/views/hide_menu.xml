@@ -4,6 +4,48 @@
         <record id="make_invisible" model="res.groups">
             <field name="name">Invisible</field>
         </record>
+<!--        <record id="trivandrum" model="res.groups">-->
+<!--            <field name="name">Trivandrum</field>-->
+<!--        </record>-->
+<!--        <record id="kollam" model="res.groups">-->
+<!--            <field name="name">Kollam</field>-->
+<!--        </record>-->
+<!--        <record id="pathanamtitta" model="res.groups">-->
+<!--            <field name="name">Pathanamtitta</field>-->
+<!--        </record>-->
+<!--        <record id="alappuzha" model="res.groups">-->
+<!--            <field name="name">Alappuzha</field>-->
+<!--        </record>-->
+<!--        <record id="idukki" model="res.groups">-->
+<!--            <field name="name">Idukki</field>-->
+<!--        </record>-->
+<!--        <record id="kottayam" model="res.groups">-->
+<!--            <field name="name">Kottayam</field>-->
+<!--        </record>-->
+<!--        <record id="ernakulam" model="res.groups">-->
+<!--            <field name="name">Ernakulam</field>-->
+<!--        </record>-->
+<!--        <record id="thrissur" model="res.groups">-->
+<!--            <field name="name">Thrissur</field>-->
+<!--        </record>-->
+<!--        <record id="palakkad" model="res.groups">-->
+<!--            <field name="name">Palakkad</field>-->
+<!--        </record>-->
+<!--        <record id="malappuram" model="res.groups">-->
+<!--            <field name="name">Malappuram</field>-->
+<!--        </record>-->
+<!--        <record id="kozhikode" model="res.groups">-->
+<!--            <field name="name">Kozhikode</field>-->
+<!--        </record>-->
+<!--        <record id="wayanad" model="res.groups">-->
+<!--            <field name="name">Wayanad</field>-->
+<!--        </record>-->
+<!--        <record id="kannur" model="res.groups">-->
+<!--            <field name="name">Kannur</field>-->
+<!--        </record>-->
+<!--        <record id="kasaragod" model="res.groups">-->
+<!--            <field name="name">Kasaragod</field>-->
+<!--        </record>-->
 
             <menuitem
                     name="Discuss"
