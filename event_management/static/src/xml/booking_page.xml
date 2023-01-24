@@ -45,7 +45,7 @@
                           background-repeat: no-repeat;
                           background-position: center center;
                           background-size: cover;
-                          padding: 290px 0px 180px 0px;
+                          padding: 290px 0px 0px 0px;
                           overflow: hidden;
 
                         }
@@ -62,7 +62,8 @@
                         #booking {
                             font-family: 'Cabin', sans-serif;
 <!--                            background-color: #f7f9fa;-->
-                            margin: -150px 0 0;
+                            margin: -150px 0px 0px 0px;
+                            max-height: 600;
 
                         }
 
@@ -82,7 +83,7 @@
                             top: 0px;
                             bottom: 0px;
                             width: 250px;
-                            background-image: url('/event_management/static/img/booking_bg.jpeg');
+                            background-image: url('/event_management/static/img/signin.png');
                             background-size: cover;
                             background-position: center;
                         }
@@ -213,7 +214,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(/event_management/static/img/booking_bg2.jpg);
+  background-image: url(/event_management/static/img/slider3.jpg);
   padding: 210 0px 180px 0px;
   position: relative;
   overflow: hidden;
@@ -291,8 +292,9 @@
 }
 .thumb {
     border: 3px solid #c9c9c9;
-    background-color: #0b2c36c9;
+    background-color: #000e0a;
 }
+
 
 
 .text_style {
