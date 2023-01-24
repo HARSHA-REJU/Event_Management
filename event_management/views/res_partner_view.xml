@@ -39,6 +39,7 @@
                     <field name="venue" invisible="1"/>
                     <field name="makeup_artist"/>
                     <field name="mehndi_artist"/>
+                    <field name="customer"/>
                 </xpath>
                 <xpath expr="//field[@name='vat']" position="attributes">
                     <attribute name="invisible">1</attribute>

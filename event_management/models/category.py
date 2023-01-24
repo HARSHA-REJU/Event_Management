@@ -13,6 +13,11 @@ class MakeupArtistNames(models.Model):
     artist_name = fields.Many2one('res.partner', 'Name')
     packages_ids = fields.Many2many('makeup.package', string='Package')
 
+    @api.onchange('artist_name')
+    def onchange_package_id(self):
+        package_ids = self.env['makeup.package'].search([('package_by','=',self.artist_name.id)])
+        self.packages_ids = package_ids
+
 class MakeupPackages(models.Model):
     _name = 'makeup.package'
     _rec_name = 'name'
@@ -43,6 +48,13 @@ class BookMakeupArtist(models.Model):
     # subject_ids = fields.Many2many('package.service',)
     type_of_event_id = fields.Many2one('event.management.type', string="Event Type",
                                        required=True)
+
+    @api.onchange('artist_name')
+    def onchange_pack_id(self):
+        return {'domain': {'package': [('id', 'in', self.artist_name.packages_ids.ids)]}}
+
+
+
 
     @api.onchange('package')
     def onchange_place_id(self):
