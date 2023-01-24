@@ -4,31 +4,31 @@
 
         <record id="district1" model="place.district">
             <field name="name">TRIVANDRUM</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/thiruvananthapuram.jpg"/>
         </record>
         <record id="district2" model="place.district">
             <field name="name">KOLLAM</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/kollam.jpeg"/>
         </record>
         <record id="district3" model="place.district">
             <field name="name">PATHANAMTHITTA</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/pathanamthitta.jpg"/>
         </record>
          <record id="district4" model="place.district">
             <field name="name">ALAPPUZHA</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/Alleppy.jpeg"/>
         </record>
          <record id="district5" model="place.district">
             <field name="name">KOTTAYAM</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/kottayam.jpg"/>
         </record>
          <record id="district6" model="place.district">
             <field name="name">IDUKKI</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/idukki.jpeg"/>
         </record>
          <record id="district7" model="place.district">
             <field name="name">ERNAKULAM</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/Kochi.jpg"/>
         </record>
          <record id="district8" model="place.district">
             <field name="name">THRISSUR</field>

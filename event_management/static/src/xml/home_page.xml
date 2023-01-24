@@ -659,7 +659,7 @@ label.valid {
     background-position: center center;
     background-size: cover;
     background-image: url(/event_management/static/img/banner-2.png);
-    padding: 240px 0px 100px 0px;
+    padding: 120px 0px 100px 0px;
     position: relative;
     overflow: hidden;
 }
@@ -678,6 +678,9 @@ label.valid {
     height: 100%;
     outline: 0;
 }
+
+                  .offset-lg-6 {
+    margin-left: 75%;
 }
               </style>
 
@@ -872,6 +875,9 @@ label.valid {
               <div class="main-banner">
                 <div class="container">
                   <div class="row">
+                      <div class="offset-lg-6 col-4 slider-iframe-video">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/rvyFyC6nzQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+                      </div>
                     <div class="col-lg-12">
                       <div class="top-text header-text">
                         <h6>Over 36,500+ Active Listings</h6>
