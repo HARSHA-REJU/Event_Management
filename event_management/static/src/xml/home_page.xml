@@ -36,15 +36,24 @@
                 <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
                 <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
               </xpath>
-<!--                <script>-->
+                <script>
 <!--                    // Data Picker Initialization-->
 <!--&lt;!&ndash;                    $('.datepicker').datepicker({&ndash;&gt;-->
 <!--&lt;!&ndash;                      inline: true&ndash;&gt;-->
 <!--&lt;!&ndash;                    });&ndash;&gt;-->
-<!--                    $(".datepicker").datepicker({-->
-<!--                      OPTIONS-->
+<!--                    $("#birthday").datepicker({-->
+
 <!--                }).datepicker('update', new Date());-->
-<!--                </script>-->
+
+
+                    $('.dropdown > a#menu_service_div_id').on('click', function(e){
+    e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
+})
+                </script>
+
 
               <style>
 <!--                        /* @extend display-flex; */-->
@@ -646,6 +655,7 @@ label.valid {
                 }
                   .main-banner {
     background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     background-image: url(/event_management/static/img/banner-2.png);
@@ -656,7 +666,19 @@ label.valid {
                   .popular-categories {
     margin-top: 70px;
 }
-
+.modal-footer {
+    justify-content: space-between;
+                  .modal {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    outline: 0;
+}
+}
               </style>
 
             </head>
@@ -686,22 +708,23 @@ label.valid {
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                          <li><a class="active" href="/">Home</a></li>
+                          <li><a href="/">Home</a></li>
                           <li>
                             <div class="col-md-12 dropdown show">
-                            <a href="#">Services</a>
-                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <a class="dropdown-item" href="/makeup">Makeup</a>
-                                  <a class="dropdown-item" href="#">Decorations</a>
-                                  <a class="dropdown-item" href="#">Catering</a>
-                                  <a class="dropdown-item" href="#">PhotoGraphy</a>
-                                  <a class="dropdown-item" href="#">ManPower</a>
-                                </div>
+                            <a id="menu_service_div_id" href="">Services</a>
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>-->
+<!--                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>-->
+<!--                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>-->
+<!--                                  <a class="dropdown-item" href="#">Food &amp; Caters</a>-->
+<!--                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>-->
+<!--                                </div>-->
                             </div>
                           </li>
 <!--                          <li><a href="#">Services</a></li>-->
                           <li><a href="/venuelist">Venues</a></li>
-                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>
+<!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
+                          <li><a href="/booking">Booking</a></li>
 <!--                          <li><a href="/booking">Booking</a></li>-->
 <!--                            <li>-->
 <!--                            <div class="col-md-12 dropdown show">-->
@@ -723,7 +746,7 @@ label.valid {
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Register here !</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
@@ -731,13 +754,70 @@ label.valid {
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Register here</h2>
+<!--                        <h2 class="form-title">Register here</h2>-->
                         <form method="POST" class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Your Name"/>
                             </div>
+                            <div class="form-group" >
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
                             <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+<!--                            <div class="form-group form-button">-->
+<!--                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>-->
+<!--                            </div>-->
+                        </form>
+                    </div>
+<!--                    <div class="signup-image">-->
+<!--                        <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>-->
+<!--                        <a href="#" class="signup-image-link">I am already member</a>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </section>
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Register</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                                                <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Login here !</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+<!--                        <h2 class="form-title">Register here</h2>-->
+                        <form method="POST" action="user/login" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group" >
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Your Email"/>
                             </div>
@@ -768,13 +848,13 @@ label.valid {
 
                               </div>
                               <div class="modal-footer">
+                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-primary">Register</button>
                               </div>
                             </div>
                           </div>
                         </div>
-
 
 
 
@@ -872,9 +952,9 @@ label.valid {
             <!--            </t>-->
 
 
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/706439.png" alt="Home"/></span> Wedding</a></li>
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/reception.jpeg" alt="Food"/></span> Wedding Reception</a></li>
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/ring.jpg" alt="Vehicle"/></span> Engagement</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/wedding.png" alt="Home"/></span> Wedding</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/reception.png" alt="Food"/></span> Wedding Reception</a></li>
+                        <li><a href="#"><span class="icon"><img src="event_management/static/img/ring.png" alt="Vehicle"/></span> Engagement</a></li>
                         <li><a href="#"><span class="icon"><img src="event_management/static/img/baby.png" alt="Travel"/></span> Baby Shower</a></li>
                         <li><a href="#"><span class="icon"><img src="event_management/static/img/birthday.png" alt="Travel"/></span> Birthday Party</a></li>
                       </ul>
@@ -883,7 +963,7 @@ label.valid {
                 </div>
               </div>
 
-              <div class="popular-categories">
+              <div class="popular-categories" id="service_div">
                 <div class="container">
                   <div class="row">
                     <div class="col-lg-12">
@@ -937,8 +1017,12 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>One Of The Most Trending Stuffs Right Now!</h4>
-                                            <p>Plot Listing is a responsive Bootstrap 5 website template that included 4 different HTML pages. This template is provided by TemplateMo website. You can apply this layout for your static or dynamic CMS websites.</p>
+                                            <h4>
+                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!
+                                            </h4>
+                                            <p>
+                                                We are the best and professional bridal make up service providers all over Kerala. Our special services are HD Bridal make up, Engagement and reception make up. HD bridal makeup is a great choice /most wanted one of a bride.
+                                            </p>
                                             <div class="main-white-button"><a href="/makeup"><i class="fa fa-eye"></i> Discover More</a></div>
                                           </div>
                                         </div>
@@ -957,9 +1041,13 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>Food and Lifestyle category is here</h4>
-                                            <p>You can feel free to download, edit and apply this template for your website. Please tell your friends about TemplateMo website.</p>
-                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
+                                            <h4>
+                                                The Best Wedding Photographers in Kerala!
+                                            </h4>
+                                            <p>
+                                              Do you want to make your beautiful day more memorable? We know you have such a strong wish in your heart; because We capture most attractive photographs of your special events including weddings, birthday parties, engagements, religious ceremonies and all other awesome occasions. Our professionals know the best way to capture the most creative, lively and incredible photographs for you.
+                                            </p>
+                                              <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -977,9 +1065,11 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>Best car rentals for your trips!</h4>
-                                            <p>Did you know? You can get the best free HTML templates on Too CSS blog. Visit the blog pages and explore fresh and latest website templates.</p>
-                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> More Listing</a></div>
+                                            <h4>Let Us Make Your Event a Success!</h4>
+                                            <p>
+                                              Wedding is the most important day of your life. On the wedding day, the wedding stage plays a huge role in creating the long lasting impression about your wedding. This is the place where the groom and the bride sit, it is also used as the center of attraction.we have lots of  Wedding decorators who can  create beautiful and exclusive wedding stage designs.
+                                            </p>
+                                              <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> More Listing</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -997,9 +1087,12 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>Shopping List: Images from Unsplash</h4>
-                                            <p>Image credits go to Unsplash website that provides free stock photos for anyone. Images used in this template are from Unsplash.</p>
-                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                            <h4>
+                                                Experience Excellent and Quality Catering
+                                            </h4>
+                                            <p>
+                                              We have a group of  professional caters with resourceful experience in the hospitality/catering industries of Kerala . They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available. Concentrating not just on taste, but also on texture, style, freshness and presentation all over Kerala.                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                            </p>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1017,8 +1110,12 @@ label.valid {
                                       <div class="row">
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
-                                            <h4>Information and Safety Tips for Traveling</h4>
-                                            <p>You are allowed to use this template for your commercial websites. You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites.</p>
+                                            <h4>
+                                                We have  a well-knit network with the who’s-who of the entertainment industry.
+                                            </h4>
+                                            <p>
+                                              An Indian wedding is a celebration that lasts over many days! An Indian wedding is a mix of cultures,traditions,family bonds and emotions. To celebrate the spirit of Indian weddings, mix in some authentic wedding entertainment and watch your audience spring in their seats with excitement!
+                                            </p>
                                             <div class="main-white-button"><a rel="nofollow" href="#"><i class="fa fa-eye"></i> Read More</a></div>
                                           </div>
                                         </div>
@@ -1273,10 +1370,10 @@ label.valid {
                         <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
                         <div class="row">
                           <div class="col-lg-6">
-                            <a href="#">Phone <br/> +91 6282842112</a>
+                            <a >Phone <br/> +91 6282842112</a>
                           </div>
                           <div class="col-lg-6">
-                            <a href="#">Email info@fortunaevent.com</a>
+                            <a >Email info@fortunaevent.com</a>
                           </div>
                         </div>
                       </div>
@@ -1288,6 +1385,28 @@ label.valid {
                     </div>
                   </div>
                 </div>
+                  <script>
+
+                      function customFunction() {
+                      alert('dd');
+                      }
+
+                      $('.dropdown > a#menu_service_div_id').on('click', function(e){
+    e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
+})
+
+
+$('.login_btn').on('click', function(){
+    $('#RegistrationModal').modal('toggle')
+    $('#LoginModal').modal('toggle')
+                      customFunction();
+})
+
+
+                  </script>
               </footer>
 
             </body>

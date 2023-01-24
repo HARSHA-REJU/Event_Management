@@ -164,7 +164,6 @@ class MakeupPage(http.Controller):
     def search_page_controller(self, **args):
 
         print (args.get('price'))
-        # makeup_artists = request.env['artist.artist'].sudo().search([('makeup_artist','=',True)])
         makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
         mehndi_artists = request.env['res.partner'].sudo().search([('mehndi_artist','=',True)])
         packages = request.env['makeup.package'].sudo().search([])
@@ -208,12 +207,14 @@ class BookingPage(http.Controller):
         districts = request.env['place.district'].sudo().search([])
         types = request.env['event.management.type'].sudo().search([])
         places = request.env['place.place'].sudo().search([])
+        makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
 
         values = {
             'venues':venues,
             'districts':districts,
             'types':types,
             'places':places,
+            'makeup_artists':makeup_artists,
         }
         return request.render(
 
