@@ -582,6 +582,36 @@
                                                     </div>
                                                 </div>
                                             </div>
+<!--                                            <div class="row">-->
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <span class="form-label">District</span>-->
+<!--                                                        <select name="district_id" id="district_id"-->
+<!--                                                                class="form-control form-select link-style" required="1">-->
+<!--                                                                     <option value="" disabled="" selected="">Select district</option>-->
+<!--                                                            <t t-foreach="districts" t-as="record">-->
+<!--                                                                <option t-att-value="record.id">-->
+<!--                                                                    <t t-esc="record.name" t-att-value="record.id"/>-->
+<!--                                                                </option>-->
+<!--                                                            </t>-->
+<!--                                                        </select>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <span class="form-label">Place</span>-->
+<!--                                                        <select name="place_id" id="place_id"-->
+<!--                                                                class="form-control form-select link-style" required="1">-->
+<!--                                                            <option value="" disabled="" selected="">Select Place</option>-->
+<!--                                                            <t t-foreach="places" t-as="record">-->
+<!--                                                                <option t-att-value="record.id">-->
+<!--                                                                    <t t-esc="record.name" t-att-value="record.id"/>-->
+<!--                                                                </option>-->
+<!--                                                            </t>-->
+<!--                                                        </select>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -859,6 +889,8 @@
         scrollTop: $(".popular-categories").offset().top - 160
     }, 300)
 })
+
+
 
 
                   </script>

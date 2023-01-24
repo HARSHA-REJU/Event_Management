@@ -274,6 +274,55 @@ class BookingPage(http.Controller):
 
         response = redirect("/")
         return response
+    @http.route(['/booking/district'], type='http', auth="public",website=True)
+    def booking_page_submitt(self, **args):
+
+        venue_id = int(args.get('district_id'))
+        type_id = int(args.get('type_id'))
+        email = args.get('email')
+        date = args.get('date')
+        mobile = args.get('mobile')
+        name = args.get('name')
+        venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
+
+
+        vals = {
+            'venue_id':venue_id,
+            'type_of_event_id':type_id,
+            'email':email,
+            'date':date,
+            'start_date':date,
+            'end_date':date,
+            'mobile':mobile,
+            'customer_name':name,
+            'district_id':venue_obj.district_id.id,
+            'place_id':venue_obj.place_id.id,
+        }
+
+
+        print(venue_id,type_id,email,date,mobile,name,venue_obj.district_id.id,venue_obj.place_id.id)
+        booking_event = request.env['customer.enquiry.details'].sudo().create(vals)
+        booking_event.action_create_quote()
+        booking_event.action_enquiry_confirm()
+        booking_event.action_create_event()
+
+        # venues = request.env['res.partner'].sudo().search([('venue', '=', True)])
+        # districts = request.env['place.district'].sudo().search([])
+        # types = request.env['event.management.type'].sudo().search([])
+        # places = request.env['place.place'].sudo().search([])
+        # makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist', '=', True)])
+
+        # values = {
+        #     'venues': venues,
+        #     'districts': districts,
+        #     'types': types,
+        #     'places': places,
+        #     'makeup_artists': makeup_artists,
+        # }
+        # return request.render("survey.survey_auth_required", {'survey': survey_sudo, 'redirect_url': redirect_url})
+
+        response = redirect("/")
+        return response
 
 
 
