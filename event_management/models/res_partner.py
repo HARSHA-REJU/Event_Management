@@ -31,6 +31,7 @@ class ResPartner(models.Model):
     facilities_ids = fields.One2many('facility.facility','facility_id')
     makeup_artist = fields.Boolean(string="Makeup Artist ?")
     mehndi_artist = fields.Boolean(string="Mehndi Artist ?")
+    customer = fields.Boolean(string="Customer ?")
 
     venue = fields.Boolean()
 

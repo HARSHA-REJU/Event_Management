@@ -6,7 +6,7 @@
             <field name="model">artist.artist</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="artist_name"/>
+                    <field name="artist_name" domain="[('customer','=',True)]"/>
                 </tree>
             </field>
         </record>
@@ -18,7 +18,7 @@
                     <sheet>
                         <h1><label for="artist_name"/></h1>
                          <h1 class="mt0">
-                            <field name="artist_name"/>
+                            <field name="artist_name" domain="[('makeup_artist','=',True)]"/>
                         </h1>
                         <group>
                             <field name="packages_ids" nolabel="1">
@@ -91,7 +91,7 @@
                         </h1>
                         <group col="2">
                             <group>
-                                <field name="package_by"/>
+                                <field name="package_by" domain="[('makeup_artist','=',True)]"/>
                                 <field name="rate"/>
                                 <field name="package_services_ids" widget="many2many_tags"/>
                             </group>
@@ -116,7 +116,7 @@
 
                         <group col="2">
                         <group>
-                            <field name="customer_name"/>
+                            <field name="customer_name" domain="[('customer','=',True)]"/>
                             <field name="date"/>
                             <field name="date_from"/>
                             <field name="date_to"/>
