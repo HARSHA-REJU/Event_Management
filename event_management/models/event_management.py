@@ -36,7 +36,7 @@ class EventManagement(models.Model):
     start_date = fields.Datetime(string="Start date",
                                  default=lambda self: fields.datetime.now(),
                                  required=True)
-    end_date = fields.Datetime(string="End date", required=True)
+    end_date = fields.Datetime(string="End date")
     service_line_ids = fields.One2many('event.service.line', 'event_id',
                                        string="Services")
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'),
@@ -108,8 +108,8 @@ class EventManagement(models.Model):
         partner_name = self.env['res.partner'].browse(values['partner_id']).name
         event_name = self.env['event.management.type'].browse(
             values['type_of_event_id']).name
-        if start_date >= end_date:
-            raise UserError(_('Start date must be less than End date'))
+        # if start_date >= end_date:
+        #     raise UserError(_('Start date must be less than End date'))
 
         name = '%s-%s-%s' % (partner_name, event_name, values['date'])
         values['name'] = name
@@ -435,9 +435,12 @@ class PlaceDistrict(models.Model):
         return action
 
 
+    # def get_event_district_action_event(self):
+    #     return self._get_action(
+    #         'event_management.action_event_place_view_kanban')
     def get_event_district_action_event(self):
         return self._get_action(
-            'event_management.action_event_place_view_kanban')
+            'event_management.res_partner_action_events_kanban')
 
 
     # def _compute_event_type_count(self):

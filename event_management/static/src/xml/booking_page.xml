@@ -264,6 +264,54 @@
     z-index: 2;
     position: relative;
 }
+                        .col-md-6 {}
+
+.form-group {}
+
+.form-group span.form-label {
+    color: #384460;
+    font-size: 12px;
+}
+
+.form-group .form-control {
+    border: 1px solid #c9c9c9;
+}
+
+.form-group select.form-control {
+    color: #384460; !important;
+    font-size: 14px;
+}
+
+                        .left-text h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  margin-bottom: 30px;
+}
+.thumb {
+    border: 3px solid #c9c9c9;
+    background-color: #0b2c36c9;
+}
+
+
+.text_style {
+    font-family: cursive;
+    font-style: italic;
+    color: aliceblue;
+    margin: 0px 0px 0px 10px;
+}
+                  .text_style.main-white-button {
+                            margin: 0px 0px 0px 10px
+                        }
+                        img {
+                        margin-bottom: 1px;
+                        margin-top: 1px;
+                        width: 100%;
+                        overflow: hidden;
+
+}
+
                     </style>
 
             </head>
@@ -460,12 +508,37 @@
                     <div class="page-heading">
                         <div class="container">
                           <div class="row">
-                            <div class="col-lg-8">
+                            <div class="col-lg-6">
                               <div class="top-text header-text">
                                 <h6>Book Your Events Now</h6>
                                 <h2>Make your dream event More Beautiful..</h2>
                               </div>
                             </div>
+                              <div class="col-lg-6 align-self-center pull-right">
+<!--                                                                  <li class="active">-->
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-5 align-self-center">
+                                          <div class="left-text">
+                                            <h6 class="text_style">
+                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!
+                                            </h6>
+                                            <div class="main-white-button" style="margin: 10px"><a href="/makeup"><i class="fa fa-eye"></i> Discover More</a></div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-7 align-self-center">
+                                          <div class="right-image">
+                                            <img src="event_management/static/img/makeup.jpg" alt=""/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+<!--                                </li>-->
+
+
+                              </div>
                           </div>
                         </div>
                       </div>
@@ -475,7 +548,7 @@
                                 <div class="row">
                                     <div class="booking-form">
                                         <div class="booking-bg"></div>
-                                        <form>
+                                        <form action="/booking/confirm" method="Post">
                                             <div class="form-header">
                                                 <h2>Book your Event</h2>
                                             </div>
@@ -483,80 +556,36 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <span class="form-label">Your Name</span>
-                                                        <input class="form-control" type="name" placeholder="Enter your Name" />
+                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name" required="1"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <span class="form-label">Mobile No</span>
-                                                        <input class="form-control" type="name" placeholder="Mobile No" />
+                                                        <input class="form-control" name="mobile" id="mobile" type="mobile" placeholder="Mobile No" required="1"/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <span class="form-label">Start Date</span>
-                                                        <input class="form-control" type="date" required="1"/>
+                                                        <span class="form-label">Event Date</span>
+                                                        <input class="form-control" name="date" id="date" type="date" required="1"/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <span class="form-label">Time</span>
-                                                        <input class="form-control" type="time" required="1"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <span class="form-label">End Date</span>
-                                                        <input class="form-control" type="date" required="1"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Time</span>
-                                                        <input class="form-control" type="time" required="1"/>
+                                                        <span class="form-label">Email ID</span>
+                                                        <input class="form-control" name="email" id="email" type="email" placeholder="Email ID" required="1"/>
                                                     </div>
                                                 </div>
                                             </div>
-<!--                                            <div class="row">-->
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <div class="form-group">-->
-<!--                                                        <span class="form-label">District</span>-->
-<!--                                                         <select name="district_id" id="district_id" placeholder="Select District"-->
-<!--                                                                  class="form-control form-select link-style" onchange="onchange_function()">-->
-<!--                                                             <option value="" disabled="" selected="">Select District</option>-->
-<!--                                                             <t t-foreach="districts" t-as="record">-->
-<!--                                                                    <option t-att-value="record.id">-->
-<!--                                                                          <t t-esc="record.name" t-att-value="record.id"/>-->
-<!--                                                                    </option>-->
-<!--                                                                </t>-->
-<!--                                                            </select>-->
-<!--                                                        <span class="select-arrow"></span>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <div class="form-group">-->
-<!--                                                        <span class="form-label">place</span>-->
-<!--                                                            <select name="place_id" id="place_id"-->
-<!--                                                                  class="form-control form-select link-style">-->
-<!--                                                             <option value="" disabled="" selected="">Select Place</option>-->
-<!--                                                                <t t-foreach="places" t-as="record">-->
-<!--                                                                    <option t-att-value="record.id">-->
-<!--                                                                        <t t-esc="record.name" t-att-value="record.id"/>-->
-<!--                                                                    </option>-->
-<!--                                                                </t>-->
-<!--                                                            </select>-->
-<!--                                                        <span class="select-arrow"></span>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <span class="form-label">Venue</span>
                                                         <select name="venue_id" id="venue_id"
-                                                                class="form-control form-select link-style">
+                                                                class="form-control form-select link-style" required="1">
                                                                      <option value="" disabled="" selected="">Select Venue</option>
                                                             <t t-foreach="venues" t-as="record">
                                                                 <option t-att-value="record.id">
@@ -570,7 +599,7 @@
                                                     <div class="form-group">
                                                         <span class="form-label">Event Type</span>
                                                         <select name="type_id" id="type_id"
-                                                                class="form-control form-select link-style">
+                                                                class="form-control form-select link-style" required="1">
                                                             <option value="" disabled="" selected="">Select Event</option>
                                                             <t t-foreach="types" t-as="record">
                                                                 <option t-att-value="record.id">
@@ -582,57 +611,59 @@
                                                 </div>
                                             </div>
                                             <div class="form-btn">
-                                                <button class="submit-btn">Book Now</button>
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                                <button type="submit" class="submit-btn">Book Now</button>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                      <div>
-                        <div class="thumb" style="margin:-155px 20px 20px 20px; ">
-                            <h2>Checkout our best Makeup artists right next you</h2>
-                          <div class="row">
-                            <div class="col-lg-12">
-                              <div class="top-content">
-                                <div class="row">
-                                    <div class="container">
+<!--                      <div>-->
+<!--&lt;!&ndash;                        <div class="thumb" style="margin:-155px 20px 20px 20px; ">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h2>Checkout our best Makeup artists right next you</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;                          <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="col-lg-12">&ndash;&gt;-->
+<!--&lt;!&ndash;                              <div class="top-content">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="container">&ndash;&gt;-->
 
-                                        <div id="products" class="row">
-                                             <t t-foreach="makeup_artists" t-as="mk_artist">
-                                                 <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="event_management/static/img/makeup.jpg" alt=""/>
-<!--                                                        <img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % venue.id" alt="" />-->
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                <t t-esc="mk_artist.name"/></h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Artist description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $21.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#1">Book Now</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                             </t>
+<!--&lt;!&ndash;                                        <div id="products" class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                                             <t t-foreach="makeup_artists" t-as="mk_artist">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                 <div class="item  col-xs-4 col-lg-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <div class="thumbnail">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <img class="group list-group-image" src="event_management/static/img/makeup.jpg" alt=""/>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                                        <img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % venue.id" alt="" />&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <div class="caption">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            <h4 class="group inner list-group-item-heading">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                <t t-esc="mk_artist.name"/></h4>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            <p class="group inner list-group-item-text">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                Artist description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                <div class="col-xs-12 col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                    <p class="lead">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                        $21.000</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                <div class="col-xs-12 col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                    <a class="btn btn-success" href="#1">Book Now</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                             </t>&ndash;&gt;-->
 
-                                        </div>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
 
-                      </div>
+<!--                      </div>-->
 
                     </div>
                      <!-- ***** Main Content Div End ***** -->
@@ -809,16 +840,16 @@
                 </div>
 
                                   <script>
-                                      function customFunction() {
-                      alert('Thanks for your booking..!');
-                    window.location.href = "/";
+<!--                                      function customFunction() {-->
+<!--                      alert('Thanks for your booking..!');-->
+<!--                    window.location.href = "/";-->
 
-                      }
-                    $('.form-btn').on('click', function(){
-    $('#RegistrationModal').modal('toggle')
-    $('#LoginModal').modal('toggle')
-                      customFunction();
-})
+<!--                      }-->
+<!--                    $('.form-btn').on('click', function(){-->
+<!--    $('#RegistrationModal').modal('toggle')-->
+<!--    $('#LoginModal').modal('toggle')-->
+<!--                      customFunction();-->
+<!--})-->
                       $('.dropdown > a#menu_service_div_id').on('click', function(e){
     e.preventDefault();
                        window.location.href = "/#service_div";

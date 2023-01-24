@@ -55,22 +55,6 @@ class ResPartner(models.Model):
             records.event_count = len(events)
         return
 
-    def _get_action(self, action_xml_id):
-        action = self.env['ir.actions.actions']._for_xml_id(action_xml_id)
-        if self:
-            action['display_name'] = self.display_name
-        context = {
-            'search_default_venue_id': [self.id],
-            'default_venue_id': self.id,
-        }
-        # domain=[('venue_id','=',self.id)]
-
-        action_context = literal_eval(action['context'])
-        context = {**action_context, **context}
-        action['context'] = context
-        # action['domain'] = domain
-        return action
-
     # def _get_action(self, action_xml_id):
     #     action = self.env['ir.actions.actions']._for_xml_id(action_xml_id)
     #     if self:
@@ -79,20 +63,36 @@ class ResPartner(models.Model):
     #         'search_default_venue_id': [self.id],
     #         'default_venue_id': self.id,
     #     }
-    #     domain=[('venue_id','=',self.id)]
+    #     # domain=[('venue_id','=',self.id)]
     #
     #     action_context = literal_eval(action['context'])
     #     context = {**action_context, **context}
     #     action['context'] = context
-    #     action['domain'] = domain
+    #     # action['domain'] = domain
     #     return action
 
+    def _get_action(self, action_xml_id):
+        action = self.env['ir.actions.actions']._for_xml_id(action_xml_id)
+        if self:
+            action['display_name'] = self.display_name
+        context = {
+            'search_default_venue_id': [self.id],
+            'default_venue_id': self.id,
+        }
+        domain=[('venue_id','=',self.id)]
 
-    # def get_event_partner_action_event(self):
-    #     return self._get_action(
-    #         'event_management.event_management_action_view_kanban')
+        action_context = literal_eval(action['context'])
+        context = {**action_context, **context}
+        action['context'] = context
+        action['domain'] = domain
+        return action
+
 
     def get_event_partner_action_event(self):
         return self._get_action(
-            'event_management.event_management_type_action_view_dashboard')
+            'event_management.event_management_action_view_kanban')
+
+    # def get_event_partner_action_event(self):
+    #     return self._get_action(
+    #         'event_management.event_management_type_action_view_dashboard')
 

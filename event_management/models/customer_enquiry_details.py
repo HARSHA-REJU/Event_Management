@@ -24,10 +24,11 @@ class CustomerEnquiryDetails(models.Model):
     # venue_ids = fields.Many2many('res.partner', string="Venues")
     # auditorium_id = fields.Many2one('res.partner',string="Venue")
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
+    event_date = fields.Date(string="Date", default=fields.Date.today, required=True)
     start_date = fields.Datetime(string="Start date",
                                  default=lambda self: fields.datetime.now(),
                                  required=True)
-    end_date = fields.Datetime(string="End date", required=True)
+    end_date = fields.Datetime(string="End date")
     no_of_attendees = fields.Integer(string='Total Persons')
     note = fields.Text('Terms and conditions')
     state = fields.Selection(
@@ -58,8 +59,8 @@ class CustomerEnquiryDetails(models.Model):
         customer_name = values['customer_name']
         event_name = self.env['event.management.type'].browse(
             values['type_of_event_id']).name
-        if start_date >= end_date:
-            raise UserError(_('Start date must be less than End date'))
+        # if start_date >= end_date:
+        #     raise UserError(_('Start date must be less than End date'))
 
         name = '%s-%s-%s' % (customer_name, event_name, values['date'])
         values['name'] = name

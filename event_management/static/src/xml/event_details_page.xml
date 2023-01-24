@@ -129,7 +129,16 @@
     position: relative;
     transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-
+.category-post {
+  overflow: hidden;
+  margin-top: 0px;
+  margin-bottom: 0px !important;
+}
+                   .category-post .top-content {
+            margin-top: 80px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid #eee;
+        }
     </style>
 
 <!--
@@ -359,340 +368,311 @@ https://templatemo.com/tm-564-plot-listing
                         <center><span><h2>Our Events</h2></span></center>
                       </div>
                     </div>
-<!--                    <div>-->
-<!--                      <div class="thumb">-->
-<!--                        <span><h4>Upcoming Events</h4></span>-->
-<!--&lt;!&ndash;                        <span class="icon"><img src="assets/images/search-icon-04.png" alt=""/><h4>Mehandi Artists</h4></span>&ndash;&gt;-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                      <div class="thumb">-->
-<!--                          <span><h4>Attractive Packages</h4></span>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                      <div>-->
-<!--                          <div class="thumb">-->
-<!--                              <span><h4>Makeup Services</h4></span>-->
-<!--                          </div>-->
-<!--                    </div>-->
-<!--                    <div class="last-thumb">-->
-<!--                      <div class="thumb">-->
-<!--                        <span class="icon"><img src="assets/images/search-icon-05.png" alt=""/><h4>Traveling</h4></span>-->
-<!--                      </div>-->
-<!--                    </div>-->
                   </div>
                 </div>
 
-                  <div class="col-lg-12">
-                  <ul class="nacc">
-                    <li class="active">
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-12">
-                              <div class="top-content">
-                                <div class="row">
-                                    <div class="container">
-<!--    <div class="well well-sm">-->
-<!--        <strong>Display</strong>-->
-<!--        <div class="btn-group">-->
-<!--            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">-->
-<!--            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span-->
-<!--                class="glyphicon glyphicon-th"></span>Grid</a>-->
-<!--        </div>-->
-<!--    </div>-->
-                                        <div id="products" class="row">
-                                            <div class="item  col-xs-4 col-lg-4">
-                                                <div class="thumbnail">
-                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?mobile" alt="" />
-                                                    <div class="caption">
-                                                        <h4 class="group inner list-group-item-heading">
-                                                            Product title</h4>
-                                                        <p class="group inner list-group-item-text">
-                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                        <div class="row">
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <p class="lead">
-                                                                    $21.000</p>
-                                                            </div>
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <a class="btn btn-success" href="#1">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item  col-xs-4 col-lg-4">
-                                                <div class="thumbnail">
-                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?watch" alt="" />
-                                                    <div class="caption">
-                                                        <h4 class="group inner list-group-item-heading">
-                                                            Codehim.com</h4>
-                                                        <p class="group inner list-group-item-text">
-                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                        <div class="row">
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <p class="lead">
-                                                                    $21.000</p>
-                                                            </div>
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <a class="btn btn-success" href="#2">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item  col-xs-4 col-lg-4">
-                                                <div class="thumbnail">
-                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?t-shirt" alt="" />
-                                                    <div class="caption">
-                                                        <h4 class="group inner list-group-item-heading">
-                                                            Product title</h4>
-                                                        <p class="group inner list-group-item-text">
-                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                        <div class="row">
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <p class="lead">
-                                                                    $21.000</p>
-                                                            </div>
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <a class="btn btn-success" href="#3">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item  col-xs-4 col-lg-4">
-                                                <div class="thumbnail">
-                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?laptop" alt="" />
-                                                    <div class="caption">
-                                                        <h4 class="group inner list-group-item-heading">
-                                                            Product title</h4>
-                                                        <p class="group inner list-group-item-text">
-                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                        <div class="row">
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <p class="lead">
-                                                                    $311.000</p>
-                                                            </div>
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <a class="btn btn-success" href="#4">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item  col-xs-4 col-lg-4">
-                                                <div class="thumbnail">
-                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?girl" alt="" />
-                                                    <div class="caption">
-                                                        <h4 class="group inner list-group-item-heading">
-                                                            Product title</h4>
-                                                        <p class="group inner list-group-item-text">
-                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                        <div class="row">
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <p class="lead">
-                                                                    $5.000</p>
-                                                            </div>
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <a class="btn btn-success" href="#5">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item  col-xs-4 col-lg-4">
-                                                <div class="thumbnail">
-                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?keyboard" alt="" />
-                                                    <div class="caption">
-                                                        <h4 class="group inner list-group-item-heading">
-                                                            Product title</h4>
-                                                        <p class="group inner list-group-item-text">
-                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                        <div class="row">
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <p class="lead">
-                                                                    $10.000</p>
-                                                            </div>
-                                                            <div class="col-xs-12 col-md-6">
-                                                                <a class="btn btn-success" href="#6">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+<!--                  <div class="col-lg-12">-->
+<!--                  <ul class="nacc">-->
+<!--                    <li class="active">-->
+<!--                      <div>-->
+<!--                        <div class="thumb">-->
+<!--                          <div class="row">-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="top-content">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="container">-->
+<!--                                        <div id="products" class="row">-->
+<!--&lt;!&ndash;                                            <div class="item  col-xs-4 col-lg-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <div class="thumbnail">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?mobile" alt="" />&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <div class="caption">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <h4 class="group inner list-group-item-heading">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            Product title</h4>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <p class="group inner list-group-item-text">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            <div class="col-xs-12 col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                <p class="lead">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                    $21.000</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            <div class="col-xs-12 col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                <a class="btn btn-success" href="#1">Add to cart</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--                                            <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                <div class="thumbnail">-->
+<!--                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?watch" alt="" />-->
+<!--                                                    <div class="caption">-->
+<!--                                                        <h4 class="group inner list-group-item-heading">-->
+<!--                                                            Codehim.com</h4>-->
+<!--                                                        <p class="group inner list-group-item-text">-->
+<!--                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                        <div class="row">-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <p class="lead">-->
+<!--                                                                    $21.000</p>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <a class="btn btn-success" href="#2">Add to cart</a>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                <div class="thumbnail">-->
+<!--                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?t-shirt" alt="" />-->
+<!--                                                    <div class="caption">-->
+<!--                                                        <h4 class="group inner list-group-item-heading">-->
+<!--                                                            Product title</h4>-->
+<!--                                                        <p class="group inner list-group-item-text">-->
+<!--                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                        <div class="row">-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <p class="lead">-->
+<!--                                                                    $21.000</p>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <a class="btn btn-success" href="#3">Add to cart</a>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                <div class="thumbnail">-->
+<!--                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?laptop" alt="" />-->
+<!--                                                    <div class="caption">-->
+<!--                                                        <h4 class="group inner list-group-item-heading">-->
+<!--                                                            Product title</h4>-->
+<!--                                                        <p class="group inner list-group-item-text">-->
+<!--                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                        <div class="row">-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <p class="lead">-->
+<!--                                                                    $311.000</p>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <a class="btn btn-success" href="#4">Add to cart</a>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                <div class="thumbnail">-->
+<!--                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?girl" alt="" />-->
+<!--                                                    <div class="caption">-->
+<!--                                                        <h4 class="group inner list-group-item-heading">-->
+<!--                                                            Product title</h4>-->
+<!--                                                        <p class="group inner list-group-item-text">-->
+<!--                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                        <div class="row">-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <p class="lead">-->
+<!--                                                                    $5.000</p>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <a class="btn btn-success" href="#5">Add to cart</a>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                <div class="thumbnail">-->
+<!--                                                    <img class="group list-group-image" src="https://source.unsplash.com/400x250/?keyboard" alt="" />-->
+<!--                                                    <div class="caption">-->
+<!--                                                        <h4 class="group inner list-group-item-heading">-->
+<!--                                                            Product title</h4>-->
+<!--                                                        <p class="group inner list-group-item-text">-->
+<!--                                                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                        <div class="row">-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <p class="lead">-->
+<!--                                                                    $10.000</p>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-xs-12 col-md-6">-->
+<!--                                                                <a class="btn btn-success" href="#6">Add to cart</a>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
 
-                      </div>
-                    </li>
-                      <li>
-                      <div>
-                                                        <div class="thumb">
-                              <div class="row">
-                                  <div class="col-lg-12">
-                                  <div class="top-content">
-                                    <div class="row">
-                                        <div class="container">
-    <!--    <div class="well well-sm">-->
-    <!--        <strong>Display</strong>-->
-    <!--        <div class="btn-group">-->
-    <!--            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">-->
-    <!--            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span-->
-    <!--                class="glyphicon glyphicon-th"></span>Grid</a>-->
-    <!--        </div>-->
-    <!--    </div>-->
-                                            <div id="products" class="row">
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?mobile" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Product titlergdfg</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $21.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#1">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?watch" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Codehim.com</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $21.cvbcxbvnxcnxc000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#2">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?t-shirt" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Produccncxnxcnct title</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $21.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#3">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?laptop" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Product title</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $311.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#4">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?girl" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Product title</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $5.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#5">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?keyboard" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Product title</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $10.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#6">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                                          </li>
+<!--                      </div>-->
+<!--                    </li>-->
+<!--                      <li>-->
+<!--                      <div>-->
+<!--                                                        <div class="thumb">-->
+<!--                              <div class="row">-->
+<!--                                  <div class="col-lg-12">-->
+<!--                                  <div class="top-content">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="container">-->
+<!--    &lt;!&ndash;    <div class="well well-sm">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <strong>Display</strong>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <div class="btn-group">&ndash;&gt;-->
+<!--    &lt;!&ndash;            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">&ndash;&gt;-->
+<!--    &lt;!&ndash;            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span&ndash;&gt;-->
+<!--    &lt;!&ndash;                class="glyphicon glyphicon-th"></span>Grid</a>&ndash;&gt;-->
+<!--    &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--                                            <div id="products" class="row">-->
+<!--                                                <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                    <div class="thumbnail">-->
+<!--                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?mobile" alt="" />-->
+<!--                                                        <div class="caption">-->
+<!--                                                            <h4 class="group inner list-group-item-heading">-->
+<!--                                                                Product titlergdfg</h4>-->
+<!--                                                            <p class="group inner list-group-item-text">-->
+<!--                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <p class="lead">-->
+<!--                                                                        $21.000</p>-->
+<!--                                                                </div>-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <a class="btn btn-success" href="#1">Add to cart</a>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                    <div class="thumbnail">-->
+<!--                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?watch" alt="" />-->
+<!--                                                        <div class="caption">-->
+<!--                                                            <h4 class="group inner list-group-item-heading">-->
+<!--                                                                Codehim.com</h4>-->
+<!--                                                            <p class="group inner list-group-item-text">-->
+<!--                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <p class="lead">-->
+<!--                                                                        $21.cvbcxbvnxcnxc000</p>-->
+<!--                                                                </div>-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <a class="btn btn-success" href="#2">Add to cart</a>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                    <div class="thumbnail">-->
+<!--                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?t-shirt" alt="" />-->
+<!--                                                        <div class="caption">-->
+<!--                                                            <h4 class="group inner list-group-item-heading">-->
+<!--                                                                Produccncxnxcnct title</h4>-->
+<!--                                                            <p class="group inner list-group-item-text">-->
+<!--                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <p class="lead">-->
+<!--                                                                        $21.000</p>-->
+<!--                                                                </div>-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <a class="btn btn-success" href="#3">Add to cart</a>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                    <div class="thumbnail">-->
+<!--                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?laptop" alt="" />-->
+<!--                                                        <div class="caption">-->
+<!--                                                            <h4 class="group inner list-group-item-heading">-->
+<!--                                                                Product title</h4>-->
+<!--                                                            <p class="group inner list-group-item-text">-->
+<!--                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <p class="lead">-->
+<!--                                                                        $311.000</p>-->
+<!--                                                                </div>-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <a class="btn btn-success" href="#4">Add to cart</a>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                    <div class="thumbnail">-->
+<!--                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?girl" alt="" />-->
+<!--                                                        <div class="caption">-->
+<!--                                                            <h4 class="group inner list-group-item-heading">-->
+<!--                                                                Product title</h4>-->
+<!--                                                            <p class="group inner list-group-item-text">-->
+<!--                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <p class="lead">-->
+<!--                                                                        $5.000</p>-->
+<!--                                                                </div>-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <a class="btn btn-success" href="#5">Add to cart</a>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="item  col-xs-4 col-lg-4">-->
+<!--                                                    <div class="thumbnail">-->
+<!--                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?keyboard" alt="" />-->
+<!--                                                        <div class="caption">-->
+<!--                                                            <h4 class="group inner list-group-item-heading">-->
+<!--                                                                Product title</h4>-->
+<!--                                                            <p class="group inner list-group-item-text">-->
+<!--                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,-->
+<!--                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <p class="lead">-->
+<!--                                                                        $10.000</p>-->
+<!--                                                                </div>-->
+<!--                                                                <div class="col-xs-12 col-md-6">-->
+<!--                                                                    <a class="btn btn-success" href="#6">Add to cart</a>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                          </div>-->
+<!--                      </div>-->
+<!--                                          </li>-->
 
-                  </ul>
-                                  </div>
+<!--                  </ul>-->
+<!--                                  </div>-->
 
 
 <!--                <div class="col-lg-12">-->
