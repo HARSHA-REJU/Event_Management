@@ -85,8 +85,8 @@
                                         <th>Customer Name</th>
                                         <th>Event Type</th>
                                         <th>Package</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
+                                        <th>Booking Date</th>
+<!--                                        <th>End Date</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -100,12 +100,12 @@
                                             <td><span t-esc="l['customer_name']"/></td>
                                             <td><span t-esc="l['type']"/></td>
                                             <td><span t-esc="l['package']"/></td>
-                                            <td><span t-esc="l['date_from']"/></td>
-                                            <td><span t-esc="l['date_to']"/></td>
+                                            <td><span t-esc="l['booking_date']"/></td>
+<!--                                            <td><span t-esc="l['date_to']"/></td>-->
                                         </tr>
                                     </t>
                                     <tr>
-                                        <td colspan="7"  align="center"><center><h3><b></b></h3></center></td>
+                                        <td colspan="6"  align="center"><center><h3><b></b></h3></center></td>
                                     </tr>
                                 </tbody>
                             </table>

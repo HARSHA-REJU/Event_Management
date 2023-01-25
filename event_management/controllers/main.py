@@ -205,6 +205,21 @@ class EventDetailsPage(http.Controller):
         return request.render(
 
         "event_management.event_details_page",values)
+class MakeupArtistBookingPage(http.Controller):
+    @http.route(['/makeupartistbooking'], type='http', auth="public", website=True)
+    def makeup_booking_page_controller(self, **args):
+        makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
+        customers = request.env['res.partner'].sudo().search([('customer','=',True)])
+        types = request.env['event.management.type'].sudo().search([])
+        packages = request.env['makeup.package'].sudo().search([])
+        values = {
+            'makeup_artists': makeup_artists,
+            'customers': customers,
+            'types': types,
+            'packages':packages,
+        }
+        return request.render("event_management.makeup_artist_booking_page", values)
+
 class BookingPage(http.Controller):
     @http.route(['/booking'], type='http', auth="public",website=True)
     def booking_page_controller(self, **args):

@@ -37,10 +37,10 @@ class MakeupReportWizard(models.TransientModel):
             domain += [('artist_name', '=', self.artist.id)]
         if self.date_from:
             dt = datetime.combine(self.date_from, datetime.min.time())
-            domain += [('date_from', '>=', self.date_from)]
+            domain += [('booking_date', '>=', self.date_from)]
         if self.date_to:
             dt = datetime.combine(self.date_to, datetime.min.time())
-            domain += [('date_to', '<=', self.date_to)]
+            domain += [('booking_date', '<=', self.date_to)]
         res = self.env['makeup.artist'].search(domain)
         for rec in res:
             vals = {
@@ -48,8 +48,7 @@ class MakeupReportWizard(models.TransientModel):
                 'type': rec.type_of_event_id.name,
                 'customer_name': rec.customer_name.name,
                 'package': rec.package.name,
-                'date_from': rec.date_from,
-                'date_to': rec.date_to,
+                'booking_date': rec.booking_date,
             }
             lst.append(vals)
         return lst
