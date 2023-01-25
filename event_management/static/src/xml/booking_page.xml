@@ -551,6 +551,7 @@
                                     <div class="booking-form">
                                         <div class="booking-bg"></div>
                                         <form action="/booking/confirm" method="Post">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                                             <div class="form-header">
                                                 <h2>Book your Event</h2>
                                             </div>
@@ -643,8 +644,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-btn">
-                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-
                                                 <button type="submit" class="submit-btn">Book Now</button>
                                             </div>
                                         </form>
@@ -872,16 +871,16 @@
                 </div>
 
                                   <script>
-<!--                                      function customFunction() {-->
-<!--                      alert('Thanks for your booking..!');-->
-<!--                    window.location.href = "/";-->
+                                      function customFunction() {
+                      alert('Thanks for your booking..!');
+                    window.location.href = "/booking/confirm";
 
-<!--                      }-->
-<!--                    $('.form-btn').on('click', function(){-->
-<!--    $('#RegistrationModal').modal('toggle')-->
-<!--    $('#LoginModal').modal('toggle')-->
-<!--                      customFunction();-->
-<!--})-->
+                      }
+                    $('.form-btn').on('click', function(){
+    $('#RegistrationModal').modal('toggle')
+    $('#LoginModal').modal('toggle')
+                      customFunction();
+})
                       $('.dropdown > a#menu_service_div_id').on('click', function(e){
     e.preventDefault();
                        window.location.href = "/#service_div";

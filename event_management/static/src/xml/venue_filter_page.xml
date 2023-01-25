@@ -5,41 +5,40 @@
             <html lang="en">
              <head>
 
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
+                <meta charset="UTF-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+                <meta name="description" content=""/>
+                <meta name="author" content=""/>
+                <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
 
-    <title>Fortuna Events</title>
+                <title>Fortuna Events</title>
 
-    <!-- Bootstrap core CSS -->
+                <!-- Bootstrap core CSS -->
 
-    <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <!-- Additional CSS Files -->
+                <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+                <!-- Additional CSS Files -->
 
-    <xpath expr="." position="inside">
-      <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
-      <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
-      <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
-      <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
-      <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
+                <xpath expr="." position="inside">
+                  <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
 
+                  <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
+                  <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
+            <!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
+            <!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
 
-      <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
-      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
-      <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
-      <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
-      <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
-<!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
-<!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
+            <!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
+            <!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.min.js"></script>-->
 
-<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
-<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.min.js"></script>-->
-
-    </xpath>
+                </xpath>
 
                <style>
                  .category-post .naccs .menu div {
@@ -78,6 +77,18 @@
     margin-top: 0px;
     margin-bottom: 153px;
     padding-bottom: 120px;
+}
+<!--                   img {-->
+<!--    margin-bottom: -3px;-->
+<!--    width: 100%;-->
+<!--    overflow: hidden;-->
+<!--    margin-top: 18px;-->
+<!--    }-->
+#products .thumbnail .group.list-group-image {
+    max-height: 300px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
 }
                </style>
 <!--
@@ -300,14 +311,11 @@ https://templatemo.com/tm-564-plot-listing
                                 <t t-foreach="districts" t-as="district">
                                 <div class="first-thumb active">
                                   <div class="thumb">
-
-
             <!--                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>-->
                                    <span><h2><t t-esc="district.name"/></h2></span>
                                   </div>
                                 </div>
                                 </t>
-
                               </div>
                             </div>
                               <div class="col-lg-12">
@@ -324,29 +332,20 @@ https://templatemo.com/tm-564-plot-listing
                                                         <t t-foreach="venues" t-as="venue">
                                                         <div class="item  col-xs-4 col-lg-4">
                                                             <div class="thumbnail">
-<!--                                                                <img class="group list-group-image" t-att-src="kanban_image('res.partner', 'image_1920', venue.id)" alt="Student"/>-->
-<!--                                                                <img class="group list-group-image" t-att-src="'/web/image/res.partner/%s/image' % venue.id" alt="venue"/>-->
-<!--                                                                <img t-att-src="'/web/image/op.student/%s/image' % partner_id.id" alt="Student"/>-->
-
-<!--                                                                <img class="group list-group-image" src="https://source.unsplash.com/400x250/?mobile" alt="" />-->
-
-<!--                                                                <img class="group list-group-image" src="/website/image/res.partner/15/image_1920" alt="image" />-->
-                                                                <img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % venue.id" alt="" />
-<!--                                                                <img class="group list-group-image" t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % venue.image_1920"/>-->
-<!--                                                                <img class="group list-group-image" t-att-src="'data:image/png;base64,%s' % venue.image_1920"/>-->
+                                                               <img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % venue.id" alt="" />
                                                                 <div class="caption">
                                                                     <h4 class="group inner list-group-item-heading">
                                                                         <t t-esc="venue.name"/></h4>
                                                                     <p class="group inner list-group-item-text">
-                                                                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                                        <t t-esc="venue.comment"/>
+                                                                        </p>
                                                                     <div class="row">
                                                                         <div class="col-xs-12 col-md-6">
                                                                             <p class="lead">
-                                                                                $21.000</p>
+                                                                                ₹ <t t-esc="venue.amount"/></p>
                                                                         </div>
                                                                         <div class="col-xs-12 col-md-6">
-                                                                            <a class="btn btn-success" href="#1">Add to cart</a>
+                                                                            <a class="btn btn-success" href="/booking">Book Now</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -364,7 +363,6 @@ https://templatemo.com/tm-564-plot-listing
 
                                   </div>
                                 </li>
-
                               </ul>
                               </div>
                           </div>
@@ -373,970 +371,8 @@ https://templatemo.com/tm-564-plot-listing
                     </div>
                   </div>
                 </div>
-</div>
+            </div>
 
-
-<!--                <div class="listing-page">-->
-<!--                    <div class="container">-->
-<!--                      <div class="row">-->
-<!--                        <div class="col-lg-12">-->
-<!--                          <div class="naccs">-->
-<!--                            <div class="grid">-->
-<!--                              <div class="row">-->
-<!--                                <div class="col-lg-4">-->
-<!--                                  <div class="menu">-->
-<!--                                      <t t-foreach="districts" t-as="record">-->
-
-<!--                                            <t t-esc="record.name" t-att-value="record.id"/>-->
-
-<!--                                        <div class="first-thumb active">-->
-<!--                                          <div class="thumb">-->
-<!--                                            <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>-->
-<!--                                             <t t-esc="record.name"/>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-
-<!--                                      </t>-->
-<!--        &lt;!&ndash;                              <t t-foreach="districts" t-as="record">&ndash;&gt;-->
-<!--        &lt;!&ndash;                                  <t t-if="record.id != 1">&ndash;&gt;-->
-<!--        &lt;!&ndash;                                    <div>&ndash;&gt;-->
-<!--        &lt;!&ndash;                                      <div class="thumb">&ndash;&gt;-->
-<!--        &lt;!&ndash;                                        <span class="icon">&ndash;&gt;-->
-<!--        &lt;!&ndash;                                            <img t-if="record.image" t-att-src="'data:image/jpg;base64,%s' % record.image"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;&lt;!&ndash;                                            <img t-if="record.image" t-att-src="'data:image/jpg;base64,%s' % record.image" style="max-height: 80px;"/>&ndash;&gt;&ndash;&gt;-->
-<!--        &lt;!&ndash;                                        </span>&ndash;&gt;-->
-<!--        &lt;!&ndash;&lt;!&ndash;                                        <span class="icon"><img src="assets/images/search-icon-02.png" alt=""/></span>&ndash;&gt;&ndash;&gt;-->
-<!--        &lt;!&ndash;                                        <t t-esc="record.name"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;                                      </div>&ndash;&gt;-->
-<!--        &lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--        &lt;!&ndash;                                  </t>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            KOLLAM&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            PATHANAMTHITTA&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            ALAPPUZHA&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            KOTTAYAM&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            IDUKKI&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            ERNAKULAM&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            THRISSUR&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            PALAKKAD&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            MALAPPURAM&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            KOZHIKODE&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            WAYANAD&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            KANNUR&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                        <div class="last-thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <span class="icon"><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            KASARAGOD&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        &lt;!&ndash;                              </t>&ndash;&gt;&ndash;&gt;-->
-<!--                                  </div>-->
-<!--                                </div>-->
-
-
-<!--                                <div class="col-lg-8">-->
-<!--                                  <ul class="nacc">-->
-<!--                                  &lt;!&ndash; first category listing of items &ndash;&gt;-->
-<!--                                    <li class="active">-->
-<!--                                      <div>-->
-<!--                                        <div class="col-lg-12">-->
-<!--                                          <div class="owl-carousel owl-listing">-->
-<!--                                            <div class="item">-->
-<!--                                              <div class="row">-->
-<!--&lt;!&ndash;                                                <t t-foreach="venues" t-as="d">&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4> <t t-esc="d.name"/></h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </t>&ndash;&gt;-->
-<!--                                                <div class="col-lg-12">-->
-<!--                                                  <div class="listing-item">-->
-<!--                                                    <div class="left-image">-->
-<!--                                                      <a href="#"><img src="/event_management/static/img/devam"rutham.jpeg alt=""/></a>-->
-<!--                                                      <div class="hover-content">-->
-<!--                                                        <div class="main-white-button">-->
-<!--                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>-->
-<!--                                                        </div>-->
-<!--                                                      </div>-->
-<!--                                                    </div>-->
-<!--                                                    <div class="right-content align-self-center">-->
-<!--                                                      <a href="#"><h4>Devamrutham</h4></a>-->
-<!--                                                      <h6>Customer Rating *****</h6>-->
-<!--                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>-->
-<!--                                                      <span class="details">Details: <em>100000 Chairs</em></span>-->
-<!--                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
-<!--                                                    </div>-->
-<!--                                                  </div>-->
-<!--                                                </div>-->
-<!--                                                <div class="col-lg-12">-->
-<!--                                                  <div class="listing-item">-->
-<!--                                                    <div class="left-image">-->
-<!--                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>-->
-<!--                                                      <div class="hover-content">-->
-<!--                                                        <div class="main-white-button">-->
-<!--                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>-->
-<!--                                                        </div>-->
-<!--                                                      </div>-->
-<!--                                                    </div>-->
-<!--                                                    <div class="right-content align-self-center">-->
-<!--                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>-->
-<!--                                                      <h6>Customer Rating *****</h6>-->
-<!--                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>-->
-<!--                                                      <span class="details">Details: <em>100000 Chairs</em></span>-->
-<!--                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
-<!--                                                    </div>-->
-<!--                                                  </div>-->
-<!--                                                </div>-->
-<!--                                              </div>-->
-<!--                                            </div>-->
-
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                             third page of first category&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                      </div>-->
-<!--                                    </li>-->
-
-<!--                                    &lt;!&ndash; second category listing of items &ndash;&gt;-->
-<!--&lt;!&ndash;                                    <li class="active">&ndash;&gt;-->
-<!--&lt;!&ndash;                                      <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="owl-carousel owl-listing">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/sana-kollam.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Sana Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/kollam-Lalas.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Lalas Convention Center</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/younus.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Younus Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                            &lt;!&ndash; third page of first category &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="/event_management/static/img/al_saj.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Al SAj Auditorium</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>Customer Rating *****</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000 / included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>100000 Chairs</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </li>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--&lt;!&ndash;                                      <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="owl-carousel owl-listing">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-04.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Food First page</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Food Delivery</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $600 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-05.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Food Item 2</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Food Delivery</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $540 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-03.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Food Item 3</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Food Delivery</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $720 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                            &lt;!&ndash; second category second page &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-05.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>FOOD Second Page</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Food Delivery</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $420 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-04.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Best Food Item 5</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Food Delivery</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $450 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-03.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Amazing Food Item 6</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Food Delivery</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $500 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </li>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                    &lt;!&ndash; third category first page &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--&lt;!&ndash;                                      <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="owl-carousel owl-listing">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-05.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Third Category First Page</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Sale Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $750 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-04.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Car Item 2</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Sale Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $880 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-03.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Car Item 3</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Sale Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $770 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                            &lt;!&ndash; third category second page &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-01.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Third Category Second Page</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Sale Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $660 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""/> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-02.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Car Item 5</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Sale Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $550 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-06.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Car Item 6</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Sale Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $440 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""/> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                            &lt;!&ndash; third category third page &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                            &lt;!&ndash; NONE &ndash;&gt;&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </li>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                    &lt;!&ndash; 4th category 1st page &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--&lt;!&ndash;                                      <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                          <div class="owl-carousel owl-listing">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-06.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Traveling Item 1</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Travel Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $400 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""/> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-04.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Traveling Item 2</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Travel Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $500 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""/> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-03.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Traveling Item 3</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Travel Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $342 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""/> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                            &lt;!&ndash; 4th category 2nd page &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-05.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>4th Category 2nd Page</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Travel Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $268 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""/> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-06.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Traveling Item 5</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Travel Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $145 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-03.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>Traveling Item 6</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Travel Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $240 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""/> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                            &lt;!&ndash; 4th category 3rd page &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                              <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  <div class="listing-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="left-image">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><img src="assets/images/listing-06.jpg" alt=""/></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <div class="hover-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="main-white-button">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                          <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="right-content align-self-center">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <a href="#"><h4>4th Category 3rd Page</h4></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <h6>by: Travel Agent</h6>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""/></div> $360 / month included tax</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="details">Details: <em>860 sq ft</em></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                      <span class="info"><img src="assets/images/listing-icon-02.png" alt=""/> 2 Bedrooms<br/><img src="assets/images/listing-icon-03.png" alt=""/> 3 Bathrooms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;                                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </li>&ndash;&gt;-->
-
-
-<!--                                  </ul>-->
-
-<!--                                </div>-->
-<!--                            -->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                    </div>-->
-<!--                </div>-->
 
               <footer>
                 <div class="container">
@@ -1391,27 +427,19 @@ https://templatemo.com/tm-564-plot-listing
                   </div>
                 </div>
                   <script>
-                                            $('.dropdown > a#menu_service_div_id').on('click', function(e){
-    e.preventDefault();
-                       window.location.href = "/#service_div";
-    $('html, body').animate({
-        scrollTop: $(".popular-categories").offset().top - 160
-    }, 300)
-})
+                      $('.dropdown > a#menu_service_div_id').on('click', function(e){
+                            e.preventDefault();
+                                               window.location.href = "/#service_div";
+                            $('html, body').animate({
+                                scrollTop: $(".popular-categories").offset().top - 160
+                            }, 300)
+                        })
                   </script>
               </footer>
 
-  <!-- Scripts -->
-<!--  <script src="vendor/jquery/jquery.min.js"></script>-->
-<!--  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-<!--  <script src="assets/js/owl-carousel.js"></script>-->
-<!--  <script src="assets/js/animation.js"></script>-->
-<!--  <script src="assets/js/imagesloaded.js"></script>-->
-<!--  <script src="assets/js/custom.js"></script>-->
+        </body>
 
-</body>
-
-</html>
+        </html>
         </template>
 
     </data>

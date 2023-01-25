@@ -32,6 +32,7 @@ class ResPartner(models.Model):
     makeup_artist = fields.Boolean(string="Makeup Artist ?")
     mehndi_artist = fields.Boolean(string="Mehndi Artist ?")
     customer = fields.Boolean(string="Customer ?")
+    amount = fields.Float()
 
     venue = fields.Boolean()
 
