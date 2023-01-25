@@ -24,10 +24,9 @@ class CustomerEnquiryDetails(models.Model):
     # venue_ids = fields.Many2many('res.partner', string="Venues")
     # auditorium_id = fields.Many2one('res.partner',string="Venue")
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
-    event_date = fields.Date(string="Date", default=fields.Date.today, required=True)
+    event_date = fields.Date(string="Event Date", default=fields.Date.today, required=True)
     start_date = fields.Datetime(string="Start date",
-                                 default=lambda self: fields.datetime.now(),
-                                 required=True)
+                                 default=lambda self: fields.datetime.now(),)
     end_date = fields.Datetime(string="End date")
     no_of_attendees = fields.Integer(string='Total Persons')
     note = fields.Text('Terms and conditions')
@@ -54,8 +53,8 @@ class CustomerEnquiryDetails(models.Model):
     @api.model
     def create(self, values):
         """Crete method for sequencing and checking dates while creating"""
-        start_date = values['start_date']
-        end_date = values['end_date']
+        # start_date = values['start_date']
+        # end_date = values['end_date']
         customer_name = values['customer_name']
         event_name = self.env['event.management.type'].browse(
             values['type_of_event_id']).name
@@ -147,8 +146,9 @@ class CustomerEnquiryDetails(models.Model):
             vals.append((0, 0, dict))
 
         event_id = self.env['event.management'].create({
-            'start_date': self.start_date,
-            'end_date': self.end_date,
+            # 'start_date': self.start_date,
+            # 'end_date': self.end_date,
+            'event_date': self.event_date,
             # 'partner_id':self.customer_name.id,
             'partner_id': self.env['res.partner'].create({'name': self.customer_name, }).id,
             'type_of_event_id': self.type_of_event_id.id,

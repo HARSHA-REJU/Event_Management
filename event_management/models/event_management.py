@@ -33,9 +33,10 @@ class EventManagement(models.Model):
     partner_id = fields.Many2one('res.partner', string="Customer",
                                  required=True)
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
+    event_date = fields.Date(string="Event Date", default=fields.Date.today, required=True)
     start_date = fields.Datetime(string="Start date",
                                  default=lambda self: fields.datetime.now(),
-                                 required=True)
+                                 )
     end_date = fields.Datetime(string="End date")
     service_line_ids = fields.One2many('event.service.line', 'event_id',
                                        string="Services")
@@ -105,8 +106,8 @@ class EventManagement(models.Model):
     @api.model
     def create(self, values):
         """Crete method for sequencing and checking dates while creating"""
-        start_date = values['start_date']
-        end_date = values['end_date']
+        # start_date = values['start_date']
+        # end_date = values['end_date']
         partner_name = self.env['res.partner'].browse(values['partner_id']).name
         event_name = self.env['event.management.type'].browse(
             values['type_of_event_id']).name

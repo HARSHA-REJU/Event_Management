@@ -50,11 +50,13 @@ class BookingSummaryWizard(models.TransientModel):
             dt = datetime.combine(self.date_from, datetime.min.time())
             print(dt)
             # domain += [('start_date', '>=', dt), ('end_date', '<=', dt)]
-            domain += [('start_date', '>=', dt)]
+            # domain += [('start_date', '>=', dt)]
+            domain += [('event_date', '>=', dt)]
         if self.date_to :
             dt = datetime.combine(self.date_to, datetime.min.time())
         #     # domain += [('start_date', '>=', dt), ('end_date', '<=', dt)]
-            domain += [('end_date', '<=', dt)]
+        #     domain += [('end_date', '<=', dt)]
+            domain += [('event_date', '<=', dt)]
         res = self.env['event.management'].search(domain)
         aud = self.env['res.partner'].search(domain2)
         audi_count = 0
