@@ -34,6 +34,8 @@
             <field name="view_id" ref="enquiry_wizard_view_form"/>
             <field name="target">new</field>
     </record>
+
+
     <report id="report_customer_enquiry_report" string="Customer Enquiry Report"
 			model="enquiry.report.wizard" report_type="qweb-pdf"
 			name="event_management.report_customer_enquiry"/>
@@ -123,6 +125,8 @@
             </t>
         </t>
     </template>
+
     <menuitem id="reports_root_menu" name="Reports" sequence="7"/>
+
     <menuitem id="reports_customer_enquiry" name="Customer Enquiry Report" sequence="1" action="action_customer_enquiry_reports" parent="reports_root_menu"/>
 </odoo>
