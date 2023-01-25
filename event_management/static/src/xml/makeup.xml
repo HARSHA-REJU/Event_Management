@@ -397,15 +397,14 @@ https://templatemo.com/tm-564-plot-listing
                                                             <h4 class="group inner list-group-item-heading">
                                                                 <t t-esc="mk_artist.name"/></h4>
                                                             <p class="group inner list-group-item-text">
-                                                                Artist description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                                <t t-esc="mk_artist.comment"/></p>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $21.000</p>
+<!--                                                                    <p class="lead">-->
+<!--                                                                          ₹ <t t-esc="mk_artist.amount"/></p>-->
                                                                 </div>
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#1">Book Now</a>
+                                                                    <a class="btn btn-success" href="#1">View Her Packages</a>
                                                                 </div>
                                                             </div>
                                                         </div>

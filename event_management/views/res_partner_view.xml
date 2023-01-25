@@ -40,6 +40,7 @@
                     <field name="makeup_artist"/>
                     <field name="mehndi_artist"/>
                     <field name="customer"/>
+                    <field name="amount" string="Auditorium Rent"/>
                 </xpath>
                 <xpath expr="//field[@name='vat']" position="attributes">
                     <attribute name="invisible">1</attribute>
@@ -91,7 +92,7 @@
             <field name="name">Venues</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">tree,form</field>
             <field name="domain">[('venue','=',True)]</field>
             <field name="context">{'default_venue': True,'default_is_company': True,}</field>
             <field name="help" type="html">

@@ -51,10 +51,13 @@
                                 overflow: hidden;
                             }
                   .listing-page {
-    margin-top: 40px;
-    margin-bottom: 120px;
-}
+                                margin-top: 40px;
+                                margin-bottom: 120px;
+                            }
+                  .listing-page .item .left-image img {
+                                height: 325px;
 
+                             }
               </style>
 
   </head>
@@ -305,16 +308,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % tvm.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="tvm.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="tvm.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="tvm.street"/><br/><t t-esc="tvm.street2"/></span>
+                                                            <span class="details"><t t-esc="tvm.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -342,16 +347,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % kollam.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="kollam.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="kollam.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="kollam.street"/><br/><t t-esc="kollam.street2"/></span>
+                                                            <span class="details"><t t-esc="kollam.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -379,16 +386,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % ptm.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="ptm.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="ptm.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="ptm.street"/><br/><t t-esc="ptm.street2"/></span>
+                                                            <span class="details"><t t-esc="ptm.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -416,16 +425,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % alp.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="alp.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="alp.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="alp.street"/><br/><t t-esc="alp.street2"/></span>
+                                                            <span class="details"><t t-esc="alp.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -453,16 +464,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % ktm.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="ktm.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="ktm.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="ktm.street"/><br/><t t-esc="ktm.street2"/></span>
+                                                            <span class="details"><t t-esc="ktm.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -490,16 +503,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % idk.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="idk.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="idk.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="idk.street"/><br/><t t-esc="idk.street2"/></span>
+                                                            <span class="details"><t t-esc="idk.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -527,16 +542,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % ekm.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="ekm.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="ekm.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="ekm.street"/><br/><t t-esc="ekm.street2"/></span>
+                                                            <span class="details"><t t-esc="ekm.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -564,16 +581,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % tsr.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="tsr.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="tsr.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="tsr.street"/><br/><t t-esc="tsr.street2"/></span>
+                                                            <span class="details"><t t-esc="tsr.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -601,16 +620,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % plkd.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="plkd.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="plkd.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="plkd.street"/><br/><t t-esc="plkd.street2"/></span>
+                                                            <span class="details"><t t-esc="plkd.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -638,16 +659,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % mlpm.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="mlpm.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="mlpm.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="mlpm.street"/><br/><t t-esc="mlpm.street2"/></span>
+                                                            <span class="details"><t t-esc="mlpm.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -675,16 +698,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % kzkd.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="kzkd.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="kzkd.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="kzkd.street"/><br/><t t-esc="kzkd.street2"/></span>
+                                                            <span class="details"><t t-esc="kzkd.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -712,16 +737,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % wynd.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="wynd.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="wynd.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="wynd.street"/><br/><t t-esc="wynd.street2"/></span>
+                                                            <span class="details"><t t-esc="wynd.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -749,16 +776,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % knr.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="knr.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="knr.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="knr.street"/><br/><t t-esc="knr.street2"/></span>
+                                                            <span class="details"><t t-esc="knr.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
@@ -786,16 +815,18 @@
                                                           <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % ksgd.id" alt="" /></a>
                                                           <div class="hover-content">
                                                             <div class="main-white-button">
-                                                              <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>
                                                             </div>
                                                           </div>
                                                         </div>
                                                         <div class="right-content align-self-center">
                                                           <a href="#"><h4><t t-esc="ksgd.name"/></h4></a>
-                                                          <h6>Customer Rating *****</h6>
-                                                          <span class="price"><div class="icon"><img src="/event_management/static/img/listing-icon-01.png" alt=""/></div>  ₹100000/included tax</span>
-                                                          <span class="details">Details: <em>100000 Chairs</em></span>
-                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>
+<!--                                                          <h6>Customer Rating *****</h6>-->
+                                                          <span class="price">Amount: ₹ <t t-esc="ksgd.amount"/></span>
+                                                            <span class="info">Address: <t t-esc="ksgd.street"/><br/><t t-esc="ksgd.street2"/></span>
+                                                            <span class="details"><t t-esc="ksgd.comment"/></span>
+                                                            <!--                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>-->
+                                                            <!--                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>-->
                                                         </div>
                                                       </div>
                                                     </div>
