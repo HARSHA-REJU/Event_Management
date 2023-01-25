@@ -86,8 +86,9 @@
                                         <th>Contact No</th>
                                         <th>Venue</th>
                                         <th>Event</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
+<!--                                        <th>Start Date</th>-->
+<!--                                        <th>End Date</th>-->
+                                        <th>Event Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -102,12 +103,13 @@
                                             <td><span t-esc="l['contact']"/></td>
                                             <td><span t-esc="l['venue_id']"/></td>
                                             <td><span t-esc="l['type']"/></td>
-                                            <td><span t-esc="l['start_date']"/></td>
-                                            <td><span t-esc="l['end_date']"/></td>
+<!--                                            <td><span t-esc="l['start_date']"/></td>-->
+<!--                                            <td><span t-esc="l['end_date']"/></td>-->
+                                            <td><span t-esc="l['event_date']"/></td>
                                         </tr>
                                     </t>
                                     <tr>
-                                        <td colspan="8"  align="center"><center><h3><b></b></h3></center></td>
+                                        <td colspan="7"  align="center"><center><h3><b></b></h3></center></td>
                                     </tr>
 <!--                                    <tr><h3></h3></tr>-->
 

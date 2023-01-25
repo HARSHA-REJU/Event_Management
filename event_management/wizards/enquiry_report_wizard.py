@@ -41,10 +41,12 @@ class EnquiryReportWizard(models.TransientModel):
             domain += [('state', '=', self.state)]
         if self.date_from:
             dt = datetime.combine(self.date_from, datetime.min.time())
-            domain += [('start_date', '>=', self.date_from)]
+            # domain += [('start_date', '>=', self.date_from)]
+            domain += [('event_date', '>=', self.date_from)]
         if self.date_to:
             dt = datetime.combine(self.date_to, datetime.min.time())
-            domain += [('end_date', '<=', self.date_to)]
+            # domain += [('end_date', '<=', self.date_to)]
+            domain += [('event_date', '<=', self.date_to)]
         res = self.env['customer.enquiry.details'].search(domain)
         for rec in res:
             vals = {
@@ -53,8 +55,9 @@ class EnquiryReportWizard(models.TransientModel):
                 'customer_name': rec.customer_name,
                 'contact': rec.mobile,
                 'venue_id': rec.venue_id.name,
-                'start_date': rec.start_date,
-                'end_date': rec.end_date,
+                # 'start_date': rec.start_date,
+                # 'end_date': rec.end_date,
+                'event_date': rec.event_date,
                 'reference': rec.reference,
             }
             lst.append(vals)

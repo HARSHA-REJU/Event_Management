@@ -67,11 +67,14 @@
                                             <td>
                                                 <span t-esc="l['date']"/>
                                             </td>
+<!--                                            <td>-->
+<!--                                                <span t-esc="l['start_date']"/>-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                <span t-esc="l['end_date']"/>-->
+<!--                                            </td>-->
                                             <td>
-                                                <span t-esc="l['start_date']"/>
-                                            </td>
-                                            <td>
-                                                <span t-esc="l['end_date']"/>
+                                                <span t-esc="l['event_date']"/>
                                             </td>
                                             <td>
                                                 <span t-esc="{'draft': 'Draft', 'confirm': 'Confirmed', 'cancel': 'Cancelled', 'invoice': 'Invoiced', 'close': 'Closed'}

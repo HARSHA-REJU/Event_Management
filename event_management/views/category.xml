@@ -143,19 +143,19 @@
             <field name="view_mode">tree,form</field>
         </record>
         <record id="makeup_category_package_action_view" model="ir.actions.act_window">
-            <field name="name">makeup.package</field>
+            <field name="name">Makeup Packages</field>
             <field name="res_model">makeup.package</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
         </record>
         <record id="makeup_category_services_action_view" model="ir.actions.act_window">
-            <field name="name">package.service</field>
+            <field name="name">Services</field>
             <field name="res_model">package.service</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
         </record>
         <record id="artist_view_form_action" model="ir.actions.act_window">
-            <field name="name">artist.artist</field>
+            <field name="name">Makeup Artists</field>
             <field name="res_model">artist.artist</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
