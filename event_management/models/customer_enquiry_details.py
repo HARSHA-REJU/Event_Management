@@ -39,6 +39,8 @@ class CustomerEnquiryDetails(models.Model):
     district_id = fields.Many2one('place.district')
     email = fields.Char(string='Email',required=True)
     remarks = fields.Char('Remarks')
+    user_id = fields.Many2one('res.users',default= lambda self: self.env.user.id )
+
 
     @api.onchange('district_id')
     def onchange_district_id(self):

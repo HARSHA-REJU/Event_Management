@@ -5,41 +5,40 @@
             <html lang="en">
              <head>
 
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
+                <meta charset="UTF-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+                <meta name="description" content=""/>
+                <meta name="author" content=""/>
+                <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
 
-    <title>Fortuna Events</title>
+                <title>Fortuna Events</title>
 
-    <!-- Bootstrap core CSS -->
+                <!-- Bootstrap core CSS -->
 
-    <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <!-- Additional CSS Files -->
+                <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+                <!-- Additional CSS Files -->
 
-    <xpath expr="." position="inside">
-      <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
-      <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
-      <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
-      <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
-      <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
+                <xpath expr="." position="inside">
+                  <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
 
+                  <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
+                  <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
+            <!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
+            <!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
 
-      <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
-      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
-      <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
-      <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
-      <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
-<!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
-<!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
+            <!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
+            <!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.min.js"></script>-->
 
-<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
-<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.min.js"></script>-->
-
-    </xpath>
+                </xpath>
 
                <style>
                  .category-post .naccs .menu div {
@@ -79,12 +78,18 @@
     margin-bottom: 153px;
     padding-bottom: 120px;
 }
-                   img {
-    margin-bottom: -3px;
-    width: 100%;
+<!--                   img {-->
+<!--    margin-bottom: -3px;-->
+<!--    width: 100%;-->
+<!--    overflow: hidden;-->
+<!--    margin-top: 18px;-->
+<!--    }-->
+#products .thumbnail .group.list-group-image {
+    max-height: 300px;
     overflow: hidden;
-    margin-top: 18px;
-    height: 300px;}
+    object-fit: cover;
+    object-position: center;
+}
                </style>
 <!--
 
