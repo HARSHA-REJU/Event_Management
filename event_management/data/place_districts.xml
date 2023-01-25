@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+<!--    <data noupdate="1">-->
+    <data>
 
         <record id="district1" model="place.district">
             <field name="name">TRIVANDRUM</field>
@@ -32,31 +33,31 @@
         </record>
          <record id="district8" model="place.district">
             <field name="name">THRISSUR</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/thrissur.jpg"/>
         </record>
          <record id="district9" model="place.district">
             <field name="name">PALAKKAD</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/Palakkad.jpg"/>
         </record>
          <record id="district10" model="place.district">
             <field name="name">MALAPPURAM</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/malappuram.jpg"/>
         </record>
          <record id="district11" model="place.district">
             <field name="name">KOZHIKODE</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/Kozhikkode.jpg"/>
         </record>
          <record id="district12" model="place.district">
             <field name="name">WAYANAD</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/wayanad.jpg"/>
         </record>
          <record id="district13" model="place.district">
             <field name="name">KANNUR</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/kannur.jpg"/>
         </record>
          <record id="district14" model="place.district">
             <field name="name">KASARAGOD</field>
-            <field name="image" type="base64" file="event_management/static/img/event_type_image1.jpg"/>
+            <field name="image" type="base64" file="event_management/static/img/Kasaragod.jpeg"/>
         </record>
 
     </data>
