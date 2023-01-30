@@ -221,9 +221,12 @@
             </field>
         </record>
 
-        <menuitem id="event_management_root_menu" name="Event Management" sequence="10"/>
-        <menuitem id="event_management_sub_menu1" name="Events" action="event_management_action_view_kanban" parent="event_management_root_menu"
+        <menuitem id="event_management_root_menu" name="Event Management" sequence="6"/>
+        <menuitem id="event_management_bookings" name="Bookings"  parent="event_management_root_menu"
                   sequence="5"/>
+        <menuitem id="event_management_sub_menu1" name="Auditorium Booking" action="event_management_action_view_kanban" parent="event_management_bookings"
+                  sequence="5"/>
+
 <!--        <menuitem id="event_management_sub_menu2" name="Event Management" parent="event_management_sub_menu1"-->
 <!--                  action="event_management_action_view_kanban" sequence="2"/>-->
         <menuitem id="event_management_service_menu"

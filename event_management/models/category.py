@@ -12,6 +12,8 @@ class MakeupArtistNames(models.Model):
 
     artist_name = fields.Many2one('res.partner', 'Name')
     packages_ids = fields.Many2many('makeup.package', string='Package')
+    makeup_artist = fields.Boolean(string="Makeup Artist ?")
+    mehndi_artist = fields.Boolean(string="Mehndi Artist ?")
 
     @api.onchange('artist_name')
     def onchange_package_id(self):
@@ -30,6 +32,13 @@ class MakeupPackages(models.Model):
     image = fields.Binary("Image", attachment=True,
                           help="This field holds the image used as image for "
                                "the event, limited to 1080x720px.")
+    makeup_artist = fields.Boolean(string="Makeup Package ?")
+    mehndi_artist = fields.Boolean(string="Mehndi Package ?")
+    photographer = fields.Boolean(string="Photography Packages ?")
+
+
+
+
 
 
 class BookMakeupArtist(models.Model):
@@ -49,6 +58,8 @@ class BookMakeupArtist(models.Model):
     # subject_ids = fields.Many2many('package.service',)
     type_of_event_id = fields.Many2one('event.management.type', string="Event Type",
                                        required=True)
+    makeup_artist = fields.Boolean(string="Makeup Artist booking?")
+    mehndi_artist = fields.Boolean(string="Mehndi Artist booking ?")
 
     @api.onchange('artist_name')
     def onchange_pack_id(self):
@@ -70,4 +81,7 @@ class PackageServices(models.Model):
     image = fields.Binary("Image", attachment=True,
                           help="This field holds the image used as image for "
                                "the event, limited to 1080x720px.")
+    makeup_artist = fields.Boolean(string="Makeup Service ?")
+    mehndi_artist = fields.Boolean(string="Mehndi Service ?")
+    photographer = fields.Boolean(string="Photography Service ?")
 
