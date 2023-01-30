@@ -1027,7 +1027,7 @@ label.valid {
                                         </div>
                                         <div class="col-lg-7 align-self-center">
                                           <div class="right-image">
-                                            <img src="event_management/static/img/makeup.jpg" alt=""/>
+                                            <img class="img-fluid" src="event_management/static/img/makeup.jpg" alt=""/>
                                           </div>
                                         </div>
                                       </div>
@@ -1051,7 +1051,7 @@ label.valid {
                                         </div>
                                         <div class="col-lg-7 align-self-center">
                                           <div class="right-image">
-                                            <img src="event_management/static/img/photography.jpeg" alt="Foods on the table"/>
+                                            <img class="img-fluid" src="event_management/static/img/photography.jpeg" alt="Foods on the table"/>
                                           </div>
                                         </div>
                                       </div>
@@ -1073,7 +1073,7 @@ label.valid {
                                         </div>
                                         <div class="col-lg-7 align-self-center">
                                           <div class="right-image">
-                                            <img src="event_management/static/img/wedding-decoration.jpg" alt="cars in the city"/>
+                                            <img class="img-fluid" src="event_management/static/img/wedding-decoration.jpg" alt="cars in the city"/>
                                           </div>
                                         </div>
                                       </div>
@@ -1097,7 +1097,7 @@ label.valid {
                                         </div>
                                         <div class="col-lg-7 align-self-center">
                                           <div class="right-image">
-                                            <img src="event_management/static/img/food.jpg" alt="Shopping Girl"/>
+                                            <img class="img-fluid" src="event_management/static/img/food.jpg" alt="Shopping Girl"/>
                                           </div>
                                         </div>
                                       </div>
@@ -1121,7 +1121,7 @@ label.valid {
                                         </div>
                                         <div class="col-lg-7 align-self-center">
                                           <div class="right-image">
-                                            <img src="event_management/static/img/music-band.png" alt="Traveling Beach"/>
+                                            <img class="img-fluid" src="event_management/static/img/music-band.png" alt="Traveling Beach"/>
                                           </div>
                                         </div>
                                       </div>
