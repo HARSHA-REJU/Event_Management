@@ -132,12 +132,6 @@ p {
   color: #2a2a2a;
 }
 
-img {
-  margin-bottom: -3px;
-  width: 100%;
-  overflow: hidden;
-  margin-top: 18px;
-}
 .main-banner ul.categories li .icon img {
   width: 100%;
   overflow: hidden;
@@ -186,14 +180,14 @@ body {
 }
 
 .section-heading h2 {
-  font-size: 35px;
-  margin-bottom: 25px;
-  text-transform: capitalize;
-  color: #2a2a2a;
-  font-weight: 700;
-  position: relative;
-  z-index: 2;
-  line-height: 44px;
+    font-size: 35px;
+    margin: 25px;
+    text-transform: capitalize;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    line-height: 44px;
 }
 
 .section-heading h6 {
@@ -778,13 +772,14 @@ Banner Style
 */
 
 .main-banner {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-image: url(/event_management/static/img/bigstock.jpg);
-  padding: 190px 0px 180px 0px;
-  position: relative;
-  overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(/event_management/static/img/bigstock.jpg);
+    padding: 150px 0px 60px;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
 }
 
 .main-banner .top-text {
@@ -840,22 +835,26 @@ Banner Style
 }
 */
 .main-banner ul.categories li .icon {
-display: flex;
-margin: 0 auto 12px auto;
-width: 120px;
-height: 120px;
-border-radius: 50%;
-text-align: center;
-line-height: 62px;
-color: #8d99af;
-background-color:#d1ac64 !important;
-transition: all .5s;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
+   display: flex;
+    margin: 0 auto 12px auto;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    line-height: 62px;
+    color: #8d99af;
+    border: 3px solid #d1ac64;
+    border-radius: 50%;
+    transition: all .5s;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .main-banner ul.categories li a:hover .icon {
-  background-color: #2b2d42;
+      background-color: #d1ac64;
+
+}
+.main-banner ul.categories span.icon img {
+ filter: invert(1);
 }
 
 .main-banner ul.categories li .icon img {
@@ -928,10 +927,13 @@ form#search-form button i {
 Popular Categories
 ---------------------------------------
 */
-
+/*
 .popular-categories {
-  margin-top: 70px;
+ margin-top: 70px;
   margin-bottom: 20px;
+*/
+.popular-categories {
+    padding: 60px 0px;
     background-color: #2b2d42;
 }
 
@@ -1213,8 +1215,8 @@ Footer
 
 footer {
   border-top: 1px solid #eee;
-  padding-top: 80px;
 }
+  padding-top: 20px;
 
 footer h4 {
   font-size: 20px;
