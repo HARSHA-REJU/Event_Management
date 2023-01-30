@@ -653,21 +653,13 @@ label.valid {
                 #RegistrationModal{
                 position: relative;
                 }
-                  .main-banner {
-    background-repeat: no-repeat;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-image: url(/event_management/static/img/banner-2.png);
-    padding: 120px 0px 100px 0px;
-    position: relative;
-    overflow: hidden;
-}
+
                   .popular-categories {
     margin-top: 70px;
 }
 .modal-footer {
     justify-content: space-between;
+                  }
                   .modal {
     position: relative;
     top: 0;
@@ -875,9 +867,9 @@ label.valid {
               <div class="main-banner">
                 <div class="container">
                   <div class="row">
-                      <div class="offset-lg-6 col-4 slider-iframe-video">
-                          <iframe width="560" height="315" src="https://www.youtube.com/embed/rvyFyC6nzQo" title="YouTube video player" frameborder="0" autoplay="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
-                      </div>
+<!--                      <div class="offset-lg-6 col-4 slider-iframe-video">-->
+<!--                          <iframe width="560" height="315" src="https://www.youtube.com/embed/rvyFyC6nzQo" title="YouTube video player" frameborder="0" autoplay="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>-->
+<!--                      </div>-->
                     <div class="col-lg-12">
                       <div class="top-text header-text">
                         <h6>Over 36,500+ Active Listings</h6>
@@ -1053,7 +1045,7 @@ label.valid {
                                             <p>
                                               Do you want to make your beautiful day more memorable? We know you have such a strong wish in your heart; because We capture most attractive photographs of your special events including weddings, birthday parties, engagements, religious ceremonies and all other awesome occasions. Our professionals know the best way to capture the most creative, lively and incredible photographs for you.
                                             </p>
-                                              <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
+                                              <div class="main-white-button"><a href="/videography"><i class="fa fa-eye"></i> Explore More</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1075,7 +1067,7 @@ label.valid {
                                             <p>
                                               Wedding is the most important day of your life. On the wedding day, the wedding stage plays a huge role in creating the long lasting impression about your wedding. This is the place where the groom and the bride sit, it is also used as the center of attraction.we have lots of  Wedding decorators who can  create beautiful and exclusive wedding stage designs.
                                             </p>
-                                              <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> More Listing</a></div>
+                                              <div class="main-white-button"><a href="/decoration"><i class="fa fa-eye"></i> More Listing</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1097,7 +1089,8 @@ label.valid {
                                                 Experience Excellent and Quality Catering
                                             </h4>
                                             <p>
-                                              We have a group of  professional caters with resourceful experience in the hospitality/catering industries of Kerala . They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available. Concentrating not just on taste, but also on texture, style, freshness and presentation all over Kerala.                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                              We have a group of  professional caters with resourceful experience in the hospitality/catering industries of Kerala . They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available. Concentrating not just on taste, but also on texture, style, freshness and presentation all over Kerala.
+                                                <div class="main-white-button"><a href="/catering"><i class="fa fa-eye"></i> Discover More</a></div>
                                             </p>
                                           </div>
                                         </div>
@@ -1122,7 +1115,7 @@ label.valid {
                                             <p>
                                               An Indian wedding is a celebration that lasts over many days! An Indian wedding is a mix of cultures,traditions,family bonds and emotions. To celebrate the spirit of Indian weddings, mix in some authentic wedding entertainment and watch your audience spring in their seats with excitement!
                                             </p>
-                                            <div class="main-white-button"><a rel="nofollow" href="#"><i class="fa fa-eye"></i> Read More</a></div>
+                                            <div class="main-white-button"><a rel="nofollow" href="/entertainment"><i class="fa fa-eye"></i> Read More</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">

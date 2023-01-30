@@ -138,7 +138,12 @@ img {
   overflow: hidden;
   margin-top: 18px;
 }
-
+.main-banner ul.categories li .icon img {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+}
 /* 
 ---------------------------------------------
 global styles
@@ -200,7 +205,7 @@ body {
 
 .main-white-button a {
   display: inline-block !important;
-  background-color: #fff !important;
+  background-color: #d1ac64 !important;
   font-size: 15px !important;
   font-weight: 400 !important;
   color: #2a2a2a !important;
@@ -249,7 +254,7 @@ header
 */
 
 .background-header {
-  background-color: #fff!important;
+  background-color: #000000!important;
   height: 80px!important;
   position: fixed!important;
   top: 0px;
@@ -257,12 +262,12 @@ header
   right: 0px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
 }
-
+/*
 .background-header .logo,
 .background-header .main-nav .nav li a {
   color: #1e1e1e!important;
 }
-
+*/
 .background-header .main-nav .nav li:hover a {
   color: #8d99af!important;
 }
@@ -326,7 +331,7 @@ header
 }
 
 .background-header .main-nav a.logo {
-  background-image: url(/event_management/static/img/fortuna-logo89*98.png);
+  background-image: url(/event_management/static/img/fortuna-logo89_98-removebg.png);
   width: 89px;
   height: 98px;
   display: inline-block;
@@ -334,7 +339,7 @@ header
 }
 
 .background-header .main-nav .nav {
-  margin-top: 36px !important;
+  margin-top: 33px !important;
 }
 
 .header-area .main-nav .nav {
@@ -776,8 +781,8 @@ Banner Style
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(/event_management/static/img/banner-2.png);
-  padding: 290px 0px 180px 0px;
+  background-image: url(/event_management/static/img/bigstock.jpg);
+  padding: 190px 0px 180px 0px;
   position: relative;
   overflow: hidden;
 }
@@ -820,7 +825,7 @@ Banner Style
   font-size: 15px;
   margin-top: 15px;
 }
-
+/*
 .main-banner ul.categories li .icon {
   display: block;
   margin: 0 auto 12px auto;
@@ -833,7 +838,22 @@ Banner Style
   background-color: #fff;
   transition: all .5s;
 }
-
+*/
+.main-banner ul.categories li .icon {
+display: flex;
+margin: 0 auto 12px auto;
+width: 120px;
+height: 120px;
+border-radius: 50%;
+text-align: center;
+line-height: 62px;
+color: #8d99af;
+background-color:#d1ac64 !important;
+transition: all .5s;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+}
 .main-banner ul.categories li a:hover .icon {
   background-color: #2b2d42;
 }
@@ -880,7 +900,7 @@ form#search-form input::placeholder {
 form#search-form button {
   width: 100%;
   height: 100%;
-  background-color: #8d99af;
+  background-color: #d1ac64;
   border: none;
   padding: 15px;
   color: #fff;
@@ -912,6 +932,7 @@ Popular Categories
 .popular-categories {
   margin-top: 70px;
   margin-bottom: 20px;
+    background-color: #2b2d42;
 }
 
 .popular-categories .section-heading {
