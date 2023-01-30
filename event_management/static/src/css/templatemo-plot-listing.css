@@ -958,10 +958,11 @@ Popular Categories
   color: #8d99af;
   background-color: #fff;
   margin-right: 15px;
+  padding:10px;
 }
 
 .popular-categories .icon img {
-  max-width: 27px;
+  max-width: 35px;
 }
 
 .popular-categories .naccs .menu div.first-thumb {
