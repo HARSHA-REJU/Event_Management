@@ -28,6 +28,7 @@
       <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
       <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
       <link rel="stylesheet" href="/event_management/static/src/css/style.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/templatemo-style.css"/>
 
 
       <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
@@ -37,6 +38,7 @@
       <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
       <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
       <script type="text/javascript" src="event_management/static/src/js/index.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/plugins.js"></script>
 <!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
 <!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
 
@@ -46,78 +48,85 @@
     </xpath>
 
                <style>
-      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-      .glyphicon { margin-right:5px; }
-.thumbnail
-{
-    margin-bottom: 20px;
-    padding: 0px;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-}
+<!--      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */-->
+<!--      .glyphicon { margin-right:5px; }-->
+<!--.thumbnail-->
+<!--{-->
+<!--    margin-bottom: 20px;-->
+<!--    padding: 0px;-->
+<!--    -webkit-border-radius: 0px;-->
+<!--    -moz-border-radius: 0px;-->
+<!--    border-radius: 0px;-->
+<!--}-->
 
-.item.list-group-item
-{
-    float: none;
+<!--.item.list-group-item-->
+<!--{-->
+<!--    float: none;-->
+<!--    width: 100%;-->
+<!--    background-color: #fff;-->
+<!--    margin-bottom: 10px;-->
+<!--}-->
+<!--.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover-->
+<!--{-->
+<!--    background: #428bca;-->
+<!--}-->
+
+<!--.item.list-group-item .list-group-image-->
+<!--{-->
+<!--    margin-right: 10px;-->
+<!--}-->
+<!--.item.list-group-item .thumbnail-->
+<!--{-->
+<!--    margin-bottom: 0px;-->
+<!--}-->
+<!--.item.list-group-item .caption-->
+<!--{-->
+<!--    padding: 9px 9px 0px 9px;-->
+<!--}-->
+<!--.item.list-group-item:nth-of-type(odd)-->
+<!--{-->
+<!--    background: #eeeeee;-->
+<!--}-->
+
+<!--.item.list-group-item:before, .item.list-group-item:after-->
+<!--{-->
+<!--    display: table;-->
+<!--    content: " ";-->
+<!--}-->
+
+<!--.item.list-group-item img-->
+<!--{-->
+<!--    float: left;-->
+<!--}-->
+<!--.item.list-group-item:after-->
+<!--{-->
+<!--    clear: both;-->
+<!--}-->
+<!--.list-group-item-text-->
+<!--{-->
+<!--    margin: 0 0 11px;-->
+<!--}-->
+                   @media (min-width: 992px)
+.col-lg-12 {
+    flex: 0 0 auto;
     width: 100%;
-    background-color: #fff;
-    margin-bottom: 10px;
-}
-.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
-{
-    background: #428bca;
-}
-
-.item.list-group-item .list-group-image
-{
-    margin-right: 10px;
-}
-.item.list-group-item .thumbnail
-{
-    margin-bottom: 0px;
-}
-.item.list-group-item .caption
-{
-    padding: 9px 9px 0px 9px;
-}
-.item.list-group-item:nth-of-type(odd)
-{
-    background: #eeeeee;
-}
-
-.item.list-group-item:before, .item.list-group-item:after
-{
-    display: table;
-    content: " ";
-}
-
-.item.list-group-item img
-{
-    float: left;
-}
-.item.list-group-item:after
-{
-    clear: both;
-}
-.list-group-item-text
-{
-    margin: 0 0 11px;
+    max-height: 100px;
 }
 
                    .page-heading {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-image: url(/event_management/static/img/heading-bg.jpg);
-    padding: 230px 0px 0px 0px;
+                   background:#000;
+<!--    background-image: url(/event_management/static/img/heading-bg.jpg);-->
+    padding: 120px 0px 0px 0px;
     position: relative;
     overflow: hidden;
 }
 .category-post .naccs .menu div {
     color: #fff;
     margin: 0px;
-    width: 100%;
+    width: 50%;
     font-size: 10px;
     background-color: #8d99af;
     height: 132px;
@@ -129,16 +138,16 @@
     position: relative;
     transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.category-post {
-  overflow: hidden;
-  margin-top: 0px;
-  margin-bottom: 0px !important;
-}
-                   .category-post .top-content {
-            margin-top: 80px;
-            padding-bottom: 60px;
-            border-bottom: 1px solid #eee;
-        }
+<!--.category-post {-->
+<!--  overflow: hidden;-->
+<!--  margin-top: 0px;-->
+<!--  margin-bottom: 0px !important;-->
+<!--}-->
+<!--                   .category-post .top-content {-->
+<!--            margin-top: 80px;-->
+<!--            padding-bottom: 60px;-->
+<!--            border-bottom: 1px solid #eee;-->
+<!--        }-->
     </style>
 
 <!--
@@ -365,12 +374,53 @@ https://templatemo.com/tm-564-plot-listing
                     <div class="first-thumb active">
                       <div class="thumb">
 <!--                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>-->
-                        <center><span><h2>Our Events</h2></span></center>
+                        <center><span><h3>Photo Gallery</h3></span></center>
+                      </div>
+                    </div>
+                    <div class="first-thumb">
+                      <div class="thumb">
+<!--                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>-->
+                        <center><span><h3>Video Gallery</h3></span></center>
                       </div>
                     </div>
                   </div>
                 </div>
 
+<!--                  <div class="col-lg-12">-->
+<!--                  <ul class="nacc">-->
+<!--                    <li class="active">-->
+<!--                            <div class="container-fluid tm-container-content tm-mt-60">-->
+<!--                                <div class="row mb-4">-->
+<!--                                    <h2 class="col-6 tm-text-primary">-->
+<!--                                        Decorations-->
+<!--                                    </h2>-->
+<!--                                    <div class="col-6 d-flex justify-content-end align-items-center">-->
+<!--                                        <form action="" class="tm-text-primary">-->
+<!--                                            Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"/> of 200-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row tm-mb-90 tm-gallery">-->
+<!--                                    <t-->
+<!--                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">-->
+<!--                                        <figure class="effect-ming tm-video-item">-->
+<!--                                            <img src="/event_management/static/img/music-band.png" alt="Image" class="img-fluid"/>-->
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="photo-detail.html">View more</a>-->
+<!--                                            </figcaption>-->
+<!--                                        </figure>-->
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                    </li>-->
+<!--                  </ul>-->
+<!--                  </div>-->
 <!--                  <div class="col-lg-12">-->
 <!--                  <ul class="nacc">-->
 <!--                    <li class="active">-->

@@ -378,4 +378,79 @@ class RegistrationPage(http.Controller):
         return request.render(
 
         "event_management.registration_page",values)
-    
+
+
+class DecorationPage(http.Controller):
+    @http.route(['/decoration'], type='http', auth="public",website=True)
+    def decoration_page_controller(self, **args):
+        # venues = request.env['res.partner'].sudo().search([('venue','=',True),])
+        # districts = request.env['place.district'].sudo().search([])
+        # types = request.env['event.management.type'].sudo().search([])
+        # places = request.env['place.place'].sudo().search([])
+
+        values = {
+            # 'venues':venues,
+            # 'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.decoration_page",values)
+
+
+class EntertainmentPage(http.Controller):
+    @http.route(['/entertainment'], type='http', auth="public",website=True)
+    def entertainment_page_controller(self, **args):
+        # venues = request.env['res.partner'].sudo().search([('venue','=',True),])
+        # districts = request.env['place.district'].sudo().search([])
+        # types = request.env['event.management.type'].sudo().search([])
+        # places = request.env['place.place'].sudo().search([])
+
+        values = {
+            # 'venues':venues,
+            # 'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.entertainment_page",values)
+
+
+class CateringServicesPage(http.Controller):
+    @http.route(['/catering'], type='http', auth="public",website=True)
+    def catering_page_controller(self, **args):
+        # venues = request.env['res.partner'].sudo().search([('venue','=',True),])
+        # districts = request.env['place.district'].sudo().search([])
+        # types = request.env['event.management.type'].sudo().search([])
+        # places = request.env['place.place'].sudo().search([])
+
+        values = {
+            # 'venues':venues,
+            # 'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.catering_page",values)
+
+
+class VideographyPage(http.Controller):
+    @http.route(['/videography'], type='http', auth="public",website=True)
+    def video_page_controller(self, **args):
+        # venues = request.env['res.partner'].sudo().search([('venue','=',True),])
+        # districts = request.env['place.district'].sudo().search([])
+        # types = request.env['event.management.type'].sudo().search([])
+        # places = request.env['place.place'].sudo().search([])
+
+        values = {
+            # 'venues':venues,
+            # 'districts':districts,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
+
+        "event_management.videography_page",values)

@@ -42,6 +42,10 @@
              'static/src/xml/booking_page.xml',
              'static/src/xml/makeup_artist_booking.xml',
              'static/src/xml/registration_login_template.xml',
+             'static/src/xml/catering_service_page.xml',
+             'static/src/xml/decorations_page.xml',
+             'static/src/xml/entertainment_page.xml',
+             'static/src/xml/photography_page.xml',
              ],
     'assets': {
         'web.assets_backend': [

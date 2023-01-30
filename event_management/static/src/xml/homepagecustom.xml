@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+<!-- SLIDER -->
+{% if cookie('success') == 'true' %}
+<div class="alert alert-success" role="alert" id="signupSuccessMsg" style="text-align: center; margin-bottom: 0px;">
+  Thank you for signing up, there are tons of deals waiting for you!
+</div>
+{% else %}
+{% include "templates::pagetwigs/messages" %}
+{% endif %}
+
+{% set area = query().from('couponcodes_areas').where('id', cookie('location')).first() %}
+
+<input type="hidden" name="signupSuccess" id="signupSuccess" value="{{ signupSuccess }}"/>
+<section class="deal_home_slider" id="deal_home_slider">
+            <div class="hero_slider sl_slide">
+                <!-- <div class="sl_arrows">
+                    <div class="prev hvr-sweep-to-bottom slick-arrow" style=""><i class="fa fa-caret-left" aria-hidden="true"></i></div>
+                    <div class="next hvr-sweep-to-bottom slick-arrow" style=""><i class="fa fa-caret-right" aria-hidden="true"></i></div>
+                </div> -->
+				{% if area.fundraiserArea == 1 %}
+					{% if auth_check() == 1 %}
+						<div class="deals_home_slider_wrap">
+							{% set today = "now"|date('Y-m-d H:i:s') %}
+							<!-- 3 here needs to come from location selector -->
+							{% for business in entries('couponcodes','business').where('highlightedDeal', true).orderBy('businessName','asc').get() %}
+								{% if business.businessLocation.where('id', cookie('location')).count() > 0 %}
+									<div class="deals_home_slide d-flex align-items-center" style="background-image: url('/files/{{ business.coverImg.path }}'); 
+																								   background-size: cover; background-position: center;">
+										<img src="/files/{{ business.coverImg.path }}" class="img-fluid">
+										<div class="slide_content">
+											<div class="container">
+												<div class="slide_caption">
+													<!-- <img src="/files/{{ coupon.couponCode.path }}" class="img-fluid"> -->
+													<div class="sldr_fea_sec text-center">
+														<h5>{{ business.businessName }}</h5>
+														<p>{{ business.businessDescription }}</p>
+														<a href="/view-coupons?catid={{business.category_id}}&busid={{business.id}}">See Offers</a>
+													</div>
+											</div>
+										</div>
+										</div>
+									</div>
+								{% endif %}
+							{% endfor %}
+							<!-- {% for coupon in entries('couponcodes')
+								.join('couponcodes_business_businessLocation', 'entry_id', '=', 'business_id')
+								.join('couponcodes_business', 'couponcodes_business.id', '=', 'business_id')
+								.where('related_id', cookie('location')).where('couponLive', 1).where('highlightedDeal', true).get() %}{# .where('end', '>' , today) #}
+													
+							{% set cat_id = coupon.category_id|e %}
+							{% set cat = query().from('couponcodes_categories').where('id', cat_id).first() %}
+							<div class="deals_home_slide d-flex align-items-center" style="background-image: url('/files/{{ coupon.couponImage.path }}'); background-size: cover; background-position: center;">
+									<img src="/files/{{ coupon.couponImage.path }}" class="img-fluid">
+									<div class="slide_content">
+										<div class="container">
+											<div class="slide_caption">
+												<img src="/files/{{ coupon.couponCode.path }}" class="img-fluid">
+												<div class="sldr_fea_sec text-center">
+													<h5>{{ coupon.couponName }}</h5>
+													<p>{{ coupon.couponDescription }}</p>
+													<a href="/{{ cat.categoryName |lower }}#{{ coupon.id }}">Get Offers</a>
+												</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							{% endfor %} -->
+						</div>
+					{% endif %}
+				{% else %}
+					<div class="deals_home_slider_wrap">
+						{% set today = "now"|date('Y-m-d H:i:s') %}
+						{% for business in entries('couponcodes','business').where('highlightedDeal', true).orderBy('businessName','asc').get() %}
+							{% if business.businessLocation.where('id', cookie('location')).count() > 0 %}
+								<div class="deals_home_slide d-flex align-items-center" {% if business.coverImg.mime_type =="image/png" or business.coverImg.mime_type =="image/jpeg" %}style="background-image: url('/files/{{ business.coverImg.path }}'); background-size: cover; background-position: center;"{% endif %}>
+									{% if business.coverImg.mime_type =="image/png" or business.coverImg.mime_type =="image/jpeg" %}
+										<img src="/files/{{ business.coverImg.path }}" class="img-fluid"/>
+									{% elseif business.coverImg.mime_type =="video/mp4" %}
+										<video class="deals_home_slide_video" autoplay="1" playsinline="1" muted="1" src="/files/videos/{{ business.coverImg.name|url_encode(true) }}"/>
+											<source src="/files/videos/{{ business.coverImg.name|url_encode(true) }}" type="video/mp4"/>
+											<source src="/files/videos/{{ business.coverImg.name|url_encode(true) }}" type="video/ogg"/>
+										</video>
+									{% endif %}
+									<div class="slide_content">
+										<div class="container">
+											<div class="slide_caption">
+												<!-- <img src="/files/{{ coupon.couponCode.path }}" class="img-fluid"> -->
+												<div class="sldr_fea_sec text-center">
+													<h5>{{ business.businessName }}</h5>
+													<p>{{ business.businessDescription }}</p>
+													<a href="/view-coupons?catid={{business.category_id}}&busid={{business.id}}">See Offers</a>
+												</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+						<!-- {% for coupon in entries('couponcodes').distinct()
+							.join('couponcodes_business_businessLocation', 'entry_id', '=', 'business_id')
+							.join('couponcodes_business', 'couponcodes_business.id', '=', 'business_id')
+							.where('related_id', cookie('location')).where('couponLive', 1).where('highlightedDeal', true).get() %}{# .where('end', '>' , today) #}
+							{% set cat_id = coupon.category_id|e %}
+							{% set cat = query().from('couponcodes_categories').where('id', cat_id).first() %}
+							{% set file = query().from('files_files').where('id', coupon.coverImg_id).first() %}
+							<div class="deals_home_slide d-flex align-items-center" style="background-image: url('/files/images/{{ file.name }}'); background-size: cover; background-position: center;">
+								<img src="/files/images/{{ file.name }}" class="img-fluid">
+								<div class="slide_content">
+									<div class="container">
+										<div class="slide_caption">
+											<img src="/files/{{ coupon.couponCode.path }}" class="img-fluid">
+											<div class="sldr_fea_sec text-center">
+												<h5>{{ coupon.couponName }}</h5>
+												<p>{{ coupon.couponDescription }}</p>
+												<a href="/{{ cat.categoryName |lower }}#{{ coupon.id }}">Get Offers</a>
+											</div>
+									</div>
+								</div>
+								</div>
+							</div>
+						{% endfor %} -->
+					</div>
+				{% endif %}
+            </div>
+   <!--  <p class="text-center only_mob_screen">Swipe to Navigate the Slides</p> -->
+</section>
+<!-- SLIDER END -->
+
+<section class="innnerpage" id="deals_cat_sec">
+	<div class="container-fluid deals_cat_inn">
+		<div class="container">
+			<div class="row">
+				<h3 class="d-block w-100 text-center">Choose a Category to View Local Savings</h3>
+				{% if area.id == 4 %}
+					{% set deals_cats = entries('couponcodes','categories').whereNotIn('id',[3,2,4,10]).orderBy('sort_order','asc').get() %}
+				{% else %}
+					{% set deals_cats = entries('couponcodes','categories').whereNotIn('id',[7,9,10]).orderBy('sort_order','asc').get() %}
+				{% endif %}
+				{% for deals_cat in deals_cats %}
+				<div class="deals_each_cat col-lg-6 col-xl-4">
+					<div class="cat_img_txt_link">
+						<div class="cat_img_wrap_js">
+							<a href="/{{ deals_cat.categoryName |replace({'&': 'and', ' ': '-'}) }}"><img class="img-fluid" src="/files/{{ deals_cat.categoryImage.path }}" alt="{{ deals_cat.name }}" /></a>
+						</div>
+						<div class="cat_deal_details">
+							<h5>{{ deals_cat.categoryName }}</h5>
+							{% if deals_cat.description !='' %}
+								<p>{{ deals_cat.description }}</p>
+							{% endif %}
+							<a href="/{{ deals_cat.categoryName |replace({'&': 'and', ' ': '-'}) }}">See Offers</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+<!-- ABOUT -->
+<section id="deals_about">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5 col-md-12 col-12 order-lg-1 order-2">
+					<div class="deals_abt_img ">
+						<img src="/files/{{ page.about_us_image_home.path }}" alt="" class="img-fluid">
+					</div>
+				</div>
+				<div class="col-lg-7 col-md-12 col-12 order-lg-2 order-1">
+					<h3 class="yb_title_new title_exec">About <span>Deals Around Town</span></h3>
+					<div class="about_txt">
+					{{ page.homepage_about_us | raw }}
+					</div>
+					<a href="#" data-toggle="modal" data-target="#aboutModal" class="btn design_it hvr-shutter-out-vertical orange">Learn More</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ABOUT END-->
+
+<!-- Coupon -->
+<section id="deals_about" class="deals_dowload">
+	<div id="download_app"></div>
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 col-md-12 col-12">
+					<h3 class="yb_title_new title_exec">Never Forget <span>A Coupon Again!</span></h3>
+					{{ page.deals_app_content.render | raw }}
+					<div class="deals_applink">
+						<span>
+							<a target="_blank" href="{{ page.app_store_link }}">
+								<img alt="Get it on Google Play" src="/files/images/appstore.png" class="img-fluid">
+							</a>
+						</span>
+						<span>
+							<a target="_blank" href="{{ page.google_play_link }}">
+								<img alt="Get it on Google Play" src="/files/images/gplay.png" class="img-fluid">
+							</a>
+						</span>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-12 col-12 download_image">
+					<!-- <img src="/files/images/iphone.png" alt="" class="img-fluid"> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Coupon END-->
+
+<!-- <div class="modal fade" id="site_modal_image" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body">
+        <img src="/files/images/photo_slider2.png" alt="" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="site_modal_video" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body">
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/C0DPdy98e4c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- Modal aboutModal-->
+	<div class="modal fade" id="aboutModal" role="dialog">
+		<div class="modal-dialog modal-dialog-centered">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>About Deals Around Town</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				 <div class="modal-body">
+					{{ page.about_deals_popup | raw }}			
+				</div>
+		</div>
+	</div>
+</div> <!-- modal end -->
+
+<style>
+.slick-slide .yoderbilt_greenhouse_slide img.img-fluid {
+    width: 100%;
+}
+section#yoderbilt_greenhouse_slider .yoderbilt_greenhouse_slider_wrap ul.slick-dots {
+    bottom: 15px;
+}
+section#yoderbilt_greenhouse_slider .yoderbilt_greenhouse_slider_wrap ul.slick-dots li button:before {
+    color: lime;
+    opacity: 1;
+    font-size: 10px;
+    line-height: 1.9;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+section#yoderbilt_greenhouse_slider .yoderbilt_greenhouse_slider_wrap ul.slick-dots li.slick-active button:before {
+    color: orange;
+    opacity: 1;
+}
+.only_mob_screen {
+    display: none;
+}
+	#aboutModal .modal-dialog p {
+		font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+	}
+
+@media (min-width:993px){
+	/* section#yoderbilt_greenhouse_slider .yoderbilt_greenhouse_slider_wrap ul.slick-dots {display:none !important;} */
+}
+@media (max-width:992px){
+	section#yoderbilt_greenhouse_slider .hero_slider .sl_arrows {display: none !important;}
+}
+@media (max-width:575px){
+.only_mob_screen {display: block;}		
+#aboutModal .modal-dialog button.close {
+		width: auto;
+		height: auto;
+		top: 2px;
+		right: 15px;
+	}
+	.deals_home_slide {
+		height: auto !important;
+    	background: transparent !important;
+		display: block !important;
+	}
+	.slick-slide img {
+    	display: block !important;
+	}
+	.deal_home_slider .slide_content {
+		position: relative !important;
+		top: auto !important;
+		background: #303030 !important;
+	}
+	.sldr_fea_sec a {
+		margin-bottom: 35px !important;
+	}
+	.sldr_fea_sec {
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+	
+}
+.yoderbilt_greenhouse_slide:after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+.slick_cap {
+    z-index: 999;
+}
+.slider_est:after {
+    content: '';
+    display: block;
+    width: 160px;
+    height: 1px;
+    background-color: #fff;
+    margin: 20px auto;
+}
+.slidercap_btn {
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+	margin: 20px auto;
+}
+.slidercap_btn:hover, .slidercap_btn:active, .slidercap_btn:focus {
+    background-color: #f26522;
+    border: 1px solid #f26522;
+    color: #fff;
+}
+</style>
+	</data>
+</odoo>
