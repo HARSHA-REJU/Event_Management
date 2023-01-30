@@ -97,9 +97,17 @@
             <field name="view_id" ref="event_management_type_view_dashboard"/>
             <field name="context">{}</field>
         </record>
+         <record id="action_calender_view_events" model="ir.actions.act_window">
+            <field name="name">Event Booking Summary</field>
+            <field name="res_model">event.management</field>
+            <field name="view_mode">calendar</field>
+        </record>
+                <menuitem id="calender_event_booking_menu" name="Booking Summary" sequence="1" action="action_calender_view_events" />
+
 
         <menuitem id="event_management_dashboard_menu" name="Event's Type Dashboard" parent="event_management.event_management_root_menu"
                   action="event_management_type_action_view_kanban" sequence="1"/>
+
 
         <record id="action_event_dashboard" model="ir.actions.client">
             <field name="name">Event Types</field>

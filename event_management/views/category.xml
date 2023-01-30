@@ -118,8 +118,9 @@
                         <group>
                             <field name="customer_name" domain="[('customer','=',True)]"/>
                             <field name="date"/>
-                            <field name="date_from"/>
-                            <field name="date_to"/>
+                            <field name="booking_date"/>
+<!--                            <field name="date_from"/>-->
+<!--                            <field name="date_to"/>-->
 
                         </group>
                         <group>

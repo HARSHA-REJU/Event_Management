@@ -404,7 +404,7 @@ https://templatemo.com/tm-564-plot-listing
 <!--                                                                          ₹ <t t-esc="mk_artist.amount"/></p>-->
                                                                 </div>
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#1">View Her Packages</a>
+                                                                    <a class="btn btn-success" href="/makeupartistbooking">Book Now</a>
                                                                 </div>
                                                             </div>
                                                         </div>
