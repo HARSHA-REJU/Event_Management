@@ -69,6 +69,7 @@
                     <sheet>
                         <h1 class="mt0">
                             <field name="name" readonly="1"/>
+                            <field name="reference" readonly="1"/>
                         </h1>
                         <group>
                             <group>
@@ -78,7 +79,7 @@
                                 <field name="email" string="Email" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="district_id" options="{'no_create': True, 'no_create_edit':True}" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="place_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-<!--                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'invisible':[('state', 'not in', ['confirm'])],'required': [('state', '=', 'confirm')]}"/>-->
+                                <!--                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'invisible':[('state', 'not in', ['confirm'])],'required': [('state', '=', 'confirm')]}"/>-->
                                 <field name="venue_id" domain="[('venue','=',True)]"/>
 
                             </group>
@@ -86,12 +87,23 @@
                                 <field name="address" string="Contact Address" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="event_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-<!--                                <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
-<!--                                <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
+                                <!--                                <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
+                                <!--                                <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
                                 <field name="remarks"/>
-                                <field name="reference" readonly="1"/>
                                 <field name="customer_id" invisible="1"/>
                                 <field name="customer_ids" invisible="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="auditorium"/>
+                                <field name="makeup"/>
+                                <field name="photography"/>
+                            </group>
+                            <group>
+                                 <field name="decoration"/>
+                                <field name="catering"/>
+                                <field name="entertainment"/>
                             </group>
                         </group>
 <!--                            <group string="Services">-->

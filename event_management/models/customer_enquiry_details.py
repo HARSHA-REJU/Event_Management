@@ -38,8 +38,15 @@ class CustomerEnquiryDetails(models.Model):
     place_id = fields.Many2one('place.place')
     district_id = fields.Many2one('place.district')
     email = fields.Char(string='Email',required=True)
-    remarks = fields.Char('Remarks')
+    remarks = fields.Text('Remarks')
     user_id = fields.Many2one('res.users',default= lambda self: self.env.user.id )
+    auditorium = fields.Boolean()
+    makeup = fields.Boolean()
+    catering = fields.Boolean()
+    photography = fields.Boolean()
+    decoration = fields.Boolean()
+    entertainment = fields.Boolean()
+
 
 
     @api.onchange('district_id')

@@ -78,25 +78,93 @@ class HomePage(http.Controller):
 
         "event_management.custom_home_page",values)
 
+    @http.route(['/signup'], type='http', auth="public",website=True)
+    def signup_controller(self, **args):
+        email = args.get('email')
+        password = args.get('pass')
+        re_password = args.get('re_pass')
+        mobile = args.get('mobile')
+        name = args.get('name')
+
+        vals = {
+            'login':email,
+            'name':name,
+            'password':password,
+        }
+        print(vals)
+        if password==re_password:
+            new_user = request.env['res.users'].sudo().create(vals)
+            new_user.partner_id.write({'mobile': mobile})
+            response = redirect("/#LoginModal")
+            return response
+
+
 class ContactUsPage(http.Controller):
     @http.route(['/contactus'], type='http', auth="public",website=True)
     def contact_page_controller(self):
 
         # venues = request.env['res.partner'].search([])
-        # districts = request.env['place.district'].search([])
-        # types = request.env['event.management.type'].search([])
+        districts = request.env['place.district'].search([])
+        types = request.env['event.management.type'].search([])
         # places = request.env['place.place'].search([])
 
         values = {
             # 'venues':venues,
-            # 'districts':districts,
-            # 'types':types,
+            'districts':districts,
+            'types':types,
             # 'places':places,
         }
         return request.render(
 
         "event_management.contact_page",values)
+    @http.route(['/enquiry/confirm'], type='http', auth="public",website=True)
+    def contact_page_confirm(self, **args):
+        district_id = int(args.get('district_id'))
+        type_id = int(args.get('type_id'))
+        email = args.get('email')
+        date = args.get('date')
+        mobile = args.get('mobile')
+        name = args.get('name')
+        # surname = args.get('surname')
+        address = args.get('address')
+        message = args.get('message')
+        auditorium = args.get('option1')
+        makeup = args.get('option2')
+        catering = args.get('option3')
+        photography = args.get('option4')
+        decoration = args.get('option5')
+        entertainment = args.get('option6')
 
+
+        # venues = request.env['res.partner'].search([])
+        # district = request.env['place.district'].search([('id','=',district_id)])
+        # type = request.env['event.management.type'].search([('id','=',type_id)])
+        # # places = request.env['place.place'].search([])
+        # # venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
+        #
+        vals = {
+            'district_id':district_id,
+            'type_of_event_id':type_id,
+            'email':email,
+            'date':fields.Date.today(),
+            'event_date':date,
+            'mobile':mobile,
+            'customer_name':name,
+            'address':address,
+            'remarks':message,
+            'auditorium':auditorium,
+            'decoration':decoration,
+            'photography':photography,
+            'catering':catering,
+            'makeup':makeup,
+            'entertainment':entertainment,
+        }
+        #
+        #
+        print(vals)
+        enquiry_event = request.env['customer.enquiry.details'].sudo().create(vals)
+        response = redirect("/contactus")
+        return response
 class VenueListingPage(http.Controller):
     @http.route(['/venuelist'], type='http', auth="public",website=True)
     def venue_page_controller(self):
