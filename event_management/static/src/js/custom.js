@@ -110,3 +110,28 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
     }, 300)
 })
 
+ function getParameterByName(name, url) {
+     if (!url) url = window.location.href;
+     name = name.replace(/[\[\]]/g, "\\$&");
+     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+         results = regex.exec(url);
+     if (!results) return null;
+     if (!results[2]) return '';
+     return decodeURIComponent(results[2].replace(/\+/g, " "));
+ }
+ $(window).on('load', function(){
+    if(window.location.hash == '#loginModal?error=true'){
+        $('#LoginModal').modal('toggle')
+        if(getParameterByName('error') == 'true'){
+            $('div#LoginModal .form-group.form-button').after('<div class="d-block"><p class="alert alert-danger" role="alert">Wrong login/password</p></div>')
+        }
+    }
+ })
+
+ $(window).on('load', function(){
+    if(window.location.hash == '#loginModal'){
+        $('#LoginModal').modal('toggle')
+        }
+//       else:
+//            window.location.href = "/";
+ })

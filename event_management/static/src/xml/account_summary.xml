@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-		<template id="custom_home_page" name="Homepage2" t-name="website.homepage2">
+		<template id="account_page" name="UserAccount">
           <html lang="en">
             <head>
               <meta charset="UTF-8"/>
@@ -710,7 +710,7 @@ label.valid {
 <!--                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>-->
 <!--                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>-->
 <!--                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>-->
-<!--                                  <a class="dropdown-item" href="#">Food &amp; Caters</a>-->
+<!--                                  <a class="dropdown-item" href="#">Food &amp; Caterers</a>-->
 <!--                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>-->
 <!--                                </div>-->
                             </div>
@@ -861,7 +861,39 @@ label.valid {
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="top-text header-text">
-                            <h2>Bookings</h2>
+                            <h2>Venue Bookings</h2>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>SN</th>
+                                                <th>Reference</th>
+                                                <th>Auditorium Name</th>
+                                                <th>Event Type</th>
+                                                <th>Booking Date</th>
+                                                <th>Booking Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="sl_no" t-value="0" />
+                                            <t t-foreach="venue_bookings" t-as="record">
+                                                <tr>
+                                                    <td >
+                                                        <span t-esc="sl_no" />
+                                                        <t t-set="sl_no" t-value="sl_no+1" />
+                                                    </td>
+                                                    <td><span t-esc="record.ref"/></td>
+                                                    <td><span t-esc="record.venue_id.name"/></td>
+                                                    <td><span t-esc="record.type_of_event_id.name"/></td>
+                                                    <td><span t-esc="record.event_date"/></td>
+                                                    <td><span t-esc="record.state"/></td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                       </div>
                     </div>

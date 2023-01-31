@@ -735,7 +735,7 @@ label.valid {
 <!--                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>-->
 <!--                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>-->
 <!--                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>-->
-<!--                                  <a class="dropdown-item" href="#">Food &amp; Caters</a>-->
+<!--                                  <a class="dropdown-item" href="#">Food &amp; Caterers</a>-->
 <!--                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>-->
 <!--                                </div>-->
                             </div>
@@ -759,8 +759,13 @@ label.valid {
 <!--                          <li><a href="/eventdetails">Event Details</a></li>-->
                           <li><a href="/contactus">Contact Us</a></li>
 
-                          <li><div class="main-white-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#RegistrationModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
+                          <t t-if="uid"><li><a class="account-page" href="/account"><img class="user_image" src="/event_management/static/img/avatar-removebg-preview.png"/><t t-esc="current_user.name"/></a></li></t>
+                            <t t-else="not uid">
+                                <li><div class="main-white-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#LoginModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
+                            </t>
+
                         </ul>
+
                           <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
@@ -836,7 +841,7 @@ label.valid {
                                         <div class="signup-content">
                                             <div class="signup-form">
                         <!--                        <h2 class="form-title">Register here</h2>-->
-                                                <form method="POST" action="user/login" class="register-form" id="register-form">
+                                                <form method="POST" action="/user/login" class="register-form" id="register-form">
 
                                                     <div class="form-group" >
                                                         <label for="email"><i class="zmdi zmdi-email"></i></label>
@@ -848,6 +853,8 @@ label.valid {
                                                     </div>
 
                                                     <div class="form-group form-button">
+                                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
                                                         <input type="submit" name="login" id="login" class="form-submit btn btn-modal login_user" value="Login"/>
                                                     </div>
                                                 </form>
@@ -1015,7 +1022,7 @@ label.valid {
                                 <div>
                                   <div class="thumb">
                                     <span class="icon"><img src="event_management/static/img/food-icon.png" alt=""/></span>
-                                    Food &amp; Caters
+                                    Food &amp; Caterers
                                   </div>
                                 </div>
                                 <div class="last-thumb">
