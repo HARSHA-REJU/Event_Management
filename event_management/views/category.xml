@@ -6,7 +6,7 @@
             <field name="model">artist.artist</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="artist_name" domain="[('customer','=',True)]"/>
+                    <field name="artist_name"/>
                 </tree>
             </field>
         </record>
@@ -18,10 +18,14 @@
                     <sheet>
                         <h1><label for="artist_name"/></h1>
                          <h1 class="mt0">
-                            <field name="artist_name" domain="[('makeup_artist','=',True)]"/>
+                            <field name="artist_name"/>
                         </h1>
+                        <group col="2">
+                            <group><field name="makeup_artist"/></group>
+                            <group><field name="mehndi_artist"/></group>
+                        </group>
                         <group>
-                            <field name="packages_ids" nolabel="1">
+                            <field name="packages_ids" nolabel="1" readonly="True" force_save="1">
 	<kanban class="o_kanban_mobile">
 		<templates>
 			<t t-name="kanban-box">
@@ -66,6 +70,13 @@
                          <h1 class="mt0">
                             <field name="service_name"/>
                         </h1>
+                        <group col="5">
+                            <group><field name="makeup_artist"/></group>
+                            <group><field name="mehndi_artist"/></group>
+                            <group><field name="photographer"/></group>
+                            <group><field name="catering"/></group>
+                            <group><field name="entertainment"/></group>
+                        </group>
                     </sheet>
                 </form>
             </field>
@@ -89,9 +100,16 @@
                          <h1 class="mt0">
                             <field name="name"/>
                         </h1>
+                          <group col="5">
+                            <group><field name="makeup_artist"/></group>
+                            <group><field name="mehndi_artist"/></group>
+                            <group><field name="photographer"/></group>
+                            <group><field name="catering"/></group>
+                            <group><field name="entertainment"/></group>
+                        </group>
                         <group col="2">
                             <group>
-                                <field name="package_by" domain="[('makeup_artist','=',True)]"/>
+                                <field name="package_by"/>
                                 <field name="rate"/>
                                 <field name="package_services_ids" widget="many2many_tags"/>
                             </group>
@@ -113,6 +131,10 @@
                             <field name="artist_name"/>
                         </h1>
                         </div>
+                        <group col="2">
+                            <group><field name="makeup_artist"/></group>
+                            <group><field name="mehndi_artist"/></group>
+                        </group>
 
                         <group col="2">
                         <group>
@@ -138,62 +160,219 @@
             </field>
         </record>
         <record id="makeup_category_action_view" model="ir.actions.act_window">
-            <field name="name">Makeup Category Details</field>
+            <field name="name">Makeup Booking</field>
             <field name="res_model">makeup.artist</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('makeup_artist','=',True)]</field>
+             <field name="context">{'default_makeup_artist': True}</field>
+        </record>
+        <record id="mehndi_category_action_view" model="ir.actions.act_window">
+            <field name="name">Mehndi Booking</field>
+            <field name="res_model">makeup.artist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('mehndi_artist','=',True)]</field>
+             <field name="context">{'default_mehndi_artist': True}</field>
         </record>
         <record id="makeup_category_package_action_view" model="ir.actions.act_window">
             <field name="name">Makeup Packages</field>
             <field name="res_model">makeup.package</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('makeup_artist','=',True)]</field>
+             <field name="context">{'default_makeup_artist': True}</field>
+        </record>
+        <record id="mehndi_category_package_action_view" model="ir.actions.act_window">
+            <field name="name">Mehndi Packages</field>
+            <field name="res_model">makeup.package</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('mehndi_artist','=',True)]</field>
+            <field name="context">{'default_mehndi_artist': True}</field>
+        </record>
+        <record id="photos_category_package_action_view" model="ir.actions.act_window">
+            <field name="name">Photography Packages</field>
+            <field name="res_model">makeup.package</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('photographer','=',True)]</field>
+            <field name="context">{'default_photographer': True}</field>
+        </record>
+        <record id="catering_category_package_action_view" model="ir.actions.act_window">
+            <field name="name">Catering Packages</field>
+            <field name="res_model">makeup.package</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('catering','=',True)]</field>
+            <field name="context">{'default_catering': True}</field>
+        </record>
+        <record id="entertainment_category_package_action_view" model="ir.actions.act_window">
+            <field name="name">Entertainment Packages</field>
+            <field name="res_model">makeup.package</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('entertainment','=',True)]</field>
+            <field name="context">{'default_entertainment': True}</field>
         </record>
         <record id="makeup_category_services_action_view" model="ir.actions.act_window">
-            <field name="name">Services</field>
+            <field name="name">Makeup Services</field>
             <field name="res_model">package.service</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('makeup_artist','=',True)]</field>
+             <field name="context">{'default_makeup_artist': True}</field>
+        </record>
+        <record id="mehndi_category_services_action_view" model="ir.actions.act_window">
+            <field name="name">Mehndi Services</field>
+            <field name="res_model">package.service</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('mehndi_artist','=',True)]</field>
+            <field name="context">{'default_mehndi_artist': True}</field>
+        </record>
+        <record id="photo_category_services_action_view" model="ir.actions.act_window">
+            <field name="name">Photography Services</field>
+            <field name="res_model">package.service</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('photographer','=',True)]</field>
+             <field name="context">{'default_photographer': True}</field>
+        </record>
+        <record id="catering_category_services_action_view" model="ir.actions.act_window">
+            <field name="name">Catering Services</field>
+            <field name="res_model">package.service</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('catering','=',True)]</field>
+             <field name="context">{'default_catering': True}</field>
+        </record>
+        <record id="enetrtainment_category_services_action_view" model="ir.actions.act_window">
+            <field name="name">Entertainment Services</field>
+            <field name="res_model">package.service</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('entertainment','=',True)]</field>
+            <field name="context">{'default_entertainment': True}</field>
         </record>
         <record id="artist_view_form_action" model="ir.actions.act_window">
             <field name="name">Makeup Artists</field>
             <field name="res_model">artist.artist</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('makeup_artist','=',True)]</field>
+             <field name="context">{'default_makeup_artist': True}</field>
         </record>
+        <record id="mehndi_artist_view_form_action" model="ir.actions.act_window">
+            <field name="name">Mehndi Artists</field>
+            <field name="res_model">artist.artist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('mehndi_artist','=',True)]</field>
+             <field name="context">{'default_mehndi_artist': True}</field>
+        </record>
+
 
         <menuitem
                 id="category_root_menu"
-                name="Service Categories"
-                sequence="6"/>
+                name="Services Configuration"
+                sequence="7"/>
+
+            <menuitem
+                    id="mehdi_artist_details_sub_menu1"
+                    name="Mehndi Booking"
+                    parent="event_management.event_management_bookings"
+                    action="mehndi_category_action_view"
+                    sequence="7"/>
             <menuitem
                     id="category_details_sub_menu1"
-                    name="Makeup Artist Booking"
-                    parent="category_root_menu"
+                    name="Makeup Booking"
+                    parent="event_management.event_management_bookings"
                     action="makeup_category_action_view"
-                    sequence="2"/>
+                    sequence="6"/>
             <menuitem
                     id="category_details_sub_menu2"
-                    name="Artists"
+                    name="Makeup Artists"
                     parent="category_root_menu"
                     action="artist_view_form_action"
                     sequence="1"/>
-            <menuitem
-                    id="category_details_sub_menu3"
-                    name="Configuration"
+        <menuitem
+                    id="mehndi_category_details_sub_menu2"
+                    name="Mehndi Artists"
                     parent="category_root_menu"
-                    sequence="3"/>
+                    action="mehndi_artist_view_form_action"
+                    sequence="2"/>
+
                 <menuitem
-                        id="category_details_sub_menu_menu1"
+                        id="category_details_sub_menu_menu3"
                         name="Packages"
-                        parent="category_details_sub_menu3"
+                        parent="category_root_menu" sequence="6"
+                        />
+                   <menuitem
+                        id="package_details_sub_menu_menu2_service1"
+                        name="Makeup Packages"
+                        parent="category_details_sub_menu_menu3"
                         action="makeup_category_package_action_view"
                         sequence="1"/>
+                   <menuitem
+                        id="package_details_sub_menu_menu2_service3"
+                        name="Mehndi Packages"
+                        parent="category_details_sub_menu_menu3"
+                        action="mehndi_category_package_action_view"
+                        sequence="2"/>
+                  <menuitem
+                        id="package_details_sub_menu_menu2_service2"
+                        name="Photography Packages"
+                        parent="category_details_sub_menu_menu3"
+                        action="photos_category_package_action_view"
+                        sequence="3"/>
+                  <menuitem
+                        id="package_details_sub_menu_menu2_service4"
+                        name="Catering Packages"
+                        parent="category_details_sub_menu_menu3"
+                        action="catering_category_package_action_view"
+                        sequence="4"/>
+                  <menuitem
+                        id="package_details_sub_menu_menu2_service5"
+                        name="Entertainment Packages"
+                        parent="category_details_sub_menu_menu3"
+                        action="entertainment_category_package_action_view"
+                        sequence="5"/>
                 <menuitem
                         id="category_details_sub_menu_menu2"
                         name="Services"
-                        parent="category_details_sub_menu3"
+                        parent="category_root_menu" sequence="7"
+                        />
+
+                  <menuitem
+                        id="category_details_sub_menu_menu2_service1"
+                        name="Makeup Services"
+                        parent="category_details_sub_menu_menu2"
                         action="makeup_category_services_action_view"
                         sequence="1"/>
+                  <menuitem
+                        id="category_details_sub_menu_menu2_service3"
+                        name="Mehndi Services"
+                        parent="category_details_sub_menu_menu2"
+                        action="mehndi_category_services_action_view"
+                        sequence="2"/>
+                  <menuitem
+                        id="category_details_sub_menu_menu2_service2"
+                        name="Photography Services"
+                        parent="category_details_sub_menu_menu2"
+                        action="photo_category_services_action_view"
+                        sequence="3"/>
+                  <menuitem
+                        id="category_details_sub_menu_menu2_service4"
+                        name="Catering Services"
+                        parent="category_details_sub_menu_menu2"
+                        action="catering_category_services_action_view"
+                        sequence="4"/>
+                  <menuitem
+                        id="category_details_sub_menu_menu2_service5"
+                        name="Entertainment Services"
+                        parent="category_details_sub_menu_menu2"
+                        action="enetrtainment_category_services_action_view"
+                        sequence="5"/>
     </data>
 </odoo>

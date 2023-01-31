@@ -276,7 +276,8 @@ class EventDetailsPage(http.Controller):
 class MakeupArtistBookingPage(http.Controller):
     @http.route(['/makeupartistbooking'], type='http', auth="public", website=True)
     def makeup_booking_page_controller(self, **args):
-        makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
+        # makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
+        makeup_artists = request.env['artist.artist'].sudo().search([])
         customers = request.env['res.partner'].sudo().search([('customer','=',True)])
         types = request.env['event.management.type'].sudo().search([])
         packages = request.env['makeup.package'].sudo().search([])
@@ -308,6 +309,25 @@ class BookingPage(http.Controller):
         return request.render(
 
         "event_management.booking_page",values)
+
+    @http.route(['/makeupartistbooking/book'], type='http', auth="public", website=True)
+    def makeup_booking_page_submit(self, **args):
+        artist_name  = int(args.get('artist_name'))
+        customer_name = int(args.get('customer_name'))
+        event_type = int(args.get('type_id'))
+        package = int(args.get('package_id'))
+        b_date = args.get('date')
+        price = args.get('price')
+        # price = venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
+        vals = {
+            'artist_name': artist_name,
+            'customer_name': customer_name,
+            'type_of_event_id': event_type,
+            'package': package,
+            'booking_date': b_date,
+            'rate': price,
+        }
+        booking_artist = request.env['makeup.artist'].sudo().create(vals)
 
     @http.route(['/booking/confirm'], type='http', auth="public",website=True)
     def booking_page_submitt(self, **args):

@@ -32,8 +32,10 @@ class ResPartner(models.Model):
     makeup_artist = fields.Boolean(string="Makeup Artist ?")
     mehndi_artist = fields.Boolean(string="Mehndi Artist ?")
     customer = fields.Boolean(string="Customer ?")
+    photographer = fields.Boolean(string="Photographer ?")
+    catering = fields.Boolean(string="Caters ?")
+    entertainment = fields.Boolean(string="Entertainers ?")
     amount = fields.Float()
-
     venue = fields.Boolean()
 
     property_account_payable_id = fields.Many2one('account.account', company_dependent=True,

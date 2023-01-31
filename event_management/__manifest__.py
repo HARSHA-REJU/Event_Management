@@ -19,6 +19,9 @@
              'views/event_management_view.xml',
              'views/dashboard.xml',
              'views/category.xml',
+             'views/photographers.xml',
+             'views/catering.xml',
+             'views/entertainment.xml',
 
              'views/hide_menu.xml',
              'data/email_template.xml',

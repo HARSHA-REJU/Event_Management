@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="cater_name_view_tree" model="ir.ui.view">
+            <field name="name">Catering</field>
+            <field name="model">cater.cater</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="cater_name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="catering_name_view_form" model="ir.ui.view">
+            <field name="name">Catering</field>
+            <field name="model">cater.cater</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1><label for="cater_name"/></h1>
+                         <h1 class="mt0">
+                            <field name="cater_name" domain="[('catering','=',True)]"/>
+                        </h1>
+                        <group>
+                            <field name="packages_ids" nolabel="1" readonly="True" force_save="1">
+	<kanban class="o_kanban_mobile">
+		<templates>
+			<t t-name="kanban-box">
+				<div t-attf-class="oe_kanban_global_click">
+					<div class="oe_kanban_details">
+						<div class="o_kanban_record_top">
+							<div class="o_kanban_record_headings">
+								<strong class="o_kanban_record_title"><field name="name"/></strong>
+							</div>
+						</div>
+
+						<b>Price: </b><field name="rate"/><br/>
+						<b>Catering: </b> <field name="package_by"/><br/>
+						<b>Services:</b> <field name="package_services_ids" widget="many2many_tags"/><br/>
+					</div>
+				</div>
+			</t>
+		</templates>
+	</kanban>
+</field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="catering_booking_view_form" model="ir.ui.view">
+            <field name="name">Catering Booking</field>
+            <field name="model">book.cater</field>
+            <field name="arch" type="xml">
+                 <form>
+                    <sheet>
+                        <div>
+                            <h1><label for="artist_name"/></h1>
+                         <h1 class="mt0">
+                            <field name="artist_name" />
+                        </h1>
+                        </div>
+
+                        <group col="2">
+                        <group>
+                            <field name="customer_name" domain="[('customer','=',True)]"/>
+                            <field name="date"/>
+                            <field name="booking_date"/>
+                            <field name="type_of_event_id"/>
+                        </group>
+                        <group>
+                            <field name="package"/>
+                            <field name="number_of_plate"/>
+                            <field name="rate"/>
+                            <field name="total"/>
+                        </group>
+                        </group>
+                        <group>
+                            <field name="service_id" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record id="catering_view_form_action" model="ir.actions.act_window">
+            <field name="name">Caters</field>
+            <field name="res_model">cater.cater</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="catering_book_view_form_action" model="ir.actions.act_window">
+            <field name="name">Catering Booking</field>
+            <field name="res_model">book.cater</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem
+                    id="catering_details_sub_menu2"
+                    name="Caters"
+                    parent="event_management.category_root_menu"
+                    action="catering_view_form_action"
+                    sequence="4"/>
+         <menuitem
+                    id="catering_artist_details_sub_menu1"
+                    name="Catering Booking"
+                    parent="event_management.event_management_bookings"
+                    action="catering_book_view_form_action"
+                    sequence="9"/>
+    </data>
+</odoo>
