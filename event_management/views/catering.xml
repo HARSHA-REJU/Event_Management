@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <record id="photography_name_view_tree" model="ir.ui.view">
-            <field name="name">Photography</field>
-            <field name="model">photographer.photographer</field>
+        <record id="cater_name_view_tree" model="ir.ui.view">
+            <field name="name">Catering</field>
+            <field name="model">cater.cater</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="photography_name"/>
+                    <field name="cater_name"/>
                 </tree>
             </field>
         </record>
-        <record id="photography_name_view_form" model="ir.ui.view">
-            <field name="name">Photography</field>
-            <field name="model">photographer.photographer</field>
+        <record id="catering_name_view_form" model="ir.ui.view">
+            <field name="name">Catering</field>
+            <field name="model">cater.cater</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <h1><label for="photography_name"/></h1>
+                        <h1><label for="cater_name"/></h1>
                          <h1 class="mt0">
-                            <field name="photography_name" domain="[('photographer','=',True)]"/>
+                            <field name="cater_name" domain="[('catering','=',True)]"/>
                         </h1>
                         <group>
                             <field name="packages_ids" nolabel="1" readonly="True" force_save="1">
@@ -34,7 +34,7 @@
 						</div>
 
 						<b>Price: </b><field name="rate"/><br/>
-						<b>Photography: </b> <field name="package_by"/><br/>
+						<b>Catering: </b> <field name="package_by"/><br/>
 						<b>Services:</b> <field name="package_services_ids" widget="many2many_tags"/><br/>
 					</div>
 				</div>
@@ -49,9 +49,9 @@
         </record>
 
 
-        <record id="photography_booking_view_form" model="ir.ui.view">
-            <field name="name">Photography Booking</field>
-            <field name="model">book.photography</field>
+        <record id="catering_booking_view_form" model="ir.ui.view">
+            <field name="name">Catering Booking</field>
+            <field name="model">book.cater</field>
             <field name="arch" type="xml">
                  <form>
                     <sheet>
@@ -67,13 +67,13 @@
                             <field name="customer_name" domain="[('customer','=',True)]"/>
                             <field name="date"/>
                             <field name="booking_date"/>
-
+                            <field name="type_of_event_id"/>
                         </group>
                         <group>
-                            <field name="type_of_event_id"/>
                             <field name="package"/>
+                            <field name="number_of_plate"/>
                             <field name="rate"/>
-
+                            <field name="total"/>
                         </group>
                         </group>
                         <group>
@@ -87,29 +87,29 @@
 
 
 
-        <record id="photography_view_form_action" model="ir.actions.act_window">
-            <field name="name">Photography</field>
-            <field name="res_model">photographer.photographer</field>
+        <record id="catering_view_form_action" model="ir.actions.act_window">
+            <field name="name">Caters</field>
+            <field name="res_model">cater.cater</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
         </record>
-        <record id="photography_book_view_form_action" model="ir.actions.act_window">
-            <field name="name">Photography Booking</field>
-            <field name="res_model">book.photography</field>
+        <record id="catering_book_view_form_action" model="ir.actions.act_window">
+            <field name="name">Catering Booking</field>
+            <field name="res_model">book.cater</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
         </record>
         <menuitem
-                    id="photographer_details_sub_menu2"
-                    name="Photographers"
+                    id="catering_details_sub_menu2"
+                    name="Caters"
                     parent="event_management.category_root_menu"
-                    action="photography_view_form_action"
-                    sequence="3"/>
+                    action="catering_view_form_action"
+                    sequence="4"/>
          <menuitem
-                    id="photography_artist_details_sub_menu1"
-                    name="Photography Booking"
+                    id="catering_artist_details_sub_menu1"
+                    name="Catering Booking"
                     parent="event_management.event_management_bookings"
-                    action="photography_book_view_form_action"
-                    sequence="8"/>
+                    action="catering_book_view_form_action"
+                    sequence="9"/>
     </data>
 </odoo>

@@ -4,36 +4,38 @@ from ast import literal_eval
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 
-class PhotographyNames(models.Model):
-    _name = 'photographer.photographer'
-    _rec_name = 'photography_name'
+class CatersNames(models.Model):
+    _name = 'cater.cater'
+    _rec_name = 'cater_name'
 
-    photography_name = fields.Many2one('res.partner', 'Name')
+    cater_name = fields.Many2one('res.partner', 'Cater Name')
     packages_ids = fields.Many2many('makeup.package', string='Package')
 
-    @api.onchange('photography_name')
+    @api.onchange('cater_name')
     def onchange_package_id(self):
-        package_ids = self.env['makeup.package'].search([('package_by','=',self.photography_name.id)])
+        package_ids = self.env['makeup.package'].search([('package_by','=',self.cater_name.id)])
         self.packages_ids = package_ids
 
-class BookPhotography(models.Model):
-    _name = 'book.photography'
+class BookCaters(models.Model):
+    _name = 'book.cater'
     _rec_name = 'artist_name'
 
-    artist_name = fields.Many2one('photographer.photographer', string='Photography Name',required=True)
+    artist_name = fields.Many2one('cater.cater', string='Cater Name',required=True)
     customer_name = fields.Many2one('res.partner', string='Customer Name',required=True)
     package = fields.Many2one('makeup.package', string='Package',required=True)
+    number_of_plate = fields.Integer('Serving For(Nos)',required=True)
     booking_date = fields.Date('Booking Date',required=True)
     date_from = fields.Date('Date From')
     date_to = fields.Date('Date To')
     date = fields.Date('Date')
-    rate = fields.Float('package Rate')
+    rate = fields.Float('Rate/Plate')
+    total = fields.Float('Total Amount')
     # service_ids = fields.Many2one('package.services', 'Services')
-    service_id = fields.Many2many('package.service', string='Services')
+    service_id = fields.Many2many('package.service', string='Dishes')
     # subject_ids = fields.Many2many('package.service',)
     type_of_event_id = fields.Many2one('event.management.type', string="Event Type",
                                        required=True)
-    compute_field = fields.Char(compute="_compute_artist_type")
+    compute_field = fields.Char(compute="_compute_total_rate")
 
 
 
@@ -46,4 +48,8 @@ class BookPhotography(models.Model):
         self.rate = self.package.rate
         self.service_id = self.package.package_services_ids
 
+    @api.onchange('rate', 'number_of_plate','total')
+    def _compute_total_rate(self):
+        for rec in self:
+            rec.total = rec.rate * rec.number_of_plate
 

@@ -41,6 +41,8 @@
                     <field name="mehndi_artist"/>
                     <field name="customer"/>
                     <field name="photographer"/>
+                    <field name="catering"/>
+                    <field name="entertainment"/>
                     <field name="amount" string="Auditorium Rent"/>
                 </xpath>
                 <xpath expr="//field[@name='vat']" position="attributes">

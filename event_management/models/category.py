@@ -14,11 +14,25 @@ class MakeupArtistNames(models.Model):
     packages_ids = fields.Many2many('makeup.package', string='Package')
     makeup_artist = fields.Boolean(string="Makeup Artist ?")
     mehndi_artist = fields.Boolean(string="Mehndi Artist ?")
+    compute_field = fields.Char(compute="_compute_artist_type")
 
     @api.onchange('artist_name')
     def onchange_package_id(self):
         package_ids = self.env['makeup.package'].search([('package_by','=',self.artist_name.id)])
         self.packages_ids = package_ids
+        # return {'domain': {'packages_ids': [('id', '=', package_ids.ids)]}}
+
+    @api.onchange('makeup_artist','mehndi_artist')
+    def _compute_artist_type(self):
+        for rec in self:
+            if rec.makeup_artist == True:
+                partner_id = self.env['res.partner'].search([('makeup_artist','=',True)])
+                return {'domain': {'artist_name': [('id', '=', partner_id.ids)]}}
+            else:
+                if rec.mehndi_artist == True:
+                    partner_id = self.env['res.partner'].search([('mehndi_artist','=',True)])
+                    return {'domain': {'artist_name': [('id', '=', partner_id.ids)]}}
+
 
 class MakeupPackages(models.Model):
     _name = 'makeup.package'
@@ -35,9 +49,32 @@ class MakeupPackages(models.Model):
     makeup_artist = fields.Boolean(string="Makeup Package ?")
     mehndi_artist = fields.Boolean(string="Mehndi Package ?")
     photographer = fields.Boolean(string="Photography Packages ?")
+    catering = fields.Boolean(string="Catering Package ?")
+    entertainment = fields.Boolean(string="Entertainment Package ?")
+    compute_field = fields.Char(compute="_compute_artist_type")
 
+    @api.onchange('makeup_artist', 'mehndi_artist','photographer','catering','entertainment')
+    def _compute_artist_type(self):
+        for rec in self:
+            if rec.makeup_artist == True:
+                partner_id = self.env['res.partner'].search([('makeup_artist', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
 
+            if rec.mehndi_artist == True:
+                partner_id = self.env['res.partner'].search([('mehndi_artist', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
 
+            if rec.photographer == True:
+                partner_id = self.env['res.partner'].search([('photographer', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
+
+            if rec.catering == True:
+                partner_id = self.env['res.partner'].search([('catering', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
+
+            if rec.entertainment == True:
+                partner_id = self.env['res.partner'].search([('entertainment', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
 
 
 
@@ -60,12 +97,25 @@ class BookMakeupArtist(models.Model):
                                        required=True)
     makeup_artist = fields.Boolean(string="Makeup Artist booking?")
     mehndi_artist = fields.Boolean(string="Mehndi Artist booking ?")
+    compute_field = fields.Char(compute="_compute_artist_type")
+
+
 
     @api.onchange('artist_name')
     def onchange_pack_id(self):
-        return {'domain': {'package': [('id', 'in', self.artist_name.packages_ids.ids)]}}
+        partner_id = self.env['makeup.package'].search([('package_by', '=', self.artist_name.artist_name.id)])
+        return {'domain': {'package': [('id', '=', partner_id.ids)]}}
 
-
+    @api.onchange('makeup_artist', 'mehndi_artist')
+    def _compute_artist_type(self):
+        for rec in self:
+            if rec.makeup_artist == True:
+                partner_id = self.env['artist.artist'].search([('makeup_artist', '=', True)])
+                return {'domain': {'artist_name': [('id', '=', partner_id.ids)]}}
+            else:
+                if rec.mehndi_artist == True:
+                    partner_id = self.env['artist.artist'].search([('mehndi_artist', '=', True)])
+                    return {'domain': {'artist_name': [('id', '=', partner_id.ids)]}}
 
 
     @api.onchange('package')
@@ -84,4 +134,6 @@ class PackageServices(models.Model):
     makeup_artist = fields.Boolean(string="Makeup Service ?")
     mehndi_artist = fields.Boolean(string="Mehndi Service ?")
     photographer = fields.Boolean(string="Photography Service ?")
+    catering = fields.Boolean(string="Catering Service ?")
+    entertainment = fields.Boolean(string="Entertainment Service ?")
 

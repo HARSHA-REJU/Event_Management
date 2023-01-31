@@ -5,3 +5,5 @@ from . import customer_enquiry_details
 from . import res_partner
 from . import category
 from . import photographers
+from . import catering
+from . import entertainment
