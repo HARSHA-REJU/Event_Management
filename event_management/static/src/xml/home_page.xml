@@ -743,7 +743,8 @@ label.valid {
 <!--                          <li><a href="#">Services</a></li>-->
                           <li><a href="/venuelist">Venues</a></li>
 <!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
-                          <li><a href="/booking">Booking</a></li>
+                            <t t-if="uid"><li><a href="/booking">Booking</a></li></t>
+                            <t t-if="not uid"><li><a data-bs-toggle="modal" data-bs-target="#LoginModal" href="/booking">Booking</a></li></t>
 <!--                          <li><a href="/booking">Booking</a></li>-->
 <!--                            <li>-->
 <!--                            <div class="col-md-12 dropdown show">-->
@@ -751,19 +752,31 @@ label.valid {
 <!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
 <!--                                  <a class="dropdown-item" href="/makeup">Auditorium Booking</a>-->
 <!--                                  <a class="dropdown-item" href="#">Event Management Booking</a>-->
-<!--                                </div>-->
+<!--                              </div>-->
 <!--                            </div>-->
 <!--                          </li>-->
 
                           <li><a href="/eventdetails">Gallery</a></li>
 <!--                          <li><a href="/eventdetails">Event Details</a></li>-->
                           <li><a href="/contactus">Contact Us</a></li>
+                          <t t-if="uid">
+                              <li>
+                                  <div class="col-md-12 dropdown show">
+                                      <a class="account-page" href="#">
+                                          <img class="user_image" src="/event_management/static/img/avatar-removebg-preview.png"/>
+                                          <t t-esc="current_user.name"/>
+                                      </a>
+                                      <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                          <a class="dropdown-item" href="/account">Booking Summary</a>
+                                          <a class="dropdown-item" href="/logout">Logout</a>
+                                      </div>
 
-                          <t t-if="uid"><li><a class="account-page" href="/account"><img class="user_image" src="/event_management/static/img/avatar-removebg-preview.png"/><t t-esc="current_user.name"/></a></li></t>
+                                  </div>
+                              </li>
+                          </t>
                             <t t-else="not uid">
-                                <li><div class="main-white-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#LoginModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
+                                <li><div class="main-white-button modal-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#LoginModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
                             </t>
-
                         </ul>
 
                           <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

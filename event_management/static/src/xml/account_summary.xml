@@ -726,21 +726,38 @@ label.valid {
 <!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
 <!--                                  <a class="dropdown-item" href="/makeup">Auditorium Booking</a>-->
 <!--                                  <a class="dropdown-item" href="#">Event Management Booking</a>-->
-<!--                                </div>-->
+<!--                              </div>-->
 <!--                            </div>-->
 <!--                          </li>-->
 
                           <li><a href="/eventdetails">Gallery</a></li>
 <!--                          <li><a href="/eventdetails">Event Details</a></li>-->
                           <li><a href="/contactus">Contact Us</a></li>
+                          <t t-if="uid">
+                              <li>
+                                  <div class="col-md-12 dropdown show">
+                                      <a class="account-page" href="#">
+                                          <img class="user_image" src="/event_management/static/img/avatar-removebg-preview.png"/>
+                                          <t t-esc="current_user.name"/>
+                                      </a>
+                                      <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                          <a class="dropdown-item" href="/account">Booking Summary</a>
+                                          <a class="dropdown-item" href="/logout">Logout</a>
+                                      </div>
 
-                          <li><div class="main-white-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#RegistrationModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
+                                  </div>
+                              </li>
+                          </t>
+                            <t t-else="not uid">
+                                <li><div class="main-white-button modal-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#LoginModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
+                            </t>
                         </ul>
+
                           <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Register here</h5>
+<!--                                    <h5 class="modal-title" id="exampleModalLabel">Register here</h5>-->
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                   </div>
                                   <div class="modal-body">
@@ -766,14 +783,15 @@ label.valid {
                                                             <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                                             <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
                                                         </div>
-                                                        <div>
+                                                        <div class="form-group agree-term">
+
         <!--                                                        <input style="color:white;" type="checkbox" name="option1" id="option1" value="auditorium"/><span>Auditorium</span>-->
-                                                            <input type="checkbox" name="agree-term" value="agree-term" id="agree-term" required="1"/><span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></span>
-        <!--                                                        <label for="agree-term" class="label-agree-term"><span><span></span></span></label>-->
+                                                            <input type="checkbox" name="agree" value="agree" id="agree" required="1"/>I agree all statements in  <a href="#" class="term-service">Terms of service</a>
+<!--                                                                <label for="agree" class="agree-term">-->
                                                         </div>
                                                         <div class="form-group form-button">
                                                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                                                            <input type="submit" name="signup" id="signup" class="form-submit btn btn-primary" value="Register"/>
+                                                            <input type="submit" name="signup" id="signup" class="form-submit btn btn-modal" value="Register"/>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -790,7 +808,7 @@ label.valid {
                                   </div>
                                   <div class="modal-footer">
 <!--                                      <a href="#" class="signup-image-link">I am already member</a>-->
-                                      I am already member<button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>
+                                      I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>
     <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
     <!--                                <button type="button" class="btn btn-primary">Register</button>-->
                                   </div>
@@ -801,7 +819,7 @@ label.valid {
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Login here !</h5>
+<!--                                <h5 class="modal-title" id="exampleModalLabel">Login here !</h5>-->
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
@@ -810,7 +828,7 @@ label.valid {
                                         <div class="signup-content">
                                             <div class="signup-form">
                         <!--                        <h2 class="form-title">Register here</h2>-->
-                                                <form method="POST" action="user/login" class="register-form" id="register-form">
+                                                <form method="POST" action="/user/login" class="register-form" id="register-form">
 
                                                     <div class="form-group" >
                                                         <label for="email"><i class="zmdi zmdi-email"></i></label>
@@ -822,7 +840,9 @@ label.valid {
                                                     </div>
 
                                                     <div class="form-group form-button">
-                                                        <input type="submit" name="login" id="login" class="form-submit" value="Login"/>
+                                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                                        <input type="submit" name="login" id="login" class="form-submit btn btn-modal login_user" value="Login"/>
                                                     </div>
                                                 </form>
                                             </div>
@@ -838,7 +858,7 @@ label.valid {
                               <div class="modal-footer">
 <!--                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>-->
 <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-                                Not a Member ? <button type="button" class="btn btn-primary register-btn"> Register</button>
+                                Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>
                               </div>
                             </div>
                           </div>
@@ -862,9 +882,11 @@ label.valid {
                       <div class="col-lg-6">
                         <div class="top-text header-text">
                             <h2>Venue Bookings</h2>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table table-sm">
+
+
+                        </div>
+                      </div>
+                                                            <table class="table table-bordered account-summary">
                                         <thead>
                                             <tr>
                                                 <th>SN</th>
@@ -872,11 +894,12 @@ label.valid {
                                                 <th>Auditorium Name</th>
                                                 <th>Event Type</th>
                                                 <th>Booking Date</th>
+                                                <th>Event Date</th>
                                                 <th>Booking Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <t t-set="sl_no" t-value="0" />
+                                            <t t-set="sl_no" t-value="1" />
                                             <t t-foreach="venue_bookings" t-as="record">
                                                 <tr>
                                                     <td >
@@ -886,16 +909,14 @@ label.valid {
                                                     <td><span t-esc="record.ref"/></td>
                                                     <td><span t-esc="record.venue_id.name"/></td>
                                                     <td><span t-esc="record.type_of_event_id.name"/></td>
+                                                    <td><span t-esc="record.date"/></td>
                                                     <td><span t-esc="record.event_date"/></td>
                                                     <td><span t-esc="record.state"/></td>
                                                 </tr>
                                             </t>
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
+
                     </div>
                     <div class="row">
                       <div class="col-lg-6">
@@ -903,11 +924,133 @@ label.valid {
                             <h2>Enquiries</h2>
                         </div>
                       </div>
+                        <table class="table table-bordered account-summary">
+                                        <thead>
+                                            <tr>
+                                                <th>SN</th>
+                                                <th>Reference</th>
+                                                <th>Booking Date</th>
+                                                <th>Event Date</th>
+                                                <th>District</th>
+                                                <th>Event Type</th>
+                                                <th>Services Selected</th>
+                                                <th>Enquiry Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="sl_no" t-value="1" />
+                                            <t t-foreach="enquiries" t-as="record">
+                                                <tr>
+                                                    <td><span t-esc="sl_no"/><t t-set="sl_no" t-value="sl_no+1"/></td>
+                                                    <td><span t-esc="record.reference"/></td>
+                                                    <td><span t-esc="record.date"/></td>
+                                                    <td><span t-esc="record.event_date"/></td>
+                                                    <td><span t-esc="record.district_id.name"/></td>
+                                                    <td><span t-esc="record.type_of_event_id.name"/></td>
+                                                    <td><t t-if="record.auditorium">Auditorium</t>
+                                                        <t t-if="record.makeup">,Makeup</t>
+                                                        <t t-if="record.catering">,Food &amp; Caterers</t>
+                                                        <t t-if="record.photography">,Photo &amp; Video</t>
+                                                        <t t-if="record.entertainment">,Entertainment</t>
+                                                        <t t-if="record.decoration">,Decoration</t>
+                                                    </td>
+                                                    <td><span t-esc="record.state"/></td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+
                     </div>
                   </div>
                 </div>
 
 
+              <footer>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-1">
+                      <div class="about">
+                        <div class="logo">
+                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="helpful-links">
+                        <h4>Helpful Links</h4>
+                        <div class="row">
+                          <div class="col-lg-6 col-sm-6">
+                            <ul>
+                              <li><a href="/">Home</a></li>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="/contactus">Contact Us</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-6">
+                            <ul>
+                              <li><a href="#">About Us</a></li>
+                              <li><a href="#">Gallery</a></li>
+                              <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <h4>Contact Us</h4>
+                        <div class="row">
+                            <div class="col-lg-6 contact-us">
+                                <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <a>Phone: +91 6282842112</a><br/>
+                                  <a>Email: info@fortunaevent.com</a>
+                              </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="sub-footer">
+                        <p>Copyright © 2021 FORTUNA EVENTS, Ltd. All Rights Reserved.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <script>
+                      $('.dropdown > a#menu_service_div_id').on('click', function(e){
+                        e.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: $(".popular-categories").offset().top - 160
+                        }, 300)
+                    })
+
+                    $('.login_btn').on('click', function(){
+                        $('#RegistrationModal').modal('toggle')
+                        $('#LoginModal').modal('toggle')
+                    })
+
+                    $('.register-btn').on('click', function(){
+                        $('#LoginModal').modal('toggle')
+                        $('#RegistrationModal').modal('toggle')
+                      })
+
+<!--                       function customFunction() {-->
+<!--                      alert('Thanks for Registering..!');-->
+<!--                       window.location.href = "/signup";-->
+<!--                      }-->
+<!--&lt;!&ndash;               function customFunction() {&ndash;&gt;-->
+<!--&lt;!&ndash;                      alert('Thanks for your booking..!');&ndash;&gt;-->
+<!--&lt;!&ndash;                    window.location.href = "/booking/confirm";&ndash;&gt;-->
+<!--&lt;!&ndash;                      }&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    $('.form-btn').on('click', function(){&ndash;&gt;-->
+<!--&lt;!&ndash;                      customFunction();&ndash;&gt;-->
+<!--&lt;!&ndash;})&ndash;&gt;-->
+<!--                      $('#signup').on('click', function(){-->
+<!--                       customFunction();-->
+<!--                    })-->
+                  </script>
+              </footer>
 
             </body>
           </html>

@@ -854,6 +854,10 @@ Banner Style
       background-color: #d1ac64;
 
 }
+a:hover.account-page {
+    background-color: #d1ac64 !important;
+}
+
 .main-banner ul.categories span.icon img {
  filter: invert(1);
 }
@@ -1421,11 +1425,32 @@ Page Heading
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(/event_management/static/img/heading-bg.jpg);
-  padding: 230px 0px 120px 0px;
+  background:#783681;
+  /* background-image: url(/event_management/static/img/heading-bg.jpg); */
+
+  padding: 210px 0px 120px 0px;
   position: relative;
   overflow: hidden;
 }
+
+.page-heading:before {
+ opacity: 0.5;
+}
+/*
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+
+    z-index: 0;
+
+*/
 
 .page-heading .top-text {
   text-align: left;
@@ -2164,3 +2189,31 @@ responsive
     width:50px;
     overflow: hidden;
  }
+
+table.account-summary {
+    color: #f2eef3;
+    border-color: #d1ac64;;
+
+}
+
+#booking.section-center.container.row.booking-form>form {
+    padding: 30px;
+    border: 1px solid #f9fafc;
+    border-left: 0px;
+}
+
+.section-title {
+    font-weight: bold;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    }
+
+    hr.rounded {
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
