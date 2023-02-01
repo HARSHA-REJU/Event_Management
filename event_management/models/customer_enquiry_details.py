@@ -139,6 +139,52 @@ class CustomerEnquiryDetails(models.Model):
         """Button action to confirm"""
         self.state = "cancel"
 
+    def action_makeup(self):
+
+        return {
+            'name': _('Makeup Booking Form'),
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_model': 'makeup.artist',
+            'type': 'ir.actions.act_window',
+            # 'res_id': event_id.id,
+            'target': 'current',
+        }
+    def action_decoration(self):
+        pass
+    def action_photography(self):
+
+        return {
+            'name': _('Photography Booking Form'),
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_model': 'book.photography',
+            'type': 'ir.actions.act_window',
+            # 'res_id': event_id.id,
+            'target': 'current',
+        }
+    def action_entertainment(self):
+
+        return {
+            'name': _('Entertainment Booking Form'),
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_model': 'book.entertainer',
+            'type': 'ir.actions.act_window',
+            # 'res_id': event_id.id,
+            'target': 'current',
+        }
+    def action_catering(self):
+
+        return {
+            'name': _('Catering Booking Form'),
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_model': 'book.cater',
+            'type': 'ir.actions.act_window',
+            # 'res_id': event_id.id,
+            'target': 'current',
+        }
     def action_create_event(self):
 
         venue_obj_id = self.env['res.partner'].browse(self.venue_id.id)

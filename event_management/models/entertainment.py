@@ -29,7 +29,7 @@ class BookEntertainers(models.Model):
     date = fields.Date('Date')
     rate = fields.Float('Rate')
     # service_ids = fields.Many2one('package.services', 'Services')
-    service_id = fields.Many2many('package.service', string='Dishes')
+    service_id = fields.Many2many('package.service', string='Entertainmets Offered')
     # subject_ids = fields.Many2many('package.service',)
     type_of_event_id = fields.Many2one('event.management.type', string="Event Type",
                                        required=True)

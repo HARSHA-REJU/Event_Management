@@ -82,7 +82,7 @@
                                 <field name="type_of_event_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="district_id" required="1" options="{'no_create': True, 'no_create_edit':True}" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="place_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+<!--                                <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
                                 <field name="partner_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                             </group>
                             <group>
@@ -98,48 +98,69 @@
                             </group>
                         </group>
                         <notebook>
-                            <page string="Facility and Services">
-                                <field name="facilities_ids2">
-                                    <tree editable="bottom">
-                                        <field name="product_id" string="Service Name"/>
-                                        <field name="price" string="Price"/>
-                                        <field name="quantity" string="Nos"/>
-                                        <field name="total" string="Total" sum="Total Amount"/>
-                                    </tree>
-                                </field>
+                            <page string = "Venue and Services">
+                                <group string="Select Auditorium" col="2">
+                                    <group>
+                                        <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+
+                                    </group>
+                                    <group><field name="rent"/></group>
+                                </group>
+                                <group string="Makeup Artist and Packages" col="2">
+                                    <group>
+                                        <field name="makeup_id" domain="[('makeup_artist','=',True)]"/>
+                                        <field name="package_id"/>
+                                    </group>
+                                    <group><field name="makeup_rate"/></group>
+                                </group>
+                                <group string="Mehndi Artist and Packages" col="2">
+                                    <group>
+                                        <field name="mehndi_id" domain="[('mehndi_artist','=',True)]"/>
+                                        <field name="mehndi_package_id"/>
+                                    </group>
+                                    <group><field name="mehndi_rate"/></group>
+                                </group>
+                                <group string="Photography and Packages" col="2">
+                                    <group>
+                                        <field name="photography_id"/>
+                                        <field name="photography_package_id"/>
+                                    </group>
+                                    <group><field name="photography_rate"/></group>
+                                </group>
+                                <group string="Food and Caterers" col="2">
+                                    <group>
+                                        <field name="caterers_id"/>
+                                        <field name="catering_package_id"/>
+                                        <field name="catering_rate"/>
+                                        <field name="no_people"/>
+                                    </group>
+                                    <group><field name="total_amt"/></group>
+                                </group>
+                                <group string="Entertainers" col="2">
+                                    <group>
+                                        <field name="entert_id"/>
+                                        <field name="entert_package_id"/>
+                                    </group>
+                                    <group><field name="entert_rate"/></group>
+                                </group>
+                                <group col="2">
+                                    <group></group>
+                                    <group>
+                                        <field name="grand_total"/>
+                                    </group>
+                                </group>
+
                             </page>
-<!--                            <page string="Service Lines">-->
-<!--                                <field name="service_line_ids" mode="tree" attrs="{'readonly': [('state', 'not in', ['draft'])]}">-->
-<!--                                    <form string="Service Lines Form">-->
-<!--                                        <group>-->
-<!--                                            <group>-->
-<!--                                                <field name="service"/>-->
-<!--                                                <field name="date_from"/>-->
-<!--                                                <field name="date_to"/>-->
-<!--                                                <field name="amount"/>-->
-<!--                                            </group>-->
-<!--                                        </group>-->
-<!--                                    </form>-->
-<!--                                    <tree string="Service Lines Tree" editable="bottom">-->
-<!--                                        <field name="service" class="oe_inline"/>-->
-<!--                                        <field name="date_from"/>-->
-<!--                                        <field name="date_to"/>-->
-<!--&lt;!&ndash;                                        <field name="state" invisible="1"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="invoiced" invisible="1"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="currency_id" invisible="1"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="related_product_id" invisible="1"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="invoiced" invisible="1"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>&ndash;&gt;-->
+
+<!--                            <page string="Facility and Services">-->
+<!--                                <field name="facilities_ids2">-->
+<!--                                    <tree editable="bottom">-->
+<!--                                        <field name="product_id" string="Service Name"/>-->
+<!--                                        <field name="price" string="Price"/>-->
+<!--                                        <field name="quantity" string="Nos"/>-->
+<!--                                        <field name="total" string="Total" sum="Total Amount"/>-->
 <!--                                    </tree>-->
 <!--                                </field>-->
-<!--                                <group class="oe_subtotal_footer oe_right" colspan="2" name="event_total">-->
-<!--                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">-->
-<!--                                        <label for="price_subtotal"/>-->
-<!--                                    </div>-->
-<!--                                    <field name="price_subtotal" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
-<!--                                </group>-->
-<!--                                <field name="note" class="oe_inline" placeholder="Setup default terms and conditions in your company settings." attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
-<!--                                <div class="oe_clear"/>-->
 <!--                            </page>-->
                         </notebook>
                     </sheet>

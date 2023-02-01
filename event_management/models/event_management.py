@@ -5,20 +5,22 @@ from ast import literal_eval
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 
+
 class FacilitiesEvent(models.Model):
     _name = 'facility.event'
 
     product_id = fields.Many2one('product.product', string="Facility")
     facility_id2 = fields.Many2one('event.management', string="Facility")
     price = fields.Float('Price')
-    quantity = fields.Float('Nos',default= 1)
-    total = fields.Float('Total',compute="_compute_total")
+    quantity = fields.Float('Nos', default=1)
+    total = fields.Float('Total', compute="_compute_total")
 
     @api.depends("total", "price", "quantity")
     def _compute_total(self):
         for rec in self:
             print("inside compute")
             rec.total = rec.price * rec.quantity
+
 
 class EventManagement(models.Model):
     """Model for managing Event Management"""
@@ -28,7 +30,88 @@ class EventManagement(models.Model):
     ref = fields.Char(string='Ref', readonly=True)
     type_of_event_id = fields.Many2one('event.management.type', string="Type",
                                        required=True)
-    venue_id = fields.Many2one('res.partner', domain=[('venue','=',True)], string="Venue", required=True)
+    venue_id = fields.Many2one('res.partner', domain=[('venue', '=', True)], string="Venue", required=True)
+    rent = fields.Float('Amount')
+    makeup_id = fields.Many2one('artist.artist', string="Makeup Arist")
+    package_id = fields.Many2one('makeup.package', string="Package")
+    makeup_rate = fields.Float('Amount')
+    mehndi_id = fields.Many2one('artist.artist', string="Mehndi Arist")
+    mehndi_package_id = fields.Many2one('makeup.package', string="Package")
+    mehndi_rate = fields.Float('Amount')
+    photography_id = fields.Many2one('photographer.photographer', string="Photography")
+    photography_package_id = fields.Many2one('makeup.package', string="Package")
+    photography_rate = fields.Float('Amount')
+    caterers_id = fields.Many2one('cater.cater', string="Caterers Name")
+    catering_package_id = fields.Many2one('makeup.package', string="Package")
+    catering_rate = fields.Float('Rate/Plate')
+    no_people = fields.Integer('Serving For(Nos)')
+    total_amt = fields.Float('Amount')
+    entert_id = fields.Many2one('entertainer.entertainer', string="Entertainer")
+    entert_package_id = fields.Many2one('makeup.package', string="Package")
+    entert_rate = fields.Float('Amount')
+    grand_total = fields.Float('Grand Total')
+    compute_field = fields.Char(compute="_compute_total_rate")
+    compute_field2 = fields.Char(compute="_compute_grand_rate")
+
+    @api.onchange('makeup_id')
+    def onchange_packages_id(self):
+        partner_id = self.env['makeup.package'].search([('package_by', '=', self.makeup_id.artist_name.id)])
+        return {'domain': {'package_id': [('id', '=', partner_id.ids)]}}
+
+    @api.onchange('package_id')
+    def onchange_pack_id(self):
+        for rec in self:
+            rec.makeup_rate = rec.package_id.rate
+
+    @api.onchange('mehndi_id')
+    def onchange_mehndi_id(self):
+        partner_id = self.env['makeup.package'].search([('package_by', '=', self.mehndi_id.artist_name.id)])
+        return {'domain': {'mehndi_package_id': [('id', '=', partner_id.ids)]}}
+
+    @api.onchange('mehndi_package_id')
+    def onchange_meh_id(self):
+        for rec in self:
+            rec.mehndi_rate = rec.mehndi_package_id.rate
+
+    @api.onchange('photography_id')
+    def onchange_photo_id(self):
+        partner_id = self.env['makeup.package'].search([('package_by', '=', self.photography_id.photography_name.id)])
+        return {'domain': {'photography_package_id': [('id', '=', partner_id.ids)]}}
+
+    @api.onchange('photography_package_id')
+    def onchange_photography_id(self):
+        for rec in self:
+            rec.photography_rate = rec.photography_package_id.rate
+
+    @api.onchange('caterers_id')
+    def onchange_cater_id(self):
+        partner_id = self.env['makeup.package'].search([('package_by', '=', self.caterers_id.cater_name.id)])
+        return {'domain': {'catering_package_id': [('id', '=', partner_id.ids)]}}
+
+    @api.onchange('catering_package_id')
+    def onchange_catering_id(self):
+        for rec in self:
+            rec.catering_rate = rec.catering_package_id.rate
+
+    @api.onchange('catering_rate', 'no_people', 'total_amt', 'rent', 'makeup_rate', 'mehndi_rate', 'photography_rate',
+                  'entert_rate')
+    def _compute_total_rate(self):
+        for rec in self:
+            rec.total_amt = rec.catering_rate * rec.no_people
+            # rec.grand_total = rec.rent + rec.makeup_rate + rec.mehndi_rate + rec.photography_rate + rec.entert_rate
+
+    @api.onchange('entert_id')
+    def onchange_entert_id(self):
+        partner_id = self.env['makeup.package'].search([('package_by', '=', self.entert_id.entertainer_name.id)])
+        return {'domain': {'entert_package_id': [('id', '=', partner_id.ids)]}}
+
+    @api.onchange('entert_package_id')
+    def onchange_entertainment_id(self):
+        for rec in self:
+            rec.entert_rate = rec.entert_package_id.rate
+
+    # venue_id = fields.Many2one('artist.a', domain=[('venue','=',True)], string="Venue", required=True)
+    # venue_id = fields.Many2one('res.partner', domain=[('venue','=',True)], string="Venue", required=True)
     place_id = fields.Many2one('place.place', string="Place", required=True)
     partner_id = fields.Many2one('res.partner', string="Customer",
                                  required=True)
@@ -61,29 +144,31 @@ class EventManagement(models.Model):
                                      compute='_compute_pending_invoice')
     district_id = fields.Many2one('place.district')
     facility_ids = fields.Many2many('product.product')
-    facilities_ids2 = fields.One2many('facility.event','facility_id2')
-    user_id = fields.Many2one('res.users',default= lambda self: self.env.user.id )
+    facilities_ids2 = fields.One2many('facility.event', 'facility_id2')
+    user_id = fields.Many2one('res.users', default=lambda self: self.env.user.id)
 
-
-
+    @api.onchange('total_amt', 'rent', 'makeup_rate', 'mehndi_rate', 'photography_rate',
+                  'entert_rate','catering_rate','no_people')
+    def _compute_grand_rate(self):
+        sum = 0
+        for rec in self:
+            sum = rec.rent + rec.makeup_rate + rec.mehndi_rate + rec.photography_rate + rec.entert_rate+rec.total_amt
+            rec.grand_total = sum
     @api.onchange('district_id')
     def onchange_district_id(self):
         if self.district_id:
-            return {'domain':{'place_id':[('district_id','=',self.district_id.id)]}}
+            return {'domain': {'place_id': [('district_id', '=', self.district_id.id)]}}
 
     @api.onchange('place_id')
     def onchange_place_id(self):
         if self.place_id:
-            return {'domain':{'venue_id':[('place_id','=',self.place_id.id)]}}\
-
-    @api.onchange('venue_id')
-    def onchange_venue_id(self):
-        if self.venue_id:
-            self.place_id = self.venue_id.place_id
-            self.district_id = self.venue_id.district_id
-
-
-
+            return {'domain': {'venue_id': [('place_id', '=', self.place_id.id)]}} \
+ \
+    # @api.onchange('venue_id')
+    # def onchange_venue_id(self):
+    #     if self.venue_id:
+    #         self.place_id = self.venue_id.place_id
+    #         self.district_id = self.venue_id.district_id
 
     @api.depends('service_line_ids', 'service_line_ids.state')
     def _compute_pending_invoice(self):
@@ -125,6 +210,72 @@ class EventManagement(models.Model):
     def action_event_confirm(self):
         """Button action to confirm"""
         self.state = "confirm"
+        # Create other service bookins
+        if self.makeup_id:
+            makeup_artist_id = self.env['makeup.artist'].create({
+                'makeup_artist':True,
+                'customer_name':self.partner_id.id,
+                'date':self.date,
+                'booking_date':self.event_date,
+                'type_of_event_id': self.type_of_event_id.id,
+                'artist_name':self.makeup_id.id,
+                'package':self.package_id.id,
+                'rate':self.makeup_rate,
+                'service_id':self.package_id.package_services_ids,
+            })
+            # print("makeup artist booked from event page")
+        if self.mehndi_id:
+            mehndi_artist_id = self.env['makeup.artist'].create({
+                'mehndi_artist': True,
+                'customer_name': self.partner_id.id,
+                'date': self.date,
+                'booking_date': self.event_date,
+                'type_of_event_id': self.type_of_event_id.id,
+                'artist_name': self.mehndi_id.id,
+                'package': self.mehndi_package_id.id,
+                'rate': self.mehndi_rate,
+                'service_id': self.mehndi_package_id.package_services_ids,
+            })
+        if self.photography_id:
+            photo_artist_id = self.env['book.photography'].create({
+                'customer_name': self.partner_id.id,
+                'date': self.date,
+                'booking_date': self.event_date,
+                'type_of_event_id': self.type_of_event_id.id,
+                'artist_name': self.photography_id.id,
+                'package': self.photography_package_id.id,
+                'rate': self.photography_rate,
+                'service_id': self.photography_package_id.package_services_ids,
+            })
+        if self.caterers_id:
+            catering_id = self.env['book.cater'].create({
+                'customer_name': self.partner_id.id,
+                'date': self.date,
+                'booking_date': self.event_date,
+                'type_of_event_id': self.type_of_event_id.id,
+                'artist_name': self.caterers_id.id,
+                'package': self.catering_package_id.id,
+                'rate': self.catering_rate,
+                'total':self.total_amt,
+                'number_of_plate':self.no_people,
+                'service_id': self.catering_package_id.package_services_ids,
+            })
+        if self.entert_id:
+            enter_id = self.env['book.entertainer'].create({
+                'customer_name': self.partner_id.id,
+                'date': self.date,
+                'booking_date': self.event_date,
+                'type_of_event_id': self.type_of_event_id.id,
+                'artist_name': self.entert_id.id,
+                'package': self.entert_package_id.id,
+                'rate': self.entert_rate,
+                'service_id': self.entert_package_id.package_services_ids,
+            })
+
+
+
+
+
 
     def action_event_invoice(self):
         # vals = {
@@ -136,7 +287,7 @@ class EventManagement(models.Model):
         #
         # }
         # self.env['account.journal'].create(vals)
-        vals=[]
+        vals = []
         a_sale = self.env['account.account'].search([])
         # a_sale = self.env['account.account'].create({
         #     'code': 'X2020',
@@ -144,22 +295,22 @@ class EventManagement(models.Model):
         #     'user_type_id': self.env.ref('account.data_account_type_revenue').id,
         # })
         for rec in self.facilities_ids2:
-            dict={
+            dict = {
 
-                    'product_id': rec.product_id.id,
-                    'name': rec.product_id.name,
-                    'price_unit': rec.price,
-                    'quantity':rec.quantity,
+                'product_id': rec.product_id.id,
+                'name': rec.product_id.name,
+                'price_unit': rec.price,
+                'quantity': rec.quantity,
 
             }
             vals.append((0, 0, dict))
         invoice_id = self.env['account.move'].create({
-                'move_type': 'out_invoice',
-                'date': self.date,
-                'partner_id': self.partner_id.id,
-                'invoice_date': self.date,
-                # 'account': a_sale.id,
-                'invoice_line_ids':vals,
+            'move_type': 'out_invoice',
+            'date': self.date,
+            'partner_id': self.partner_id.id,
+            'invoice_date': self.date,
+            # 'account': a_sale.id,
+            'invoice_line_ids': vals,
         })
         return {
             'name': _('Invoice'),
@@ -301,7 +452,7 @@ class EventServiceLine(models.Model):
     _name = 'event.service.line'
 
     service = fields.Many2one('event.services', string="Services",
-                               required=True)
+                              required=True)
     # service = fields.Selection([('none', 'None')], string="Services",
     #                            required=True)
     event_id = fields.Many2one('event.management', string="Event")
@@ -384,7 +535,7 @@ class EventPlace(models.Model):
             'default_place_id': self.id,
             'default_district_id': self.district_id.id,
         }
-        domain=[('place_id','=',self.id)]
+        domain = [('place_id', '=', self.id)]
 
         action_context = literal_eval(action['context'])
         context = {**action_context, **context}
@@ -392,10 +543,10 @@ class EventPlace(models.Model):
         action['domain'] = domain
         return action
 
-
     def get_event_place_action_event(self):
         return self._get_action(
             'event_management.res_partner_action_events_kanban')
+
 
 #
 class PlaceDistrict(models.Model):
@@ -410,6 +561,7 @@ class PlaceDistrict(models.Model):
     event_count = fields.Integer(string="# of Events",
                                  compute='_compute_district_wise_event_count')
     event_type_id = fields.Many2one('event.management.type')
+
     #
     # type_event_count = fields.Integer(string="# of Events",
     #                              compute='_compute_event_type_count')
@@ -429,7 +581,7 @@ class PlaceDistrict(models.Model):
             'search_default_district_id': [self.id],
             'default_district_id': self.id,
         }
-        domain=[('district_id','=',self.id)]
+        domain = [('district_id', '=', self.id)]
 
         action_context = literal_eval(action['context'])
         context = {**action_context, **context}
@@ -437,14 +589,12 @@ class PlaceDistrict(models.Model):
         action['domain'] = domain
         return action
 
-
     # def get_event_district_action_event(self):
     #     return self._get_action(
     #         'event_management.action_event_place_view_kanban')
     def get_event_district_action_event(self):
         return self._get_action(
             'event_management.res_partner_action_events_kanban')
-
 
     # def _compute_event_type_count(self):
     #     for records in self.env['event.management.type'].search([]):
@@ -471,7 +621,6 @@ class PlaceDistrict(models.Model):
     #         'event_management.event_management_action_view_kanban')
 
 
-
 class EventManagementType(models.Model):
     """Model for managing the Event types"""
     _name = 'event.management.type'
@@ -483,13 +632,14 @@ class EventManagementType(models.Model):
     event_count = fields.Integer(string="# of Events",
                                  compute='_compute_event_count')
     event_count_dashboard = fields.Integer(string="# of Events",
-                                 compute='_compute_event_count_dashboard')
+                                           compute='_compute_event_count_dashboard')
 
     def _compute_event_count(self):
         for records in self:
             events = self.env['event.management'].search([
-                ('type_of_event_id', '=', records.id),('venue_id', '=', self._context.get('default_venue_id'))])
+                ('type_of_event_id', '=', records.id), ('venue_id', '=', self._context.get('default_venue_id'))])
             records.event_count = len(events)
+
     def _compute_event_count_dashboard(self):
         for records in self:
             domain = [('type_of_event_id', '=', records.id)]
@@ -522,5 +672,3 @@ class EventManagementType(models.Model):
     def get_event_type_action_event(self):
         return self._get_action(
             'event_management.event_management_action_view_kanban')
-
-

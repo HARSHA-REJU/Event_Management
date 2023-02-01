@@ -33,7 +33,7 @@ class ResPartner(models.Model):
     mehndi_artist = fields.Boolean(string="Mehndi Artist ?")
     customer = fields.Boolean(string="Customer ?")
     photographer = fields.Boolean(string="Photographer ?")
-    catering = fields.Boolean(string="Caters ?")
+    catering = fields.Boolean(string="Caterers ?")
     entertainment = fields.Boolean(string="Entertainers ?")
     amount = fields.Float()
     venue = fields.Boolean()
