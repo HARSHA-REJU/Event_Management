@@ -361,7 +361,7 @@ header
 
 .header-area .main-nav .nav li:last-child a ,
 .background-header .main-nav .nav li:last-child a {
-  color: #2a2a2a !important;
+  color: #fff !important;
   text-transform: capitalize;
   padding: 0px 20px;
   font-weight: 400;
@@ -386,6 +386,7 @@ header
 .header-area .main-nav .nav li:last-child a:hover,
 .header-area .main-nav .nav li:last-child a.active {
   color: #fff !important;
+
 }
 
 .header-area .main-nav .nav li a {
@@ -2155,4 +2156,11 @@ responsive
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
+ }
+
+ .user_image{
+    filter: invert(1);
+    height:50px;
+    width:50px;
+    overflow: hidden;
  }

@@ -48,6 +48,7 @@
              'static/src/xml/decorations_page.xml',
              'static/src/xml/entertainment_page.xml',
              'static/src/xml/photography_page.xml',
+             'static/src/xml/account_summary.xml',
              ],
     'assets': {
         'web.assets_backend': [

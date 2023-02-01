@@ -4,15 +4,18 @@ import json
 import datetime
 from datetime import timedelta
 
-from odoo import http, fields
+from odoo import http, fields, _
 from odoo.http import content_disposition, request
 from odoo.http import serialize_exception as _serialize_exception
 from odoo.tools import html_escape
 import werkzeug
 from werkzeug.utils import redirect
 
+import odoo
 
-
+SIGN_UP_REQUEST_PARAMS = {'db', 'login', 'debug', 'token', 'message', 'error', 'scope', 'mode',
+                          'redirect', 'redirect_hostname', 'email', 'name', 'partner_id',
+                          'password', 'confirm_password', 'city', 'country_id', 'lang'}
 class XLSXReportController(http.Controller):
     """Controller Class for xlsx report"""
     @http.route('/xlsx_reports', type='http', auth='user', methods=['POST'],
@@ -41,38 +44,22 @@ class XLSXReportController(http.Controller):
             }
             return request.make_response(html_escape(json.dumps(error)))
 
-
-# class ServiceRequest(http.Controller):
-#
-#     @http.route(['/home'], type='http', auth="public", website=True)
-#     def service_request(self):
-#         # products = request.env['product.product'].search([])
-#         #
-#         # values = {
-#         #
-#         #     'products': products
-#
-#         # }
-#
-#         return request.render(
-#
-#             "event_management.custom_home_page")
-
 class HomePage(http.Controller):
 
     @http.route(['/'], type='http', auth="public",website=True)
     def home_page_controller(self):
 
-        # venues = request.env['res.partner'].search([])
         districts = request.env['place.district'].sudo().search([])
         types = request.env['event.management.type'].sudo().search([])
         places = request.env['place.place'].sudo().search([])
+        current_user = request.env.user
+
 
         values = {
-            # 'venues':venues,
             'districts':districts,
             'types':types,
             'places':places,
+            'current_user':current_user,
         }
         return request.render(
 
@@ -86,6 +73,7 @@ class HomePage(http.Controller):
         mobile = args.get('mobile')
         name = args.get('name')
 
+
         vals = {
             'login':email,
             'name':name,
@@ -95,18 +83,79 @@ class HomePage(http.Controller):
         if password==re_password:
             new_user = request.env['res.users'].sudo().create(vals)
             new_user.partner_id.write({'mobile': mobile})
-            response = redirect("/#LoginModal")
-            return response
+            return http.redirect_with_hash('/#loginModal')
+    @http.route(['/user/login'], type='http', auth="public",website=True)
+    def login_controller(self, **args):
+        email = args.get('email')
+        password = args.get('pass')
+        current_user = request.env['res.users'].sudo().search([('login','=',email)])
+
+        # response = redirect("/#LoginModal")
+        # return response
+
+        # ensure_db()
+        request.params['login_success'] = False
+        if request.httprequest.method == 'GET' and redirect and request.session.uid:
+            return http.redirect_with_hash(redirect)
+
+        if not request.uid:
+            request.uid = odoo.SUPERUSER_ID
+
+        values = {k: v for k, v in request.params.items() if k in SIGN_UP_REQUEST_PARAMS}
+        try:
+            values['databases'] = http.db_list()
+        except odoo.exceptions.AccessDenied:
+            values['databases'] = None
+
+        if request.httprequest.method == 'POST':
+            old_uid = request.uid
+            try:
+                uid = request.session.authenticate(request.session.db, email, password)
+                request.params['login_success'] = True
+                return http.redirect_with_hash('/')
+            except odoo.exceptions.AccessDenied as e:
+                request.uid = old_uid
+                if e.args == odoo.exceptions.AccessDenied().args:
+                    values['error'] = _("Wrong login/password")
+                else:
+                    values['error'] = e.args[0]
+                return http.redirect_with_hash('/#loginModal?error=true')
+                # return http.redirect_with_hash('/#loginModal',values)
+        # else:
+        #     if 'error' in request.params and request.params.get('error') == 'access':
+        #         values['error'] = _('Only employees can access this database. Please contact the administrator.')
+        #
+        # if 'login' not in values and request.session.get('auth_login'):
+        #     values['login'] = request.session.get('auth_login')
+        #
+        # if not odoo.tools.config['list_db']:
+        #     values['disable_database_manager'] = True
+        #
+        # response = request.render('web.login', values)
+        # response.headers['X-Frame-Options'] = 'DENY'
+        # return response
+
+
+    @http.route(['/account'], type='http', auth="public", website=True)
+    def user_account(self, **args):
+        current_user_id = request.env.user.id
+        enquiries = request.env['customer.enquiry.details'].sudo().search([('user_id','=',current_user_id)])
+        venue_bookings = request.env['event.management'].sudo().search([('user_id','=',current_user_id)])
+
+        values = {
+            'enquiries':enquiries,
+            'venue_bookings':venue_bookings,
+        }
+        return request.render(
+        "event_management.account_page",values)
 
 
 class ContactUsPage(http.Controller):
     @http.route(['/contactus'], type='http', auth="public",website=True)
     def contact_page_controller(self):
 
-        # venues = request.env['res.partner'].search([])
-        districts = request.env['place.district'].search([])
-        types = request.env['event.management.type'].search([])
-        # places = request.env['place.place'].search([])
+        districts = request.env['place.district'].sudo().search([])
+        types = request.env['event.management.type'].sudo().search([])
 
         values = {
             # 'venues':venues,
@@ -136,12 +185,6 @@ class ContactUsPage(http.Controller):
         entertainment = args.get('option6')
 
 
-        # venues = request.env['res.partner'].search([])
-        # district = request.env['place.district'].search([('id','=',district_id)])
-        # type = request.env['event.management.type'].search([('id','=',type_id)])
-        # # places = request.env['place.place'].search([])
-        # # venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
-        #
         vals = {
             'district_id':district_id,
             'type_of_event_id':type_id,
@@ -165,6 +208,9 @@ class ContactUsPage(http.Controller):
         enquiry_event = request.env['customer.enquiry.details'].sudo().create(vals)
         response = redirect("/contactus")
         return response
+
+
+
 class VenueListingPage(http.Controller):
     @http.route(['/venuelist'], type='http', auth="public",website=True)
     def venue_page_controller(self):
@@ -185,8 +231,6 @@ class VenueListingPage(http.Controller):
         kasaragod_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',14)])
 
         districts = request.env['place.district'].sudo().search([])
-        # types = request.env['event.management.type'].search([])
-        # places = request.env['place.place'].search([])
 
         values = {
             'trivandrum_venues':trivandrum_venues,
@@ -259,10 +303,7 @@ class EventDetailsPage(http.Controller):
         # print (district_id)
         print (args.get('price'))
         venues = request.env['res.partner'].sudo().search([('venue','=',True),('district_id','=',args.get('district_id'))])
-        # venues = request.env['res.partner'].search([])
         districts = request.env['place.district'].sudo().search([('id','=',args.get('district_id'))])
-        # types = request.env['event.management.type'].search([])
-        # places = request.env['place.place'].search([])
 
         values = {
             'venues':venues,
