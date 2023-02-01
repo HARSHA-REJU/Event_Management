@@ -8,7 +8,7 @@ class CatersNames(models.Model):
     _name = 'cater.cater'
     _rec_name = 'cater_name'
 
-    cater_name = fields.Many2one('res.partner', 'Cater Name')
+    cater_name = fields.Many2one('res.partner', 'Caterers Name')
     packages_ids = fields.Many2many('makeup.package', string='Package')
 
     @api.onchange('cater_name')
@@ -20,7 +20,7 @@ class BookCaters(models.Model):
     _name = 'book.cater'
     _rec_name = 'artist_name'
 
-    artist_name = fields.Many2one('cater.cater', string='Cater Name',required=True)
+    artist_name = fields.Many2one('cater.cater', string='Caterers Name',required=True)
     customer_name = fields.Many2one('res.partner', string='Customer Name',required=True)
     package = fields.Many2one('makeup.package', string='Package',required=True)
     number_of_plate = fields.Integer('Serving For(Nos)',required=True)

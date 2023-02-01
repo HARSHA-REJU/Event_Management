@@ -58,23 +58,28 @@ class MakeupPackages(models.Model):
         for rec in self:
             if rec.makeup_artist == True:
                 partner_id = self.env['res.partner'].search([('makeup_artist', '=', True)])
-                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
+                packages_id = self.env['package.service'].search([('makeup_artist', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)],'package_services_ids':[('id', 'in', packages_id.ids)]}}
 
             if rec.mehndi_artist == True:
                 partner_id = self.env['res.partner'].search([('mehndi_artist', '=', True)])
-                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
+                packages_id = self.env['package.service'].search([('mehndi_artist', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)],'package_services_ids':[('id', 'in', packages_id.ids)]}}
 
             if rec.photographer == True:
                 partner_id = self.env['res.partner'].search([('photographer', '=', True)])
-                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
+                packages_id = self.env['package.service'].search([('photographer', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)],'package_services_ids':[('id', 'in', packages_id.ids)]}}
 
             if rec.catering == True:
                 partner_id = self.env['res.partner'].search([('catering', '=', True)])
-                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
+                packages_id = self.env['package.service'].search([('catering', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)],'package_services_ids':[('id', 'in', packages_id.ids)]}}
 
             if rec.entertainment == True:
                 partner_id = self.env['res.partner'].search([('entertainment', '=', True)])
-                return {'domain': {'package_by': [('id', '=', partner_id.ids)]}}
+                packages_id = self.env['package.service'].search([('entertainment', '=', True)])
+                return {'domain': {'package_by': [('id', '=', partner_id.ids)],'package_services_ids':[('id', 'in', packages_id.ids)]}}
 
 
 

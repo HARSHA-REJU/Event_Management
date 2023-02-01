@@ -60,7 +60,12 @@
                         <button name="print_quote"  string="Print Quote" type="object" class="oe_highlight" states="draft"/>
                         <button name="action_enquiry_confirm"  string="Send" type="object" class="oe_highlight" states="quote"/>
                         <button name="action_send_mail"  string="Send By Email" type="object" class="oe_highlight" states="confirm"/>
-                        <button name="action_create_event"  string="Create Event" type="object" class="oe_highlight" states="confirm"
+                        <button name="action_create_event"  string="Event Booking" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','confirm'),('auditorium','=', False)]}"/>
+                        <button name="action_makeup"  string="Makeup Booking" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','confirm'),('makeup','=', False)]}"/>
+                        <button name="action_decoration"  string="Decoration Booking" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','confirm'),('decoration','=', False)]}"/>
+                        <button name="action_catering"  string="Catering Booking" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','confirm'),('catering','=', False)]}"/>
+                        <button name="action_entertainment"  string="Entertainment Booking" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','confirm'),('entertainment','=', False)]}"/>
+                        <button name="action_photography"  string="Photography Booking" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','confirm'),('photography','=', False)]}"/>
 
                         />
                         <button name="action_enquiry_cancel" string="Cancel"  type="object" states="draft"/>
