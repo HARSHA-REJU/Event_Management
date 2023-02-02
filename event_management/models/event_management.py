@@ -27,6 +27,7 @@ class EventManagement(models.Model):
     _name = 'event.management'
 
     name = fields.Char('Name', readonly=True, copy=False)
+    mobile = fields.Char()
     ref = fields.Char(string='Ref', readonly=True)
     type_of_event_id = fields.Many2one('event.management.type', string="Type",
                                        required=True)
@@ -205,6 +206,7 @@ class EventManagement(models.Model):
         sequence_number = self.env['ir.sequence'].next_by_code(sequence_code)
         values['ref'] = sequence_number
         res = super(EventManagement, self).create(values)
+        print(res.id)
         return res
 
     def action_event_confirm(self):

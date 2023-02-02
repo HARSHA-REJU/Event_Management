@@ -404,47 +404,50 @@
                               <footer>
                 <div class="container">
                   <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-1">
                       <div class="about">
                         <div class="logo">
                           <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                       <div class="helpful-links">
                         <h4>Helpful Links</h4>
                         <div class="row">
-                          <div class="col-lg-6 col-sm-6">
+                          <div class="col-lg-4 col-sm-4">
                             <ul>
                               <li><a href="/">Home</a></li>
-                              <li><a href="#">Reviews</a></li>
                               <li><a href="/contactus">Contact Us</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-6">
+                          <div class="col-lg-4 col-sm-4">
+                            <ul>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="#">Gallery</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
                             <ul>
                               <li><a href="#">About Us</a></li>
-                              <li><a href="#">Gallery</a></li>
                               <li><a href="#">Privacy Policy</a></li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4">
-                      <div class="contact-us">
+                    <div class="col-lg-5">
                         <h4>Contact Us</h4>
-                        <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
                         <div class="row">
-                          <div class="col-lg-6">
-                            <a >Phone <br/> +91 6282842112</a>
-                          </div>
-                          <div class="col-lg-6">
-                            <a >Email info@fortunaevent.com</a>
-                          </div>
+                            <div class="col-lg-6 contact-us">
+                                <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <a>Phone: +91 6282842112</a><br/>
+                                  <a>Email: info@fortunaevent.com</a>
+                              </div>
+
                         </div>
-                      </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="sub-footer">

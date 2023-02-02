@@ -1275,8 +1275,6 @@ footer .contact-us a:hover {
 
 footer .sub-footer {
   text-align: center;
-  margin-top: 40px;
-  padding: 40px 0px;
   border-top: 1px solid #eee;
 }
 
@@ -2416,3 +2414,13 @@ input[type=checkbox]:not(old):checked + label > span:before {
   font-family: 'Material-Design-Iconic-Font';
   font-weight: bold;
                   }
+
+
+.makeup_thumb {
+
+    border: 3px solid #c9c9c9;
+    background-color: #000e0a;
+    border: 3px solid #c9c9c9;
+    background-color: #000e0a;
+    margin: 40px;
+}

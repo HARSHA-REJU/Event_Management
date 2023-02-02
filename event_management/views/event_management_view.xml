@@ -91,6 +91,7 @@
 <!--                                <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
 <!--                                <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
                                 <field name="ref" readonly="1"/>
+                                <field name="mobile" readonly="1"/>
                                 <field name="currency_id" invisible="1"/>
                                 <field name="pending_invoice" invisible="1"/>
                                 <field name="user_id" readonly="1" string="User"/>

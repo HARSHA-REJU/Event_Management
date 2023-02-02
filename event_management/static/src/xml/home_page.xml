@@ -1382,28 +1382,32 @@ label.valid {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                       <div class="helpful-links">
                         <h4>Helpful Links</h4>
                         <div class="row">
-                          <div class="col-lg-6 col-sm-6">
+                          <div class="col-lg-4 col-sm-4">
                             <ul>
                               <li><a href="/">Home</a></li>
-                              <li><a href="#">Reviews</a></li>
                               <li><a href="/contactus">Contact Us</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-6">
+                          <div class="col-lg-4 col-sm-4">
+                            <ul>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="#">Gallery</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
                             <ul>
                               <li><a href="#">About Us</a></li>
-                              <li><a href="#">Gallery</a></li>
                               <li><a href="#">Privacy Policy</a></li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-5">
                         <h4>Contact Us</h4>
                         <div class="row">
                             <div class="col-lg-6 contact-us">
