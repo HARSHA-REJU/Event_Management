@@ -135,3 +135,29 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
 //       else:
 //            window.location.href = "/";
  })
+
+// $('.modal-button').on('click', function(e){
+//    if(window.location.hash == '#loginModal?error=true'){
+//      window.location.href = "/";
+//   $('#LoginModal').modal('toggle')
+//               }
+//})
+
+
+$('select#district_id').on('change', function(){
+    var val = $(this).val();
+$('select#place_id > option').each(function(){
+    if($(this).data('distid') == val){
+        $(this).show()
+    }else{
+        $(this).hide()
+    }
+})
+})
+
+$('select#venue_id').on('change', function(){
+    var price = $(this).find('option:selected').data('price');
+if(price != '' || price != null){
+    $('input#auditorium_price').val(price).trigger('change')
+}
+})

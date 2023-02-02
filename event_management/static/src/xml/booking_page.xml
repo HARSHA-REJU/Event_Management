@@ -47,11 +47,11 @@
                     <style>
                         .section {
                             position: relative;
-<!--	                                height: 100vh;-->
+	                                height: 100%;
                           background-repeat: no-repeat;
                           background-position: center center;
                           background-size: cover;
-                          padding: 290px 0px 0px 0px;
+<!--                          padding: 290px 0px 0px 0px;-->
                           overflow: hidden;
 
                         }
@@ -68,8 +68,8 @@
                         #booking {
                             font-family: 'Cabin', sans-serif;
 <!--                            background-color: #f7f9fa;-->
-                            margin: -150px 0px 0px 0px;
-                            max-height: 600;
+<!--                            margin: -150px 0px 0px 0px;-->
+<!--                            max-height: 600;-->
 
                         }
 
@@ -95,7 +95,6 @@
                         }
 
                         .booking-form>form {
-                            margin-left: 250px;
                             padding: 30px;
                             border: 1px solid #f9fafc;
                             border-left: 0px;
@@ -123,7 +122,7 @@
                             background-color: #f7f9fa;
                             height: 40px;
                             padding: 0px 10px;
-                            border-radius: 0px;
+                            border-radius: 10px;
                             -webkit-transition: 0.2s;
                             transition: 0.2s;
                             color: #122244;
@@ -199,7 +198,7 @@
 
                         .booking-form .submit-btn {
                             color: #fff;
-                            background-color: #6499ff;
+                            background-color: #d1ac64;
                             font-weight: 700;
                             padding: 13px 35px;
                             font-size: 16px;
@@ -216,15 +215,16 @@
 <!--                            }-->
 <!--                        }-->
 
-                        .page-heading {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-image: url(/event_management/static/img/slider3.jpg);
-  padding: 210 0px 180px 0px;
-  position: relative;
-  overflow: hidden;
-}
+<!--                        .page-heading {-->
+<!--  background-repeat: no-repeat;-->
+<!--  background-position: center center;-->
+<!--  background-size: cover;-->
+<!--  background:#783681;-->
+<!--&lt;!&ndash;  background-image: url(/event_management/static/img/slider3.jpg);&ndash;&gt;-->
+<!--  padding: 210 0px 180px 0px;-->
+<!--  position: relative;-->
+<!--  overflow: hidden;-->
+<!--}-->
 
 .page-heading .top-text {
   text-align: left;
@@ -245,20 +245,20 @@
   text-transform: capitalize;
   margin-top: 15px;
 }
-                        .page-heading:before {
-    content: '';
-    display: block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #000;
-    opacity: 0.5;
-    z-index: 0;
-}
+<!--                        .page-heading:before {-->
+<!--    content: '';-->
+<!--    display: block;-->
+<!--    height: 100%;-->
+<!--    width: 100%;-->
+<!--    position: absolute;-->
+<!--    top: 0;-->
+<!--    left: 0;-->
+<!--    right: 0;-->
+<!--    bottom: 0;-->
+<!--    background-color: #000;-->
+<!--    opacity: 0.5;-->
+<!--    z-index: 0;-->
+<!--}-->
 .page-heading .top-text h2 {
   color: #fff;
   font-size: 45px;
@@ -374,135 +374,147 @@
 <!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
 <!--                                  <a class="dropdown-item" href="/makeup">Auditorium Booking</a>-->
 <!--                                  <a class="dropdown-item" href="#">Event Management Booking</a>-->
-<!--                                </div>-->
+<!--                              </div>-->
 <!--                            </div>-->
 <!--                          </li>-->
 
                           <li><a href="/eventdetails">Gallery</a></li>
 <!--                          <li><a href="/eventdetails">Event Details</a></li>-->
                           <li><a href="/contactus">Contact Us</a></li>
+                          <t t-if="uid">
+                              <li>
+                                  <div class="col-md-12 dropdown show">
+                                      <a class="account-page" href="#">
+                                          <img class="user_image" src="/event_management/static/img/avatar-removebg-preview.png"/>
+                                          <t t-esc="current_user.name"/>
+                                      </a>
+                                      <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                          <a class="dropdown-item" href="/account">Booking Summary</a>
+                                          <a class="dropdown-item" href="/logout">Logout</a>
+                                      </div>
 
-                          <li><div class="main-white-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#RegistrationModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
+                                  </div>
+                              </li>
+                          </t>
+                            <t t-else="not uid">
+                                <li><div class="main-white-button modal-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#LoginModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
+                            </t>
                         </ul>
-                                                <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                          <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+<!--                                    <h5 class="modal-title" id="exampleModalLabel">Register here</h5>-->
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <section class="signup">
+                                        <div class="container">
+                                            <div class="signup-content">
+                                                <div class="signup-form">
+        <!--                                                <h2 class="form-title">Register here</h2>-->
+                                                    <form method="get" action="/signup" class="register-form" id="register-form">
+                                                        <div class="form-group">
+                                                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                            <input type="text" name="name" id="name" placeholder="Your Name"/>
+                                                        </div>
+                                                        <div class="form-group" >
+                                                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                                            <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                                            <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                                            <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                                                        </div>
+                                                        <div class="form-group agree-term">
+
+        <!--                                                        <input style="color:white;" type="checkbox" name="option1" id="option1" value="auditorium"/><span>Auditorium</span>-->
+                                                            <input type="checkbox" name="agree" value="agree" id="agree" required="1"/>I agree all statements in  <a href="#" class="term-service">Terms of service</a>
+<!--                                                                <label for="agree" class="agree-term">-->
+                                                        </div>
+                                                        <div class="form-group form-button">
+                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                            <input type="submit" name="signup" id="signup" class="form-submit btn btn-modal" value="Register"/>
+                                                        </div>
+                                                    </form>
+                                                </div>
+        <!--                                                    <div class="signup-image">-->
+        <!--        &lt;!&ndash;                                                <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>&ndash;&gt;-->
+    <!--                                                <a href="#" class="signup-image-link">I am already member</a>-->
+        <!--                                                        <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>-->
+
+        <!--                                                    </div>-->
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                  </div>
+                                  <div class="modal-footer">
+<!--                                      <a href="#" class="signup-image-link">I am already member</a>-->
+                                      I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>
+    <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+    <!--                                <button type="button" class="btn btn-primary">Register</button>-->
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Register here !</h5>
+<!--                                <h5 class="modal-title" id="exampleModalLabel">Login here !</h5>-->
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                        <section class="signup">
-            <div class="container">
-                <div class="signup-content">
-                    <div class="signup-form">
-<!--                        <h2 class="form-title">Register here</h2>-->
-                        <form method="POST" class="register-form" id="register-form">
-                            <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name"/>
-                            </div>
-                            <div class="form-group" >
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Password"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
-<!--                            <div class="form-group form-button">-->
-<!--                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>-->
-<!--                            </div>-->
-                        </form>
-                    </div>
-<!--                    <div class="signup-image">-->
-<!--                        <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>-->
-<!--                        <a href="#" class="signup-image-link">I am already member</a>-->
-<!--                    </div>-->
-                </div>
-            </div>
+                                  <section class="login">
+                                      <div class="container">
+                                        <div class="signup-content">
+                                            <div class="signup-form">
+                        <!--                        <h2 class="form-title">Register here</h2>-->
+                                                <form method="POST" action="/user/login" class="register-form" id="register-form">
+
+                                                    <div class="form-group" >
+                                                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                                        <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                                        <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                                    </div>
+
+                                                    <div class="form-group form-button">
+                                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                                        <input type="submit" name="login" id="login" class="form-submit btn btn-modal login_user" value="Login"/>
+                                                    </div>
+                                                </form>
+                                            </div>
+                        <!--                    <div class="signup-image">-->
+                        <!--                        <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>-->
+                        <!--                        <a href="#" class="signup-image-link">I am already member</a>-->
+                        <!--                    </div>-->
+                                        </div>
+                                            </div>
         </section>
 
                               </div>
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Register</button>
+<!--                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>-->
+<!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                                Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>
                               </div>
                             </div>
                           </div>
                         </div>
 
-                                                <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Login here !</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                        <section class="signup">
-            <div class="container">
-                <div class="signup-content">
-                    <div class="signup-form">
-<!--                        <h2 class="form-title">Register here</h2>-->
-                        <form method="POST" action="user/login" class="register-form" id="register-form">
-                            <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name"/>
-                            </div>
-                            <div class="form-group" >
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Password"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-                            </div>
-                        </form>
-                    </div>
-<!--                    <div class="signup-image">-->
-<!--                        <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>-->
-<!--                        <a href="#" class="signup-image-link">I am already member</a>-->
-<!--                    </div>-->
-                </div>
-            </div>
-        </section>
-
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Register</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-
-
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
+<!--                        <a class='menu-trigger'>-->
+<!--                            <span>Menu</span>-->
+<!--                        </a>-->
                         <!-- ***** Menu End ***** -->
                       </nav>
                     </div>
@@ -516,147 +528,184 @@
                     <div class="page-heading">
                         <div class="container">
                           <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                               <div class="top-text header-text">
                                 <h6>Book Your Events Now</h6>
                                 <h2>Make your dream event More Beautiful..</h2>
                               </div>
                             </div>
-                              <div class="col-lg-6 align-self-center pull-right">
-<!--                                                                  <li class="active">-->
-                                  <div>
-                                    <div class="thumb">
-                                      <div class="row">
-                                        <div class="col-lg-5 align-self-center">
-                                          <div class="left-text">
-                                            <h6 class="text_style">
-                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!
-                                            </h6>
-                                            <div class="main-white-button" style="margin: 10px"><a href="/makeup"><i class="fa fa-eye"></i> Discover More</a></div>
-                                          </div>
-                                        </div>
-                                        <div class="col-lg-7 align-self-center">
-                                          <div class="right-image">
-                                            <img src="event_management/static/img/makeup.jpg" alt=""/>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-<!--                                </li>-->
+                              <div class="col-lg-12">
+                                  <div class="col-lg-8 pull-left">
+                                      <div id="booking" class="section">
+                                        <div class="section-center">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="booking-form">
+                <!--                                        <div class="booking-bg"></div>-->
+                                                        <form action="/booking/confirm" method="Post">
+                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                            <div class="form-header">
+                                                                <h2>Book your Event</h2>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <span class="form-label">Your Name</span>
+                                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name" t-att-value="current_user_name" readonly="1"/>
+                                                                    </div>
+                                                                </div>
+                                                                 <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <span class="form-label">Mobile No</span>
+                                                                        <input class="form-control" name="mobile" id="mobile" type="mobile" placeholder="Mobile No" required="1"/>
+                                                                    </div>
+                                                                 </div>
+
+                                                            </div>
+<!--                                                            <div class="row">-->
+<!--                                                                                                                                <div class="col-md-6">-->
+<!--                                                                </div>-->
+
+<!--&lt;!&ndash;                                                                <div class="col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                    <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                        <span class="form-label">Email ID</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                        <input class="form-control" name="email" id="email" type="email" placeholder="Email ID" required="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                </div>&ndash;&gt;-->
+<!--                                                            </div>-->
+                                                            <div class="row">                                                                 <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <span class="form-label">Event Date</span>
+                                                                        <input class="form-control" name="date" id="date" type="date" required="1"/>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <span class="form-label">Event Type</span>
+                                                                        <select name="type_id" id="type_id"
+                                                                                class="form-control form-select link-style" required="1">
+                                                                            <option value="" disabled="" selected="">Select Event</option>
+                                                                            <t t-foreach="types" t-as="record">
+                                                                                <option t-att-value="record.id">
+                                                                                    <t t-esc="record.name" t-att-value="record.id"/>
+                                                                                </option>
+                                                                            </t>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <span class="form-label">District</span>
+                                                                        <select name="district_id" id="district_id"
+                                                                                class="form-control form-select link-style" required="1">
+                                                                                     <option value="" disabled="" selected="">Select district</option>
+                                                                            <t t-foreach="districts" t-as="record">
+                                                                                <option t-att-value="record.id">
+                                                                                    <t t-esc="record.name" t-att-value="record.id"/>
+                                                                                </option>
+                                                                            </t>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <span class="form-label">Place</span>
+                                                                        <select name="place_id" id="place_id"
+                                                                                class="form-control form-select link-style" required="1">
+                                                                            <option value="" disabled="" selected="">Select Place</option>
+                                                                            <t t-foreach="places" t-as="record">
+                                                                                <option t-att-value="record.id" t-att-data-distid="record.district_id.id">
+                                                                                    <t t-esc="record.name" t-att-value="record.id"/>
+                                                                                </option>
+                                                                            </t>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="rounded"/>
 
 
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                    <div id="booking" class="section">
-                        <div class="section-center">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="booking-form">
-                                        <div class="booking-bg"></div>
-                                        <form action="/booking/confirm" method="Post">
-                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                                            <div class="form-header">
-                                                <h2>Book your Event</h2>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Your Name</span>
-                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name" required="1"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Mobile No</span>
-                                                        <input class="form-control" name="mobile" id="mobile" type="mobile" placeholder="Mobile No" required="1"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Event Date</span>
-                                                        <input class="form-control" name="date" id="date" type="date" required="1"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Email ID</span>
-                                                        <input class="form-control" name="email" id="email" type="email" placeholder="Email ID" required="1"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-<!--                                            <div class="row">-->
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <div class="form-group">-->
-<!--                                                        <span class="form-label">District</span>-->
-<!--                                                        <select name="district_id" id="district_id"-->
-<!--                                                                class="form-control form-select link-style" required="1">-->
-<!--                                                                     <option value="" disabled="" selected="">Select district</option>-->
-<!--                                                            <t t-foreach="districts" t-as="record">-->
-<!--                                                                <option t-att-value="record.id">-->
-<!--                                                                    <t t-esc="record.name" t-att-value="record.id"/>-->
-<!--                                                                </option>-->
-<!--                                                            </t>-->
-<!--                                                        </select>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <div class="form-group">-->
-<!--                                                        <span class="form-label">Place</span>-->
-<!--                                                        <select name="place_id" id="place_id"-->
-<!--                                                                class="form-control form-select link-style" required="1">-->
-<!--                                                            <option value="" disabled="" selected="">Select Place</option>-->
-<!--                                                            <t t-foreach="places" t-as="record">-->
-<!--                                                                <option t-att-value="record.id">-->
-<!--                                                                    <t t-esc="record.name" t-att-value="record.id"/>-->
-<!--                                                                </option>-->
-<!--                                                            </t>-->
-<!--                                                        </select>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Venue</span>
-                                                        <select name="venue_id" id="venue_id"
-                                                                class="form-control form-select link-style" required="1">
-                                                                     <option value="" disabled="" selected="">Select Venue</option>
-                                                            <t t-foreach="venues" t-as="record">
-                                                                <option t-att-value="record.id">
-                                                                    <t t-esc="record.name" t-att-value="record.id"/>
-                                                                </option>
-                                                            </t>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Event Type</span>
-                                                        <select name="type_id" id="type_id"
-                                                                class="form-control form-select link-style" required="1">
-                                                            <option value="" disabled="" selected="">Select Event</option>
-                                                            <t t-foreach="types" t-as="record">
-                                                                <option t-att-value="record.id">
-                                                                    <t t-esc="record.name" t-att-value="record.id"/>
-                                                                </option>
-                                                            </t>
-                                                        </select>
+
+
+                                                            <div class="row">
+                                                                <h4 class="section-title">Book Auditorium</h4>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <span class="form-label">Auditorium</span>
+                                                                        <select name="venue_id" id="venue_id"
+                                                                                class="form-control form-select link-style" required="1">
+                                                                                     <option value="" disabled="" selected="">Select Venue</option>
+                                                                            <t t-foreach="venues" t-as="record">
+                                                                                <option t-att-value="record.id" t-att-data-price="record.amount">
+                                                                                    <t t-esc="record.name" t-att-value="record.id"/>
+                                                                                </option>
+                                                                            </t>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <span class="form-label">Auditorium Rent</span>
+                                                                        <input name="auditorium_price" id="auditorium_price" class="form-control" type="text" placeholder="Price"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="solid"/>
+
+                                                        <div class="row">
+                                                            <h4 class="section-title">Book Makeup Artist</h4>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <span class="form-label">Makeup Artist</span>
+                                                                                <select name="artist_name" id="artist_name"
+                                                                                                        class="form-control form-select link-style" required="1">
+                                                                                 <option value="" disabled="" selected="">Select Artist</option>
+                                                                                        <t t-foreach="makeup_artists" t-as="record">
+                                                                                                        <option t-att-value="record.id">
+                                                                                                            <t t-esc="record.artist_name.name" t-att-value="record.id"/>
+                                                                                                        </option>
+                                                                                                    </t>
+                                                                                 </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                                                                            <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <span class="form-label">Price</span>
+                                                                                        <input name="price" class="form-control" type="text" placeholder="Makeup Rate"/>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <span class="form-label">Makeup Package</span>
+                                                                                        <select name="makeup_package_id" id="type_id"
+                                                                                        class="form-control form-select link-style" required="1">
+                                                                                    <option value="" disabled="" selected="">Select Makeup Package</option>
+                                                                                    <t t-foreach="makeup_packages" t-as="record">
+                                                                                        <option t-att-value="record.id">
+                                                                                            <t t-esc="record.name" t-att-value="record.id"/>
+                                                                                        </option>
+                                                                                    </t>
+                                                                                </select>
+                                                <!--										<input class="form-control" type="text" placeholder="Event Type"/>-->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <div class="form-btn">
+                                                                                <button type="submit" class="submit-btn">Book Now</button>
+                                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-btn">
-                                                <button type="submit" class="submit-btn">Book Now</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        </div>
 <!--                      <div>-->
 <!--&lt;!&ndash;                        <div class="thumb" style="margin:-155px 20px 20px 20px; ">&ndash;&gt;-->
 <!--&lt;!&ndash;                            <h2>Checkout our best Makeup artists right next you</h2>&ndash;&gt;-->
@@ -703,6 +752,38 @@
 <!--                      </div>-->
 
                     </div>
+
+                                  </div>
+                                  <div class="col-lg-4 align-self-center pull-right">
+<!--                                                                  <li class="active">-->
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-5 align-self-center">
+                                          <div class="left-text">
+                                            <h6 class="text_style">
+                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!
+                                            </h6>
+                                            <div class="main-white-button" style="margin: 10px"><a href="/makeup"><i class="fa fa-eye"></i> Discover More</a></div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-7 align-self-center">
+                                          <div class="right-image">
+                                            <img src="event_management/static/img/makeup.jpg" alt=""/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+<!--                                </li>-->
+
+
+                              </div>
+
+                              </div>
+                          </div>
+                        </div>
+                      </div>
                      <!-- ***** Main Content Div End ***** -->
 <!--                            <div class="col-lg-9 align-self-center">-->
 <!--                              <ul class="nacc">-->
@@ -894,7 +975,23 @@
 })
 
 
+$('select#district_id').on('change', function(){
+    var val = $(this).val();
+$('select#place_id > option').each(function(){
+    if($(this).data('distid') == val){
+        $(this).show()
+    }else{
+        $(this).hide()
+    }
+})
+})
 
+$('select#venue_id').on('change', function(){
+    var price = $(this).find('option:selected').data('price');
+if(price != '' || price != null){
+    $('input#auditorium_price').val(price).trigger('change')
+}
+})
 
                   </script>
 
