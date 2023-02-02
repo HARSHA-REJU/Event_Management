@@ -7,3 +7,4 @@ from . import category
 from . import photographers
 from . import catering
 from . import entertainment
+# from . import decoration
