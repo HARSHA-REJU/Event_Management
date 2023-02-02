@@ -106,13 +106,27 @@
               </p>
             </field>
         </record>
+        <record id="res_partner_action_makeup_artist" model="ir.actions.act_window">
+            <field name="name">Makeup Artist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('makeup_artist','=',True)]</field>
+            <field name="context">{'default_makeup_artist': True,'default_is_company': True,}</field>
+        </record>
 
         <menuitem
                 id="event_management_venue_menu"
                 name="Venues"
                 parent="event_management_configuration_menu"
                 action="res_partner_action_venue"
-                groups="event_management.group_event_manager"/>
+                groups="event_management.group_event_manager" sequence="1"/>
+        <menuitem
+                id="event_management_auditorium_menu"
+                name="Makeup Artist"
+                parent="event_management_configuration_menu"
+                action="res_partner_action_makeup_artist"
+                groups="event_management.group_event_manager" sequence="2"/>
 
 
         <record id="event_partner_view_kanban" model="ir.ui.view">

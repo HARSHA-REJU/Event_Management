@@ -102,7 +102,7 @@
             <field name="res_model">event.management</field>
             <field name="view_mode">calendar</field>
         </record>
-                <menuitem id="calender_event_booking_menu" name="Booking Summary" sequence="1" action="action_calender_view_events" />
+                <menuitem id="calender_event_booking_menu" name="Booking Summary" sequence="2" action="action_calender_view_events" />
 
 
         <menuitem id="event_management_dashboard_menu" name="Event's Type Dashboard" parent="event_management.event_management_root_menu"
