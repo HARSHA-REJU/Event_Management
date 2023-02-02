@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
+        <record id="users_inherit_form_id" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='access_rights']/group[1]" position="before">
+                        <group col="2">
+                            <group><field name="auditorium" ref="base.partner_admin"/></group>
+                            <group></group>
+                        </group>
+                </xpath>
+
+            </field>
+        </record>
         <!-- Tree Views -->
         <record id="event_management_view_tree" model="ir.ui.view">
             <field name="name">event.management.view.tree</field>
@@ -105,28 +119,51 @@
                                         <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
 
                                     </group>
-                                    <group><field name="rent"/></group>
+                                    <group>
+                                        <field name="rent"/>
+                                        <field name="venue_discount"/>
+                                        <field name="venue_tax"/>
+                                        <field name="venue_total"/>
+                                    </group>
+<!--                                    <group><field name="venue_discount"/></group>-->
+<!--                                    <group><field name="venue_tax"/></group>-->
+<!--                                    <group><field name="venue_total"/></group>-->
                                 </group>
                                 <group string="Makeup Artist and Packages" col="2">
                                     <group>
                                         <field name="makeup_id" domain="[('makeup_artist','=',True)]"/>
                                         <field name="package_id"/>
                                     </group>
-                                    <group><field name="makeup_rate"/></group>
+                                    <group>
+                                        <field name="makeup_rate"/>
+                                        <field name="makeup_discount"/>
+                                        <field name="makeup_tax"/>
+                                        <field name="makeup_total"/>
+                                    </group>
                                 </group>
                                 <group string="Mehndi Artist and Packages" col="2">
                                     <group>
                                         <field name="mehndi_id" domain="[('mehndi_artist','=',True)]"/>
                                         <field name="mehndi_package_id"/>
                                     </group>
-                                    <group><field name="mehndi_rate"/></group>
+                                    <group>
+                                        <field name="mehndi_rate"/>
+                                        <field name="mehndi_discount"/>
+                                        <field name="mehndi_tax"/>
+                                        <field name="mehndi_total"/>
+                                    </group>
                                 </group>
                                 <group string="Photography and Packages" col="2">
                                     <group>
                                         <field name="photography_id"/>
                                         <field name="photography_package_id"/>
                                     </group>
-                                    <group><field name="photography_rate"/></group>
+                                    <group>
+                                        <field name="photography_rate"/>
+                                        <field name="photography_discount"/>
+                                        <field name="photography_tax"/>
+                                        <field name="photography_total"/>
+                                    </group>
                                 </group>
                                 <group string="Food and Caterers" col="2">
                                     <group>
@@ -135,18 +172,30 @@
                                         <field name="catering_rate"/>
                                         <field name="no_people"/>
                                     </group>
-                                    <group><field name="total_amt"/></group>
+                                    <group>
+                                        <field name="total_amt"/>
+                                        <field name="catering_discount"/>
+                                        <field name="catering_tax"/>
+                                        <field name="catering_total"/>
+                                    </group>
                                 </group>
                                 <group string="Entertainers" col="2">
                                     <group>
                                         <field name="entert_id"/>
                                         <field name="entert_package_id"/>
                                     </group>
-                                    <group><field name="entert_rate"/></group>
+                                    <group>
+                                        <field name="entert_rate"/>
+                                        <field name="entertainment_discount"/>
+                                        <field name="entertainment_tax"/>
+                                        <field name="entertainment_total"/>
+                                    </group>
                                 </group>
                                 <group col="2">
                                     <group></group>
                                     <group>
+                                        <field name="grand_discount"/>
+                                        <field name="grand_tax"/>
                                         <field name="grand_total"/>
                                     </group>
                                 </group>
@@ -251,9 +300,9 @@
 
 <!--        <menuitem id="event_management_sub_menu2" name="Event Management" parent="event_management_sub_menu1"-->
 <!--                  action="event_management_action_view_kanban" sequence="2"/>-->
-        <menuitem id="event_management_service_menu"
-                  name="Service" action="event_services_action_view"
-                  parent="event_management_configuration_menu" sequence="4"/>
+<!--        <menuitem id="event_management_service_menu"-->
+<!--                  name="Service" action="event_services_action_view"-->
+<!--                  parent="event_management_configuration_menu" sequence="4"/>-->
 
     </data>
 </odoo>

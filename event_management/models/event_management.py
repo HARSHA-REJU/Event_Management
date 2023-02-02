@@ -33,26 +33,107 @@ class EventManagement(models.Model):
                                        required=True)
     venue_id = fields.Many2one('res.partner', domain=[('venue', '=', True)], string="Venue", required=True)
     rent = fields.Float('Amount')
+    venue_discount = fields.Float('Discount')
+    venue_tax = fields.Float('Tax')
+    venue_total = fields.Float('Total')
+
     makeup_id = fields.Many2one('artist.artist', string="Makeup Arist")
     package_id = fields.Many2one('makeup.package', string="Package")
     makeup_rate = fields.Float('Amount')
+    makeup_discount = fields.Float('Discount')
+    makeup_tax = fields.Float('Tax')
+    makeup_total = fields.Float('Total Amount')
     mehndi_id = fields.Many2one('artist.artist', string="Mehndi Arist")
     mehndi_package_id = fields.Many2one('makeup.package', string="Package")
     mehndi_rate = fields.Float('Amount')
+    mehndi_discount = fields.Float('Discount')
+    mehndi_tax = fields.Float('Tax')
+    mehndi_total = fields.Float('Total Amount')
     photography_id = fields.Many2one('photographer.photographer', string="Photography")
     photography_package_id = fields.Many2one('makeup.package', string="Package")
     photography_rate = fields.Float('Amount')
+    photography_discount = fields.Float('Discount')
+    photography_tax = fields.Float('Tax')
+    photography_total = fields.Float('Total Amount')
     caterers_id = fields.Many2one('cater.cater', string="Caterers Name")
     catering_package_id = fields.Many2one('makeup.package', string="Package")
     catering_rate = fields.Float('Rate/Plate')
+    catering_discount = fields.Float('Discount')
+    catering_tax = fields.Float('Tax')
+    catering_total = fields.Float('Total Amount')
     no_people = fields.Integer('Serving For(Nos)')
     total_amt = fields.Float('Amount')
     entert_id = fields.Many2one('entertainer.entertainer', string="Entertainer")
     entert_package_id = fields.Many2one('makeup.package', string="Package")
     entert_rate = fields.Float('Amount')
+    entertainment_discount = fields.Float('Discount')
+    entertainment_tax = fields.Float('Tax')
+    entertainment_total = fields.Float('Total Amount')
+    grand_discount = fields.Float('Total Discount')
+    grand_tax = fields.Float('Total Tax')
     grand_total = fields.Float('Grand Total')
     compute_field = fields.Char(compute="_compute_total_rate")
-    compute_field2 = fields.Char(compute="_compute_grand_rate")
+    # compute_field2 = fields.Char(compute="_compute_grand_rate")
+    compute_field3 = fields.Char(compute="_compute_tax_discount_rate")
+
+    @api.onchange('venue_discount', 'venue_tax', 'makeup_discount', 'makeup_tax', 'makeup_total', 'mehndi_discount',
+                  'mehndi_tax',
+                  'mehndi_total', 'photography_discount', 'photography_tax', 'photography_total', 'catering_discount',
+                  'catering_tax',
+                  'catering_total', 'entertainment_discount', 'entertainment_tax', 'entertainment_total')
+    def _compute_tax_discount_rate(self):
+        makeup_discount_amt, makeup_tax_amt, mehndi_discount_amt, mehndi_tax_amt, photography_discount_amt, photography_tax_amt, catering_discount_amt, catering_tax_amt, entertainment_discount_amt, entertainment_tax_amt = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        total_discount_amt, total_tax_amt, venue_discount_amt, venue_tax_amt = 0, 0, 0, 0
+        sum = 0
+        for rec in self:
+            if rec.venue_discount:
+                venue_discount_amt = rec.rent * (rec.venue_discount / 100)
+                total_discount_amt = total_discount_amt + venue_discount_amt
+            if rec.venue_tax:
+                venue_tax_amt = rec.rent * (rec.venue_tax / 100)
+                total_tax_amt = total_tax_amt + venue_tax_amt
+            rec.venue_total = (rec.rent + venue_tax_amt) - venue_discount_amt
+
+            if rec.makeup_discount:
+                makeup_discount_amt = rec.makeup_rate * (rec.makeup_discount / 100)
+                total_discount_amt = total_discount_amt + makeup_discount_amt
+            if rec.makeup_tax:
+                makeup_tax_amt = rec.makeup_rate * (rec.makeup_tax / 100)
+                total_tax_amt = total_tax_amt + makeup_tax_amt
+            rec.makeup_total = (rec.makeup_rate + makeup_tax_amt) - makeup_discount_amt
+            if rec.mehndi_discount:
+                mehndi_discount_amt = rec.mehndi_rate * (rec.mehndi_discount / 100)
+                total_discount_amt = total_discount_amt + mehndi_discount_amt
+            if rec.mehndi_tax:
+                mehndi_tax_amt = rec.mehndi_rate * (rec.mehndi_tax / 100)
+                total_tax_amt = total_tax_amt + mehndi_tax_amt
+            rec.mehndi_total = (rec.mehndi_rate + mehndi_tax_amt) - mehndi_discount_amt
+            if rec.photography_discount:
+                photography_discount_amt = rec.photography_rate * (rec.photography_discount / 100)
+                total_discount_amt = total_discount_amt + photography_discount_amt
+            if rec.photography_tax:
+                photography_tax_amt = rec.photography_rate * (rec.photography_tax / 100)
+                total_tax_amt = total_tax_amt + photography_tax_amt
+            rec.photography_total = (rec.photography_rate + photography_tax_amt) - photography_discount_amt
+            if rec.catering_discount:
+                catering_discount_amt = rec.total_amt * (rec.catering_discount / 100)
+                total_discount_amt = total_discount_amt + catering_discount_amt
+            if rec.catering_tax:
+                catering_tax_amt = rec.total_amt * (rec.catering_tax / 100)
+                total_tax_amt = total_tax_amt + catering_tax_amt
+            rec.catering_total = (rec.total_amt + catering_tax_amt) - catering_discount_amt
+            if rec.entertainment_discount:
+                entertainment_discount_amt = rec.entert_rate * (rec.entertainment_discount / 100)
+                total_discount_amt = total_discount_amt + entertainment_discount_amt
+            if rec.entertainment_tax:
+                entertainment_tax_amt = rec.entert_rate * (rec.entertainment_tax / 100)
+                total_tax_amt = total_tax_amt + entertainment_tax_amt
+            rec.entertainment_total = (rec.entert_rate + entertainment_tax_amt) - entertainment_discount_amt
+
+            rec.grand_discount = total_discount_amt
+            rec.grand_tax = total_tax_amt
+            sum = rec.rent + rec.makeup_rate + rec.mehndi_rate + rec.photography_rate + rec.entert_rate + rec.total_amt
+            rec.grand_total = (sum + total_tax_amt) - total_tax_amt
 
     @api.onchange('makeup_id')
     def onchange_packages_id(self):
@@ -148,13 +229,12 @@ class EventManagement(models.Model):
     facilities_ids2 = fields.One2many('facility.event', 'facility_id2')
     user_id = fields.Many2one('res.users', default=lambda self: self.env.user.id)
 
-    @api.onchange('total_amt', 'rent', 'makeup_rate', 'mehndi_rate', 'photography_rate',
-                  'entert_rate','catering_rate','no_people')
-    def _compute_grand_rate(self):
-        sum = 0
-        for rec in self:
-            sum = rec.rent + rec.makeup_rate + rec.mehndi_rate + rec.photography_rate + rec.entert_rate+rec.total_amt
-            rec.grand_total = sum
+    # @api.onchange('total_amt', 'rent', 'makeup_rate', 'mehndi_rate', 'photography_rate','entert_rate','catering_rate','no_people')
+    # def _compute_grand_rate(self):
+    #     sum = 0
+    #     for rec in self:
+    #         sum = rec.rent + rec.makeup_rate + rec.mehndi_rate + rec.photography_rate + rec.entert_rate+rec.total_amt
+    #         rec.grand_total = sum
     @api.onchange('district_id')
     def onchange_district_id(self):
         if self.district_id:
@@ -165,7 +245,8 @@ class EventManagement(models.Model):
         if self.place_id:
             return {'domain': {'venue_id': [('place_id', '=', self.place_id.id)]}} \
  \
-    # @api.onchange('venue_id')
+                # @api.onchange('venue_id')
+
     # def onchange_venue_id(self):
     #     if self.venue_id:
     #         self.place_id = self.venue_id.place_id
@@ -215,15 +296,15 @@ class EventManagement(models.Model):
         # Create other service bookins
         if self.makeup_id:
             makeup_artist_id = self.env['makeup.artist'].create({
-                'makeup_artist':True,
-                'customer_name':self.partner_id.id,
-                'date':self.date,
-                'booking_date':self.event_date,
+                'makeup_artist': True,
+                'customer_name': self.partner_id.id,
+                'date': self.date,
+                'booking_date': self.event_date,
                 'type_of_event_id': self.type_of_event_id.id,
-                'artist_name':self.makeup_id.id,
-                'package':self.package_id.id,
-                'rate':self.makeup_rate,
-                'service_id':self.package_id.package_services_ids,
+                'artist_name': self.makeup_id.id,
+                'package': self.package_id.id,
+                'rate': self.makeup_rate,
+                'service_id': self.package_id.package_services_ids,
             })
             # print("makeup artist booked from event page")
         if self.mehndi_id:
@@ -258,8 +339,8 @@ class EventManagement(models.Model):
                 'artist_name': self.caterers_id.id,
                 'package': self.catering_package_id.id,
                 'rate': self.catering_rate,
-                'total':self.total_amt,
-                'number_of_plate':self.no_people,
+                'total': self.total_amt,
+                'number_of_plate': self.no_people,
                 'service_id': self.catering_package_id.package_services_ids,
             })
         if self.entert_id:
@@ -273,11 +354,6 @@ class EventManagement(models.Model):
                 'rate': self.entert_rate,
                 'service_id': self.entert_package_id.package_services_ids,
             })
-
-
-
-
-
 
     def action_event_invoice(self):
         # vals = {
@@ -674,3 +750,16 @@ class EventManagementType(models.Model):
     def get_event_type_action_event(self):
         return self._get_action(
             'event_management.event_management_action_view_kanban')
+
+
+class ResUsers(models.Model):
+    _inherit = 'res.users'
+
+    def get_partner_id(self):
+        partner = self.partner_id.id
+        # self.auditorium = partner
+        return partner
+
+    auditorium = fields.Many2one('res.partner',string="Select Auditorium",default= get_partner_id)
+
+

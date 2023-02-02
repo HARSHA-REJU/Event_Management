@@ -44,7 +44,7 @@
         </record>
 
         <menuitem id="event_management_configuration_menu" name="Configuration"
-                  groups="event_management.group_event_manager" sequence="300"/>
+                  groups="event_management.group_event_manager" sequence="8"/>
 <!--        <menuitem id="event_management_configuration_menu" name="Configuration" parent="event_management_root_menu"-->
 <!--                  groups="event_management.group_event_manager" sequence="50"/>-->
         <menuitem id="event_management_type_menu" name="Event Type" parent="event_management_configuration_menu"

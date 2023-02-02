@@ -126,7 +126,7 @@
         </t>
     </template>
 
-    <menuitem id="reports_root_menu" name="Reports" sequence="7"/>
+    <menuitem id="reports_root_menu" name="Reports" sequence="10"/>
 
     <menuitem id="reports_customer_enquiry" name="Customer Enquiry Report" sequence="1" action="action_customer_enquiry_reports" parent="reports_root_menu"/>
 </odoo>

@@ -10,7 +10,7 @@ class MakeupArtistNames(models.Model):
     _name = 'artist.artist'
     _rec_name = 'artist_name'
 
-    artist_name = fields.Many2one('res.partner', 'Name')
+    artist_name = fields.Many2one('res.partner', 'Name',options="{'no_quick_create': True}")
     packages_ids = fields.Many2many('makeup.package', string='Package')
     makeup_artist = fields.Boolean(string="Makeup Artist ?")
     mehndi_artist = fields.Boolean(string="Mehndi Artist ?")
