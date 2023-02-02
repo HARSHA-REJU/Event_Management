@@ -299,9 +299,9 @@
 
 <!--        <menuitem id="event_management_sub_menu2" name="Event Management" parent="event_management_sub_menu1"-->
 <!--                  action="event_management_action_view_kanban" sequence="2"/>-->
-        <menuitem id="event_management_service_menu"
-                  name="Service" action="event_services_action_view"
-                  parent="event_management_configuration_menu" sequence="4"/>
+<!--        <menuitem id="event_management_service_menu"-->
+<!--                  name="Service" action="event_services_action_view"-->
+<!--                  parent="event_management_configuration_menu" sequence="4"/>-->
 
     </data>
 </odoo>

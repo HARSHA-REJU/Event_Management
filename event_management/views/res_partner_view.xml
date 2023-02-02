@@ -114,19 +114,84 @@
             <field name="domain">[('makeup_artist','=',True)]</field>
             <field name="context">{'default_makeup_artist': True,'default_is_company': True,}</field>
         </record>
+        <record id="res_partner_action_mehndi_artist" model="ir.actions.act_window">
+            <field name="name">Mehndi Artist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('mehndi_artist','=',True)]</field>
+            <field name="context">{'default_mehndi_artist': True,'default_is_company': True,}</field>
+        </record>
+        <record id="res_partner_action_photography_artist" model="ir.actions.act_window">
+            <field name="name">Photography Artist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('photographer','=',True)]</field>
+            <field name="context">{'default_photographer': True,'default_is_company': True,}</field>
+        </record>
+        <record id="res_partner_action_catering_artist" model="ir.actions.act_window">
+            <field name="name">Catering Partners</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('catering','=',True)]</field>
+            <field name="context">{'default_catering': True,'default_is_company': True,}</field>
+        </record>
+        <record id="res_partner_action_entertainer_artist" model="ir.actions.act_window">
+            <field name="name">Entertainers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('entertainment','=',True)]</field>
+            <field name="context">{'default_catering': True,'default_is_company': True,}</field>
+        </record>
+
+        <menuitem
+                id="event_management_artist_main_menu"
+                name="Create Arist/Partners"
+                parent="event_management_configuration_menu"
+                groups="event_management.group_event_manager" sequence="1"/>
 
         <menuitem
                 id="event_management_venue_menu"
                 name="Venues"
-                parent="event_management_configuration_menu"
+                parent="event_management_artist_main_menu"
                 action="res_partner_action_venue"
                 groups="event_management.group_event_manager" sequence="1"/>
         <menuitem
-                id="event_management_auditorium_menu"
+                id="event_management_makeup_artist_menu"
                 name="Makeup Artist"
-                parent="event_management_configuration_menu"
+                parent="event_management_artist_main_menu"
                 action="res_partner_action_makeup_artist"
                 groups="event_management.group_event_manager" sequence="2"/>
+        <menuitem
+                id="event_management_mehndi_artist_menu"
+                name="Mehndi Artist"
+                parent="event_management_artist_main_menu"
+                action="res_partner_action_mehndi_artist"
+                groups="event_management.group_event_manager" sequence="3"/>
+
+        <menuitem
+                id="event_management_photography_artist_menu"
+                name="Photography"
+                parent="event_management_artist_main_menu"
+                action="res_partner_action_photography_artist"
+                groups="event_management.group_event_manager" sequence="4"/>
+        <menuitem
+                id="event_management_catering_artist_menu"
+                name="Caterer"
+                parent="event_management_artist_main_menu"
+                action="res_partner_action_catering_artist"
+                groups="event_management.group_event_manager" sequence="5"/>
+        <menuitem
+                id="event_management_enetertainment_artist_menu"
+                name="Entertainers"
+                parent="event_management_artist_main_menu"
+                action="res_partner_action_entertainer_artist"
+                groups="event_management.group_event_manager" sequence="6"/>
+
+
 
 
         <record id="event_partner_view_kanban" model="ir.ui.view">
