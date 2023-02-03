@@ -501,7 +501,7 @@ https://templatemo.com/tm-564-plot-listing
                                                             </p>
                                                             <t t-foreach="pkgs.package_services_ids" t-as="pkg_service">
                                                             <p class="group inner list-group-item-text">
-                                                                <t t-esc="pkg_service.name"/><br/>
+                                                                <t t-esc="pkg_service.service_name"/><br/>
                                                             </p>
                                                             </t>
                                                             <div class="row">
