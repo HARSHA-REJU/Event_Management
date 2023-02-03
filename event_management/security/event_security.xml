@@ -92,26 +92,26 @@
             <field name="domain_force">[]</field>
             <field name="groups" eval="[(4, ref('event_management.group_event_manager'))]"/>
         </record>
-        <record id = "district_visibility_event_booking" model = "ir.rule">
-           <field name = "name"> User can only see his / her bookings </field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_district_manager'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('user_id', '=', user.id)] </field>
-       </record>
-        <record id = "district_visibility_enquiry" model = "ir.rule">
-           <field name = "name"> User can only see his / her enquiries </field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_district_manager'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('user_id', '=', user.id)] </field>
-       </record>
+<!--        <record id = "district_visibility_event_booking" model = "ir.rule">-->
+<!--           <field name = "name"> User can only see his / her bookings </field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_district_manager'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('user_id', '=', user.id)] </field>-->
+<!--       </record>-->
+<!--        <record id = "district_visibility_enquiry" model = "ir.rule">-->
+<!--           <field name = "name"> User can only see his / her enquiries </field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_district_manager'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', user.id)] </field>-->
+<!--       </record>-->
 
         <record id = "auditorium_wise_visibility_bookings" model = "ir.rule">
            <field name = "name"> Auditorium Manager can only see bookings in his/her Auditorium</field>
@@ -121,7 +121,27 @@
            <field name = "perm_write" eval = "False" />
            <field name = "perm_create" eval = "False" />
            <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('venue_id', '=', user.partner_id.id)] </field>
+           <field name = "domain_force"> [('venue_id', '=', user.auditorium.id)] </field>
+       </record>
+        <record id = "auditorium_wise_visibility_district_id" model = "ir.rule">
+           <field name = "name"> Auditorium Manager can only his/her Auditorium District</field>
+           <field name = "model_id" ref = "model_place_district" />
+           <field name = "groups" eval = "[(4, ref ('group_auditorium_manager'))]" />
+           <field name = "perm_read" eval = "True" />
+           <field name = "perm_write" eval = "False" />
+           <field name = "perm_create" eval = "False" />
+           <field name = "perm_unlink" eval = "False" />
+           <field name = "domain_force"> [('id', '=', user.auditorium.district_id.id)] </field>
+       </record>
+        <record id = "manager_wise_visibility_bookings_auditoriums" model = "ir.rule">
+           <field name = "name"> Auditorium Manager can only his/her Auditorium</field>
+           <field name = "model_id" ref = "model_res_partner" />
+           <field name = "groups" eval = "[(4, ref ('group_auditorium_manager'))]" />
+           <field name = "perm_read" eval = "True" />
+           <field name = "perm_write" eval = "False" />
+           <field name = "perm_create" eval = "False" />
+           <field name = "perm_unlink" eval = "False" />
+           <field name = "domain_force"> [('id', '=', user.auditorium.id)] </field>
        </record>
 
         <record id = "auditorium_wise_visibility_enquiries" model = "ir.rule">
@@ -132,7 +152,7 @@
            <field name = "perm_write" eval = "True" />
            <field name = "perm_create" eval = "False" />
            <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('venue_id', '=', user.partner_id.id)] </field>
+           <field name = "domain_force"> [('venue_id', '=', user.auditorium.id)] </field>
        </record>
 
         <record id = "trivandrum_district_visibility_user" model = "ir.rule">

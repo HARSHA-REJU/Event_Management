@@ -212,7 +212,7 @@
                                         <i class="fa fa-cog" title="setting"/>
                                     </button>
                                 </div>
-                                <div class="o_primary style_event_type col-md-12" style="padding-bottom: 4%;">
+                                <div class="o_primary style_event_type col-md-12" style="padding: 4%;">
                                     <div class="col-md-12">
                                         <a type="object" name="get_event_partner_action_event">
                                             <h2 style="text-align:center;font-size: 12px;"><field name="name"/></h2>

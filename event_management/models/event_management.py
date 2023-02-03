@@ -659,7 +659,7 @@ class PlaceDistrict(models.Model):
             'search_default_district_id': [self.id],
             'default_district_id': self.id,
         }
-        domain = [('district_id', '=', self.id)]
+        domain = [('district_id', '=', self.id),('venue', '=', True)]
 
         action_context = literal_eval(action['context'])
         context = {**action_context, **context}

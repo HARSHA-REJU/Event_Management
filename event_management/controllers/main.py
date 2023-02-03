@@ -78,7 +78,6 @@ class HomePage(http.Controller):
             'login':email,
             'name':name,
             'password':password,
-            'current_user': current_user,
         }
         # print(vals)
         if password==re_password:
@@ -86,6 +85,7 @@ class HomePage(http.Controller):
             new_user.partner_id.write({'mobile': mobile})
             new_user.partner_id.write({'email': email})
             return http.redirect_with_hash('/#loginModal')
+
     @http.route(['/user/login'], type='http', auth="public",website=True)
     def login_controller(self, **args):
         email = args.get('email')
@@ -157,6 +157,13 @@ class HomePage(http.Controller):
     def logout_controller(self, **args):
         request.session.logout(keep_db=True)
         return http.redirect_with_hash('/')
+    @http.route(['/dashboard'], type='http', auth="public", website=True)
+    def dashboard_controller(self, **args):
+        current_user = request.env.user
+        if current_user.has_group ('event_management.group_auditorium_manager'):
+            return http.redirect_with_hash("/web")
+        else:
+            return http.redirect_with_hash('/account')
 
 
 class ContactUsPage(http.Controller):
@@ -214,7 +221,7 @@ class ContactUsPage(http.Controller):
         }
         #
         #
-        print(vals)
+        # print(vals)
         enquiry_event = request.env['customer.enquiry.details'].sudo().create(vals)
         response = redirect("/contactus")
         return response
@@ -225,56 +232,56 @@ class VenueListingPage(http.Controller):
     @http.route(['/venuelist'], type='http', auth="public",website=True)
     def venue_page_controller(self):
         current_user = request.env.user
-        if current_user.has_group ('event_management.group_auditorium_manager'):
-            return http.redirect_with_hash("/web")
-        else:
-            trivandrum_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',1)])
-            kollam_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',2)])
-            pathanamthitta_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',3)])
-            alappey_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',4)])
-            kottayam_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',5)])
-            idukki_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',6)])
-            ernakulam_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',7)])
-            thrissur_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',8)])
-            palakkad_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',9)])
-            malappuram_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',10)])
-            kozhikkod_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',11)])
-            wayanad_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',12)])
-            kannur_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',13)])
-            kasaragod_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',14)])
+        # if current_user.has_group ('event_management.group_auditorium_manager'):
+        #     return http.redirect_with_hash("/web")
+        # else:
+        trivandrum_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',1)])
+        kollam_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',2)])
+        pathanamthitta_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',3)])
+        alappey_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',4)])
+        kottayam_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',5)])
+        idukki_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',6)])
+        ernakulam_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',7)])
+        thrissur_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',8)])
+        palakkad_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',9)])
+        malappuram_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',10)])
+        kozhikkod_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',11)])
+        wayanad_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',12)])
+        kannur_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',13)])
+        kasaragod_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',14)])
 
-            districts = request.env['place.district'].sudo().search([])
+        districts = request.env['place.district'].sudo().search([])
 
-            values = {
-                'trivandrum_venues':trivandrum_venues,
-                'kollam_venues':kollam_venues,
-                'pathanamthitta_venues':pathanamthitta_venues,
-                'alappey_venues':alappey_venues,
-                'kottayam_venues':kottayam_venues,
-                'idukki_venues':idukki_venues,
-                'ernakulam_venues':ernakulam_venues,
-                'thrissur_venues':thrissur_venues,
-                'palakkad_venues':palakkad_venues,
-                'malappuram_venues':malappuram_venues,
-                'kozhikkod_venues':kozhikkod_venues,
-                'wayanad_venues':wayanad_venues,
-                'kannur_venues':kannur_venues,
-                'kasaragod_venues':kasaragod_venues,
-                'districts':districts,
-                'current_user': current_user,
-                # 'types':types,
-                # 'places':places,
-            }
-            return request.render(
+        values = {
+            'trivandrum_venues':trivandrum_venues,
+            'kollam_venues':kollam_venues,
+            'pathanamthitta_venues':pathanamthitta_venues,
+            'alappey_venues':alappey_venues,
+            'kottayam_venues':kottayam_venues,
+            'idukki_venues':idukki_venues,
+            'ernakulam_venues':ernakulam_venues,
+            'thrissur_venues':thrissur_venues,
+            'palakkad_venues':palakkad_venues,
+            'malappuram_venues':malappuram_venues,
+            'kozhikkod_venues':kozhikkod_venues,
+            'wayanad_venues':wayanad_venues,
+            'kannur_venues':kannur_venues,
+            'kasaragod_venues':kasaragod_venues,
+            'districts':districts,
+            'current_user': current_user,
+            # 'types':types,
+            # 'places':places,
+        }
+        return request.render(
 
-            "event_management.venue_page",values)
+        "event_management.venue_page",values)
 class SearchListPage(http.Controller):
     @http.route(['/searchlist'], type='http', auth="public",website=True)
     def search_page_controller(self, **args):
         current_user = request.env.user
         district_domain = []
         domain_venue = []
-        print (args.get('district_id'))
+        # print (args.get('district_id'))
         if args.get('district_id'):
             domain_venue = [('venue','=',True),('district_id.id','=',args.get('district_id'))]
             district_domain = [('id','=',args.get('district_id'))]
@@ -295,11 +302,11 @@ class MakeupPage(http.Controller):
     @http.route(['/makeup'], type='http', auth="public",website=True)
     def search_page_controller(self, **args):
         current_user = request.env.user
-        print (args.get('price'))
+        # print (args.get('price'))
         makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
         mehndi_artists = request.env['res.partner'].sudo().search([('mehndi_artist','=',True)])
-        packages = request.env['makeup.package'].sudo().search([])
-        services = request.env['package.service'].sudo().search([])
+        packages = request.env['makeup.package'].sudo().search([('makeup_artist','=',True)])
+        services = request.env['package.service'].sudo().search([('makeup_artist','=',True)])
 
         values = {
             'makeup_artists':makeup_artists,
@@ -320,7 +327,7 @@ class EventDetailsPage(http.Controller):
         # print (district_id)
         current_user = request.env.user
 
-        print (args.get('price'))
+        # print (args.get('price'))
         venues = request.env['res.partner'].sudo().search([('venue','=',True),('district_id','=',args.get('district_id'))])
         districts = request.env['place.district'].sudo().search([('id','=',args.get('district_id'))])
 
@@ -359,7 +366,7 @@ class BookingPage(http.Controller):
     @http.route(['/booking'], type='http', auth="public",website=True)
     def booking_page_controller(self, **args):
         current_user = request.env.user
-        print(current_user)
+        # print(current_user)
         if current_user.id!=4:
             venues = request.env['res.partner'].sudo().search([('venue','=',True)])
             districts = request.env['place.district'].sudo().search([])
@@ -405,7 +412,6 @@ class BookingPage(http.Controller):
                 'package': package,
                 'booking_date': b_date,
                 'rate': price,
-                'current_user': current_user,
 
             }
             booking_artist = request.env['makeup.artist'].sudo().create(vals)
@@ -437,7 +443,7 @@ class BookingPage(http.Controller):
             'partner_id':current_user.partner_id.id,
         }
 
-        print(venue_id,type_id,date,mobile,name,venue_obj.district_id.id,venue_obj.place_id.id)
+        # print(venue_id,type_id,date,mobile,name,venue_obj.district_id.id,venue_obj.place_id.id)
         # booking_event = request.env['customer.enquiry.details'].sudo().create(vals)
         booking_event = request.env['event.management'].sudo().create(vals)
 
@@ -445,7 +451,7 @@ class BookingPage(http.Controller):
         # booking_event.action_enquiry_confirm()
         # booking_event.action_create_event()
         print ("My bookingssssssssssssssssss///////////...................")
-        print (booking_event.id)
+        # print (booking_event.id)
         # venues = request.env['res.partner'].sudo().search([('venue', '=', True)])
         # districts = request.env['place.district'].sudo().search([])
         # types = request.env['event.management.type'].sudo().search([])
@@ -468,7 +474,6 @@ class BookingPage(http.Controller):
     @http.route(['/ajax/reservations/get/<int:venue_id>'], type='http', auth="public",website=True)
     def data_calender_ajax(self, venue_id,**args):
         venue_id = venue_id
-
         values=[{
             'title': "Title",
             'start': '2018-02-01',
