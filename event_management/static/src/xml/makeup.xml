@@ -382,14 +382,13 @@ https://templatemo.com/tm-564-plot-listing
                           <span><h4>Attractive Packages</h4></span>
                       </div>
                     </div>
-                      <div>
-                          <div class="thumb">
-                              <span><h4>Makeup Services</h4></span>
-                          </div>
-                    </div>
+<!--                      <div>-->
+<!--                          <div class="thumb">-->
+<!--                              <span><h4>Makeup Services</h4></span>-->
+<!--                          </div>-->
+<!--                    </div>-->
                   </div>
                 </div>
-
                   <div class="col-lg-12">
                   <ul class="nacc">
                       <li class="active">
@@ -405,8 +404,8 @@ https://templatemo.com/tm-564-plot-listing
                                              <t t-foreach="makeup_artists" t-as="mk_artist">
                                                  <div class="item  col-xs-4 col-lg-4">
                                                     <div class="thumbnail">
-                                                        <img class="group list-group-image" src="event_management/static/img/makeup.jpg" alt=""/>
-<!--                                                        <img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % venue.id" alt="" />-->
+<!--                                                        <img class=" img-fluid group list-group-image" src="event_management/static/img/makeup.jpg" alt=""/>-->
+                                                        <img class="img-fluid group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % mk_artist.id" alt="" />
                                                         <div class="caption">
                                                             <h4 class="group inner list-group-item-heading">
                                                                 <t t-esc="mk_artist.name"/></h4>
@@ -446,132 +445,79 @@ https://templatemo.com/tm-564-plot-listing
                                     <div class="row">
                                         <div class="container">
                                             <div id="products" class="row">
-                                                <div class="item  col-xs-4 col-lg-4">
+                                             <t t-foreach="mehndi_artists" t-as="mh_artist">
+                                                 <div class="item  col-xs-4 col-lg-4">
                                                     <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?mobile" alt="" />
+<!--                                                        <img class="img-fluid group list-group-image" src="event_management/static/img/makeup.jpg" alt=""/>-->
+                                                        <img class="img-fluid group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % mh_artist.id" alt="" />
                                                         <div class="caption">
                                                             <h4 class="group inner list-group-item-heading">
-                                                                Product titlergdfg</h4>
+                                                                <t t-esc="mehndi_artists.name"/></h4>
                                                             <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                                <t t-esc="mehndi_artists.comment"/></p>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $21.000</p>
+<!--                                                                    <p class="lead">-->
+<!--                                                                          ₹ <t t-esc="mk_artist.amount"/></p>-->
                                                                 </div>
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#1">Add to cart</a>
+                                                                    <a class="btn btn-success" href="/booking">Book Now</a>
+<!--                                                                    <a class="btn btn-success" href="/makeupartistbooking">Book Now</a>-->
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
+                                            </div>
+                                             </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                      </li>
+                      <li>
+                      <div>
+                          <div class="thumb">
+                              <div class="row">
+                                  <div class="col-lg-12">
+                                  <div class="top-content">
+                                    <div class="row">
+                                        <div class="container">
+                                            <div id="products" class="row">
+                                             <t t-foreach="packages" t-as="pkgs">
+                                                 <div class="item  col-xs-4 col-lg-4">
                                                     <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?watch" alt="" />
+<!--                                                        <img class="img-fluid group list-group-image" src="event_management/static/img/makeup.jpg" alt=""/>-->
+<!--                                                        <img class="img-fluid group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % pkgs.id" alt="" />-->
                                                         <div class="caption">
                                                             <h4 class="group inner list-group-item-heading">
-                                                                Codehim.com</h4>
+                                                                <t t-esc="pkgs.name"/></h4>
                                                             <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                                                <t t-esc="pkgs.package_by"/><br/>
+                                                                <t t-esc="pkgs.rate"/><br/>
+                                                            </p>
+                                                            <t t-foreach="pkgs.package_services_ids" t-as="pkg_service">
+                                                            <p class="group inner list-group-item-text">
+                                                                <t t-esc="pkg_service.service_name"/><br/>
+                                                            </p>
+                                                            </t>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $21.cvbcxbvnxcnxc000</p>
+<!--                                                                    <p class="lead">-->
+<!--                                                                          ₹ <t t-esc="mk_artist.amount"/></p>-->
                                                                 </div>
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#2">Add to cart</a>
+                                                                    <a class="btn btn-success" href="/booking">Book Now</a>
+<!--                                                                    <a class="btn btn-success" href="/makeupartistbooking">Book Now</a>-->
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?t-shirt" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Produccncxnxcnct title</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $21.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#3">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?laptop" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Product title</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $311.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#4">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?girl" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Product title</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $5.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#5">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item  col-xs-4 col-lg-4">
-                                                    <div class="thumbnail">
-                                                        <img class="group list-group-image" src="https://source.unsplash.com/400x250/?keyboard" alt="" />
-                                                        <div class="caption">
-                                                            <h4 class="group inner list-group-item-heading">
-                                                                Product title</h4>
-                                                            <p class="group inner list-group-item-text">
-                                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <p class="lead">
-                                                                        $10.000</p>
-                                                                </div>
-                                                                <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="#6">Add to cart</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            </div>
+                                             </t>
                                             </div>
                                         </div>
                                     </div>
@@ -582,282 +528,11 @@ https://templatemo.com/tm-564-plot-listing
                       </div>
                       </li>
 
+
                   </ul>
                   </div>
 
 
-<!--                <div class="col-lg-12">-->
-<!--                  <ul class="nacc">-->
-<!--                    <li class="active">-->
-<!--                      <div>-->
-<!--                        <div class="thumb">-->
-<!--                          <div class="row">-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="top-content">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="top-icon">-->
-<!--                                      <span class="icon"><img src="event_management/static/img/makeup.jpg" alt=""/><h4>Makeup Ar</h4></span>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="main-white-button">-->
-<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="description">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-9">-->
-<!--                                    <h4>Description for Apartments</h4>-->
-<!--                                    <p>If you feel that Plot Listing HTML template is useful, please <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little via PayPal. You are allowed to use this template for your commercial websites. You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites. You may contact us for more information. Thank you.</p>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-3">-->
-<!--                                    <div class="text-icon">-->
-<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
-<!--                                    </div>-->
-<!--                                    <span class="list-item">This Week: 200 Listings &amp; 150 Sales<br>This Month: 1,800 Listings &amp; 1,560 Sales<br>This Year: 16,000 Listings &amp; 14,000 Sales</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="general-info">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-12">-->
-<!--                                    <h4>General Info. about Apartments</h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
-<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
-<!--                                    <br>** Listing will be checked by our team members.-->
-<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                      <div>-->
-<!--                        <div class="thumb">-->
-<!--                          <div class="row">-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="top-content">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="top-icon">-->
-<!--                                      <span class="icon"><img src="assets/images/search-icon-02.png" alt=""><h4>Food &amp; Life</h4></span>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="main-white-button">-->
-<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="description">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-9">-->
-<!--                                    <h4>Description for Food and Life</h4>-->
-<!--                                    <p>Plot Listing template is a responsive website layout that included four HTML pages. Please tell your friends about TemplateMo website. You can download and apply this template for your dynamic CMS websites.</p>-->
-<!--                                    <br>-->
-<!--                                    <p><strong>Did you know?</strong>-->
-<!--                                    <br>You can get the best free HTML templates on Too CSS blog. Visit the blog pages and explore fresh and latest website templates.</p>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-3">-->
-<!--                                    <div class="text-icon">-->
-<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
-<!--                                    </div>-->
-<!--                                    <span class="list-item">This Week: 124 Listings &amp; 84 Sales<br>This Month: 1,040 Listings &amp; 720 Sales<br>This Year: 10,640 Listings &amp; 9,600 Sales</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="general-info">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-12">-->
-<!--                                    <h4>General Info</h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
-<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
-<!--                                    <br>** Listing will be checked by our team members.-->
-<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                      <div>-->
-<!--                        <div class="thumb">-->
-<!--                          <div class="row">-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="top-content">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="top-icon">-->
-<!--                                      <span class="icon"><img src="assets/images/search-icon-03.png" alt=""><h4>Cars</h4></span>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="main-white-button">-->
-<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="description">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-9">-->
-<!--                                    <h4>Description about cars</h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-3">-->
-<!--                                    <div class="text-icon">-->
-<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
-<!--                                    </div>-->
-<!--                                    <span class="list-item">This Week: 800 Listings &amp; 400 Sales<br>This Month: 1,600 Listings &amp; 1,200 Sales<br>This Year: 14,000 Listings &amp; 12,000 Sales</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="general-info">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-12">-->
-<!--                                    <h4>General Info. about cars</h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
-<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
-<!--                                    <br>** Listing will be checked by our team members.-->
-<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                      <div>-->
-<!--                        <div class="thumb">-->
-<!--                          <div class="row">-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="top-content">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="top-icon">-->
-<!--                                      <span class="icon"><img src="assets/images/search-icon-04.png" alt=""><h4>Shopping</h4></span>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="main-white-button">-->
-<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="description">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-9">-->
-<!--                                    <h4>Description about Shopping</h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-3">-->
-<!--                                    <div class="text-icon">-->
-<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
-<!--                                    </div>-->
-<!--                                    <span class="list-item">This Week: 150 Listings &amp; 140 Sales<br>This Month: 1,500 Listings &amp; 1,100 Sales<br>This Year: 15,000 Listings &amp; 14,000 Sales</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="general-info">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-12">-->
-<!--                                    <h4>General Info. for Shopping</h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
-<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
-<!--                                    <br>** Listing will be checked by our team members.-->
-<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                      <div>-->
-<!--                        <div class="thumb">-->
-<!--                          <div class="row">-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="top-content">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="top-icon">-->
-<!--                                      <span class="icon"><img src="assets/images/search-icon-05.png" alt=""><h4>Traveling</h4></span>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-6">-->
-<!--                                    <div class="main-white-button">-->
-<!--                                      <a href="#"><i class="fa fa-plus"></i> Check Our Listings</a>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="description">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-9">-->
-<!--                                    <h4>Description of Traveling</h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>-->
-<!--                                  </div>-->
-<!--                                  <div class="col-lg-3">-->
-<!--                                    <div class="text-icon">-->
-<!--                                      <h4><img src="assets/images/listing-icon-heading.png" alt=""> Total Listings</h4>-->
-<!--                                    </div>-->
-<!--                                    <span class="list-item">This Week: 200 Listings &amp; 120 Sales<br>This Month: 1,400 Listings &amp; 900 Sales<br>This Year: 14,000 Listings &amp; 12,000 Sales</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-12">-->
-<!--                              <div class="general-info">-->
-<!--                                <div class="row">-->
-<!--                                  <div class="col-lg-12">-->
-<!--                                    <h4>General Info. about Traveling</h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ak incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravidat doerski. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>-->
-<!--                                    <span class="list-item">* Listing should have all the proper documents before being checked in.-->
-<!--                                    <br>** Listing will be checked by our team members.-->
-<!--                                    <br>*** After being sold, it should imediately be removed from our site and properly monitored.</span>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </li>-->
-<!--                  </ul>-->
-<!--                </div>-->
               </div>
             </div>
           </div>
@@ -869,47 +544,50 @@ https://templatemo.com/tm-564-plot-listing
               <footer>
                 <div class="container">
                   <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-1">
                       <div class="about">
                         <div class="logo">
                           <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
                       <div class="helpful-links">
                         <h4>Helpful Links</h4>
                         <div class="row">
-                          <div class="col-lg-6 col-sm-6">
+                          <div class="col-lg-4 col-sm-4">
                             <ul>
                               <li><a href="/">Home</a></li>
-                              <li><a href="#">Reviews</a></li>
                               <li><a href="/contactus">Contact Us</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-6">
+                          <div class="col-lg-4 col-sm-4">
+                            <ul>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="#">Gallery</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
                             <ul>
                               <li><a href="#">About Us</a></li>
-                              <li><a href="#">Gallery</a></li>
                               <li><a href="#">Privacy Policy</a></li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4">
-                      <div class="contact-us">
+                    <div class="col-lg-6">
                         <h4>Contact Us</h4>
-                        <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
                         <div class="row">
-                          <div class="col-lg-6">
-                            <a >Phone <br/> +91 6282842112</a>
-                          </div>
-                          <div class="col-lg-6">
-                            <a >Email info@fortunaevent.com</a>
-                          </div>
+                            <div class="col-lg-6 contact-us">
+                                <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <a>Phone: +91 6282842112</a><br/>
+                                  <a>Email: info@fortunaevent.com</a>
+                              </div>
+
                         </div>
-                      </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="sub-footer">

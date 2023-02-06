@@ -57,6 +57,7 @@
 
 
               <style>
+
 <!--                        /* @extend display-flex; */-->
 <!--display-flex, .display-flex, .display-flex-center, .signup-content, .signin-content, .social-login, .socials {-->
 <!--  display: flex;-->
@@ -768,7 +769,8 @@ label.valid {
                                           <t t-esc="current_user.name"/>
                                       </a>
                                       <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                          <a class="dropdown-item" href="/account">Booking Summary</a>
+<!--                                          <a class="dropdown-item" href="/account">Booking Summary</a>-->
+                                          <a class="dropdown-item" href="/dashboard">My Dashboard</a>
                                           <a class="dropdown-item" href="/logout">Logout</a>
                                       </div>
 
@@ -1021,6 +1023,12 @@ label.valid {
                                     Bridal Makeup
                                   </div>
                                 </div>
+                                  <div>
+                                      <div class="thumb">
+                                        <span class="icon"><img src="event_management/static/img/music-icon.jpg" alt=""/></span>
+                                        Music &amp; Dance
+                                      </div>
+                                  </div>
                                 <div>
                                   <div class="thumb">
                                     <span class="icon"><img src="event_management/static/img/photo-icon.png" alt=""/></span>
@@ -1033,17 +1041,12 @@ label.valid {
                                     Decorations
                                   </div>
                                 </div>
-                                <div>
-                                  <div class="thumb">
+                                <div class="last-thumb">
+                                    <div class="thumb">
                                     <span class="icon"><img src="event_management/static/img/food-icon.png" alt=""/></span>
                                     Food &amp; Caterers
                                   </div>
-                                </div>
-                                <div class="last-thumb">
-                                  <div class="thumb">
-                                    <span class="icon"><img src="event_management/static/img/music-icon.jpg" alt=""/></span>
-                                    Music &amp; Dance
-                                  </div>
+
                                 </div>
                               </div>
                             </div>
@@ -1056,12 +1059,14 @@ label.valid {
                                         <div class="col-lg-5 align-self-center">
                                           <div class="left-text">
                                             <h4>
-                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!
+                                                Kerala’s most recommended and famous bridal makeup services provider..!
+<!--                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!-->
                                             </h4>
                                             <p>
-                                                We are the best and professional bridal make up service providers all over Kerala. Our special services are HD Bridal make up, Engagement and reception make up. HD bridal makeup is a great choice /most wanted one of a bride.
+                                                Are you looking for a makeup artist for your wedding day? Then you should go to a professional makeup artist's studio. We are the best and professional bridal make up service providers all over Kerala. Our special services are HD bridal makeup, engagement makeup, and reception makeup. With Fortune, you can see each makeup artist's prices, services, reviews, and other information. Visiting a makeup artist is an excellent way to prepare for a special event.
+<!--                                                We are the best and professional bridal make up service providers all over Kerala. Our special services are HD Bridal make up, Engagement and reception make up. HD bridal makeup is a great choice /most wanted one of a bride.-->
                                             </p>
-                                            <div class="main-white-button"><a href="/makeup"><i class="fa fa-eye"></i> Discover More</a></div>
+                                            <div class="main-white-button"><a href="/makeup"><i class="fa fa-eye"></i>View More</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1073,6 +1078,33 @@ label.valid {
                                     </div>
                                   </div>
                                 </li>
+                                  <li>
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-5 align-self-center">
+                                          <div class="left-text">
+                                            <h4>
+                                                We have  a well-knit network with the who’s-who of the entertainment industry.
+                                            </h4>
+                                            <p>
+                                                Looking for wedding dancers to entertain and amaze your guests? We have plenty of fabulous wedding dance entertainment to hire to dazzle your guests and get them in the mood to dance. We offer a variety of wedding entertainment packages, all of which can be customized to your specific tastes and requirements. We're over dull wedding receptions. Right? It's your occasion. It's now time to fill your dance floor by singing along to your favourite songs while dancing.
+
+<!--                                              An Indian wedding is a celebration that lasts over many days! An Indian wedding is a mix of cultures,traditions,family bonds and emotions. To celebrate the spirit of Indian weddings, mix in some authentic wedding entertainment and watch your audience spring in their seats with excitement!-->
+                                            </p>
+                                            <div class="main-white-button"><a rel="nofollow" href="/entertainment"><i class="fa fa-eye"></i>View More</a></div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-7 align-self-center">
+                                          <div class="right-image">
+                                            <img class="img-fluid" src="event_management/static/img/music-band.png" alt="Traveling Beach"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+
                                 <li>
                                   <div>
                                     <div class="thumb">
@@ -1083,9 +1115,9 @@ label.valid {
                                                 The Best Wedding Photographers in Kerala!
                                             </h4>
                                             <p>
-                                              Do you want to make your beautiful day more memorable? We know you have such a strong wish in your heart; because We capture most attractive photographs of your special events including weddings, birthday parties, engagements, religious ceremonies and all other awesome occasions. Our professionals know the best way to capture the most creative, lively and incredible photographs for you.
+                                                Do you want to make your special day even more memorable? After the wedding, those photos and videos are all that remain to help you remember the day, so we capture the most beautiful photographs of your special events, such as weddings, birthday parties, engagements, religious ceremonies, and all other amazing occasions. Our photographers and filmmakers are storytellers who will perfectly capture your memories, all with the passion and talent to tell your story. Let us capture your moment of bliss.
                                             </p>
-                                              <div class="main-white-button"><a href="/videography"><i class="fa fa-eye"></i> Explore More</a></div>
+                                              <div class="main-white-button"><a href="/videography"><i class="fa fa-eye"></i>View More</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1105,9 +1137,9 @@ label.valid {
                                           <div class="left-text">
                                             <h4>Let Us Make Your Event a Success!</h4>
                                             <p>
-                                              Wedding is the most important day of your life. On the wedding day, the wedding stage plays a huge role in creating the long lasting impression about your wedding. This is the place where the groom and the bride sit, it is also used as the center of attraction.we have lots of  Wedding decorators who can  create beautiful and exclusive wedding stage designs.
+                                                Your wedding is the most important day of your life. On the wedding day, the wedding stage plays a huge role in creating a lasting impression of your wedding. You’ve envisioned this celebration for months, maybe even years. And now it is time to start curating your wedding decor. Whether you’re seeking the latest trend, harkening back to a more traditional style, or forging a path of your own, we’re dedicated to helping you navigate the world of wedding decor.
                                             </p>
-                                              <div class="main-white-button"><a href="/decoration"><i class="fa fa-eye"></i> More Listing</a></div>
+                                              <div class="main-white-button"><a href="/decoration"><i class="fa fa-eye"></i>View More</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1129,38 +1161,14 @@ label.valid {
                                                 Experience Excellent and Quality Catering
                                             </h4>
                                             <p>
-                                              We have a group of  professional caters with resourceful experience in the hospitality/catering industries of Kerala . They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available. Concentrating not just on taste, but also on texture, style, freshness and presentation all over Kerala.
-                                                <div class="main-white-button"><a href="/catering"><i class="fa fa-eye"></i> Discover More</a></div>
+                                                We all know the big day is, well, kind of a big deal. One of the most important aspects of your wedding is the food. Whether you’re hoping for a full, sit-down dinner or a buffet style, it needs to go off without a hitch. We have a group of professional caterers with resourceful experience in the hospitality and catering industries of Kerala. They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available. concentrating not just on taste but also on texture, style, freshness, and presentation all over Kerala.
                                             </p>
+                                              <div class="main-white-button"><a href="/catering"><i class="fa fa-eye"></i>View More</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
                                           <div class="right-image">
                                             <img class="img-fluid" src="event_management/static/img/food.jpg" alt="Shopping Girl"/>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div>
-                                    <div class="thumb">
-                                      <div class="row">
-                                        <div class="col-lg-5 align-self-center">
-                                          <div class="left-text">
-                                            <h4>
-                                                We have  a well-knit network with the who’s-who of the entertainment industry.
-                                            </h4>
-                                            <p>
-                                              An Indian wedding is a celebration that lasts over many days! An Indian wedding is a mix of cultures,traditions,family bonds and emotions. To celebrate the spirit of Indian weddings, mix in some authentic wedding entertainment and watch your audience spring in their seats with excitement!
-                                            </p>
-                                            <div class="main-white-button"><a rel="nofollow" href="/entertainment"><i class="fa fa-eye"></i> Read More</a></div>
-                                          </div>
-                                        </div>
-                                        <div class="col-lg-7 align-self-center">
-                                          <div class="right-image">
-                                            <img class="img-fluid" src="event_management/static/img/music-band.png" alt="Traveling Beach"/>
                                           </div>
                                         </div>
                                       </div>
@@ -1382,28 +1390,32 @@ label.valid {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
                       <div class="helpful-links">
                         <h4>Helpful Links</h4>
                         <div class="row">
-                          <div class="col-lg-6 col-sm-6">
+                          <div class="col-lg-4 col-sm-4">
                             <ul>
                               <li><a href="/">Home</a></li>
-                              <li><a href="#">Reviews</a></li>
                               <li><a href="/contactus">Contact Us</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-6">
+                          <div class="col-lg-4 col-sm-4">
+                            <ul>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="#">Gallery</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
                             <ul>
                               <li><a href="#">About Us</a></li>
-                              <li><a href="#">Gallery</a></li>
                               <li><a href="#">Privacy Policy</a></li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-6">
                         <h4>Contact Us</h4>
                         <div class="row">
                             <div class="col-lg-6 contact-us">

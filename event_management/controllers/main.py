@@ -45,7 +45,6 @@ class XLSXReportController(http.Controller):
             return request.make_response(html_escape(json.dumps(error)))
 
 class HomePage(http.Controller):
-
     @http.route(['/'], type='http', auth="public",website=True)
     def home_page_controller(self):
 
@@ -79,14 +78,14 @@ class HomePage(http.Controller):
             'login':email,
             'name':name,
             'password':password,
-            'current_user': current_user,
         }
-        print(vals)
+        # print(vals)
         if password==re_password:
             new_user = request.env['res.users'].sudo().create(vals)
             new_user.partner_id.write({'mobile': mobile})
             new_user.partner_id.write({'email': email})
             return http.redirect_with_hash('/#loginModal')
+
     @http.route(['/user/login'], type='http', auth="public",website=True)
     def login_controller(self, **args):
         email = args.get('email')
@@ -158,6 +157,13 @@ class HomePage(http.Controller):
     def logout_controller(self, **args):
         request.session.logout(keep_db=True)
         return http.redirect_with_hash('/')
+    @http.route(['/dashboard'], type='http', auth="public", website=True)
+    def dashboard_controller(self, **args):
+        current_user = request.env.user
+        if current_user.has_group ('event_management.group_auditorium_manager'):
+            return http.redirect_with_hash("/web")
+        else:
+            return http.redirect_with_hash('/account')
 
 
 class ContactUsPage(http.Controller):
@@ -215,7 +221,7 @@ class ContactUsPage(http.Controller):
         }
         #
         #
-        print(vals)
+        # print(vals)
         enquiry_event = request.env['customer.enquiry.details'].sudo().create(vals)
         response = redirect("/contactus")
         return response
@@ -226,7 +232,9 @@ class VenueListingPage(http.Controller):
     @http.route(['/venuelist'], type='http', auth="public",website=True)
     def venue_page_controller(self):
         current_user = request.env.user
-
+        # if current_user.has_group ('event_management.group_auditorium_manager'):
+        #     return http.redirect_with_hash("/web")
+        # else:
         trivandrum_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',1)])
         kollam_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',2)])
         pathanamthitta_venues = request.env['res.partner'].sudo().search([('venue','=',True), ('district_id.id','=',3)])
@@ -273,7 +281,7 @@ class SearchListPage(http.Controller):
         current_user = request.env.user
         district_domain = []
         domain_venue = []
-        print (args.get('district_id'))
+        # print (args.get('district_id'))
         if args.get('district_id'):
             domain_venue = [('venue','=',True),('district_id.id','=',args.get('district_id'))]
             district_domain = [('id','=',args.get('district_id'))]
@@ -294,11 +302,11 @@ class MakeupPage(http.Controller):
     @http.route(['/makeup'], type='http', auth="public",website=True)
     def search_page_controller(self, **args):
         current_user = request.env.user
-        print (args.get('price'))
+        # print (args.get('price'))
         makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
         mehndi_artists = request.env['res.partner'].sudo().search([('mehndi_artist','=',True)])
-        packages = request.env['makeup.package'].sudo().search([])
-        services = request.env['package.service'].sudo().search([])
+        packages = request.env['makeup.package'].sudo().search([('makeup_artist','=',True)])
+        services = request.env['package.service'].sudo().search([('makeup_artist','=',True)])
 
         values = {
             'makeup_artists':makeup_artists,
@@ -319,7 +327,7 @@ class EventDetailsPage(http.Controller):
         # print (district_id)
         current_user = request.env.user
 
-        print (args.get('price'))
+        # print (args.get('price'))
         venues = request.env['res.partner'].sudo().search([('venue','=',True),('district_id','=',args.get('district_id'))])
         districts = request.env['place.district'].sudo().search([('id','=',args.get('district_id'))])
 
@@ -357,94 +365,93 @@ class MakeupArtistBookingPage(http.Controller):
 class BookingPage(http.Controller):
     @http.route(['/booking'], type='http', auth="public",website=True)
     def booking_page_controller(self, **args):
-        venues = request.env['res.partner'].sudo().search([('venue','=',True)])
-        districts = request.env['place.district'].sudo().search([])
-        types = request.env['event.management.type'].sudo().search([])
-        places = request.env['place.place'].sudo().search([])
-        # makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
-        makeup_artists = request.env['artist.artist'].sudo().search([])
-        makeup_packages = request.env['makeup.package'].sudo().search([])
-
-
         current_user = request.env.user
+        # print(current_user)
+        if current_user.id!=4:
+            venues = request.env['res.partner'].sudo().search([('venue','=',True)])
+            districts = request.env['place.district'].sudo().search([])
+            types = request.env['event.management.type'].sudo().search([])
+            places = request.env['place.place'].sudo().search([])
+            # makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
+            makeup_artists = request.env['artist.artist'].sudo().search([])
+            makeup_packages = request.env['makeup.package'].sudo().search([])
 
+            values = {
+                'venues':venues,
+                'districts':districts,
+                'types':types,
+                'places':places,
+                'makeup_artists':makeup_artists,
+                'current_user': current_user,
+                'current_user_name': current_user.name,
+                'makeup_packages': makeup_packages,
 
-        values = {
-            'venues':venues,
-            'districts':districts,
-            'types':types,
-            'places':places,
-            'makeup_artists':makeup_artists,
-            'current_user': current_user,
-            'current_user_name': current_user.name,
-            'makeup_packages': makeup_packages,
+            }
 
-        }
+            return request.render(
 
-        return request.render(
-
-        "event_management.booking_page",values)
+            "event_management.booking_page",values)
+        else:
+            return http.redirect_with_hash('/#loginModal')
 
     @http.route(['/makeupartistbooking/book'], type='http', auth="public", website=True)
     def makeup_booking_page_submit(self, **args):
         current_user = request.env.user
+        if current_user:
+            artist_name  = int(args.get('artist_name'))
+            customer_name = int(args.get('customer_name'))
+            event_type = int(args.get('type_id'))
+            package = int(args.get('package_id'))
+            b_date = args.get('date')
+            price = args.get('price')
+            # price = venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
+            vals = {
+                'artist_name': artist_name,
+                'customer_name': customer_name,
+                'type_of_event_id': event_type,
+                'package': package,
+                'booking_date': b_date,
+                'rate': price,
 
-        artist_name  = int(args.get('artist_name'))
-        customer_name = int(args.get('customer_name'))
-        event_type = int(args.get('type_id'))
-        package = int(args.get('package_id'))
-        b_date = args.get('date')
-        price = args.get('price')
-        # price = venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
-        vals = {
-            'artist_name': artist_name,
-            'customer_name': customer_name,
-            'type_of_event_id': event_type,
-            'package': package,
-            'booking_date': b_date,
-            'rate': price,
-            'current_user': current_user,
-
-        }
-        booking_artist = request.env['makeup.artist'].sudo().create(vals)
+            }
+            booking_artist = request.env['makeup.artist'].sudo().create(vals)
 
     @http.route(['/booking/confirm'], type='http', auth="public",website=True)
     def booking_page_submitt(self, **args):
         current_user = request.env.user
 
-
         venue_id = int(args.get('venue_id'))
-        type_id = int(args.get('type_id'))
-        email = args.get('email')
+        district_id = int(args.get('district_id'))
+        place_id = int(args.get('place_id'))
+        type_id =  int(args.get('type_id'))
         date = args.get('date')
         mobile = args.get('mobile')
         name = args.get('name')
-        makeup_package = int(args.get('package_id'))
-        makeup_artist_name = int(args.get('artist_name'))
+        makeup_package =  int(args.get('makeup_package_id'))
+        makeup_artist_name =  int(args.get('artist_name'))
         venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
 
         vals = {
             'venue_id':venue_id,
             'type_of_event_id':type_id,
-            'email':email,
             'date':date,
             'mobile':mobile,
-            'customer_name':name,
-            'district_id':venue_obj.district_id.id,
-            'place_id':venue_obj.place_id.id,
-            'current_user': current_user,
+            'district_id':district_id,
+            'place_id':place_id,
             'package_id':makeup_package,
             'makeup_id':makeup_artist_name,
+            'partner_id':current_user.partner_id.id,
         }
 
-        print(venue_id,type_id,email,date,mobile,name,venue_obj.district_id.id,venue_obj.place_id.id)
+        # print(venue_id,type_id,date,mobile,name,venue_obj.district_id.id,venue_obj.place_id.id)
         # booking_event = request.env['customer.enquiry.details'].sudo().create(vals)
         booking_event = request.env['event.management'].sudo().create(vals)
 
-        booking_event.action_create_quote()
-        booking_event.action_enquiry_confirm()
-        booking_event.action_create_event()
-
+        # booking_event.action_create_quote()
+        # booking_event.action_enquiry_confirm()
+        # booking_event.action_create_event()
+        print ("My bookingssssssssssssssssss///////////...................")
+        # print (booking_event.id)
         # venues = request.env['res.partner'].sudo().search([('venue', '=', True)])
         # districts = request.env['place.district'].sudo().search([])
         # types = request.env['event.management.type'].sudo().search([])
@@ -459,61 +466,21 @@ class BookingPage(http.Controller):
         #     'makeup_artists': makeup_artists,
         # }
         # return request.render("survey.survey_auth_required", {'survey': survey_sudo, 'redirect_url': redirect_url})
+        return http.redirect_with_hash('/booking')
 
-        response = redirect("/booking")
-        return response
+        # response = redirect("/booking")
+        # return response
 
-    # @http.route(['/booking/district'], type='http', auth="public",website=True)
-    # def booking_page_submitt(self, **args):
-    #
-    #     venue_id = int(args.get('district_id'))
-    #     type_id = int(args.get('type_id'))
-    #     email = args.get('email')
-    #     date = args.get('date')
-    #     mobile = args.get('mobile')
-    #     name = args.get('name')
-    #     venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
-    #
-    #
-    #     vals = {
-    #         'venue_id':venue_id,
-    #         'type_of_event_id':type_id,
-    #         'email':email,
-    #         'date':date,
-    #         'start_date':date,
-    #         'end_date':date,
-    #         'mobile':mobile,
-    #         'customer_name':name,
-    #         'district_id':venue_obj.district_id.id,
-    #         'place_id':venue_obj.place_id.id,
-    #     }
-    #
-    #
-    #     print(venue_id,type_id,email,date,mobile,name,venue_obj.district_id.id,venue_obj.place_id.id)
-    #     booking_event = request.env['customer.enquiry.details'].sudo().create(vals)
-    #     booking_event.action_create_quote()
-    #     booking_event.action_enquiry_confirm()
-    #     booking_event.action_create_event()
-    #
-    #     # venues = request.env['res.partner'].sudo().search([('venue', '=', True)])
-    #     # districts = request.env['place.district'].sudo().search([])
-    #     # types = request.env['event.management.type'].sudo().search([])
-    #     # places = request.env['place.place'].sudo().search([])
-    #     # makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist', '=', True)])
-    #
-    #     # values = {
-    #     #     'venues': venues,
-    #     #     'districts': districts,
-    #     #     'types': types,
-    #     #     'places': places,
-    #     #     'makeup_artists': makeup_artists,
-    #     # }
-    #     # return request.render("survey.survey_auth_required", {'survey': survey_sudo, 'redirect_url': redirect_url})
-    #
-    #     response = redirect("/")
-    #     return response
+    @http.route(['/ajax/reservations/get/<int:venue_id>'], type='http', auth="public",website=True)
+    def data_calender_ajax(self, venue_id,**args):
+        venue_id = venue_id
+        values=[{
+            'title': "Title",
+            'start': '2018-02-01',
+            'end': '2018-02-02'
+        }]
 
-
+        return values
 
 
 class RegistrationPage(http.Controller):
@@ -628,4 +595,4 @@ class VideographyPage(http.Controller):
         }
         return request.render(
 
-        "event_management.videography_page",values)
+        "event_management.photography_page",values)
