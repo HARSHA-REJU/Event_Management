@@ -242,7 +242,7 @@
             <field name="name">event.management.view.calendar</field>
             <field name="model">event.management</field>
             <field name="arch" type="xml">
-                <calendar string="Event Orders" date_start="event_date" date_stop="event_date" color="type_of_event_id">
+                <calendar string="Event Orders" date_start="event_date" date_stop="event_date" color="type_of_event_id" mode="month">
                     <field name="name"/>
                     <field name="partner_id"/>
                     <field name="state"/>
