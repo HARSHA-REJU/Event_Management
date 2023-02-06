@@ -149,7 +149,7 @@
 
         <menuitem
                 id="event_management_artist_main_menu"
-                name="Create Arist/Partners"
+                name="Create Artist/Partners"
                 parent="event_management_configuration_menu"
                 groups="event_management.group_event_manager" sequence="1"/>
 

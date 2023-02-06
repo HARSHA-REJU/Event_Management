@@ -116,7 +116,8 @@
                             <page string = "Venue and Services">
                                 <group string="Select Auditorium" col="2">
                                     <group>
-                                        <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+<!--                                        <field name="venue_id" domain="[('venue','=',True)]" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
+                                        <field name="venue_id" domain="[('venue','=',True)]"/>
 
                                     </group>
                                     <group>
