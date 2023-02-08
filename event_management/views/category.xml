@@ -274,9 +274,13 @@
 
 
         <menuitem
-                id="category_root_menu"
+                id="category_root_main_menu"
                 name="Services Configuration"
                 sequence="7"/>
+        <menuitem
+                id="category_root_menu"
+                name="Artists"
+                sequence="1" parent="category_root_main_menu"/>
 
             <menuitem
                     id="mehdi_artist_details_sub_menu1"
@@ -306,7 +310,7 @@
                 <menuitem
                         id="category_details_sub_menu_menu3"
                         name="Packages"
-                        parent="category_root_menu" sequence="6"
+                        parent="category_root_main_menu" sequence="6"
                         />
                    <menuitem
                         id="package_details_sub_menu_menu2_service1"
@@ -341,7 +345,7 @@
                 <menuitem
                         id="category_details_sub_menu_menu2"
                         name="Services"
-                        parent="category_root_menu" sequence="7"
+                        parent="category_root_main_menu" sequence="7"
                         />
 
                   <menuitem

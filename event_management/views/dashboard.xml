@@ -111,8 +111,8 @@
                 <menuitem id="res_users_menu" name="Users" sequence="9" action="action_view_res_users" />
 
 
-        <menuitem id="event_management_dashboard_menu" name="Event's Type Dashboard" parent="event_management.event_management_root_menu"
-                  action="event_management_type_action_view_kanban" sequence="1"/>
+<!--        <menuitem id="event_management_dashboard_menu" name="Event's Type Dashboard" parent="event_management.event_management_root_menu"-->
+<!--                  action="event_management_type_action_view_kanban" sequence="1"/>-->
 
 
         <record id="action_event_dashboard" model="ir.actions.client">

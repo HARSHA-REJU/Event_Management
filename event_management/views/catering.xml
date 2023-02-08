@@ -101,7 +101,7 @@
         </record>
         <menuitem
                     id="catering_details_sub_menu2"
-                    name="Caters"
+                    name="Food and Caterers"
                     parent="event_management.category_root_menu"
                     action="catering_view_form_action"
                     sequence="4"/>

@@ -36,13 +36,13 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="event_management_wizard_menu" name="Reporting"
-              parent="event_management.event_management_root_menu" sequence="15">
-        <menuitem id="event_managements_reports_menu"
-                  name="Event Management Report">
+<!--    <menuitem id="event_management_wizard_menu" name="Reporting"-->
+<!--              parent="event_management.event_management_root_menu" sequence="15">-->
+<!--        <menuitem id="event_managements_reports_menu"-->
+<!--                  name="Event Management Report">-->
             <menuitem id="event_management_wizard_menu_do_stuff"
                       name="Event Management Report" sequence="1"
-                      action="event_management_wizard_action_view_form"/>
-        </menuitem>
-    </menuitem>
+                      action="event_management_wizard_action_view_form" parent="event_management.reports_root_menu"/>
+<!--        </menuitem>-->
+<!--    </menuitem>-->
 </odoo>

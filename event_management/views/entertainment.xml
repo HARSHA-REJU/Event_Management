@@ -92,7 +92,7 @@
             <field name="view_mode">tree,form</field>
         </record>
         <record id="entertaining_book_view_form_action" model="ir.actions.act_window">
-            <field name="name">Entertaining Booking</field>
+            <field name="name">Entertainment Booking</field>
             <field name="res_model">book.entertainer</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
@@ -105,7 +105,7 @@
                     sequence="5"/>
          <menuitem
                     id="entertaining_artist_details_sub_menu1"
-                    name="Entertaining Booking"
+                    name="Entertainment Booking"
                     parent="event_management.event_management_bookings"
                     action="entertaining_book_view_form_action"
                     sequence="10"/>

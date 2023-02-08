@@ -149,7 +149,7 @@
 
         <menuitem
                 id="event_management_artist_main_menu"
-                name="Create Arist/Partners"
+                name="Create Artist/Partners"
                 parent="event_management_configuration_menu"
                 groups="event_management.group_event_manager" sequence="1"/>
 
@@ -180,7 +180,7 @@
                 groups="event_management.group_event_manager" sequence="4"/>
         <menuitem
                 id="event_management_catering_artist_menu"
-                name="Caterer"
+                name="Food and Caterers"
                 parent="event_management_artist_main_menu"
                 action="res_partner_action_catering_artist"
                 groups="event_management.group_event_manager" sequence="5"/>

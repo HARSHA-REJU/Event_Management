@@ -31,7 +31,7 @@ class EventManagement(models.Model):
     ref = fields.Char(string='Ref', readonly=True)
     type_of_event_id = fields.Many2one('event.management.type', string="Type",
                                        required=True)
-    venue_id = fields.Many2one('res.partner', domain=[('venue', '=', True)], string="Venue", required=True)
+    venue_id = fields.Many2one('res.partner', string="Venue", required=True)
     rent = fields.Float('Amount')
     venue_discount = fields.Float('Discount')
     venue_tax = fields.Float('Tax')
@@ -76,8 +76,8 @@ class EventManagement(models.Model):
     # compute_field2 = fields.Char(compute="_compute_grand_rate")
     compute_field3 = fields.Char(compute="_compute_tax_discount_rate")
 
-    @api.onchange('venue_discount', 'venue_tax', 'makeup_discount', 'makeup_tax', 'makeup_total', 'mehndi_discount',
-                  'mehndi_tax',
+    @api.onchange('rent','makeup_rate','mehndi_rate','entert_rate','photography_rate','total_amt','venue_discount', 'venue_tax', 'makeup_discount', 'makeup_tax', 'makeup_total', 'mehndi_discount',
+                  'mehndi_tax','makeup_id','venue_id','mehndi_id','photography_id','caterers_id','entert_id',
                   'mehndi_total', 'photography_discount', 'photography_tax', 'photography_total', 'catering_discount',
                   'catering_tax',
                   'catering_total', 'entertainment_discount', 'entertainment_tax', 'entertainment_total')
@@ -133,7 +133,7 @@ class EventManagement(models.Model):
             rec.grand_discount = total_discount_amt
             rec.grand_tax = total_tax_amt
             sum = rec.rent + rec.makeup_rate + rec.mehndi_rate + rec.photography_rate + rec.entert_rate + rec.total_amt
-            rec.grand_total = (sum + total_tax_amt) - total_tax_amt
+            rec.grand_total = (sum + total_tax_amt) - total_discount_amt
 
     @api.onchange('makeup_id')
     def onchange_packages_id(self):
@@ -154,6 +154,11 @@ class EventManagement(models.Model):
     def onchange_meh_id(self):
         for rec in self:
             rec.mehndi_rate = rec.mehndi_package_id.rate
+
+    @api.onchange('venue_id')
+    def onchange_venue_id(self):
+        for rec in self:
+            rec.rent = rec.venue_id.amount
 
     @api.onchange('photography_id')
     def onchange_photo_id(self):
