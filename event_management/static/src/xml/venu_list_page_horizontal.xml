@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="venue_page" name="VenuePAge">
+          <html lang="en">
+            <head>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
+
+    <title>Fortuna Events</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Additional CSS Files -->
+
+    <xpath expr="." position="inside">
+      <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
+      <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
+
+
+      <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
+      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
+      <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
+<!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
+<!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
+
+<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
+<!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.min.js"></script>-->
+
+    </xpath>
+              <style>
+                  .page-heading {
+                                background-repeat: no-repeat;
+                                background-position: center center;
+                                background-size: cover;
+                    background:#783681;
+
+<!--                                background-image: url(/event_management/static/img/heading-bg.jpg);-->
+                                padding: 143px 0px 43px 0px;
+                                position: relative;
+                                overflow: hidden;
+                            }
+                  .listing-page {
+                                margin-top: 40px;
+                                margin-bottom: 120px;
+                            }
+                  .listing-page .item .left-image img {
+                                height: 325px;
+
+                             }
+                  .thumb a {
+                        color: white;
+                    }
+
+              </style>
+
+  </head>
+            <body>
+
+              <!-- ***** Preloader Start ***** -->
+              <div id="js-preloader" class="js-preloader">
+                <div class="preloader-inner">
+                  <span class="dot"></span>
+                  <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <!-- ***** Preloader End ***** -->
+
+              <!-- ***** Header Area Start ***** -->
+              <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12" >
+                      <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/" class="logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                          <li><a href="/">Home</a></li>
+                          <li>
+                            <div class="col-md-12 dropdown show">
+                            <a id="menu_service_div_id" href="">Services</a>
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>-->
+<!--                                  <a class="dropdown-item" href="#">Photo &amp; Video</a>-->
+<!--                                  <a class="dropdown-item" href="#">Decorations &amp; Manpower</a>-->
+<!--                                  <a class="dropdown-item" href="#">Food &amp; Caterers</a>-->
+<!--                                  <a class="dropdown-item" href="#">Music &amp; Dance</a>-->
+<!--                                </div>-->
+                            </div>
+                          </li>
+<!--                          <li><a href="#">Services</a></li>-->
+                          <li><a href="/venuelist">Venues</a></li>
+<!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
+                          <li><a href="/booking">Booking</a></li>
+<!--                          <li><a href="/booking">Booking</a></li>-->
+<!--                            <li>-->
+<!--                            <div class="col-md-12 dropdown show">-->
+<!--                            <a href="#">Booking</a>-->
+<!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                                  <a class="dropdown-item" href="/makeup">Auditorium Booking</a>-->
+<!--                                  <a class="dropdown-item" href="#">Event Management Booking</a>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </li>-->
+
+                          <li><a href="/eventdetails">Gallery</a></li>
+<!--                          <li><a href="/eventdetails">Event Details</a></li>-->
+                          <li><a href="/contactus">Contact Us</a></li>
+                          <t t-if="uid">
+                              <li>
+                                  <div class="col-md-12 dropdown show">
+                                      <a class="account-page" href="#">
+                                          <img class="user_image" src="/event_management/static/img/avatar-removebg-preview.png"/>
+                                          <t t-esc="current_user.name"/>
+                                      </a>
+                                      <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                          <a class="dropdown-item" href="/account">Booking Summary</a>
+                                          <a class="dropdown-item" href="/logout">Logout</a>
+                                      </div>
+
+                                  </div>
+                              </li>
+                          </t>
+                            <t t-else="not uid">
+                                <li><div class="main-white-button modal-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#LoginModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
+                            </t>
+                        </ul>
+
+                          <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+<!--                                    <h5 class="modal-title" id="exampleModalLabel">Register here</h5>-->
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <section class="signup">
+                                        <div class="container">
+                                            <div class="signup-content">
+                                                <div class="signup-form">
+        <!--                                                <h2 class="form-title">Register here</h2>-->
+                                                    <form method="get" action="/signup" class="register-form" id="register-form">
+                                                        <div class="form-group">
+                                                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                            <input type="text" name="name" id="name" placeholder="Your Name"/>
+                                                        </div>
+                                                        <div class="form-group" >
+                                                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                                            <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                                            <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                                            <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                                                        </div>
+                                                        <div class="form-group agree-term">
+
+        <!--                                                        <input style="color:white;" type="checkbox" name="option1" id="option1" value="auditorium"/><span>Auditorium</span>-->
+                                                            <input type="checkbox" name="agree" value="agree" id="agree" required="1"/>I agree all statements in  <a href="#" class="term-service">Terms of service</a>
+<!--                                                                <label for="agree" class="agree-term">-->
+                                                        </div>
+                                                        <div class="form-group form-button">
+                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                            <input type="submit" name="signup" id="signup" class="form-submit btn btn-modal" value="Register"/>
+                                                        </div>
+                                                    </form>
+                                                </div>
+        <!--                                                    <div class="signup-image">-->
+        <!--        &lt;!&ndash;                                                <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>&ndash;&gt;-->
+    <!--                                                <a href="#" class="signup-image-link">I am already member</a>-->
+        <!--                                                        <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>-->
+
+        <!--                                                    </div>-->
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                  </div>
+                                  <div class="modal-footer">
+<!--                                      <a href="#" class="signup-image-link">I am already member</a>-->
+                                      I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>
+    <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+    <!--                                <button type="button" class="btn btn-primary">Register</button>-->
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+<!--                                <h5 class="modal-title" id="exampleModalLabel">Login here !</h5>-->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                  <section class="login">
+                                      <div class="container">
+                                        <div class="signup-content">
+                                            <div class="signup-form">
+                        <!--                        <h2 class="form-title">Register here</h2>-->
+                                                <form method="POST" action="/user/login" class="register-form" id="register-form">
+
+                                                    <div class="form-group" >
+                                                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                                        <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                                        <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                                    </div>
+
+                                                    <div class="form-group form-button">
+                                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                                        <input type="submit" name="login" id="login" class="form-submit btn btn-modal login_user" value="Login"/>
+                                                    </div>
+                                                </form>
+                                            </div>
+                        <!--                    <div class="signup-image">-->
+                        <!--                        <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>-->
+                        <!--                        <a href="#" class="signup-image-link">I am already member</a>-->
+                        <!--                    </div>-->
+                                        </div>
+                                            </div>
+        </section>
+
+                              </div>
+                              <div class="modal-footer">
+<!--                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>-->
+<!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                                Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+<!--                        <a class='menu-trigger'>-->
+<!--                            <span>Menu</span>-->
+<!--                        </a>-->
+                        <!-- ***** Menu End ***** -->
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </header>
+              <!-- ***** Header Area End ***** -->
+
+            <div class="page-heading">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <div class="top-text header-text">
+                      <h6>Check Out Our Listings</h6>
+                      <h2>District Wise Venue listing</h2>
+<!--                      <h6>District Wise Venue listing</h6>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+                <div class="listing-page">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="naccs">
+                            <div class="grid">
+                              <div class="row col-lg-12">
+                                    <div class="col-lg-4">
+                                        <a href="/list?district_id=1" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            TRIVANDRUM
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?2" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            KOLLAM
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?3" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            PATHANAMTHITTA
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <a href="/list?4" ><span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span></a>
+                                            ALAPPUZHA
+                                      </div>
+                                    </div>
+                                  </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?5" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            KOTTAYAM
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?6" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            IDUKKI
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?7" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            ERNAKULAM
+                                      </div>
+                                    </div>
+                                  </div>
+                              </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?8" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            THRISSUR
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?9" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            PALAKKADU
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?10" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            MALAPPURAM
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?11" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            KOZHIKKOD
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?12" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            WAYANDU
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?13" >
+                                          <div class="menu">
+                                            <div class="first-thumb active">
+                                              <div class="thumb">
+                                                <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                                    KANNUR
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/list?14" >
+                                  <div class="menu">
+                                    <div class="first-thumb active">
+                                      <div class="thumb">
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+                                            KASARAGOD
+                                      </div>
+                                    </div>
+                                  </div>
+                                        </a>
+                                    </div>
+<!--                                    <t t-foreach="districts" t-as="record">-->
+<!--                                      <t t-if="record.id != 1">-->
+<!--                                        <div class="col-lg-4">-->
+<!--                                            <div class="menu">-->
+<!--                                          <div class="thumb">-->
+<!--                                              <a href="/list?">-->
+<!--                                            <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>-->
+<!--                                            <t t-esc="record.name"/></a>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                        </div>-->
+<!--                                      </t>-->
+<!--                                    </t>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+                              </div>
+<!--                                <div class="row">-->
+<!--                                    <div class="col-lg-8">-->
+<!--                                  <ul class="nacc">-->
+<!--                                    <li class="active">-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="trivandrum_venues" t-as="tvm">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % tvm.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="tvm.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="tvm.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="tvm.street"/><br/><t t-esc="tvm.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="tvm.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="kollam_venues" t-as="kollam">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % kollam.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="kollam.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="kollam.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="kollam.street"/><br/><t t-esc="kollam.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="kollam.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="pathanamthitta_venues" t-as="ptm">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % ptm.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="ptm.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="ptm.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="ptm.street"/><br/><t t-esc="ptm.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="ptm.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="alappey_venues" t-as="alp">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % alp.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="alp.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="alp.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="alp.street"/><br/><t t-esc="alp.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="alp.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="kottayam_venues" t-as="ktm">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % ktm.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="ktm.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="ktm.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="ktm.street"/><br/><t t-esc="ktm.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="ktm.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="idukki_venues" t-as="idk">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % idk.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="idk.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="idk.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="idk.street"/><br/><t t-esc="idk.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="idk.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="ernakulam_venues" t-as="ekm">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % ekm.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="ekm.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="ekm.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="ekm.street"/><br/><t t-esc="ekm.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="ekm.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="thrissur_venues" t-as="tsr">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % tsr.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="tsr.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="tsr.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="tsr.street"/><br/><t t-esc="tsr.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="tsr.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="palakkad_venues" t-as="plkd">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % plkd.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="plkd.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="plkd.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="plkd.street"/><br/><t t-esc="plkd.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="plkd.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="malappuram_venues" t-as="mlpm">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % mlpm.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="mlpm.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="mlpm.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="mlpm.street"/><br/><t t-esc="mlpm.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="mlpm.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="kozhikkod_venues" t-as="kzkd">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % kzkd.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="kzkd.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="kzkd.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="kzkd.street"/><br/><t t-esc="kzkd.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="kzkd.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="wayanad_venues" t-as="wynd">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % wynd.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="wynd.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="wynd.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="wynd.street"/><br/><t t-esc="wynd.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="wynd.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="kannur_venues" t-as="knr">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % knr.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="knr.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="knr.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="knr.street"/><br/><t t-esc="knr.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="knr.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                      <div>-->
+<!--                                        <div class="col-lg-12">-->
+<!--                                          <div class="owl-carousel owl-listing">-->
+<!--&lt;!&ndash;                                            <t t-set="index" t-value="1"/>&ndash;&gt;-->
+<!--                                            <t t-foreach="kasaragod_venues" t-as="ksgd">-->
+<!--&lt;!&ndash;                                              <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                              <t t-if="index % 3 == 0">&ndash;&gt;-->
+<!--                                                <div class="item">-->
+<!--                                                  <div class="row">-->
+<!--                                                    <div class="col-lg-12">-->
+<!--                                                      <div class="listing-item">-->
+<!--                                                        <div class="left-image">-->
+<!--                                                          <a href="#"><img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image' % ksgd.id" alt="" /></a>-->
+<!--                                                          <div class="hover-content">-->
+<!--                                                            <div class="main-white-button">-->
+<!--                                                              <a href="/booking"><i class="fa fa-eye"></i> Book Now</a>-->
+<!--                                                            </div>-->
+<!--                                                          </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="right-content align-self-center">-->
+<!--                                                          <a href="#"><h4><t t-esc="ksgd.name"/></h4></a>-->
+<!--&lt;!&ndash;                                                          <h6>Customer Rating *****</h6>&ndash;&gt;-->
+<!--                                                          <span class="price">Amount: ₹ <t t-esc="ksgd.amount"/></span>-->
+<!--                                                            <span class="info">Address: <t t-esc="ksgd.street"/><br/><t t-esc="ksgd.street2"/></span>-->
+<!--                                                            <span class="details"><t t-esc="ksgd.comment"/></span>-->
+<!--                                                            &lt;!&ndash;                                                          <span class="details"><t t-esc="tvm.comments"/><em>100000 Chairs</em></span>&ndash;&gt;-->
+<!--                                                            &lt;!&ndash;                                                          <span class="info"><img src="/event_management/static/img/food-icon.png" alt=""/> With Catering<br/><img src="/event_management/static/img/decoration-icon.png" alt=""/> With Decoration</span>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                      </div>-->
+<!--                                                    </div>-->
+<!--                                                  </div>-->
+<!--                                                </div>-->
+<!--&lt;!&ndash;                                              </t>&ndash;&gt;-->
+<!--                                            </t>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                      </div>-->
+<!--                                    </li>-->
+
+
+<!--                                  </ul>-->
+<!--                                </div>-->
+<!--                              </div>-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+
+              <footer>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-1">
+                      <div class="about">
+                        <div class="logo">
+                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="helpful-links">
+                        <h4>Helpful Links</h4>
+                        <div class="row">
+                          <div class="col-lg-4 col-sm-4">
+                            <ul>
+                              <li><a href="/">Home</a></li>
+                              <li><a href="/contactus">Contact Us</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4 col-sm-4">
+                            <ul>
+                              <li><a href="#">Reviews</a></li>
+                              <li><a href="#">Gallery</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
+                            <ul>
+                              <li><a href="#">About Us</a></li>
+                              <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>Contact Us</h4>
+                        <div class="row">
+                            <div class="col-lg-6 contact-us">
+                                <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <a>Phone: +91 6282842112</a><br/>
+                                  <a>Email: info@fortunaevent.com</a>
+                              </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="sub-footer">
+                        <p>Copyright © 2021 FORTUNA EVENTS, Ltd. All Rights Reserved.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <script>
+                                            $('.dropdown > a#menu_service_div_id').on('click', function(e){
+    e.preventDefault();
+                       window.location.href = "/#service_div";
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
+})
+                  </script>
+              </footer>
+
+  <!-- Scripts -->
+<!--  <script src="vendor/jquery/jquery.min.js"></script>-->
+<!--  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+<!--  <script src="assets/js/owl-carousel.js"></script>-->
+<!--  <script src="assets/js/animation.js"></script>-->
+<!--  <script src="assets/js/imagesloaded.js"></script>-->
+<!--  <script src="assets/js/custom.js"></script>-->
+
+</body>
+
+</html>
+        </template>
+
+    </data>
+</odoo>

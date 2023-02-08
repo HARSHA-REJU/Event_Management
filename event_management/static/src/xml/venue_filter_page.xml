@@ -78,9 +78,14 @@
                    .category-post {
     overflow: hidden;
     margin-top: 0px;
-    margin-bottom: 153px;
-    padding-bottom: 120px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
+                                     .category-post .top-content {
+
+                  margin-bottom:0px !important;
+                  }
+
 <!--                   img {-->
 <!--    margin-bottom: -3px;-->
 <!--    width: 100%;-->

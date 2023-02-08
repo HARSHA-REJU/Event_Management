@@ -38,7 +38,7 @@
              'static/src/xml/style_sheet.xml',
              'static/src/xml/home_page.xml',
              'static/src/xml/contact_page.xml',
-             'static/src/xml/venu_list_page.xml',
+             'static/src/xml/venu_list_page_horizontal.xml',
              'static/src/xml/venue_filter_page.xml',
              'static/src/xml/makeup.xml',
              'static/src/xml/event_details_page.xml',
