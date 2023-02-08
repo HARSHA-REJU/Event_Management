@@ -54,7 +54,7 @@
                             }
                   .listing-page {
                                 margin-top: 40px;
-                                margin-bottom: 120px;
+                                margin-bottom: 0px !important;
                             }
                   .listing-page .item .left-image img {
                                 height: 325px;
@@ -63,6 +63,14 @@
                   .thumb a {
                         color: white;
                     }
+                  .listing-page .icon {
+                        padding:17px;
+                  }
+                  @media (min-width: 992px)
+                .grid.row.col-lg-12.col-lg-4 {
+                    flex: 0 0 auto;
+                    width: 28% !important;
+                }
 
               </style>
 
