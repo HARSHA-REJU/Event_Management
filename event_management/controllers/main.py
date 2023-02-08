@@ -450,7 +450,7 @@ class BookingPage(http.Controller):
         # booking_event.action_create_quote()
         # booking_event.action_enquiry_confirm()
         # booking_event.action_create_event()
-        print ("My bookingssssssssssssssssss///////////...................")
+        # print ("My bookingssssssssssssssssss///////////...................")
         # print (booking_event.id)
         # venues = request.env['res.partner'].sudo().search([('venue', '=', True)])
         # districts = request.env['place.district'].sudo().search([])
@@ -479,7 +479,7 @@ class BookingPage(http.Controller):
             'start': '2018-02-01',
             'end': '2018-02-02'
         }]
-        print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")
+        # print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")
         return values
 
 
@@ -617,7 +617,7 @@ class AllVenueListPage(http.Controller):
         event_type = (request.httprequest.url).split('?')
         venues = request.env['res.partner'].sudo().search([('venue','=',True)])
         # districts = request.env['place.district'].sudo().search(district_domain)
-        print("keeeeeeeeeeeeeeeeeeeeeeeejhukgggggggggggggggggggggggggggggggggggggggggggg")
+        # print("keeeeeeeeeeeeeeeeeeeeeeeejhukgggggggggggggggggggggggggggggggggggggggggggg")
         values = {
             'venues':venues,
             'event_type':event_type[1],
