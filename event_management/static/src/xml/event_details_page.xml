@@ -124,10 +124,11 @@
 .category-post .naccs .menu div {
     color: #fff;
     margin: 0px;
-    width: 50%;
+    width: 100%;
+<!--    width: 50%;-->
     font-size: 10px;
     background-color: #8d99af;
-    height: 132px;
+    height: 80px;
     line-height: 132px;
     display: inline-block;
     float: left;
@@ -136,16 +137,23 @@
     position: relative;
     transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-<!--.category-post {-->
-<!--  overflow: hidden;-->
-<!--  margin-top: 0px;-->
-<!--  margin-bottom: 0px !important;-->
-<!--}-->
+.category-post {
+  overflow: hidden;
+  margin-top: 0px;
+  margin-bottom: 0px !important;
+}
 <!--                   .category-post .top-content {-->
 <!--            margin-top: 80px;-->
 <!--            padding-bottom: 60px;-->
 <!--            border-bottom: 1px solid #eee;-->
 <!--        }-->
+
+                   @media (min-width: 992px)
+.naccs.grid.row.col-lg-12 {
+    flex: 0 0 auto;
+    width: 60%;
+}
+                   .tm-mb-90 { margin-bottom: 0px;!important }
     </style>
 
 <!--
@@ -199,7 +207,8 @@ https://templatemo.com/tm-564-plot-listing
 <!--                          <li><a href="#">Services</a></li>-->
                           <li><a href="/venuelist">Venues</a></li>
 <!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
-                          <li><a href="/booking">Booking</a></li>
+                            <t t-if="uid"><li><a href="/booking">Booking</a></li></t>
+                            <t t-if="not uid"><li><a data-bs-toggle="modal" data-bs-target="#LoginModal" href="/booking">Booking</a></li></t>
 <!--                          <li><a href="/booking">Booking</a></li>-->
 <!--                            <li>-->
 <!--                            <div class="col-md-12 dropdown show">-->
@@ -222,7 +231,8 @@ https://templatemo.com/tm-564-plot-listing
                                           <t t-esc="current_user.name"/>
                                       </a>
                                       <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                          <a class="dropdown-item" href="/account">Booking Summary</a>
+<!--                                          <a class="dropdown-item" href="/account">Booking Summary</a>-->
+                                          <a class="dropdown-item" href="/dashboard">My Dashboard</a>
                                           <a class="dropdown-item" href="/logout">Logout</a>
                                       </div>
 
@@ -313,7 +323,7 @@ https://templatemo.com/tm-564-plot-listing
 
                                                     <div class="form-group" >
                                                         <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                                        <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                                        <input type="text" name="email" id="email" placeholder="Your Email"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -384,15 +394,15 @@ https://templatemo.com/tm-564-plot-listing
                     <div class="first-thumb active">
                       <div class="thumb">
 <!--                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>-->
-                        <center><span><h3>Photo Gallery</h3></span></center>
+                        <center><span><h3>Our Events</h3></span></center>
                       </div>
                     </div>
-                    <div class="first-thumb">
-                      <div class="thumb">
-<!--                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>-->
-                        <center><span><h3>Video Gallery</h3></span></center>
-                      </div>
-                    </div>
+<!--                    <div class="first-thumb">-->
+<!--                      <div class="thumb">-->
+<!--&lt;!&ndash;                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>&ndash;&gt;-->
+<!--                        <center><span><h3>Videos</h3></span></center>-->
+<!--                      </div>-->
+<!--                    </div>-->
                   </div>
                 </div>
 
@@ -401,65 +411,416 @@ https://templatemo.com/tm-564-plot-listing
                     <li class="active">
                             <div class="container-fluid tm-container-content tm-mt-60">
                                 <div class="row mb-4">
-                                    <h2 class="col-6 tm-text-primary">
-                                        Memories
-                                    </h2>
-                                    <div class="col-6 d-flex justify-content-end align-items-center">
-                                        <form action="" class="tm-text-primary">
-                                            Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"/> of 200
-                                        </form>
-                                    </div>
+<!--                                    <h2 class="col-6 tm-text-primary">-->
+<!--                                        Memories-->
+<!--                                    </h2>-->
+<!--                                    <div class="col-6 d-flex justify-content-end align-items-center">-->
+<!--                                        <form action="" class="tm-text-primary">-->
+<!--                                            Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"/> of 200-->
+<!--                                        </form>-->
+<!--                                    </div>-->
                                 </div>
                                 <div class="row tm-mb-90 tm-gallery">
 <!--                                    <t-->
                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                                         <figure class="effect-ming tm-video-item">
-                                            <img src="/event_management/static/img/music-band.png" alt="Image" class="img-fluid"/>
-                                            <figcaption class="d-flex align-items-center justify-content-center">
-                                                <h2>Click for More..</h2>
-                                                <a href="#">View more</a>
-                                            </figcaption>
+                                            <img src="/event_management/static/img/1.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
                                         </figure>
-                                        <div class="d-flex justify-content-between tm-text-gray">
-                                            <span class="tm-text-gray-light">18 Oct 2020</span>
-                                            <span>9,906 views</span>
-                                        </div>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/2.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/3.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/4.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/5.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/6.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/7.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/8.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/9.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/10.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/11.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/12.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/13.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/15.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/16.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/17.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/18.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/19.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/20.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/21.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/22.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/23.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/24.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/26.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/28.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/29.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/30.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                                        <figure class="effect-ming tm-video-item">
+                                            <img src="/event_management/static/img/31.jpg" alt="Image" class="img-fluid"/>
+<!--                                            <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                                <h2>Click for More..</h2>-->
+<!--                                                <a href="#">View more</a>-->
+<!--                                            </figcaption>-->
+                                        </figure>
+<!--                                        <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                            <span class="tm-text-gray-light">18 Oct 2020</span>-->
+<!--                                            <span>9,906 views</span>-->
+<!--                                        </div>-->
                                     </div>
                                 </div>
                             </div>
 
                     </li>
-                    <li>
-                        <div class="container-fluid tm-container-content tm-mt-60">
-                            <div class="row mb-4">
-                                <h2 class="col-6 tm-text-primary">
-                                    Our Highlights
-                                </h2>
-                                <div class="col-6 d-flex justify-content-end align-items-center">
-                                    <form action="" class="tm-text-primary">
-                                        Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"/> of 200
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="row tm-mb-90 tm-gallery">
-<!--                                    <t-->
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                                    <figure class="effect-ming tm-video-item">
-                                        <img src="img/img-01.jpg" alt="Image" class="img-fluid"/>
-                                        <figcaption class="d-flex align-items-center justify-content-center">
-                                            <h2>Click for More..</h2>
-                                            <a href="#">View more</a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="d-flex justify-content-between tm-text-gray">
-                                        <span>24 Oct 2020</span>
-                                        <span>10,460 views</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                    <li>-->
+<!--                        <div class="container-fluid tm-container-content tm-mt-60">-->
+<!--                            <div class="row mb-4">-->
+<!--                                <h2 class="col-6 tm-text-primary">-->
+<!--                                    Our Highlights-->
+<!--                                </h2>-->
+<!--                                <div class="col-6 d-flex justify-content-end align-items-center">-->
+<!--                                    <form action="" class="tm-text-primary">-->
+<!--                                        Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"/> of 200-->
+<!--                                    </form>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="row tm-mb-90 tm-gallery">-->
+<!--&lt;!&ndash;                                    <t&ndash;&gt;-->
+<!--                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">-->
+<!--                                    <figure class="effect-ming tm-video-item">-->
+<!--                                        <img src="img/img-01.jpg" alt="Image" class="img-fluid"/>-->
+<!--                                        <figcaption class="d-flex align-items-center justify-content-center">-->
+<!--                                            <h2>Click for More..</h2>-->
+<!--                                            <a href="#">View more</a>-->
+<!--                                        </figcaption>-->
+<!--                                    </figure>-->
+<!--                                    <div class="d-flex justify-content-between tm-text-gray">-->
+<!--                                        <span>24 Oct 2020</span>-->
+<!--                                        <span>10,460 views</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
-                    </li>
+<!--                    </li>-->
                   </ul>
                   </div>
 <!--                  <div class="col-lg-12">-->

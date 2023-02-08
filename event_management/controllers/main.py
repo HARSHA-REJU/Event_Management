@@ -160,7 +160,7 @@ class HomePage(http.Controller):
     @http.route(['/dashboard'], type='http', auth="public", website=True)
     def dashboard_controller(self, **args):
         current_user = request.env.user
-        if current_user.has_group ('event_management.group_auditorium_manager'):
+        if current_user.has_group ('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
             return http.redirect_with_hash("/web")
         else:
             return http.redirect_with_hash('/account')
@@ -471,7 +471,7 @@ class BookingPage(http.Controller):
         # response = redirect("/booking")
         # return response
 
-    @http.route(['/ajax/reservations/get/<int:venue_id>'], type='http', auth="public",website=True)
+    @http.route(['/ajax/reservations/get/<int:venue_id>'], type='http', auth="public",website=True,csrf=False)
     def data_calender_ajax(self, venue_id,**args):
         venue_id = venue_id
         values=[{
@@ -479,7 +479,7 @@ class BookingPage(http.Controller):
             'start': '2018-02-01',
             'end': '2018-02-02'
         }]
-
+        print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")
         return values
 
 
@@ -596,3 +596,33 @@ class VideographyPage(http.Controller):
         return request.render(
 
         "event_management.photography_page",values)
+
+
+class AllVenueListPage(http.Controller):
+    @http.route(['/venues'], type='http', auth="public",website=True)
+    def all_venue_list_page_controller(self, **args):
+        current_user = request.env.user
+        # print (http.request.env['ir.config_parameter'].sudo().get_param('web.base.url') ) # BASE URL
+        # print(http.request.httprequest)
+        # print(request.httprequest.url)
+
+        # district_domain = []
+        # domain_venue = []
+        # print (args.get('district_id'))
+        # if args.get('district_id'):
+        #     domain_venue = [('venue','=',True),('district_id.id','=',args.get('district_id'))]
+        #     district_domain = [('id','=',args.get('district_id'))]
+        # window.location.search
+
+        event_type = (request.httprequest.url).split('?')
+        venues = request.env['res.partner'].sudo().search([('venue','=',True)])
+        # districts = request.env['place.district'].sudo().search(district_domain)
+        print("keeeeeeeeeeeeeeeeeeeeeeeejhukgggggggggggggggggggggggggggggggggggggggggggg")
+        values = {
+            'venues':venues,
+            'event_type':event_type[1],
+            'current_user': current_user,
+        }
+        return request.render(
+
+        "event_management.all_venue_list_page",values)

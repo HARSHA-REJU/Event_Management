@@ -48,11 +48,11 @@
 
 
                     $('.dropdown > a#menu_service_div_id').on('click', function(e){
-    e.preventDefault();
-    $('html, body').animate({
-        scrollTop: $(".popular-categories").offset().top - 160
-    }, 300)
-})
+                        e.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: $(".popular-categories").offset().top - 160
+                        }, 300)
+                    })
                 </script>
 
 
@@ -745,7 +745,7 @@ label.valid {
 <!--                          <li><a href="#">Services</a></li>-->
                           <li><a href="/venuelist">Venues</a></li>
 <!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
-                            <t t-if="uid"><li><a href="/booking">Booking</a></li></t>
+                            <t t-if="uid"><li><a href="/booking" class="booking">Booking</a></li></t>
                             <t t-if="not uid"><li><a data-bs-toggle="modal" data-bs-target="#LoginModal" href="/booking">Booking</a></li></t>
 <!--                          <li><a href="/booking">Booking</a></li>-->
 <!--                            <li>-->
@@ -861,7 +861,7 @@ label.valid {
 
                                                     <div class="form-group" >
                                                         <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                                        <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                                        <input type="text" name="email" id="email" placeholder="Your Email"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -992,11 +992,11 @@ label.valid {
             <!--            </t>-->
 
 
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/wedding.png" alt="Home"/></span> Wedding</a></li>
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/reception.png" alt="Food"/></span> Wedding Reception</a></li>
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/ring.png" alt="Vehicle"/></span> Engagement</a></li>
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/baby.png" alt="Travel"/></span> Baby Shower</a></li>
-                        <li><a href="#"><span class="icon"><img src="event_management/static/img/birthday.png" alt="Travel"/></span> Birthday Party</a></li>
+                        <li><a href="/venues?Wedding"><span class="icon"><img src="event_management/static/img/wedding.png" alt="Wedding"/></span>Wedding</a></li>
+                        <li><a href="/venues?Reception"><span class="icon"><img src="event_management/static/img/reception.png" alt="Wedding Reception"/></span>Wedding Reception</a></li>
+                        <li><a href="/venues?Engagement"><span class="icon"><img src="event_management/static/img/ring.png" alt="Engagement"/></span>Engagement</a></li>
+                        <li><a href="/venues?Baby Shower"><span class="icon"><img src="event_management/static/img/baby.png" alt="Baby Shower"/></span>Baby Shower</a></li>
+                        <li><a href="/venues?Birthday Party"><span class="icon"><img src="event_management/static/img/birthday.png" alt="Birthday Party"/></span>Birthday Party</a></li>
                       </ul>
                     </div>
                   </div>
@@ -1092,7 +1092,7 @@ label.valid {
 
 <!--                                              An Indian wedding is a celebration that lasts over many days! An Indian wedding is a mix of cultures,traditions,family bonds and emotions. To celebrate the spirit of Indian weddings, mix in some authentic wedding entertainment and watch your audience spring in their seats with excitement!-->
                                             </p>
-                                            <div class="main-white-button"><a rel="nofollow" href="/entertainment"><i class="fa fa-eye"></i>View More</a></div>
+                                            <div class="main-white-button"><a rel="nofollow" href="/booking"><i class="fa fa-eye"></i>Book Now</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1117,7 +1117,7 @@ label.valid {
                                             <p>
                                                 Do you want to make your special day even more memorable? After the wedding, those photos and videos are all that remain to help you remember the day, so we capture the most beautiful photographs of your special events, such as weddings, birthday parties, engagements, religious ceremonies, and all other amazing occasions. Our photographers and filmmakers are storytellers who will perfectly capture your memories, all with the passion and talent to tell your story. Let us capture your moment of bliss.
                                             </p>
-                                              <div class="main-white-button"><a href="/videography"><i class="fa fa-eye"></i>View More</a></div>
+                                              <div class="main-white-button"><a href="/booking"><i class="fa fa-eye"></i>Book Now</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1139,7 +1139,7 @@ label.valid {
                                             <p>
                                                 Your wedding is the most important day of your life. On the wedding day, the wedding stage plays a huge role in creating a lasting impression of your wedding. You’ve envisioned this celebration for months, maybe even years. And now it is time to start curating your wedding decor. Whether you’re seeking the latest trend, harkening back to a more traditional style, or forging a path of your own, we’re dedicated to helping you navigate the world of wedding decor.
                                             </p>
-                                              <div class="main-white-button"><a href="/decoration"><i class="fa fa-eye"></i>View More</a></div>
+                                              <div class="main-white-button"><a href="/booking"><i class="fa fa-eye"></i>Book Now</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1163,7 +1163,7 @@ label.valid {
                                             <p>
                                                 We all know the big day is, well, kind of a big deal. One of the most important aspects of your wedding is the food. Whether you’re hoping for a full, sit-down dinner or a buffet style, it needs to go off without a hitch. We have a group of professional caterers with resourceful experience in the hospitality and catering industries of Kerala. They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available. concentrating not just on taste but also on texture, style, freshness, and presentation all over Kerala.
                                             </p>
-                                              <div class="main-white-button"><a href="/catering"><i class="fa fa-eye"></i>View More</a></div>
+                                              <div class="main-white-button"><a href="/booking"><i class="fa fa-eye"></i>Book now</a></div>
                                           </div>
                                         </div>
                                         <div class="col-lg-7 align-self-center">
@@ -1451,6 +1451,11 @@ label.valid {
                     $('.register-btn').on('click', function(){
                         $('#LoginModal').modal('toggle')
                         $('#RegistrationModal').modal('toggle')
+                      })
+
+                    $('.booking').on('click', function(){
+                        $('#LoginModal').modal('toggle')
+                       window.location.href = "/booking"
                       })
 
 <!--                       function customFunction() {-->

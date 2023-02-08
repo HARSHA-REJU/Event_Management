@@ -41,6 +41,13 @@
 
     </xpath>
               <style>
+                  .listing-page .naccs .menu div{
+                  height: 80px !important;
+                  width: 200px !important;
+                  text-align: center !important;
+                  }
+
+
                   .page-heading {
                                 background-repeat: no-repeat;
                                 background-position: center center;
@@ -60,6 +67,14 @@
                                 height: 325px;
 
                              }
+                                     @media (min-width: 992px)
+                  .naccs.grid.row.col-lg-12.col-lg-3 {
+                                flex: 0 0 auto;
+                                width: 19%;!important
+                                height: 100px;!important
+
+
+                            }
               </style>
 
   </head>
@@ -106,7 +121,8 @@
 <!--                          <li><a href="#">Services</a></li>-->
                           <li><a href="/venuelist">Venues</a></li>
 <!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
-                          <li><a href="/booking">Booking</a></li>
+                            <t t-if="uid"><li><a href="/booking">Booking</a></li></t>
+                            <t t-if="not uid"><li><a data-bs-toggle="modal" data-bs-target="#LoginModal" href="/booking">Booking</a></li></t>
 <!--                          <li><a href="/booking">Booking</a></li>-->
 <!--                            <li>-->
 <!--                            <div class="col-md-12 dropdown show">-->
@@ -129,7 +145,8 @@
                                           <t t-esc="current_user.name"/>
                                       </a>
                                       <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                          <a class="dropdown-item" href="/account">Booking Summary</a>
+<!--                                          <a class="dropdown-item" href="/account">Booking Summary</a>-->
+                                          <a class="dropdown-item" href="/dashboard">My Dashboard</a>
                                           <a class="dropdown-item" href="/logout">Logout</a>
                                       </div>
 
@@ -220,7 +237,7 @@
 
                                                     <div class="form-group" >
                                                         <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                                        <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                                        <input type="text" name="email" id="email" placeholder="Your Email"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -283,32 +300,38 @@
                         <div class="col-lg-12">
                           <div class="naccs">
                             <div class="grid">
-                              <div class="row">
-                                <div class="col-lg-4">
+                              <div class="row col-lg-12">
+                                    <div class="col-lg-3">
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
-                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+<!--                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>-->
                                         TRIVANDRUM
                                       </div>
                                     </div>
+                                  </div>
+                                    </div>
                                     <t t-foreach="districts" t-as="record">
                                       <t t-if="record.id != 1">
-                                        <div>
+                                        <div class="col-lg-3">
+                                            <div class="menu">
                                           <div class="thumb">
-                                            <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
+<!--                                            <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>-->
                                             <t t-esc="record.name"/>
                                           </div>
                                         </div>
+                                        </div>
                                       </t>
                                     </t>
-                                  </div>
-                                </div>
-                                <div class="col-lg-8">
+<!--                                  </div>-->
+<!--                                </div>-->
+                              </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
                                   <ul class="nacc">
                                     <li class="active">
                                       <div>
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                           <div class="owl-carousel owl-listing">
 <!--                                            <t t-set="index" t-value="1"/>-->
                                             <t t-foreach="trivandrum_venues" t-as="tvm">

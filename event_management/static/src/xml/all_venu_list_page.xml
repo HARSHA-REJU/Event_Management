@@ -1,90 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-	<data>
-		<template id="makeup_artist_booking_page" name="MakeupArtistBookingPage">
+    <data>
+        <template id="all_venue_list_page" name="VenuePAge">
             <html lang="en">
-                <head>
-	<meta charset="utf-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+             <head>
 
-	<title>Fortuna Events</title>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>
-<!--	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />-->
-<!--	<link type="text/css" rel="stylesheet" href="css/style.css" />-->
-					<xpath expr="." position="inside">
-						<link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-						<link rel="stylesheet" href="/event_management/static/src/css/makeup_artist_booking.css"/>
-                        <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+                <meta charset="UTF-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+                <meta name="description" content=""/>
+                <meta name="author" content=""/>
+                <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
 
+                <title>Fortuna Events</title>
+
+                <!-- Bootstrap core CSS -->
+
+                <link href="/event_management/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
                 <!-- Additional CSS Files -->
 
+                <xpath expr="." position="inside">
+                  <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
+                  <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
 
-                <link href="/event_management/static/bootstrap/css/bootstrap.min.css.map" rel="stylesheet"/>
-                <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
-                <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
-                <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
-                <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
+                  <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
+                  <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
+                  <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
+            <!--      <script type="text/javascript" src="event_management/static/src/js/isotope.js"></script>-->
+            <!--      <script type="text/javascript" src="event_management/static/src/js/tabs.js"></script>-->
 
-                                         <!-- Additional CSS Files form booking form-->
-<!--                <link rel="stylesheet" href="/event_management/static/src/xml/bootstrap.min.css"/>-->
+            <!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js.map"></script>-->
+            <!--      <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.min.js"></script>-->
 
+                </xpath>
 
-                <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
-                <script type="text/javascript" src="event_management/static/bootstrap/js/bootstrap.bundle.min.js"></script>
-                <script type="text/javascript" src="event_management/static/src/js/owl-carousel.js"></script>
-                <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
-                <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
-                <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
-					</xpath>
-					<style>
-						#booking {
-								font-family: 'Montserrat', sans-serif;
-								background-image: url('event_management/static/img/mua2.jpg');
-								background-size: cover;
-								background-position: center;
-							}
-                        .page-heading {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-                          background:#783681;
-
-<!--  background-image: url(event_management/static/img/mua_booking_collage_3.jpg);-->
-  padding: 120px 0px 0px 0px;
-  position: relative;
-<!--  overflow: hidden;-->
+               <style>
+                 .category-post .naccs .menu div {
+    color: #fff;
+    margin: 0px;
+    width: 100%;
+    font-size: 10px;
+    background-color: #8d99af;
+    height: 132px;
+    line-height: 132px;
+    display: inline-block;
+    float: left;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-                        }
-                        .page-heading:before {
-	content: '';
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	top: 0;
-	background: rgba(0, 0, 0, 0.6);
+                   .category-post .naccs .menu div .thumb {
+                   padding: 30px 0px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+                   width:100%
 }
 
+                   .page-heading {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+                     background:#783681;
 
-					</style>
-</head>
+<!--    background-image: url(/event_management/static/img/heading-bg.jpg);-->
+    padding: 120px 0px 0px 0px;
+    position: relative;
+    overflow: hidden;
+}
+                   .category-post {
+    overflow: hidden;
+    margin-top: 0px;
+    margin-bottom: 153px;
+    padding-bottom: 120px;
+}
+<!--                   img {-->
+<!--    margin-bottom: -3px;-->
+<!--    width: 100%;-->
+<!--    overflow: hidden;-->
+<!--    margin-top: 18px;-->
+<!--    }-->
+<!--#products .thumbnail .group.list-group-image {-->
+<!--    max-height: 300px;-->
+<!--    overflow: hidden;-->
+<!--    object-fit: cover;-->
+<!--    object-position: center;-->
+<!--} -->
+                   img.group.list-group-image {
+    height: 300;
+    width: 300;
+                   overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+                   }
+               </style>
+<!--
 
-<body>
-	                  <!-- ***** Preloader Start ***** -->
-                  <div id="js-preloader" class="js-preloader">
-                    <div class="preloader-inner">
-                      <span class="dot"></span>
-                      <div class="dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
+TemplateMo 564 Hiworth
+
+https://templatemo.com/tm-564-plot-listing
+
+-->
+  </head>
+            <body>
+
+              <!-- ***** Preloader Start ***** -->
+              <div id="js-preloader" class="js-preloader">
+                <div class="preloader-inner">
+                  <span class="dot"></span>
+                  <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                   </div>
-                  <!-- ***** Preloader End ***** -->
+                </div>
+              </div>
+              <!-- ***** Preloader End ***** -->
 
-                  <!-- ***** Header Area Start ***** -->
+              <!-- ***** Header Area Start ***** -->
               <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
                 <div class="container">
                   <div class="row">
@@ -269,122 +309,96 @@
                   </div>
                 </div>
               </header>
-                  <!-- ***** Header Area End ***** -->
-                        <div class="page-heading">
-                        <div class="container">
+              <!-- ***** Header Area End ***** -->
+
+            <div class="page-heading">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <div class="top-text header-text">
+                      <h2>Check Out The best Venue for your <t t-esc="event_type"/> </h2>
+<!--                      <h2>District Wise Venue listing</h2>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="category-post">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="naccs">
+                        <div class="grid">
                           <div class="row">
-                            <div class="col-lg-6">
-                              <div class="top-text header-text">
-<!--                                <h6>Book Your Events Now</h6>-->
-<!--                                <h2>Make your dream event More Beautiful..</h2>-->
+<!--                            <div class="col-lg-12">-->
+<!--                              <div class="menu">-->
+<!--                                <t t-foreach="districts" t-as="district">-->
+<!--                                <div class="first-thumb active">-->
+<!--                                  <div class="thumb">-->
+<!--            &lt;!&ndash;                        <span class="icon"><img src="event_management/static/img/makeup-icon.jpeg" alt=""/><h4>Makeup Artists</h4></span>&ndash;&gt;-->
+<!--                                   <span><h2><t t-esc="district.name"/></h2></span>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                                </t>-->
+<!--                              </div>-->
+<!--                            </div>-->
+                              <div class="col-lg-12">
+                              <ul class="nacc">
+                                  <li class="active">
+                                  <div>
+                                    <div class="thumb">
+                                      <div class="row">
+                                        <div class="col-lg-12">
+                                          <div class="top-content">
+                                            <div class="row">
+                                                <div class="container">
+                                                    <div id="products" class="row">
+                                                        <t t-foreach="venues" t-as="venue">
+                                                        <div class="item  col-xs-4 col-lg-4">
+                                                            <div class="thumbnail">
+                                                               <img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % venue.id" alt="" />
+                                                                <div class="caption">
+                                                                    <h4 class="group inner list-group-item-heading">
+                                                                        <t t-esc="venue.name"/></h4>
+                                                                    <p class="group inner list-group-item-text">
+                                                                        <t t-esc="venue.comment"/>
+                                                                        </p>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12 col-md-6">
+                                                                            <p class="lead">
+                                                                                ₹ <t t-esc="venue.amount"/></p>
+                                                                        </div>
+                                                                        <div class="col-xs-12 col-md-6">
+                                                                            <a class="btn btn-success" href="/booking">Book Now</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </t>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                </li>
+                              </ul>
                               </div>
-                            </div>
                           </div>
                         </div>
                       </div>
-
-	<div id="booking" class="section">
-		<div class="section-center">
-			<div class="container">
-				<div class="row">
-					<div class="booking-form">
-						<div class="form-header">
-							<h3>Book A Makeup Artist</h3>
-						</div>
-						<form action="/makeupartistbooking/book" method="Post">
-                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<span class="form-label">Artist Name</span>
-                                        <select name="artist_name" id="artist_name"
-                                                                class="form-control form-select link-style" required="1">
-                                         <option value="" disabled="" selected="">Select Artist</option>
-                                                <t t-foreach="makeup_artists" t-as="record">
-                                                                <option t-att-value="record.id">
-                                                                    <t t-esc="record.artist_name.name" t-att-value="record.id"/>
-                                                                </option>
-                                                            </t>
-                                         </select>
-<!--										<input class="form-control" type="text" placeholder="Enter Artist name"/>-->
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<span class="form-label">Customer Name</span>
-                                         <select name="customer_name" id="customer_name"
-                                                                class="form-control form-select link-style" required="1">
-                                         <option value="" disabled="" selected="">Select Name</option>
-                                                <t t-foreach="customers" t-as="record">
-                                                                <option t-att-value="record.id">
-                                                                    <t t-esc="record.name" t-att-value="record.id"/>
-                                                                </option>
-                                                            </t>
-                                         </select>
-<!--										<input class="form-control" type="text" placeholder="Enter your name"/>-->
-<!--										<span class="form-label">Email</span>-->
-<!--										<input class="form-control" type="email" placeholder="Enter your email"/>-->
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<span class="form-label">Booking Date</span>
-										<input class="form-control" name="date" id="date" type="date" required="1"/>
-									</div>
-								</div>
-								<div class="col-sm-6">
-                                    <div class="form-group">
-								<span class="form-label">Event Type</span>
-                                <select name="type_id" id="type_id"
-                                        class="form-control form-select link-style" required="1">
-                                    <option value="" disabled="" selected="">Select Event</option>
-                                    <t t-foreach="types" t-as="record">
-                                        <option t-att-value="record.id">
-                                            <t t-esc="record.name" t-att-value="record.id"/>
-                                        </option>
-                                    </t>
-                                </select>
-							</div>
-								</div>
-							</div>
+                    </div>
+                  </div>
+                </div>
+            </div>
 
 
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<span class="form-label">Package</span>
-                                        <select name="package_id" id="type_id"
-                                        class="form-control form-select link-style" required="1">
-                                    <option value="" disabled="" selected="">Select Package</option>
-                                    <t t-foreach="packages" t-as="record">
-                                        <option t-att-value="record.id">
-                                            <t t-esc="record.name" t-att-value="record.id"/>
-                                        </option>
-                                    </t>
-                                </select>
-<!--										<input class="form-control" type="text" placeholder="Event Type"/>-->
-								    </div>
-								</div>
-							    <div class="col-sm-6">
-									<div class="form-group">
-										<span class="form-label">Price</span>
-										<input name="price" class="form-control" type="text" placeholder="Price"/>
-								    </div>
-							    </div>
-							</div>
-
-							<div class="form-btn">
-								<button type="submit" class="submit-btn">Book Now</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-    <footer>
+              <footer>
                 <div class="container">
                   <div class="row">
                     <div class="col-lg-1">
@@ -439,35 +453,21 @@
                     </div>
                   </div>
                 </div>
-
-                                  <script>
-<!--                                      function customFunction() {-->
-<!--                      alert('Thanks for your booking..!');-->
-<!--                    window.location.href = "/";-->
-
-<!--                      }-->
-<!--                    $('.form-btn').on('click', function(){-->
-<!--    $('#RegistrationModal').modal('toggle')-->
-<!--    $('#LoginModal').modal('toggle')-->
-<!--                      customFunction();-->
-<!--})-->
+                  <script>
                       $('.dropdown > a#menu_service_div_id').on('click', function(e){
-    e.preventDefault();
-                       window.location.href = "/#service_div";
-    $('html, body').animate({
-        scrollTop: $(".popular-categories").offset().top - 160
-    }, 300)
-})
-
-
-
-
+                            e.preventDefault();
+                                               window.location.href = "/#service_div";
+                            $('html, body').animate({
+                                scrollTop: $(".popular-categories").offset().top - 160
+                            }, 300)
+                        })
                   </script>
-
               </footer>
-</body>
 
-            </html>
+        </body>
+
+        </html>
         </template>
+
     </data>
 </odoo>
