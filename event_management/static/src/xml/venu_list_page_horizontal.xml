@@ -309,7 +309,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?2" >
+                                        <a href="/list?district_id=2" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -321,7 +321,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?3" >
+                                        <a href="/list?district_id=3" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -333,17 +333,20 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
+                                        <a href="/list?district_id=4" >
                                   <div class="menu">
+
                                     <div class="first-thumb active">
                                       <div class="thumb">
-                                        <a href="/list?4" ><span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span></a>
+                                        <span class="icon" style=""><img src="/event_management/static/img/decoration-icon.png" alt=""/></span>
                                             ALAPPUZHA
                                       </div>
                                     </div>
                                   </div>
+                              </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?5" >
+                                        <a href="/list?district_id=5" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -356,7 +359,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?6" >
+                                        <a href="/list?district_id=6" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -368,7 +371,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?7" >
+                                        <a href="/list?district_id=7" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -380,7 +383,7 @@
                               </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?8" >
+                                        <a href="/list?district_id=8" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -392,7 +395,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?9" >
+                                        <a href="/list?district_id=9" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -404,7 +407,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?10" >
+                                        <a href="/list?district_id=10" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -416,7 +419,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?11" >
+                                        <a href="/list?district_id=11" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -428,7 +431,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?12" >
+                                        <a href="/list?district_id=12" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
@@ -440,7 +443,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?13" >
+                                        <a href="/list?district_id=13" >
                                           <div class="menu">
                                             <div class="first-thumb active">
                                               <div class="thumb">
@@ -452,7 +455,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="/list?14" >
+                                        <a href="/list?district_id=14" >
                                   <div class="menu">
                                     <div class="first-thumb active">
                                       <div class="thumb">
