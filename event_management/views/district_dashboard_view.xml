@@ -45,6 +45,8 @@
         </record>
 
 
+
+
         <record id="event_district_action_view_kanban" model="ir.actions.act_window">
             <field name="name">Dashboard</field>
             <field name="res_model">place.district</field>

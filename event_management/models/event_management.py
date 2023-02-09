@@ -637,13 +637,14 @@ class PlaceDistrict(models.Model):
 
     name = fields.Char(string="Name")
     state_id = fields.Many2one('res.country.state',
-                               string="State", domain="[('country_id', '=?', country_id)]")
+                               string="State", domain="[('country_id', '=?', country_id)]", readonly=True)
+    country_id = fields.Many2one('res.country', readonly=True)
     image = fields.Binary("Image", attachment=True,
                           help="This field holds the image used as "
                                "image for the event, limited to 1080x720px.")
     event_count = fields.Integer(string="# of Events",
                                  compute='_compute_district_wise_event_count')
-    event_type_id = fields.Many2one('event.management.type')
+    event_type_id = fields.Many2one('event.management.type', readonly=True)
 
     #
     # type_event_count = fields.Integer(string="# of Events",

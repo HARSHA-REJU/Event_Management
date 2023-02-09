@@ -20,7 +20,7 @@ class CustomerEnquiryDetails(models.Model):
     customer_id = fields.Char()
     customer_ids = fields.Many2many('res.partner',string='Customers')
     address = fields.Text()
-    venue_id = fields.Many2one('res.partner', string="Venue")
+    venue_id = fields.Many2one('res.partner', string="Venue",domain=[('venue', '=', True)])
     # venue_ids = fields.Many2many('res.partner', string="Venues")
     # auditorium_id = fields.Many2one('res.partner',string="Venue")
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
