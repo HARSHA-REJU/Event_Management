@@ -769,8 +769,8 @@ label.valid {
                                           <t t-esc="current_user.name"/>
                                       </a>
                                       <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
-<!--                                          <a class="dropdown-item" href="/account">Booking Summary</a>-->
-                                          <a class="dropdown-item" href="/dashboard">My Dashboard</a>
+                                          <a class="dropdown-item" href="/account">Booking Summary</a>
+                                          <a class="dropdown-item" href="/dashboard">Dashboard</a>
                                           <a class="dropdown-item" href="/logout">Logout</a>
                                       </div>
 

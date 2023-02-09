@@ -142,8 +142,16 @@ class HomePage(http.Controller):
     def user_account(self, **args):
         current_user = request.env.user
         current_user_id = request.env.user.id
-        enquiries = request.env['customer.enquiry.details'].sudo().search([('user_id','=',current_user_id)])
-        venue_bookings = request.env['event.management'].sudo().search([('user_id','=',current_user_id)])
+
+        if current_user.has_group('event_management.group_auditorium_manager'):
+            enquiries = request.env['customer.enquiry.details'].sudo().search([('venue_id','=',current_user.auditorium.id)])
+            venue_bookings = request.env['event.management'].sudo().search([('venue_id','=',current_user.auditorium.id)])
+        elif current_user.has_group('base.group_system'):
+            enquiries = request.env['customer.enquiry.details'].sudo().search([])
+            venue_bookings = request.env['event.management'].sudo().search([])
+        else:
+            enquiries = request.env['customer.enquiry.details'].sudo().search([('user_id','=',current_user_id)])
+            venue_bookings = request.env['event.management'].sudo().search([('user_id','=',current_user_id)])
 
         values = {
             'enquiries':enquiries,
@@ -181,7 +189,6 @@ class ContactUsPage(http.Controller):
             'current_user': current_user,
         }
         return request.render(
-
         "event_management.contact_page",values)
     @http.route(['/enquiry/confirm'], type='http', auth="public",website=True)
     def contact_page_confirm(self, **args):
