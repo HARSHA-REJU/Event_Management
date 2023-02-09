@@ -5291,6 +5291,10 @@ textarea.form-control-lg {
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 1px);
 }
+
+.login_modal_footer {
+    justify-content: space-between !important;
+                  }
 .modal-footer > * {
   margin: 0.25rem;
 }

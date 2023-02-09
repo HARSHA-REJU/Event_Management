@@ -108,7 +108,7 @@
             <field name="view_mode">tree,form</field>
         </record>
                 <menuitem id="calender_event_booking_menu" name="Booking Summary" sequence="2" action="action_calender_view_events" />
-                <menuitem id="res_users_menu" name="Users" sequence="9" action="action_view_res_users" />
+<!--                <menuitem id="res_users_menu" name="Users" sequence="9" action="action_view_res_users" />-->
 
 
 <!--        <menuitem id="event_management_dashboard_menu" name="Event's Type Dashboard" parent="event_management.event_management_root_menu"-->

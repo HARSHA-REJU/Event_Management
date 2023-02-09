@@ -172,7 +172,10 @@
                                   </div>
                                   <div class="modal-footer">
 <!--                                      <a href="#" class="signup-image-link">I am already member</a>-->
-                                      I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>
+                                      <div>
+
+                                          I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>
+                                      </div>
     <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
     <!--                                <button type="button" class="btn btn-primary">Register</button>-->
                                   </div>
@@ -216,13 +219,15 @@
                         <!--                    </div>-->
                                         </div>
                                             </div>
-        </section>
+                                </section>
 
                               </div>
-                              <div class="modal-footer">
-<!--                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>-->
+                              <div class="modal-footer login_modal_footer">
+                                <button type="button" class="btn btn-modal" style="align:left;">Change Password</button>
 <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-                                Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>
+                                  <div>
+                                      Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>
+                                  </div>
                               </div>
                             </div>
                           </div>
@@ -316,7 +321,19 @@
     $('html, body').animate({
         scrollTop: $(".popular-categories").offset().top - 160
     }, 300)
+
 })
+
+                                          $('.login_btn').on('click', function(){
+                        $('#RegistrationModal').modal('toggle')
+                        $('#LoginModal').modal('toggle')
+                    })
+
+                    $('.register-btn').on('click', function(){
+                        $('#LoginModal').modal('toggle')
+                        $('#RegistrationModal').modal('toggle')
+                      })
+
                   </script>
               </footer>
 

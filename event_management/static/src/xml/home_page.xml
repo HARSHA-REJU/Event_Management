@@ -661,9 +661,7 @@ label.valid {
 <!--    margin-top: 70px;-->
 <!--}-->
 <!--&lt;!&ndash;                  */&ndash;&gt;-->
-<!--.modal-footer {-->
-<!--    justify-content: space-between;-->
-<!--                  }-->
+
 <!--                  .modal {-->
 <!--    position: relative;-->
 <!--    top: 0;-->
@@ -837,7 +835,10 @@ label.valid {
                                   </div>
                                   <div class="modal-footer">
 <!--                                      <a href="#" class="signup-image-link">I am already member</a>-->
-                                      I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>
+                                      <div>
+
+                                          I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>
+                                      </div>
     <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
     <!--                                <button type="button" class="btn btn-primary">Register</button>-->
                                   </div>
@@ -881,13 +882,15 @@ label.valid {
                         <!--                    </div>-->
                                         </div>
                                             </div>
-        </section>
+                                </section>
 
                               </div>
-                              <div class="modal-footer">
-<!--                                <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>-->
+                              <div class="modal-footer login_modal_footer">
+                                <button type="button" class="btn btn-modal" style="align:left;">Change Password</button>
 <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-                                Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>
+                                  <div>
+                                      Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>
+                                  </div>
                               </div>
                             </div>
                           </div>
@@ -1453,10 +1456,10 @@ label.valid {
                         $('#RegistrationModal').modal('toggle')
                       })
 
-                    $('.booking').on('click', function(){
-                        $('#LoginModal').modal('toggle')
-                       window.location.href = "/booking"
-                      })
+<!--                    $('.booking').on('click', function(){-->
+<!--                        $('#LoginModal').modal('toggle')-->
+<!--                       window.location.href = "/booking"-->
+<!--                      })-->
 
 <!--                       function customFunction() {-->
 <!--                      alert('Thanks for Registering..!');-->

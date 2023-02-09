@@ -173,6 +173,23 @@ class HomePage(http.Controller):
         else:
             return http.redirect_with_hash('/account')
 
+    @http.route(['/record'], type='http', auth="public", website=True)
+    def booking_direct_controller(self, **args):
+        current_user = request.env.user
+        if current_user.has_group ('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
+
+            return http.redirect_with_hash("/web#action=281&model=event.management&view_type=list&cids=&menu_id=186")
+        else:
+            return http.redirect_with_hash('/booking')
+    @http.route(['/enquiry'], type='http', auth="public", website=True)
+    def enquiry_direct_controller(self, **args):
+        current_user = request.env.user
+        if current_user.has_group ('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
+
+            return http.redirect_with_hash("/web#action=273&model=customer.enquiry.details&view_type=list&cids=&menu_id=180")
+        else:
+            return http.redirect_with_hash('/booking')
+
 
 class ContactUsPage(http.Controller):
     @http.route(['/contactus'], type='http', auth="public",website=True)

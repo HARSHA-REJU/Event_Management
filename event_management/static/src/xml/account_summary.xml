@@ -904,11 +904,12 @@ label.valid {
                                             <t t-set="sl_no" t-value="1" />
                                             <t t-foreach="venue_bookings" t-as="record">
                                                 <tr>
-                                                    <td >
+                                                    <td>
                                                         <span t-esc="sl_no" />
                                                         <t t-set="sl_no" t-value="sl_no+1" />
                                                     </td>
-                                                    <td><span t-esc="record.ref"/></td>
+                                                    <t t-set="booking_reference" t-value="record.ref" />
+                                                    <td><a href="/record"><span t-esc="record.ref"/></a></td>
                                                     <td><span t-esc="record.venue_id.name"/></td>
                                                     <td><span t-esc="record.type_of_event_id.name"/></td>
                                                     <td><span t-esc="record.date"/></td>
@@ -944,7 +945,7 @@ label.valid {
                                             <t t-foreach="enquiries" t-as="record">
                                                 <tr>
                                                     <td><span t-esc="sl_no"/><t t-set="sl_no" t-value="sl_no+1"/></td>
-                                                    <td><span t-esc="record.reference"/></td>
+                                                    <td><a href="/enquiry"><span t-esc="record.reference"/></a></td>
                                                     <td><span t-esc="record.date"/></td>
                                                     <td><span t-esc="record.event_date"/></td>
                                                     <td><span t-esc="record.district_id.name"/></td>

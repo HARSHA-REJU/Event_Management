@@ -2423,3 +2423,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
     background-color: #000e0a;
     margin: 40px;
 }
+
+.login_modal_footer {
+    justify-content: space-between !important;
+                  }
