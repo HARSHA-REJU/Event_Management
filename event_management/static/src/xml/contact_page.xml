@@ -258,7 +258,7 @@ https://templatemo.com/tm-564-plot-listing
 
                               </div>
                               <div class="modal-footer login_modal_footer">
-                                <button type="button" class="btn btn-modal" style="align:left;">Change Password</button>
+                                <button type="button" class="btn btn-modal" style="align:left;">Forgot Password</button>
 <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
                                   <div>
                                       Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>
