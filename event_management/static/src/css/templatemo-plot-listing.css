@@ -2428,3 +2428,64 @@ input[type=checkbox]:not(old):checked + label > span:before {
 .login_modal_footer {
     justify-content: space-between !important;
                   }
+div#navbarSupportedContent {
+    margin-left: 30px;
+}
+
+
+@media(max-width:992px){
+    .main-banner ul.categories li {
+        display: block !important;
+        width: 100% !important;
+    }
+    .header-area {
+        background-color: black !important;
+    /*    position: unset !important;*/
+    }
+    .main-banner {
+        height: auto !important;
+    }
+    .signup-form{
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+    }
+
+    .login_modal_footer{
+        flex-direction:column;
+    }
+    .background-header .main-nav .nav {
+    margin-top: 0px;
+    background-color: #000;
+
+    }
+    .header-area .main-nav .nav {
+                 margin-top: 0px;
+            background-color: #000;
+    }
+        .header-area .main-nav .nav li:last-child, .background-header .main-nav .nav li:last-child{
+        display:block;
+            padding-right: 10px;
+            padding-left: 0px;
+            background-color: #d1ac64 !important;
+
+        }
+
+    }
+}
+    .header-area .main-nav .nav li:last-child, .background-header .main-nav .nav li:last-child{
+        display:block;
+            padding-right: 10px;
+            padding-left: 0px;
+
+        }
+
+
+    .navbar-toggler {
+        background-color: white;
+        }
+
+    span.navbar-toggler-icon{
+    background-image: url(/event_management/static/img/bar-bar.svg);
+
+}

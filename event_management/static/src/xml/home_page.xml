@@ -720,16 +720,218 @@ label.valid {
                 <div class="container">
                   <div class="row">
                     <div class="col-12" >
-                      <nav class="main-nav">
+<!--                        <nav class="main-nav navbar navbar-expand-lg navbar-light bg-light">-->
+<!--                          <div class="container-fluid">-->
+<!--                              <a href="/" class="logo"></a>-->
+<!--&lt;!&ndash;                            <a class="navbar-brand" href="#">Navbar</a>&ndash;&gt;-->
+<!--                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                              <span class="navbar-toggler-icon"></span>-->
+<!--                            </button>-->
+<!--                            <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--                              <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--                                <li class="nav-item">-->
+<!--                                  <a class="nav-link active" aria-current="page" href="/">Home</a>-->
+<!--                                </li>-->
+<!--                                <li class="nav-item">-->
+<!--                                  <a class="nav-link" id="menu_service_div_id" href="#">Services</a>-->
+<!--                                </li>-->
+<!--&lt;!&ndash;                                <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <a class="nav-link" href="/venuelist">Venues</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </li>&ndash;&gt;-->
+<!--                                <li class="nav-item">-->
+<!--                                  <a class="nav-link" href="/venuelist">Venues</a>-->
+<!--                                </li>-->
+<!--                                <t t-if="uid"><li class="nav-item"><a href="/booking" class="booking nav-link">Booking</a></li></t>-->
+<!--                                <t t-if="not uid"><li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#LoginModal" href="/booking">Booking</a></li></t>-->
+
+<!--                                   <li class="nav-item">-->
+<!--                                  <a class="nav-link" href="/eventdetails">Gallery</a>-->
+<!--                                </li>-->
+<!--                                   <li class="nav-item">-->
+<!--                                <a class="nav-link" href="/contactus">Contact Us</a>-->
+<!--                                </li>-->
+
+
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;                                <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <a class="nav-link" href="#">Link</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </li>&ndash;&gt;-->
+<!--                                  <t t-if="uid">-->
+<!--                                    <li class="nav-item dropdown">-->
+<!--    &lt;!&ndash;                                                                          <a class="account-page" href="#">&ndash;&gt;-->
+<!--    &lt;!&ndash;                                          <img class="user_image" src="/event_management/static/img/avatar-removebg-preview.png"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;                                          <t t-esc="current_user.name"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;                                      </a>&ndash;&gt;-->
+
+<!--                                      <a class="account-page nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                                          <img class="user_image" src="/event_management/static/img/avatar-removebg-preview.png"/>-->
+<!--                                              <t t-esc="current_user.name"/>-->
+<!--                                      </a>-->
+<!--                                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                                           <li><a class="dropdown-item" href="/account">Booking Summary</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="/logout">Logout</a></li>-->
+<!--    &lt;!&ndash;                                    <li><hr class="dropdown-divider"/></li>&ndash;&gt;-->
+<!--    &lt;!&ndash;                                    <li><a class="dropdown-item" href="#">Something else here</a></li>&ndash;&gt;-->
+<!--                                      </ul>-->
+<!--                                    </li>-->
+<!--                                   </t>-->
+<!--                                  <t t-else="not uid">-->
+<!--                                    <li><div class="main-white-button modal-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#LoginModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>-->
+<!--                                  </t>-->
+
+
+<!--&lt;!&ndash;                                <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </li>&ndash;&gt;-->
+<!--                              </ul>-->
+<!--&lt;!&ndash;                              <form class="d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class="btn btn-outline-success" type="submit">Search</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                              </form>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                                                   <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                          <div class="modal-dialog">-->
+<!--                            <div class="modal-content">-->
+<!--                              <div class="modal-header">-->
+<!--&lt;!&ndash;                                <h5 class="modal-title" id="exampleModalLabel">Login here !</h5>&ndash;&gt;-->
+<!--                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                              </div>-->
+<!--                              <div class="modal-body">-->
+<!--                                  <section class="login">-->
+<!--                                      <div class="container">-->
+<!--                                        <div class="signup-content">-->
+<!--                                            <div class="signup-form">-->
+<!--                        &lt;!&ndash;                        <h2 class="form-title">Register here</h2>&ndash;&gt;-->
+<!--                                                <form method="POST" action="/user/login" class="register-form" id="register-form">-->
+
+<!--                                                    <div class="form-group" >-->
+<!--                                                        <label for="email"><i class="zmdi zmdi-email"></i></label>-->
+<!--                                                        <input type="text" name="email" id="email" placeholder="Your Email"/>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>-->
+<!--                                                        <input type="password" name="pass" id="pass" placeholder="Password"/>-->
+<!--                                                    </div>-->
+
+<!--                                                    <div class="form-group form-button">-->
+<!--                                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>-->
+
+<!--                                                        <input type="submit" name="login" id="login" class="form-submit btn btn-modal login_user" value="Login"/>-->
+<!--                                                    </div>-->
+<!--                                                </form>-->
+<!--                                            </div>-->
+<!--                        &lt;!&ndash;                    <div class="signup-image">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        <a href="#" class="signup-image-link">I am already member</a>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                                        </div>-->
+<!--                                            </div>-->
+<!--                                </section>-->
+
+<!--                              </div>-->
+<!--                              <div class="modal-footer login_modal_footer">-->
+<!--                                <button type="button" class="btn btn-modal" style="align:left;">Forgot Password</button>-->
+<!--&lt;!&ndash;                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>&ndash;&gt;-->
+<!--                                  <div>-->
+<!--                                      Not a Member ? <button type="button" class="btn btn-modal register-btn"> Register</button>-->
+<!--                                  </div>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                          <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                              <div class="modal-dialog">-->
+<!--                                <div class="modal-content">-->
+<!--                                  <div class="modal-header">-->
+<!--&lt;!&ndash;                                    <h5 class="modal-title" id="exampleModalLabel">Register here</h5>&ndash;&gt;-->
+<!--                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                  </div>-->
+<!--                                  <div class="modal-body">-->
+<!--                                    <section class="signup">-->
+<!--                                        <div class="container">-->
+<!--                                            <div class="signup-content">-->
+<!--                                                <div class="signup-form">-->
+<!--        &lt;!&ndash;                                                <h2 class="form-title">Register here</h2>&ndash;&gt;-->
+<!--                                                    <form method="get" action="/signup" class="register-form" id="register-form">-->
+<!--                                                        <div class="form-group">-->
+<!--                                                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>-->
+<!--                                                            <input type="text" name="name" id="name" placeholder="Your Name"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="form-group" >-->
+<!--                                                            <label for="email"><i class="zmdi zmdi-email"></i></label>-->
+<!--                                                            <input type="email" name="email" id="email" placeholder="Your Email"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="form-group">-->
+<!--                                                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>-->
+<!--                                                            <input type="password" name="pass" id="pass" placeholder="Password"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="form-group">-->
+<!--                                                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>-->
+<!--                                                            <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="form-group agree-term">-->
+
+<!--        &lt;!&ndash;                                                        <input style="color:white;" type="checkbox" name="option1" id="option1" value="auditorium"/><span>Auditorium</span>&ndash;&gt;-->
+<!--                                                            <input type="checkbox" name="agree" value="agree" id="agree" required="1"/>I agree all statements in  <a href="#" class="term-service">Terms of service</a>-->
+<!--&lt;!&ndash;                                                                <label for="agree" class="agree-term">&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                        <div class="form-group form-button">-->
+<!--                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>-->
+<!--                                                            <input type="submit" name="signup" id="signup" class="form-submit btn btn-modal" value="Register"/>-->
+<!--                                                        </div>-->
+<!--                                                    </form>-->
+<!--                                                </div>-->
+<!--        &lt;!&ndash;                                                    <div class="signup-image">&ndash;&gt;-->
+<!--        &lt;!&ndash;        &lt;!&ndash;                                                <figure><img src="event_management/static/img/regsitarion.png" alt="sing up image"/></figure>&ndash;&gt;&ndash;&gt;-->
+<!--    &lt;!&ndash;                                                <a href="#" class="signup-image-link">I am already member</a>&ndash;&gt;-->
+<!--        &lt;!&ndash;                                                        <button type="button" class="btn btn-primary login_btn" style="align:left;">Login</button>&ndash;&gt;-->
+
+<!--        &lt;!&ndash;                                                    </div>&ndash;&gt;-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </section>-->
+
+<!--                                  </div>-->
+<!--                                  <div class="modal-footer">-->
+<!--&lt;!&ndash;                                      <a href="#" class="signup-image-link">I am already member</a>&ndash;&gt;-->
+<!--                                      <div>-->
+
+<!--                                          I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>-->
+<!--                                      </div>-->
+<!--    &lt;!&ndash;                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>&ndash;&gt;-->
+<!--    &lt;!&ndash;                                <button type="button" class="btn btn-primary">Register</button>&ndash;&gt;-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                          </div>-->
+
+
+<!--</nav>-->
+
+
+                      <nav class="main-nav navbar navbar-expand-lg">
                         <!-- ***** Logo Start ***** -->
                         <a href="/" class="logo">
                         </a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
                           <li><a href="/">Home</a></li>
                           <li>
-                            <div class="col-md-12 dropdown show">
+                            <div class="col-md-12 dropdown show ">
                             <a id="menu_service_div_id" href="">Services</a>
 <!--                              <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">-->
 <!--                                  <a class="dropdown-item" href="/makeup">Makeup &amp; Artists</a>-->
@@ -779,8 +981,16 @@ label.valid {
                                 <li><div class="main-white-button modal-button"><i class="fa fa-user-circle" aria-hidden="true"></i><a data-bs-toggle="modal" data-bs-target="#LoginModal" style="color: black;padding:0px 25px !important;" href="/registration">Register/Login</a></div></li>
                             </t>
                         </ul>
+                            </div>
 
-                          <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!--                        <a class='menu-trigger'>-->
+<!--                            <span>Menu</span>-->
+<!--                        </a>-->
+                        <!-- ***** Menu End ***** -->
+                      </nav>
+                    </div>
+                      <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -837,7 +1047,7 @@ label.valid {
 <!--                                      <a href="#" class="signup-image-link">I am already member</a>-->
                                       <div>
 
-                                          I am already member<button type="button" class="btn btn-modal login_btn" style="align:left;">Login</button>
+                                          I am already member <button type="button" class="btn btn-modal login_btn" style="align:left;"> Login</button>
                                       </div>
     <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
     <!--                                <button type="button" class="btn btn-primary">Register</button>-->
@@ -896,15 +1106,11 @@ label.valid {
                           </div>
                         </div>
 
-<!--                        <a class='menu-trigger'>-->
-<!--                            <span>Menu</span>-->
-<!--                        </a>-->
-                        <!-- ***** Menu End ***** -->
-                      </nav>
-                    </div>
+
                   </div>
                 </div>
               </header>
+
 
 
               <!-- ***** Header Area End ***** -->
@@ -1018,7 +1224,7 @@ label.valid {
                       <div class="naccs">
                         <div class="grid">
                           <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                               <div class="menu">
                                 <div class="first-thumb active">
                                   <div class="thumb">
@@ -1053,7 +1259,7 @@ label.valid {
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-9 align-self-center">
+                            <div class="col-lg-8 align-self-center">
                               <ul class="nacc">
                                 <li class="active">
                                   <div>
@@ -1066,7 +1272,7 @@ label.valid {
 <!--                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!-->
                                             </h4>
                                             <p>
-                                                Are you looking for a makeup artist for your wedding day? Then you should go to a professional makeup artist's studio. We are the best and professional bridal make up service providers all over Kerala. Our special services are HD bridal makeup, engagement makeup, and reception makeup. With Fortune, you can see each makeup artist's prices, services, reviews, and other information. Visiting a makeup artist is an excellent way to prepare for a special event.
+                                                Are you looking for a makeup artist for your wedding day? Then you should go to a professional makeup artist's studio. We are the best and professional bridal make up service providers all over Kerala. Our special services are HD bridal makeup, engagement makeup, and reception makeup. With Fortune, you can see each makeup artist's prices, services, reviews, and other information.
 <!--                                                We are the best and professional bridal make up service providers all over Kerala. Our special services are HD Bridal make up, Engagement and reception make up. HD bridal makeup is a great choice /most wanted one of a bride.-->
                                             </p>
                                             <div class="main-white-button"><a href="/makeup"><i class="fa fa-eye"></i>View More</a></div>
@@ -1091,7 +1297,7 @@ label.valid {
                                                 We have  a well-knit network with the who’s-who of the entertainment industry.
                                             </h4>
                                             <p>
-                                                Looking for wedding dancers to entertain and amaze your guests? We have plenty of fabulous wedding dance entertainment to hire to dazzle your guests and get them in the mood to dance. We offer a variety of wedding entertainment packages, all of which can be customized to your specific tastes and requirements. We're over dull wedding receptions. Right? It's your occasion. It's now time to fill your dance floor by singing along to your favourite songs while dancing.
+                                                Looking for wedding dancers to entertain and amaze your guests? We have plenty of fabulous wedding dance entertainment to hire to dazzle your guests and get them in the mood to dance. We offer a variety of wedding entertainment packages, all of which can be customized to your specific tastes and requirements. We're over dull wedding receptions. Right? It's your occasion.
 
 <!--                                              An Indian wedding is a celebration that lasts over many days! An Indian wedding is a mix of cultures,traditions,family bonds and emotions. To celebrate the spirit of Indian weddings, mix in some authentic wedding entertainment and watch your audience spring in their seats with excitement!-->
                                             </p>
@@ -1118,7 +1324,7 @@ label.valid {
                                                 The Best Wedding Photographers in Kerala!
                                             </h4>
                                             <p>
-                                                Do you want to make your special day even more memorable? After the wedding, those photos and videos are all that remain to help you remember the day, so we capture the most beautiful photographs of your special events, such as weddings, birthday parties, engagements, religious ceremonies, and all other amazing occasions. Our photographers and filmmakers are storytellers who will perfectly capture your memories, all with the passion and talent to tell your story. Let us capture your moment of bliss.
+                                                Do you want to make your special day even more memorable? After the wedding, those photos and videos are all that remain to help you remember the day, so we capture the most beautiful photographs of your special events, such as weddings, birthday parties, engagements, religious ceremonies, and all other amazing occasions. Our photographers and filmmakers are storytellers who will perfectly capture your memories.
                                             </p>
                                               <div class="main-white-button"><a href="/booking"><i class="fa fa-eye"></i>Book Now</a></div>
                                           </div>
@@ -1140,7 +1346,7 @@ label.valid {
                                           <div class="left-text">
                                             <h4>Let Us Make Your Event a Success!</h4>
                                             <p>
-                                                Your wedding is the most important day of your life. On the wedding day, the wedding stage plays a huge role in creating a lasting impression of your wedding. You’ve envisioned this celebration for months, maybe even years. And now it is time to start curating your wedding decor. Whether you’re seeking the latest trend, harkening back to a more traditional style, or forging a path of your own, we’re dedicated to helping you navigate the world of wedding decor.
+                                                Your wedding is the most important day of your life. On the wedding day, the wedding stage plays a huge role in creating a lasting impression of your wedding. You’ve envisioned this celebration for months, maybe even years. And now it is time to start curating your wedding decor. we’re dedicated to helping you navigate the world of wedding decor.
                                             </p>
                                               <div class="main-white-button"><a href="/booking"><i class="fa fa-eye"></i>Book Now</a></div>
                                           </div>
@@ -1164,7 +1370,7 @@ label.valid {
                                                 Experience Excellent and Quality Catering
                                             </h4>
                                             <p>
-                                                We all know the big day is, well, kind of a big deal. One of the most important aspects of your wedding is the food. Whether you’re hoping for a full, sit-down dinner or a buffet style, it needs to go off without a hitch. We have a group of professional caterers with resourceful experience in the hospitality and catering industries of Kerala. They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available. concentrating not just on taste but also on texture, style, freshness, and presentation all over Kerala.
+                                                We all know the big day is, well, kind of a big deal. One of the most important aspects of your wedding is the food. Whether you’re hoping for a full, sit-down dinner or a buffet style, it needs to go off without a hitch. We have a group of professional caterers with resourceful experience in the hospitality and catering industries of Kerala. They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available.
                                             </p>
                                               <div class="main-white-button"><a href="/booking"><i class="fa fa-eye"></i>Book now</a></div>
                                           </div>
