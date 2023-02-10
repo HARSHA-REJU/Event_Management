@@ -40,13 +40,15 @@
                                 <thead>
                                     <tr>
                                         <th>Sl.no</th>
-                                        <th>Name</th>
-                                        <th>Type</th>
                                         <th>Customer</th>
-                                        <th>Date</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>State</th>
+                                        <th>Mobile</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Place</th>
+                                        <th>District</th>
+                                        <th>Venue</th>
+                                        <th>Event Date</th>
+                                        <th>Event Type</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,32 +58,41 @@
                                                 <t t-esc="l_index + 1"/>
                                             </td>
                                             <td>
-                                                <span t-esc="l['event']"/>
-                                            </td>
-                                            <td>
-                                                <span t-esc="l['type']"/>
-                                            </td>
-                                            <td>
                                                 <span t-esc="l['partner']"/>
                                             </td>
                                             <td>
-                                                <span t-esc="l['date']"/>
+                                                <span t-esc="l['mobile']"/>
                                             </td>
-<!--                                            <td>-->
-<!--                                                <span t-esc="l['start_date']"/>-->
-<!--                                            </td>-->
-<!--                                            <td>-->
-<!--                                                <span t-esc="l['end_date']"/>-->
-<!--                                            </td>-->
+                                            <td>
+                                                <span t-esc="l['email']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="l['address']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="l['place']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="l['district']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="l['venue']"/>
+                                            </td>
                                             <td>
                                                 <span t-esc="l['event_date']"/>
                                             </td>
                                             <td>
-                                                <span t-esc="{'draft': 'Draft', 'confirm': 'Confirmed', 'cancel': 'Cancelled', 'invoice': 'Invoiced', 'close': 'Closed'}
-                                                [l['state']]"/>
+                                                <span t-esc="l['type']"/>
                                             </td>
+<!--                                             <td>-->
+<!--                                                <span t-esc="{'draft': 'Draft', 'confirm': 'Confirmed', 'cancel': 'Cancelled', 'invoice': 'Invoiced', 'close': 'Closed'}-->
+<!--                                                [l['state']]"/>-->
+<!--                                            </td>-->
                                         </tr>
                                     </t>
+                                    <tr>
+                                        <td colspan="10"  align="center"><center><h3><b></b></h3></center></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

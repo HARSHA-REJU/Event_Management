@@ -34,13 +34,19 @@ class ReportHotelManagement(models.AbstractModel):
         if form_data['event_state']:
             where += """AND e.state = '%s'""" % (form_data['event_state'])
         self.env.cr.execute("""
-                SELECT e.name as event, t.name as type, r.name as partner, 
-                e.state, e.date,
+                SELECT e.name as event, t.name as type, r.name as partner, d.name as district, p.name as place,v.name as venue,
+                e.state, e.date,e.email,e.mobile,e.address,
                 e.event_date, e.event_date
                 from event_management e inner join 
                 res_partner r on e.partner_id = r.id
                 inner join event_management_type t on 
                 e.type_of_event_id = t.id
+                inner join place_district d on 
+                e.district_id = d.id
+                inner join place_place p on 
+                e.place_id = p.id
+                inner join res_partner v on 
+                e.venue_id = v.id
                 where %s order by e.date""" % where)
         rec = self.env.cr.dictfetchall()
         user_tz = self.env.user.tz

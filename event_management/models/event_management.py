@@ -28,6 +28,8 @@ class EventManagement(models.Model):
 
     name = fields.Char('Name', readonly=True, copy=False)
     mobile = fields.Char()
+    email = fields.Char()
+    address = fields.Text()
     ref = fields.Char(string='Ref', readonly=True)
     type_of_event_id = fields.Many2one('event.management.type', string="Type",
                                        required=True)

@@ -2236,6 +2236,7 @@ hr.solid {
 .agree-term input#agree {
     height: 10px;
     width: 16px;
+    margin-bottom :1px !important;
 }
                    .form-group input {
     border: 1px solid #bfbfbf;

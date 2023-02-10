@@ -82,16 +82,16 @@
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
-                                        <th>SN</th>
-                                        <th>Reference</th>
-                                        <th>Customer Name</th>
-                                        <th>Contact No</th>
+                                        <th>Sl.no</th>
+                                        <th>Customer</th>
+                                        <th>Mobile</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Place</th>
+                                        <th>District</th>
                                         <th>Venue</th>
-                                        <th>Event</th>
-<!--                                        <th>Start Date</th>-->
-<!--                                        <th>End Date</th>-->
                                         <th>Event Date</th>
-                                    </tr>
+                                        <th>Event Type</th>                                    </tr>
                                 </thead>
                                 <tbody>
                                     <t t-foreach="docs.get_details()" t-as="l">
@@ -100,14 +100,18 @@
                                                 <span t-esc="sl_no" />
                                                 <t t-set="sl_no" t-value="sl_no+1" />
                                             </td>
-                                            <td><span t-esc="l['reference']"/></td>
+<!--                                            <td><span t-esc="l['reference']"/></td>-->
                                             <td><span t-esc="l['customer_name']"/></td>
                                             <td><span t-esc="l['contact']"/></td>
+                                            <td><span t-esc="l['email']"/></td>
+                                            <td><span t-esc="l['address']"/></td>
+                                            <td><span t-esc="l['place']"/></td>
+                                            <td><span t-esc="l['district']"/></td>
                                             <td><span t-esc="l['venue_id']"/></td>
-                                            <td><span t-esc="l['type']"/></td>
-<!--                                            <td><span t-esc="l['start_date']"/></td>-->
-<!--                                            <td><span t-esc="l['end_date']"/></td>-->
                                             <td><span t-esc="l['event_date']"/></td>
+                                            <td><span t-esc="l['type']"/></td>
+                                            <!--                                            <td><span t-esc="l['start_date']"/></td>-->
+                                            <!--                                            <td><span t-esc="l['end_date']"/></td>-->
                                         </tr>
                                     </t>
                                     <tr>

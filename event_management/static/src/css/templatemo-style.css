@@ -177,8 +177,9 @@ a:hover { color:#009999; }
 	width: 100%;
 	height: auto;
 }
-
+/*
 .form-group { margin-bottom: 25px; }
+*/
 .tm-btn-big { padding: 12px 90px 14px; }
 
 .navbar-toggler:focus { box-shadow: none; }

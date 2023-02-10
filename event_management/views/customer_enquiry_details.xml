@@ -7,11 +7,14 @@
             <field name="model">customer.enquiry.details</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name"/>
-                    <field name="type_of_event_id"/>
                     <field name="customer_name"/>
-                    <field name="date"/>
+                     <field name="mobile"/>
+                     <field name="email"/>
+                     <field name="address"/>
+                    <field name="type_of_event_id"/>
                     <field name="event_date"/>
+                    <field name="venue_id"/>
+                    <field name="state"/>
 <!--                    <field name="start_date"/>-->
 <!--                    <field name="end_date"/>-->
                 </tree>
