@@ -2433,7 +2433,7 @@ div#navbarSupportedContent {
 }
 
 
-@media(max-width:992px){
+@media(max-width:770px){
     .main-banner ul.categories li {
         display: block !important;
         width: 100% !important;
@@ -2473,12 +2473,7 @@ div#navbarSupportedContent {
 
     }
 }
-    .header-area .main-nav .nav li:last-child, .background-header .main-nav .nav li:last-child{
-        display:block;
-            padding-right: 10px;
-            padding-left: 0px;
 
-        }
 
 
     .navbar-toggler {
