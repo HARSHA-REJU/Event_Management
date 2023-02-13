@@ -8,7 +8,7 @@ $(window).scroll(function() {
 
 
 (function ($) {
-	
+
 	"use strict";
 
 	// Header Type = Fixed
@@ -43,11 +43,11 @@ $(window).scroll(function() {
         }
     });
 
-	
+
 
 	// Menu Dropdown Toggle
   if($('.menu-trigger').length){
-    $(".menu-trigger").on('click', function() { 
+    $(".menu-trigger").on('click', function() {
       $(this).toggleClass('active');
       $('.header-area .nav').slideToggle(200);
     });
@@ -60,13 +60,6 @@ $(window).scroll(function() {
         $('#js-preloader').addClass('loaded');
 
     });
-
-	
-
-	
-
-
-
 
 })(window.jQuery);
 

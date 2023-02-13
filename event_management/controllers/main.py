@@ -160,6 +160,28 @@ class HomePage(http.Controller):
         }
         return request.render(
         "event_management.account_page",values)
+    @http.route(['/invoices'], type='http', auth="public", website=True)
+    def user_invoices_show(self, **args):
+        current_user = request.env.user
+        current_user_id = request.env.user.id
+
+        if current_user.has_group('event_management.group_auditorium_manager'):
+            enquiries = request.env['customer.enquiry.details'].sudo().search([('venue_id','=',current_user.auditorium.id)])
+            venue_bookings = request.env['event.management'].sudo().search([('venue_id','=',current_user.auditorium.id)])
+        elif current_user.has_group('base.group_system'):
+            enquiries = request.env['customer.enquiry.details'].sudo().search([])
+            venue_bookings = request.env['event.management'].sudo().search([])
+        else:
+            enquiries = request.env['customer.enquiry.details'].sudo().search([('user_id','=',current_user_id)])
+            venue_bookings = request.env['event.management'].sudo().search([('user_id','=',current_user_id)])
+
+        values = {
+            'enquiries':enquiries,
+            'venue_bookings':venue_bookings,
+            'current_user': current_user,
+        }
+        return request.render(
+        "event_management.account_page",values)
 
     @http.route(['/logout'], type='http', auth="public", website=True)
     def logout_controller(self, **args):
@@ -683,13 +705,21 @@ class AllVenueListPage(http.Controller):
         #     district_domain = [('id','=',args.get('district_id'))]
         # window.location.search
 
-        event_type = (request.httprequest.url).split('?')
+        event_type_string = (request.httprequest.url).split('?')
         venues = request.env['res.partner'].sudo().search([('venue','=',True)])
         # districts = request.env['place.district'].sudo().search(district_domain)
         # print("keeeeeeeeeeeeeeeeeeeeeeeejhukgggggggggggggggggggggggggggggggggggggggggggg")
+        event_type = event_type_string[1]
+        if event_type == 'Reception':
+            event_type = 'Wedding Reception'
+        elif event_type == 'Baby':
+            event_type = 'Baby Shower'
+        elif event_type == 'Birthday':
+            event_type = 'Birthday Party'
+
         values = {
             'venues':venues,
-            'event_type':event_type[1],
+            'event_type':event_type,
             'current_user': current_user,
         }
         return request.render(

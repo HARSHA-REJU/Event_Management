@@ -35,32 +35,32 @@ class EventManagement(models.Model):
                                        required=True)
     venue_id = fields.Many2one('res.partner', string="Venue", required=True)
     rent = fields.Float('Amount')
-    venue_discount = fields.Float('Discount')
+    venue_discount = fields.Float('Discount%')
     venue_tax = fields.Float('Tax')
     venue_total = fields.Float('Total')
 
     makeup_id = fields.Many2one('artist.artist', string="Makeup Arist")
     package_id = fields.Many2one('makeup.package', string="Package")
     makeup_rate = fields.Float('Amount')
-    makeup_discount = fields.Float('Discount')
+    makeup_discount = fields.Float('Discount%')
     makeup_tax = fields.Float('Tax')
     makeup_total = fields.Float('Total Amount')
     mehndi_id = fields.Many2one('artist.artist', string="Mehndi Arist")
     mehndi_package_id = fields.Many2one('makeup.package', string="Package")
     mehndi_rate = fields.Float('Amount')
-    mehndi_discount = fields.Float('Discount')
+    mehndi_discount = fields.Float('Discount%')
     mehndi_tax = fields.Float('Tax')
     mehndi_total = fields.Float('Total Amount')
     photography_id = fields.Many2one('photographer.photographer', string="Photography")
     photography_package_id = fields.Many2one('makeup.package', string="Package")
     photography_rate = fields.Float('Amount')
-    photography_discount = fields.Float('Discount')
+    photography_discount = fields.Float('Discount%')
     photography_tax = fields.Float('Tax')
     photography_total = fields.Float('Total Amount')
     caterers_id = fields.Many2one('cater.cater', string="Caterers Name")
     catering_package_id = fields.Many2one('makeup.package', string="Package")
     catering_rate = fields.Float('Rate/Plate')
-    catering_discount = fields.Float('Discount')
+    catering_discount = fields.Float('Discount%')
     catering_tax = fields.Float('Tax')
     catering_total = fields.Float('Total Amount')
     no_people = fields.Integer('Serving For(Nos)')
@@ -68,7 +68,7 @@ class EventManagement(models.Model):
     entert_id = fields.Many2one('entertainer.entertainer', string="Entertainer")
     entert_package_id = fields.Many2one('makeup.package', string="Package")
     entert_rate = fields.Float('Amount')
-    entertainment_discount = fields.Float('Discount')
+    entertainment_discount = fields.Float('Discount%')
     entertainment_tax = fields.Float('Tax')
     entertainment_total = fields.Float('Total Amount')
     grand_discount = fields.Float('Total Discount')
@@ -77,6 +77,18 @@ class EventManagement(models.Model):
     compute_field = fields.Char(compute="_compute_total_rate")
     # compute_field2 = fields.Char(compute="_compute_grand_rate")
     compute_field3 = fields.Char(compute="_compute_tax_discount_rate")
+
+    decoration_id = fields.Many2one('decoration.items', string="Decoration")
+    decoration_package_id = fields.Many2one('makeup.package', string="Package")
+    decoration_rate = fields.Float()
+
+    auditorium_advance = fields.Float()
+    makeup_advance = fields.Float()
+    entertainment_advance = fields.Float()
+    photography_advance = fields.Float()
+    catering_advance = fields.Float()
+    mehndi_advance = fields.Float()
+    decoration_advance = fields.Float()
 
     @api.onchange('rent','makeup_rate','mehndi_rate','entert_rate','photography_rate','total_amt','venue_discount', 'venue_tax', 'makeup_discount', 'makeup_tax', 'makeup_total', 'mehndi_discount',
                   'mehndi_tax','makeup_id','venue_id','mehndi_id','photography_id','caterers_id','entert_id',
@@ -379,16 +391,91 @@ class EventManagement(models.Model):
         #     'name': 'Product Sales - (test)',
         #     'user_type_id': self.env.ref('account.data_account_type_revenue').id,
         # })
-        for rec in self.facilities_ids2:
+
+        if self.venue_id:
+            product_id = self.env['product.product'].search([("name", "=", "Venue Rent")])
             dict = {
 
-                'product_id': rec.product_id.id,
-                'name': rec.product_id.name,
-                'price_unit': rec.price,
-                'quantity': rec.quantity,
-
+                'product_id': product_id.id,
+                'name': product_id.name,
+                'price_unit': self.rent,
+                'quantity': 1,
             }
             vals.append((0, 0, dict))
+
+        if self.makeup_id:
+            product_id = self.env['product.product'].search([("name", "=", self.package_id.name)])
+            dict = {
+
+                'product_id': product_id.id,
+                'name': "Makeup Rate",
+                'price_unit': self.makeup_rate,
+                'quantity': 1,
+            }
+            vals.append((0, 0, dict))
+        if self.mehndi_id:
+            product_id = self.env['product.product'].search([("name", "=", self.mehndi_package_id.name)])
+            dict = {
+
+                'product_id': product_id.id,
+                'name': "Mehndi Rate",
+                'price_unit': self.mehndi_rate,
+                'quantity': 1,
+            }
+            vals.append((0, 0, dict))
+        if self.photography_id:
+            product_id = self.env['product.product'].search([("name", "=", self.photography_package_id.name)])
+            dict = {
+
+                'product_id': product_id.id,
+                'name': "Photo/VideoGraphy",
+                'price_unit': self.photography_rate,
+                'quantity': 1,
+            }
+            vals.append((0, 0, dict))
+        if self.caterers_id:
+            product_id = self.env['product.product'].search([("name", "=", self.catering_package_id.name)])
+            dict = {
+
+                'product_id': product_id.id,
+                'name': "Food and Caterers",
+                'price_unit': self.catering_rate,
+                'quantity': 1,
+            }
+            vals.append((0, 0, dict))
+        if self.entert_id:
+            product_id = self.env['product.product'].search([("name", "=", self.entert_package_id.name)])
+            dict = {
+
+                'product_id': product_id.id,
+                'name': "Entertainment",
+                'price_unit': self.entert_rate,
+                'quantity': 1,
+            }
+            vals.append((0, 0, dict))
+        if self.decoration_id:
+            product_id = self.env['product.product'].search([("name", "=", self.decoration_package_id)])
+            dict = {
+
+                'product_id': product_id.id,
+                'name': "Decoration",
+                'price_unit': self.decoration_rate,
+                'quantity': 1,
+            }
+            vals.append((0, 0, dict))
+
+
+
+        # for rec in self.facilities_ids2:
+        #     dict = {
+        #
+        #         'product_id': rec.product_id.id,
+        #         'name': rec.product_id.name,
+        #         'price_unit': rec.price,
+        #         'quantity': rec.quantity,
+        #
+        #     }
+        #     vals.append((0, 0, dict))
         invoice_id = self.env['account.move'].create({
             'move_type': 'out_invoice',
             'date': self.date,
@@ -668,6 +755,9 @@ class PlaceDistrict(models.Model):
             'default_district_id': self.id,
         }
         domain = [('district_id', '=', self.id),('venue', '=', True)]
+        current_user = self.env.user
+        if current_user.has_group ('event_management.group_auditorium_manager'):
+            domain = [('id', '=', current_user.auditorium.id)]
 
         action_context = literal_eval(action['context'])
         context = {**action_context, **context}

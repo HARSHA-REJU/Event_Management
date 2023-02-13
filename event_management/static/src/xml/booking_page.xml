@@ -9,7 +9,7 @@
               <meta name="description" content=""/>
               <meta name="author" content=""/>
               <link rel="preconnect" href="https://fonts.gstatic.com"/>
-              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
+<!--              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>-->
 
               <title>Fortuna Events</title>
 
@@ -27,8 +27,8 @@
                 <link rel="stylesheet" href="/event_management/static/src/css/fontawesome.css"/>
                 <link rel="stylesheet" href="/event_management/static/src/css/templatemo-plot-listing.css"/>
                 <link rel="stylesheet" href="/event_management/static/src/css/animated.css"/>
-                <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
-                <link rel="stylesheet" href="event_management/static/src/css/sweetalert2.min.css"/>
+<!--                <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>-->
+<!--                <link rel="stylesheet" href="event_management/static/src/css/sweetalert2.min.css"/>-->
 <!--                <link rel="stylesheet" href="/event_management/static/src/css/select2.min.css"/>-->
 <!--                <link rel="stylesheet" href="/event_management/static/src/css/select2-bootstrap4.min.css"/>-->
                   <!-- Additional CSS Files form booking form-->
@@ -41,7 +41,7 @@
                 <script type="text/javascript" src="event_management/static/src/js/animation.js"></script>
                 <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
                 <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
-                <script type="text/javascript" src="event_management/static/src/js/sweetalert.js"></script>
+<!--                <script type="text/javascript" src="event_management/static/src/js/sweetalert.js"></script>-->
 
                    <!-- Additional CSS Files form Calendar View-->
                   <link href='event_management/static/src/css/fullcalendar.css' rel='stylesheet' />
@@ -974,7 +974,7 @@
                                                                                                                                             <div class="col-sm-6">
                                                                                     <div class="form-group">
                                                                                         <span class="form-label">Price</span>
-                                                                                        <input name="price" class="form-control" type="text" placeholder="Makeup Rate"/>
+                                                                                        <input name="make_up_price" class="form-control" type="text" placeholder="Makeup Rate"/>
                                                                                     </div>
                                                                                 </div>
 
@@ -986,7 +986,7 @@
                                                                                     <option value="" disabled="" selected="">Select Makeup Package</option>
                                                                                     <t t-foreach="makeup_packages" t-as="record">
                                                                                         <option t-att-value="record.id">
-                                                                                            <t t-esc="record.name" t-att-value="record.id"/>
+                                                                                            <t t-esc="record.name" t-att-value="record.id" t-att-data-rate ="record.rate"/>
                                                                                         </option>
                                                                                     </t>
                                                                                 </select>
@@ -1294,12 +1294,7 @@ $('select#place_id > option').each(function(){
 })
 })
 
-$('select#venue_id').on('change', function(){
-    var price = $(this).find('option:selected').data('price');
-if(price != '' || price != null){
-    $('input#auditorium_price').val(price).trigger('change')
-}
-})
+
 
 
 <!--                                      $(document).ready(function() {-->
@@ -1464,37 +1459,37 @@ if(price != '' || price != null){
 
 
 <!--	});-->
-<!--                                      function renderCalendar() {-->
+                                      function renderCalendar() {
 
-<!--        var venue_id = $('#venue_id').val();-->
-<!--        var token = $('[name="csrf_token"]').val();-->
-<!--        var calendarEl = document.getElementById('calendar');-->
-<!--        var calendar = new FullCalendar.Calendar(calendarEl, {-->
-<!--          initialView: 'dayGridMonth',-->
-<!--		events: [{-->
-<!--			url: '/ajax/reservations/get/' + venue_id,-->
-<!--			method: 'POST',-->
+        var venue_id = $('#venue_id').val();
+        var token = $('[name="csrf_token"]').val();
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+		events: [{
+			url: '/ajax/reservations/get/' + venue_id,
+			method: 'POST',
 <!--			extraParams: {-->
-<!--&lt;!&ndash;				csrf_token: "<t t-esc="request.csrf_token(None)"/>",&ndash;&gt;-->
-<!--&lt;!&ndash;: token,&ndash;&gt;-->
-<!--			}],-->
-<!--&lt;!&ndash;			failure: function () {&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;				toastr.error(&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;					'There was an error while fetching events!',&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;					'Error!',&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;					{&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;						timeOut: 2000,&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;						fadeOut: 2000,&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;					}&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;				);&ndash;&gt;-->
-<!--&lt;!&ndash;			},&ndash;&gt;-->
-<!--			color: '#5aaaff',-->
-<!--			textColor: 'black',-->
-<!--		},-->
-<!--        });-->
-<!--        calendar.render();-->
+<!--				csrf_token: "<t t-esc="request.csrf_token(None)"/>",-->
+<!--: token,-->
+<!--			},-->
+<!--			failure: function () {-->
+<!--&lt;!&ndash;				toastr.error(&ndash;&gt;-->
+<!--&lt;!&ndash;					'There was an error while fetching events!',&ndash;&gt;-->
+<!--&lt;!&ndash;					'Error!',&ndash;&gt;-->
+<!--&lt;!&ndash;					{&ndash;&gt;-->
+<!--&lt;!&ndash;						timeOut: 2000,&ndash;&gt;-->
+<!--&lt;!&ndash;						fadeOut: 2000,&ndash;&gt;-->
+<!--&lt;!&ndash;					}&ndash;&gt;-->
+<!--				);-->
+<!--			},-->
+			color: '#5aaaff',
+			textColor: 'black',
+		}],
+        });
+        calendar.render();
 
-<!--};-->
+};
 <!--                                      $('#venue_id').on('change', function(){-->
 <!--    renderCalendar()-->
 <!--})-->
@@ -1526,6 +1521,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         calendar.render();
       });
+
+
+
+                                      $('select#venue_id').on('change', function(){
+    var price = $(this).find('option:selected').data('price');
+if(price != '' || price != null){
+    $('input#auditorium_price').val(price).trigger('change')
+}
+      renderCalendar()
+})
+                                      $('select#makeup_package_id').on('change', function(){
+                                            var price = $(this).find('option:selected').data('rate');
+                                        if(price != '' || price != null){
+                                            $('input#make_up_price').val(price).trigger('change')
+                                        }
+                                        })
 
                      $('.login_btn').on('click', function(){
                         $('#RegistrationModal').modal('toggle')

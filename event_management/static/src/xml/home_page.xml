@@ -971,6 +971,7 @@ label.valid {
                                       <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
                                           <a class="dropdown-item" href="/account">Booking Summary</a>
                                           <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                          <a class="dropdown-item" href="/invoices">Bills</a>
                                           <a class="dropdown-item" href="/logout">Logout</a>
                                       </div>
 
@@ -1204,8 +1205,8 @@ label.valid {
                         <li><a href="/venues?Wedding"><span class="icon"><img src="event_management/static/img/wedding.png" alt="Wedding"/></span>Wedding</a></li>
                         <li><a href="/venues?Reception"><span class="icon"><img src="event_management/static/img/reception.png" alt="Wedding Reception"/></span>Wedding Reception</a></li>
                         <li><a href="/venues?Engagement"><span class="icon"><img src="event_management/static/img/ring.png" alt="Engagement"/></span>Engagement</a></li>
-                        <li><a href="/venues?Baby Shower"><span class="icon"><img src="event_management/static/img/baby.png" alt="Baby Shower"/></span>Baby Shower</a></li>
-                        <li><a href="/venues?Birthday Party"><span class="icon"><img src="event_management/static/img/birthday.png" alt="Birthday Party"/></span>Birthday Party</a></li>
+                        <li><a href="/venues?Baby"><span class="icon"><img src="event_management/static/img/baby.png" alt="Baby Shower"/></span>Baby Shower</a></li>
+                        <li><a href="/venues?Birthday"><span class="icon"><img src="event_management/static/img/birthday.png" alt="Birthday Party"/></span>Birthday Party</a></li>
                       </ul>
                     </div>
                   </div>

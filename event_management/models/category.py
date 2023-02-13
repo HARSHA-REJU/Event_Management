@@ -51,6 +51,7 @@ class MakeupPackages(models.Model):
     photographer = fields.Boolean(string="Photography Packages ?")
     catering = fields.Boolean(string="Catering Package ?")
     entertainment = fields.Boolean(string="Entertainment Package ?")
+    decoration = fields.Boolean(string="Decoration Package ?")
     compute_field = fields.Char(compute="_compute_artist_type")
 
     @api.onchange('makeup_artist', 'mehndi_artist','photographer','catering','entertainment')
@@ -141,4 +142,13 @@ class PackageServices(models.Model):
     photographer = fields.Boolean(string="Photography Service ?")
     catering = fields.Boolean(string="Catering Service ?")
     entertainment = fields.Boolean(string="Entertainment Service ?")
+    decoration = fields.Boolean(string="Decoration Service ?")
+
+
+class Decoration(models.Model):
+    _name = 'decoration.items'
+
+    # code = fields.Char('Code')
+    name = fields.Char('Decoration Package Name')
+    rate = fields.Float('Rate')
 
