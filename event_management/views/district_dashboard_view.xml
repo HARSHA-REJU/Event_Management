@@ -57,11 +57,11 @@
         <menuitem id="event_district_dashboard_menu"
                   action="event_district_action_view_kanban" sequence="2"/>
 
-        <menuitem id="action_home_page_menu_id"
-                  action="action_home_page"
-                  sequence="3"
+<!--        <menuitem id="action_home_page_menu_id"-->
+<!--                  action="action_home_page"-->
+<!--                  sequence="3"-->
 
-        />
+<!--        />-->
 
         <record id="action_event_dashboard" model="ir.actions.client">
             <field name="name">Event Types</field>
