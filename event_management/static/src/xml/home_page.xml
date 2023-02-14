@@ -37,23 +37,6 @@
                 <script type="text/javascript" src="event_management/static/src/js/imagesloaded.js"></script>
                 <script type="text/javascript" src="event_management/static/src/js/custom.js"></script>
               </xpath>
-                <script>
-<!--                    // Data Picker Initialization-->
-<!--&lt;!&ndash;                    $('.datepicker').datepicker({&ndash;&gt;-->
-<!--&lt;!&ndash;                      inline: true&ndash;&gt;-->
-<!--&lt;!&ndash;                    });&ndash;&gt;-->
-<!--                    $("#birthday").datepicker({-->
-
-<!--                }).datepicker('update', new Date());-->
-
-
-                    $('.dropdown > a#menu_service_div_id').on('click', function(e){
-                        e.preventDefault();
-                        $('html, body').animate({
-                            scrollTop: $(".popular-categories").offset().top - 160
-                        }, 300)
-                    })
-                </script>
 
 
               <style>
@@ -1121,7 +1104,7 @@ label.valid {
 
               <div class="main-banner">
                   <div class="hm_vid_fr">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jJ4_RppDi6I?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jJ4_RppDi6I?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
                     </div>
                 <div class="container">
                   <div class="row">
