@@ -82,7 +82,11 @@ class MakeupPackages(models.Model):
                 packages_id = self.env['package.service'].search([('entertainment', '=', True)])
                 return {'domain': {'package_by': [('id', '=', partner_id.ids)],'package_services_ids':[('id', 'in', packages_id.ids)]}}
 
-
+    @api.model
+    def create(self, values):
+        res = super(MakeupPackages,self).create(values)
+        product_id = self.env['product.product'].create({"name": res.name})
+        return res
 
 class BookMakeupArtist(models.Model):
     _name = 'makeup.artist'

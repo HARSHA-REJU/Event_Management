@@ -51,6 +51,7 @@
              'static/src/xml/photography_page.xml',
              'static/src/xml/account_summary.xml',
              'static/src/xml/all_venu_list_page.xml',
+             'static/src/xml/invoices.xml',
              ],
     'assets': {
         'web.assets_backend': [

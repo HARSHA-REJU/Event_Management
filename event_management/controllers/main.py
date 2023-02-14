@@ -166,27 +166,34 @@ class HomePage(http.Controller):
         current_user_id = request.env.user.id
 
         if current_user.has_group('event_management.group_auditorium_manager'):
-            enquiries = request.env['customer.enquiry.details'].sudo().search([('venue_id','=',current_user.auditorium.id)])
             venue_bookings = request.env['event.management'].sudo().search([('venue_id','=',current_user.auditorium.id)])
+            invoices = request.env['account.move'].sudo().search([('booking_id','in',venue_bookings)])
         elif current_user.has_group('base.group_system'):
-            enquiries = request.env['customer.enquiry.details'].sudo().search([])
-            venue_bookings = request.env['event.management'].sudo().search([])
+            invoices = request.env['account.move'].sudo().search([])
         else:
-            enquiries = request.env['customer.enquiry.details'].sudo().search([('user_id','=',current_user_id)])
-            venue_bookings = request.env['event.management'].sudo().search([('user_id','=',current_user_id)])
+            invoices = request.env['account.move'].sudo().search([('partner_id','=',current_user_id.partner_id)])
 
         values = {
-            'enquiries':enquiries,
-            'venue_bookings':venue_bookings,
+            'invoices':invoices,
             'current_user': current_user,
         }
         return request.render(
-        "event_management.account_page",values)
+        "event_management.invoices_page",values)
+
+    @http.route(['/bill/ref'], type='http', auth="public", website=True)
+    def user_invoices_direct_controller(self, **args):
+        current_user = request.env.user
+        if current_user.has_group ('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
+
+            return http.redirect_with_hash("/web#action=196&model=account.move&view_type=list&cids=1&menu_id=101")
+        else:
+            return http.redirect_with_hash('/invoices')
 
     @http.route(['/logout'], type='http', auth="public", website=True)
     def logout_controller(self, **args):
         request.session.logout(keep_db=True)
         return http.redirect_with_hash('/')
+
     @http.route(['/dashboard'], type='http', auth="public", website=True)
     def dashboard_controller(self, **args):
         current_user = request.env.user
@@ -202,7 +209,7 @@ class HomePage(http.Controller):
 
             return http.redirect_with_hash("/web#action=281&model=event.management&view_type=list&cids=&menu_id=186")
         else:
-            return http.redirect_with_hash('/booking')
+            return http.redirect_with_hash('/account')
     @http.route(['/enquiry'], type='http', auth="public", website=True)
     def enquiry_direct_controller(self, **args):
         current_user = request.env.user

@@ -365,7 +365,7 @@ class EventManagement(models.Model):
         if self.entert_id:
             enter_id = self.env['book.entertainer'].create({
                 'customer_name': self.partner_id.id,
-                'date': self.date,
+                'date': fields.Date.today(),
                 'booking_date': self.event_date,
                 'type_of_event_id': self.type_of_event_id.id,
                 'artist_name': self.entert_id.id,
@@ -480,7 +480,8 @@ class EventManagement(models.Model):
             'move_type': 'out_invoice',
             'date': self.date,
             'partner_id': self.partner_id.id,
-            'invoice_date': self.date,
+            'invoice_date': fields.Date.today(),
+            'booking_id':self.id,
             # 'account': a_sale.id,
             'invoice_line_ids': vals,
         })
