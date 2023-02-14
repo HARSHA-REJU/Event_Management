@@ -53,7 +53,11 @@
              'static/src/xml/account_summary.xml',
              'static/src/xml/all_venu_list_page.xml',
              'static/src/xml/invoices.xml',
+
              ],
+'qweb': [
+        'static/src/xml/homepagecustom.xml',
+    ],
     'assets': {
         'web.assets_backend': [
             "event_management/static/src/css/event_dashboard.css",

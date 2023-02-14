@@ -4,6 +4,7 @@
         <template id="assets_backend" name="dashboard assets" inherit_id="web.assets_backend">
                 <xpath expr="." position="inside">
                     <link rel="stylesheet" href="/event_management/static/src/css/event_dashboard.css"/>
+                    <script type="text/javascript" src="/event_management/static/src/js/systray.js"/>
 
                 </xpath>
         </template>

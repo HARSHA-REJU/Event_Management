@@ -217,7 +217,7 @@ class HomePage(http.Controller):
 
             return http.redirect_with_hash("/web#action=273&model=customer.enquiry.details&view_type=list&cids=&menu_id=180")
         else:
-            return http.redirect_with_hash('/booking')
+            return http.redirect_with_hash('/account')
 
 
 class ContactUsPage(http.Controller):

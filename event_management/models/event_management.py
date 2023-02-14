@@ -3,6 +3,7 @@
 
 from ast import literal_eval
 from odoo import models, fields, api, _
+from odoo import http
 from odoo.exceptions import UserError, ValidationError
 
 
@@ -797,6 +798,12 @@ class PlaceDistrict(models.Model):
     #     return self._get_type_action(
     #         'event_management.event_management_action_view_kanban')
 
+    def action_home_page_menu(self):
+        return {
+                "type": "ir.actions.act_url",
+                "url": "http://odoo.com",
+                "target": "self",
+            }
 
 class EventManagementType(models.Model):
     """Model for managing the Event types"""
@@ -862,3 +869,13 @@ class ResUsers(models.Model):
     auditorium = fields.Many2one('res.partner',string="Select Auditorium",default= get_partner_id)
 
 
+from odoo import models
+
+class ResUser(models.Model):
+   _inherit = 'res.users'
+   def get_user_address(self):
+       user = self.env.user
+       address = ""
+       if user:
+           address = user.partner_id.street + ","+user.partner_id.city+","+user.partner_id.state_id.name
+       return address

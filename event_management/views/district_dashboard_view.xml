@@ -56,24 +56,23 @@
 
         <record model="ir.actions.server" id="action_home_page">
             <field name="name">Home Server Action</field>
-            <field name="model_id" ref="base.model_res_config_settings"/>
+            <field name="model_id" ref="model_place_district"/>
             <field name="type">ir.actions.server</field>
             <field name="state">code</field>
-            <field name="code">model.website_go_to()</field>
+            <field name="code">{
+                "type": "ir.actions.act_url",
+                "url": "http://odoo.com",
+                "target": "self",
+            }</field>
         </record>
 
         <menuitem id="event_district_dashboard_menu"
                   action="event_district_action_view_kanban" sequence="2"/>
 
-        <menuitem id="action_home_page_menu_id"
-                  name="Home"
-                  action="action_home_page"
-                  sequence="3"
-        />
-
         <record id="action_event_dashboard" model="ir.actions.client">
             <field name="name">Event Types</field>
             <field name="tag">event_type</field>
         </record>
+
     </data>
 </odoo>

@@ -47,3 +47,10 @@
 .pb16 {
     padding:0px !important
 }
+
+li.o_MessagingMenu {
+    display: none !important;
+}
+li.o_mail_systray_item.o_no_notification {
+    display: none;
+}
