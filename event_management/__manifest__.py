@@ -22,6 +22,7 @@
              'views/photographers.xml',
              'views/catering.xml',
              'views/entertainment.xml',
+             'views/customer_invoice.xml',
              # 'views/decoration.xml',
 
              'views/hide_menu.xml',

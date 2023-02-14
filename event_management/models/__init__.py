@@ -7,4 +7,5 @@ from . import category
 from . import photographers
 from . import catering
 from . import entertainment
+from . import customer_invoice
 # from . import decoration
