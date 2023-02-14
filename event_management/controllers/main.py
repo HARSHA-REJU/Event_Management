@@ -167,7 +167,7 @@ class HomePage(http.Controller):
 
         if current_user.has_group('event_management.group_auditorium_manager'):
             venue_bookings = request.env['event.management'].sudo().search([('venue_id','=',current_user.auditorium.id)])
-            invoices = request.env['account.move'].sudo().search([('booking_id','in',venue_bookings)])
+            invoices = request.env['account.move'].sudo().search([('booking_id','in',venue_bookings.ids)])
         elif current_user.has_group('base.group_system'):
             invoices = request.env['account.move'].sudo().search([])
         else:
