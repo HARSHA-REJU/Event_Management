@@ -1103,8 +1103,8 @@ label.valid {
                                     <th>Customer Name</th>
                                     <th>Booking Reference</th>
                                     <th>Booking Date</th>
-                                    <th>Amount</th>
-                                    <th>Tax%</th>
+<!--                                    <th>Amount</th>-->
+<!--                                    <th>Tax%</th>-->
                                     <th>Total Amount</th>
                                     <th>Status</th>
                                 </tr>
@@ -1123,8 +1123,8 @@ label.valid {
                                         <td><span t-esc="record.partner_id.name"/></td>
                                         <td><span t-esc="record.booking_id.ref"/></td>
                                         <td><span t-esc="record.booking_id.event_date"/></td>
-                                        <td><span t-esc="record.amount_untaxed"/></td>
-                                        <td><span t-esc="record.amount_by_group"/></td>
+<!--                                        <td><span t-esc="record.amount_untaxed"/></td>-->
+<!--                                        <td><span t-esc="sum(record.amount_by_group)"/></td>-->
                                         <td><span t-esc="record.amount_total"/></td>
                                         <td><span t-esc="record.state"/></td>
                                     </tr>
