@@ -8,7 +8,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='access_rights']/group[1]" position="before">
                         <group col="2">
-                            <group><field name="auditorium" domain="[('venue','=',True)]" ref="base.partner_admin"/></group>
+                            <group>
+                                <field name="auditorium" domain="[('venue','=',True)]" ref="base.partner_admin"/></group>
 <!--                            <group><field name="partner_id" readonly="1" ref="base.partner_admin"/></group>-->
                         </group>
                 </xpath>
@@ -21,8 +22,7 @@
             <field name="model">event.management</field>
             <field name="arch" type="xml">
                 <tree>
-
-                        <field name="partner_id"/>
+                    <field name="partner_id"/>
                      <field name="mobile"/>
                      <field name="email"/>
                      <field name="address"/>
