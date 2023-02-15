@@ -96,7 +96,7 @@ $(document).ready(function(){
         $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').hide();
     }
 
-    if(userCheck != "Administrator" && userCheck != "Public User") {
+    if(userCheck != "Administrator" && userCheck != "Public user") {
         $('.main-banner .top-text h2').text(userCheck);
     }
 
