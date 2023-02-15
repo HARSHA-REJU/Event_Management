@@ -37,6 +37,7 @@ class ResPartner(models.Model):
     entertainment = fields.Boolean(string="Entertainers ?")
     amount = fields.Float()
     venue = fields.Boolean()
+    venue_owner = fields.Many2one('res.users',string="Venue Admin")
 
     property_account_payable_id = fields.Many2one('account.account', company_dependent=True,
         string="Account Payable",

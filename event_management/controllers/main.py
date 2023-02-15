@@ -53,7 +53,6 @@ class HomePage(http.Controller):
         places = request.env['place.place'].sudo().search([])
         current_user = request.env.user
 
-
         values = {
             'districts':districts,
             'types':types,
@@ -473,6 +472,15 @@ class BookingPage(http.Controller):
             # makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist','=',True)])
             makeup_artists = request.env['artist.artist'].sudo().search([])
             makeup_packages = request.env['makeup.package'].sudo().search([])
+            current_user_id = request.env.user.id
+            auditorium = request.env['res.partner'].sudo().search(
+                [('venue', '=', True), ('venue_owner', '=', current_user_id)])
+            bookings = False
+            if auditorium:
+                print("Auditorium", auditorium)
+                bookings = request.env['event.management'].sudo().search([('venue_id', '=', auditorium.id)])
+                print("bookings", bookings)
+            print("end................")
 
             values = {
                 'venues':venues,
@@ -483,6 +491,7 @@ class BookingPage(http.Controller):
                 'current_user': current_user,
                 'current_user_name': current_user.name,
                 'makeup_packages': makeup_packages,
+                'bookings':bookings,
 
             }
 

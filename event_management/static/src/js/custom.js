@@ -65,28 +65,28 @@ $(window).scroll(function() {
 
 $(document).ready(function(){
 
-	$('.owl-listing').owlCarousel({
-		items:1,
-		loop:true,
-		dots: true,
-		nav: false,
-		autoplay: true,
-		margin:30,
-		  responsive:{
-			  0:{
-				  items:1
-			  },
-			  600:{
-				  items:1
-			  },
-			  1000:{
-				  items:1
-			  },
-			  1600:{
-				  items:1
-			  }
-		  }
-	})
+//	$('.owl-listing').owlCarousel({
+//		items:1,
+//		loop:true,
+//		dots: true,
+//		nav: false,
+//		autoplay: true,
+//		margin:30,
+//		  responsive:{
+//			  0:{
+//				  items:1
+//			  },
+//			  600:{
+//				  items:1
+//			  },
+//			  1000:{
+//				  items:1
+//			  },
+//			  1600:{
+//				  items:1
+//			  }
+//		  }
+//	})
 
 	//Displaying or hiding search form depending on user
     var userCheck = $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').parent('.col-lg-10.m-auto').siblings('p#user_check').text().trim();

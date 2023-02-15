@@ -37,6 +37,7 @@
 
                 <xpath expr="//field[@name='category_id']" position="after">
                     <field name="venue"/>
+                    <field name="venue_owner"/>
                     <field name="makeup_artist"/>
                     <field name="mehndi_artist"/>
                     <field name="customer"/>
