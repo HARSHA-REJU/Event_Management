@@ -87,6 +87,21 @@ $(document).ready(function(){
 			  }
 		  }
 	})
+
+	//Displaying or hiding search form depending on user
+    var userCheck = $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').parent('.col-lg-10.m-auto').siblings('p#user_check').text().trim();
+    if (userCheck === 'Administrator') {
+        $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').show();
+    } else {
+        $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').hide();
+    }
+
+    if(userCheck != "Administrator" && userCheck != "Public user") {
+        $('.main-banner .top-text h2').text(userCheck);
+    }
+
+
+
 })
 
 $(window).scroll(function() {

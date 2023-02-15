@@ -24,7 +24,7 @@
                 <tree>
                     <field name="partner_id"/>
                      <field name="mobile"/>
-                     <field name="email"/>
+<!--                     <field name="email"/>-->
                      <field name="address"/>
                     <field name="type_of_event_id"/>
                     <field name="event_date"/>
