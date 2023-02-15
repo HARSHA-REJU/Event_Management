@@ -74,6 +74,7 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
+<!--                        <button name="test_button"  string="TEST" type="object" class="oe_highlight" />-->
                         <button name="action_event_invoice"  string="Create Invoice" type="object" class="oe_highlight" states="confirm"/>
                         <button name="action_event_confirm"  string="Confirm" type="object" class="oe_highlight" states="draft"/>
 <!--                        <button name="action_event_invoice_create"  string="Create Invoice" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'not in', ['invoice', 'confirm']), ('pending_invoice', '=', False)]}"/>-->

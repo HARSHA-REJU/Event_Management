@@ -850,7 +850,7 @@
                                                                     <div class="form-group">
                                                                         <span class="form-label">Your Name</span>
 <!--                                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name" t-att-value="current_user_name" readonly="1"/>-->
-                                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name" readonly="1"/>
+                                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name"/>
                                                                     </div>
                                                                 </div>
                                                                  <div class="col-md-6">
@@ -900,7 +900,7 @@
                                                                     <div class="form-group">
                                                                         <span class="form-label">District</span>
                                                                         <select name="district_id" id="district_id"
-                                                                                class="form-control form-select link-style" required="1">
+                                                                                class="form-control form-select link-style">
                                                                                      <option value="" disabled="" selected="">Select district</option>
                                                                             <t t-foreach="districts" t-as="record">
                                                                                 <option t-att-value="record.id">
@@ -915,7 +915,7 @@
                                                                     <div class="form-group">
                                                                         <span class="form-label">Place</span>
                                                                         <select name="place_id" id="place_id"
-                                                                                class="form-control form-select link-style" required="1">
+                                                                                class="form-control form-select link-style">
                                                                             <option value="" disabled="" selected="">Select Place</option>
                                                                             <t t-foreach="places" t-as="record">
                                                                                 <option t-att-value="record.id" t-att-data-distid="record.district_id.id">

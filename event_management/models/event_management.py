@@ -374,6 +374,25 @@ class EventManagement(models.Model):
                 'rate': self.entert_rate,
                 'service_id': self.entert_package_id.package_services_ids,
             })
+    def test_button(self):
+
+
+        a_sale = self.env['account.account'].search([])
+
+        a_sale = self.env['account.account'].create({
+            'code': 'X2023',
+            'name': 'Event Sales - (test)',
+            'user_type_id': self.env.ref('account.data_account_type_revenue').id,
+        })
+        vals = {
+            'name': 'Customer Invoice- Test',
+            'code': 'FE',
+            'type': 'sale',
+            'default_account_id': a_sale.id,
+            'refund_sequence': True,
+
+        }
+        self.env['account.journal'].create(vals)
 
     def action_event_invoice(self):
         # vals = {
