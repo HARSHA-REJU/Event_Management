@@ -849,7 +849,8 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <span class="form-label">Your Name</span>
-                                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name" t-att-value="current_user_name" readonly="1"/>
+<!--                                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name" t-att-value="current_user_name" readonly="1"/>-->
+                                                                        <input class="form-control" name="name" id="name" type="name" placeholder="Enter your Name" readonly="1"/>
                                                                     </div>
                                                                 </div>
                                                                  <div class="col-md-6">
@@ -955,45 +956,45 @@
                                                             </div>
                                                             <hr class="solid"/>
 
-                                                        <div class="row">
-                                                            <h4 class="section-title">Book Makeup Artist</h4>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <span class="form-label">Makeup Artist</span>
-                                                                                <select name="artist_name" id="artist_name"
-                                                                                                        class="form-control form-select link-style" required="1">
-                                                                                 <option value="" disabled="" selected="">Select Artist</option>
-                                                                                        <t t-foreach="makeup_artists" t-as="record">
-                                                                                                        <option t-att-value="record.id">
-                                                                                                            <t t-esc="record.artist_name.name" t-att-value="record.id"/>
-                                                                                                        </option>
-                                                                                                    </t>
-                                                                                 </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                                                                                            <div class="col-sm-6">
-                                                                                    <div class="form-group">
-                                                                                        <span class="form-label">Price</span>
-                                                                                        <input name="make_up_price" class="form-control" type="text" placeholder="Makeup Rate"/>
-                                                                                    </div>
-                                                                                </div>
+<!--                                                        <div class="row">-->
+<!--                                                            <h4 class="section-title">Book Makeup Artist</h4>-->
+<!--                                                                <div class="col-md-6">-->
+<!--                                                                    <div class="form-group">-->
+<!--                                                                        <span class="form-label">Makeup Artist</span>-->
+<!--                                                                                <select name="artist_name" id="artist_name"-->
+<!--                                                                                                        class="form-control form-select link-style" required="1">-->
+<!--                                                                                 <option value="" disabled="" selected="">Select Artist</option>-->
+<!--                                                                                        <t t-foreach="makeup_artists" t-as="record">-->
+<!--                                                                                                        <option t-att-value="record.id">-->
+<!--                                                                                                            <t t-esc="record.artist_name.name" t-att-value="record.id"/>-->
+<!--                                                                                                        </option>-->
+<!--                                                                                                    </t>-->
+<!--                                                                                 </select>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                                                                            <div class="col-sm-6">-->
+<!--                                                                                    <div class="form-group">-->
+<!--                                                                                        <span class="form-label">Price</span>-->
+<!--                                                                                        <input name="make_up_price" class="form-control" type="text" placeholder="Makeup Rate"/>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
 
-                                                                                <div class="col-sm-6">
-                                                                                    <div class="form-group">
-                                                                                        <span class="form-label">Makeup Package</span>
-                                                                                        <select name="makeup_package_id" id="type_id"
-                                                                                        class="form-control form-select link-style" required="1">
-                                                                                    <option value="" disabled="" selected="">Select Makeup Package</option>
-                                                                                    <t t-foreach="makeup_packages" t-as="record">
-                                                                                        <option t-att-value="record.id">
-                                                                                            <t t-esc="record.name" t-att-value="record.id" t-att-data-rate ="record.rate"/>
-                                                                                        </option>
-                                                                                    </t>
-                                                                                </select>
-                                                <!--										<input class="form-control" type="text" placeholder="Event Type"/>-->
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+<!--                                                                                <div class="col-sm-6">-->
+<!--                                                                                    <div class="form-group">-->
+<!--                                                                                        <span class="form-label">Makeup Package</span>-->
+<!--                                                                                        <select name="makeup_package_id" id="type_id"-->
+<!--                                                                                        class="form-control form-select link-style" required="1">-->
+<!--                                                                                    <option value="" disabled="" selected="">Select Makeup Package</option>-->
+<!--                                                                                    <t t-foreach="makeup_packages" t-as="record">-->
+<!--                                                                                        <option t-att-value="record.id">-->
+<!--                                                                                            <t t-esc="record.name" t-att-value="record.id" t-att-data-rate ="record.rate"/>-->
+<!--                                                                                        </option>-->
+<!--                                                                                    </t>-->
+<!--                                                                                </select>-->
+<!--                                                &lt;!&ndash;										<input class="form-control" type="text" placeholder="Event Type"/>&ndash;&gt;-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
 
 
                                                                             <div class="form-btn">
