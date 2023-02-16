@@ -96,6 +96,11 @@ $(document).ready(function(){
         $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').hide();
     }
 
+    if($('a.account-page').html().indexOf('Administrator') > 0){
+        $('.only_admin').show();
+        $('.place_only_admin').show();
+    }
+
     if(userCheck != "Administrator" && userCheck != "Public user") {
         $('.main-banner .top-text h2').text(userCheck);
     }
