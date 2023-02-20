@@ -513,6 +513,7 @@ class BookingPage(http.Controller):
             }
             booking_artist = request.env['makeup.artist'].sudo().create(vals)
 
+
     @http.route(['/booking/confirm'], type='http', auth="public",website=True)
     def booking_page_submitt(self, **args):
         current_user = request.env.user
@@ -633,8 +634,26 @@ class BookingPage(http.Controller):
             # return request.render("survey.survey_auth_required", {'survey': survey_sudo, 'redirect_url': redirect_url})
 
         # return http.redirect_with_hash('/booking')
+        vals = {
+                'move_type': 'out_invoice',
+                'invoice_date': fields.Date.today(),
+                'partner_id': new_user.id,
+                # 'currency_id': self.currency_id.id,
+                # 'amount_total': self.delivery_total,
+                # 'invoice_line_ids': [
+                #     (0, None, {
+                #         'product_id': 1,
+                #         'name': 'Delivery Service',
+                #         'quantity': 1,
+                #         'price_unit': self.delivery_total,
+                #         'price_subtotal': self.delivery_total,
+                #     }),
 
-        return http.redirect_with_hash("/web#id=&action=196&model=account.move&view_type=form&cids=1&menu_id=101")
+        }
+        account_invoice = request.env['account.move'].create(vals)
+
+        return http.redirect_with_hash("/web#ID=&action=196&model=account.move&view_type=list&cids=1&menu_id=101")
+        # return http.redirect_with_hash("/web#id=&action=196&model=account.move&view_type=form&cids=1&menu_id=101")
 
             # response = redirect("/booking")
             # return response
