@@ -652,6 +652,7 @@ class BookingPage(http.Controller):
         }
         account_invoice = request.env['account.move'].create(vals)
 
+        # return http.redirect_with_hash("/web#ID=&action=196&model=account.move&view_type=list&cids=1&menu_id=101")
         return http.redirect_with_hash("/web#ID=&action=196&model=account.move&view_type=list&cids=1&menu_id=101")
         # return http.redirect_with_hash("/web#id=&action=196&model=account.move&view_type=form&cids=1&menu_id=101")
 
