@@ -317,19 +317,26 @@ header
 }
 
 .header-area .main-nav a.logo {
-  background-image: url(/event_management/static/img/fortuna-logo89*98.png);
-  width: 89px;
-  height: 98px;
-  display: inline-block;
-  margin-top: 10px;
+    background-image: url(/event_management/static/img/main-fortuna-logo.png);
+    width: 175px;
+    height: 100px;
+    display: inline-block;
+    margin-top: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .background-header .main-nav a.logo {
-  background-image: url(/event_management/static/img/fortuna-logo89_98-removebg.png);
-  width: 89px;
-  height: 98px;
-  display: inline-block;
-  margin-top: 10px;
+  background-image: url(/event_management/static/img/main-fortuna-logo.png);
+
+    width: 175px;
+    height: 100px;
+    display: inline-block;
+    margin-top: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .background-header .main-nav .nav {
@@ -351,12 +358,12 @@ header
 
 .header-area .main-nav .nav li {
   padding-left: 30px;
-  padding-right: 30px;
+
 }
 
 .header-area .main-nav .nav li:last-child {
   padding-right: 0px;
-  padding-left: 40px;
+  /*padding-left: 40px;*/
 }
 
 .header-area .main-nav .nav li:last-child a ,
@@ -2162,7 +2169,7 @@ responsive
     color: transparent;
   }
   .header-area .main-nav a.logo {
-    background-image: url(/event_management/static/img/fortuna-logo89*98.png);
+    background-image: url(/event_management/static/img/fortuna-new-logo.jpg);
     float: left;
   }
   .header-area .logo {

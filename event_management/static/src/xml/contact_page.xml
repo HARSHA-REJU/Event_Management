@@ -487,13 +487,13 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="page-heading">
                   <div class="container">
                     <div class="row">
-                      <div class="col-lg-6">
-                        <div class="top-text header-text">
-                          <h6>Keep in touch with us</h6>
-                          <h4>FORTUNA EVENTS <br/> G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum <br/> +91 6282842112<br/>info@fortunaevent.com</h4>
-                        </div>
-                      </div>
-                        <div class="col-lg-6 align-self-center pull-right"  style="border: 1px solid #f9fafc;padding:10px;">
+<!--                      <div class="col-lg-6">-->
+<!--                        <div class="top-text header-text contact-hide-details" style="display:none;">-->
+<!--                          <h6>Keep in touch with us</h6>-->
+<!--                          <h4>FORTUNA EVENTS <br/> G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum <br/> +91 6282842112<br/>info@fortunaevent.com</h4>-->
+<!--                        </div>-->
+<!--                      </div>-->
+                        <div class="col-lg-6 m-auto"  style="border: 1px solid #f9fafc;padding:10px;">
                               <form id="contact" action="/enquiry/confirm" method="get">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -664,7 +664,8 @@ https://templatemo.com/tm-564-plot-listing
                     <div class="col-lg-1">
                       <div class="about">
                         <div class="logo">
-                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
+<!--                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>-->
+                          <img src="/event_management/static/img/fortuna-new-logo.jpg" alt="Hiworth"/>
                         </div>
                       </div>
                     </div>

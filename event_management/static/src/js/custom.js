@@ -93,6 +93,8 @@ $(document).ready(function(){
     if (userCheck === 'Administrator') {
         $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').show();
         $('.main-banner > .container > .row > .col-lg-10.offset-lg-1').show();
+        $('.contact-hide-details').show();
+//        $('.page-heading > .container > .row > .col-lg-6 > .top-text.header-text').show();
     } else {
         $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').hide();
 //        $('.main-banner > .container > .row > hide-icons-user').hide();
@@ -100,6 +102,8 @@ $(document).ready(function(){
     }
     if (userCheck === "Public user") {
        $('.main-banner > .container > .row > .col-lg-10.offset-lg-1').show();
+       $('.contact-hide-details').show();
+//       $('.page-heading > .container > .row > .col-lg-6 > .top-text.header-text').show();
     }
 
     if($('a.account-page').html().indexOf('Administrator') > 0){

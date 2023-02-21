@@ -1603,7 +1603,8 @@ label.valid {
                     <div class="col-lg-1">
                       <div class="about">
                         <div class="logo">
-                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
+<!--                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>-->
+                          <img src="/event_management/static/img/fortuna-new-logo.jpg" alt="Hiworth"/>
                         </div>
                       </div>
                     </div>

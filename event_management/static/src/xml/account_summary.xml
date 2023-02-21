@@ -918,7 +918,7 @@ label.valid {
                             </div>
                           </li>
 <!--                          <li><a href="#">Services</a></li>-->
-                          <li><a href="/venuelist">Venues</a></li>
+                          <div><li class="hide-venue-menu"><a href="/venuelist">Auditorium</a></li></div>
 <!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
                             <t t-if="uid"><li><a href="/booking" class="booking">Booking</a></li></t>
                             <t t-if="not uid"><li><a data-bs-toggle="modal" data-bs-target="#LoginModal" href="/booking">Booking</a></li></t>
@@ -1184,7 +1184,8 @@ label.valid {
                     <div class="col-lg-1">
                       <div class="about">
                         <div class="logo">
-                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>
+<!--                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>-->
+                          <img src="/event_management/static/img/fortuna-new-logo.jpg" alt="Hiworth"/>
                         </div>
                       </div>
                     </div>
