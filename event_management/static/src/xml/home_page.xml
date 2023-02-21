@@ -1119,7 +1119,7 @@ label.valid {
                     <div class="col-lg-12">
                       <div class="top-text header-text">
 
-                        <h6>Over 36,500+ Active Listings</h6>
+<!--                        <h6>Over 36,500+ Active Listings</h6>-->
                         <h2>Find Nearby Venues</h2>
 
                       </div>
@@ -1181,8 +1181,16 @@ label.valid {
                         </div>
                       </form>
                     </div>
-                    <div class="col-lg-10 offset-lg-1">
-                      <ul class="categories">
+
+
+                    <div id ="show" class="show-only-am-only" style="display:none;">
+                        <ul id="show-only-am" class="categories" >
+                            <li><a href="/booking"><span class="icon"><img src="event_management/static/img/decoration-icon.png" alt="Book Venue"/></span>Booking</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-10 offset-lg-1" style="display:none;">
+
+                      <ul id="ul-menu" class="categories">
             <!--            <t t-foreach="types" t-as="record">-->
             <!--              <li><a href="#"><span class="icon">-->
             <!--                		                <img t-if="record.image" t-att-src="'data:image/jpg;base64,%s' % record.image" style="max-height: 80px;"/>-->
@@ -1205,6 +1213,9 @@ label.valid {
                         <li><a href="/venues?Birthday"><span class="icon"><img src="event_management/static/img/birthday.png" alt="Birthday Party"/></span>Birthday Party</a></li>
                       </ul>
                     </div>
+
+
+
                   </div>
                 </div>
               </div>

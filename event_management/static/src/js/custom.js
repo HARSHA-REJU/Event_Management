@@ -92,8 +92,14 @@ $(document).ready(function(){
     var userCheck = $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').parent('.col-lg-10.m-auto').siblings('p#user_check').text().trim();
     if (userCheck === 'Administrator') {
         $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').show();
+        $('.main-banner > .container > .row > .col-lg-10.offset-lg-1').show();
     } else {
         $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').hide();
+//        $('.main-banner > .container > .row > hide-icons-user').hide();
+
+    }
+    if (userCheck === "Public user") {
+       $('.main-banner > .container > .row > .col-lg-10.offset-lg-1').show();
     }
 
     if($('a.account-page').html().indexOf('Administrator') > 0){
@@ -101,8 +107,13 @@ $(document).ready(function(){
         $('.place_only_admin').show();
     }
 
+//    if(userCheck === "Administrator" && userCheck === "Public user") {
+//        $('.main-banner > .container > .row > #show.show-only-am-only').hide();
+//    }
     if(userCheck != "Administrator" && userCheck != "Public user") {
         $('.main-banner .top-text h2').text(userCheck);
+        $('.main-banner > .container > .row > #show.show-only-am-only').show();
+
     }
 
 
