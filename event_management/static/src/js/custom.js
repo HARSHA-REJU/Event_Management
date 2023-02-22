@@ -119,8 +119,14 @@ $(document).ready(function(){
         $('.main-banner > .container > .row > #show.show-only-am-only').show();
 
     }
-
-
+   if(user_check_menu  === "Administrator") {
+            $('.menu_venues').show();
+    }
+    if(user_check_menu  === "Public user") {
+            $('.menu_venues').show();
+    }else {
+ $('.menu_venues').hide();
+}
 
 })
 
