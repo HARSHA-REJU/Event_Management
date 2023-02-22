@@ -10,3 +10,4 @@ class AccountMove(models.Model):
 
     booking_id = fields.Many2one('event.management')
     fortuna_discount = fields.Float()
+    address = fields.Text()
