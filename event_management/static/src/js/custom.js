@@ -117,16 +117,11 @@ $(document).ready(function(){
     if(userCheck != "Administrator" && userCheck != "Public user") {
         $('.main-banner .top-text h2').text(userCheck);
         $('.main-banner > .container > .row > #show.show-only-am-only').show();
+        $('.menu_venues').hide();
 
-    }
-   if(user_check_menu  === "Administrator") {
-            $('.menu_venues').show();
-    }
-    if(user_check_menu  === "Public user") {
-            $('.menu_venues').show();
     }else {
- $('.menu_venues').hide();
-}
+         $('.menu_venues').show();
+        }
 
 })
 
