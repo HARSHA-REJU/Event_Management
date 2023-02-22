@@ -65,11 +65,11 @@ class HomePage(http.Controller):
 
     @http.route(['/signup'], type='http', auth="public",website=True)
     def signup_controller(self, **args):
-        email = args.get('useremail')
+        email = args.get('email')
         password = args.get('pass')
         re_password = args.get('re_pass')
         mobile = args.get('mobile')
-        name = args.get('username')
+        name = args.get('name')
         current_user = request.env.user
 
 
@@ -239,10 +239,10 @@ class ContactUsPage(http.Controller):
     def contact_page_confirm(self, **args):
         district_id = int(args.get('district_id'))
         type_id = int(args.get('type_id'))
-        email = args.get('email')
+        email = args.get('useremail')
         date = args.get('date')
         mobile = args.get('mobile')
-        name = args.get('name')
+        name = args.get('username')
         # surname = args.get('surname')
         address = args.get('address')
         message = args.get('message')
@@ -661,15 +661,42 @@ class BookingPage(http.Controller):
 
 
     @http.route(['/ajax/reservations/get/<int:venue_id>'], type='http', auth="public",website=True,csrf=False)
-    def data_calender_ajax(self, venue_id,**args):
-        # current_user_id = request.env.user.id
-        # auditorium = request.env['res.partner'].sudo().search(
-        #     [('venue', '=', True), ('venue_owner', '=', current_user_id)])
+    def venue_calender_ajax(self, venue_id,**args):
+        current_user = request.env.user
+        auditorium = request.env['res.partner'].sudo().search(
+            [('venue', '=', True), ('venue_owner', '=', current_user.id)])
         venue_id = venue_id
         bookings = False
+        if current_user.has_group('event_management.group_auditorium_manager'):
+            bookings = request.env['event.management'].sudo().search([('venue_id', '=', auditorium.id)])
         if venue_id:
             bookings = request.env['event.management'].sudo().search([('venue_id', '=', venue_id)])
-        #     print("bookings", bookings)
+            print("bookings......................")
+        values = []
+
+        for record in bookings:
+            vals_dict = {
+                'title': "*                        booked",
+                'start': str(record.event_date),
+                'end': str(record.event_date),
+                'display': 'background'
+            }
+            values.append(vals_dict)
+        # print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")
+        return json.dumps(values)
+
+    @http.route(['/ajax/reservations/get/date'], type='http', auth="public",website=True,csrf=False)
+    def data_calender_ajax(self, venue_id,**args):
+        current_user = request.env.user
+        auditorium = request.env['res.partner'].sudo().search(
+            [('venue', '=', True), ('venue_owner', '=', current_user.id)])
+        venue_id = venue_id
+        bookings = False
+        if current_user.has_group('event_management.group_auditorium_manager'):
+            bookings = request.env['event.management'].sudo().search([('venue_id', '=', auditorium.id)])
+        if venue_id:
+            bookings = request.env['event.management'].sudo().search([('venue_id', '=', venue_id)])
+        print("bookings......................")
         values = []
 
         for record in bookings:

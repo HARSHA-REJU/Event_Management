@@ -967,6 +967,12 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
+                                                                <div style="display:none;">
+                                                                        <span class="form-label">Auditorium Name</span>
+                                                                        <input name="current_user_auditorium" id="current_user_auditorium" t-att-value="current_user.auditorium.id" t-att-data-venue="current_user.auditorium.id"/>
+                                                                </div>
+
+
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group">
                                                                         <span class="form-label">Auditorium Rent</span>
@@ -1233,10 +1239,10 @@
               <footer>
                 <div class="container">
                   <div class="row">
-                    <div class="col-lg-1">
+                    <div class="col-lg-2">
                       <div class="about">
                         <div class="logo">
-<!--                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>-->
+<!--&lt;!&ndash;                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>&ndash;&gt;-->
 <!--                          <img src="/event_management/static/img/fortuna-new-logo.jpg" alt="Hiworth"/>-->
                         </div>
                       </div>
@@ -1266,13 +1272,13 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                         <h4>Contact Us</h4>
                         <div class="row">
                             <div class="col-lg-6 contact-us">
                                 <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6" style="padding:0px;">
                                 <a>Phone: +91 6282842112</a><br/>
                                   <a>Email: info@fortunaevent.com</a>
                               </div>
@@ -1380,6 +1386,15 @@
                         if(price != '' || price != null){
                             $('input#auditorium_price').val(price).trigger('change')
                         }
+                              renderCalendar()
+                        })
+
+                      $('input#date').on('change', function(){
+                      var venue = $('input#current_user_auditorium').val();
+                      var venue_val = $('select#venue_id').val();
+                       if(venue_val != '' || venue_val != null){
+                            $('select#venue_id').val(venue).trigger('change')
+                      }
                               renderCalendar()
                         })
 

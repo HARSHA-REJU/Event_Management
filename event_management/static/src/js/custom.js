@@ -119,6 +119,7 @@ $(document).ready(function(){
         $('.main-banner > .container > .row > #show.show-only-am-only').show();
         $('.menu_venues').hide();
 
+
     }else {
          $('.menu_venues').show();
         }
