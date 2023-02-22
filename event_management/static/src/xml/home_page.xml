@@ -9,7 +9,7 @@
               <meta name="description" content=""/>
               <meta name="author" content=""/>
               <link rel="preconnect" href="https://fonts.gstatic.com"/>
-              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
+<!--              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>-->
 
               <title>Fortuna Events</title>
 
@@ -1057,15 +1057,15 @@ label.valid {
                                         <div class="signup-content">
                                             <div class="signup-form">
                         <!--                        <h2 class="form-title">Register here</h2>-->
-                                                <form method="POST" action="/user/login" class="register-form" id="register-form">
+                                                <form method="POST" action="/user/login" class="register-form" id="login-form">
 
                                                     <div class="form-group" >
-                                                        <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                                        <input type="text" name="email" id="email" placeholder="Your Email"/>
+                                                        <label for="email_id"><i class="zmdi zmdi-email"></i></label>
+                                                        <input type="text" name="email_id" id="email_id" placeholder="Your Email"/>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                                        <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                                        <label for="user_password"><i class="zmdi zmdi-lock"></i></label>
+                                                        <input type="user_password" name="user_password" id="user_password" placeholder="Password"/>
                                                     </div>
 
                                                     <div class="form-group form-button">
@@ -1601,11 +1601,11 @@ label.valid {
               <footer>
                 <div class="container">
                   <div class="row">
-                    <div class="col-lg-1">
+                    <div class="col-lg-2">
                       <div class="about">
                         <div class="logo">
-<!--                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>-->
-                          <img src="/event_management/static/img/fortuna-new-logo.jpg" alt="Hiworth"/>
+<!--&lt;!&ndash;                          <img src="/event_management/static/img/fortuna-logo89*98.png" alt="Hiworth"/>&ndash;&gt;-->
+<!--                          <img src="/event_management/static/img/fortuna-new-logo.jpg" alt="Hiworth"/>-->
                         </div>
                       </div>
                     </div>
@@ -1634,13 +1634,13 @@ label.valid {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                         <h4>Contact Us</h4>
                         <div class="row">
                             <div class="col-lg-6 contact-us">
                                 <p>G3, Uthradam Towers Palayam,<br/> University P.O, Trivandrum</p>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6" style="padding:0px;">
                                 <a>Phone: +91 6282842112</a><br/>
                                   <a>Email: info@fortunaevent.com</a>
                               </div>

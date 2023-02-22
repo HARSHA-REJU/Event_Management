@@ -65,11 +65,11 @@ class HomePage(http.Controller):
 
     @http.route(['/signup'], type='http', auth="public",website=True)
     def signup_controller(self, **args):
-        email = args.get('email')
+        email = args.get('useremail')
         password = args.get('pass')
         re_password = args.get('re_pass')
         mobile = args.get('mobile')
-        name = args.get('name')
+        name = args.get('username')
         current_user = request.env.user
 
 
@@ -87,8 +87,8 @@ class HomePage(http.Controller):
 
     @http.route(['/user/login'], type='http', auth="public",website=True)
     def login_controller(self, **args):
-        email = args.get('email')
-        password = args.get('pass')
+        email = args.get('email_id')
+        password = args.get('user_password')
         current_user = request.env['res.users'].sudo().search([('login','=',email)])
 
         # response = redirect("/#LoginModal")
@@ -665,20 +665,23 @@ class BookingPage(http.Controller):
         # current_user_id = request.env.user.id
         # auditorium = request.env['res.partner'].sudo().search(
         #     [('venue', '=', True), ('venue_owner', '=', current_user_id)])
-        # bookings = False
-        # if auditorium:
-        #     bookings = request.env['event.management'].sudo().search([('venue_id', '=', auditorium.id)])
-        #     print("bookings", bookings)
-
         venue_id = venue_id
-        values=[{
-            'title': "Title",
-            'start': '2018-02-01',
-            'end': '2018-02-02',
-            # 'bookings':bookings,
-        }]
+        bookings = False
+        if venue_id:
+            bookings = request.env['event.management'].sudo().search([('venue_id', '=', venue_id)])
+        #     print("bookings", bookings)
+        values = []
+
+        for record in bookings:
+            vals_dict = {
+                'title': "*                        booked",
+                'start': str(record.event_date),
+                'end': str(record.event_date),
+                'display': 'background'
+            }
+            values.append(vals_dict)
         # print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")
-        return values
+        return json.dumps(values)
 
 
 class RegistrationPage(http.Controller):

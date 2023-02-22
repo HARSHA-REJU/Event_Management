@@ -327,7 +327,7 @@ header
     background-position: center;
 }
 
-.background-header .main-nav a.logo {
+.logo {
   background-image: url(/event_management/static/img/fortuna-logo-2.png);
 
     width: 175px;
@@ -1242,8 +1242,8 @@ footer a {
 }
 
 footer .logo img {
-  max-width: 89px;
-  margin-bottom: 98px;
+  max-width: 175px;
+  margin-bottom: 100px;
 }
 
 footer .helpful-links {

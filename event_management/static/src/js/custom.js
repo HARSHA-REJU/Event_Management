@@ -190,3 +190,12 @@ if(price != '' || price != null){
     $('input#auditorium_price').val(price).trigger('change')
 }
 })
+
+
+$('.dropdown > a#menu_service_div_id').on('click', function(e){
+    e.preventDefault();
+            window.location.href = "/#service_div";
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
+})
