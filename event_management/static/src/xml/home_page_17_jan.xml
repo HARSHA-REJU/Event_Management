@@ -296,7 +296,7 @@ https://templatemo.com/tm-564-plot-listing
 <!--                          <li><a href="#">Services</a></li>-->
                                       <li><a href="/booking">Booking</a></li>
 
-                                      <li><a href="#">Gallery</a></li>
+                                      <li><a href="/eventdetails">Gallery</a></li>
 
 
             <!--              <li class=" nav-item dropdown">-->
@@ -910,7 +910,7 @@ https://templatemo.com/tm-564-plot-listing
                           <div class="col-lg-6">
                             <ul>
                               <li><a href="#">About Us</a></li>
-                              <li><a href="#">Gallery</a></li>
+                              <li><a href="/eventdetails">Gallery</a></li>
                               <li><a href="#">Privacy Policy</a></li>
                             </ul>
                           </div>

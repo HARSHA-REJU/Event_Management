@@ -390,10 +390,17 @@ https://templatemo.com/tm-564-plot-listing
                             </div>
                           </li>
 <!--                          <li><a href="#">Services</a></li>-->
-                          <li><a href="/venuelist">Venues</a></li>
+                          <li class="menu_venues">
+                              <p id="user_check_menu">
+                                  <t t-esc="current_user.name"/>
+                              </p>
+                              <p id="user_check_menu_auditorium">
+                                  <t t-esc="current_user.auditorium.id"/>
+                              </p>
+                              <a href="/venuelist">Venues</a></li>
 <!--                          <li><a href="/web#action=276&amp;model=place.district&amp;view_type=kanban&amp;cids=&amp;menu_id=185">Booking</a></li>-->
                             <t t-if="uid"><li><a href="/booking" class="booking">Booking</a></li></t>
-                            <t t-if="not uid"><li><a data-bs-toggle="modal" data-bs-target="#LoginModal" href="/booking">Booking</a></li></t>
+<!--                            <t t-if="not uid"><li><a data-bs-toggle="modal" data-bs-target="#LoginModal" href="/booking">Booking</a></li></t>-->
 <!--                          <li><a href="/booking">Booking</a></li>-->
 <!--                            <li>-->
 <!--                            <div class="col-md-12 dropdown show">-->
@@ -418,6 +425,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <div class="col-md-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
                                           <a class="dropdown-item" href="/account">Booking Summary</a>
                                           <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                          <a class="dropdown-item" href="/invoices">Bills</a>
                                           <a class="dropdown-item" href="/logout">Logout</a>
                                       </div>
 
@@ -437,7 +445,7 @@ https://templatemo.com/tm-564-plot-listing
                         <!-- ***** Menu End ***** -->
                       </nav>
                     </div>
-                    <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal fade" id="RegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -636,7 +644,7 @@ https://templatemo.com/tm-564-plot-listing
 <!--                                                                          ₹ <t t-esc="mk_artist.amount"/></p>-->
                                                                 </div>
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="/booking">Book Now</a>
+                                                                    <a class="btn btn-success" href="/contactus">Book Now</a>
 <!--                                                                    <a class="btn btn-success" href="/makeupartistbooking">Book Now</a>-->
                                                                 </div>
                                                             </div>
@@ -680,7 +688,7 @@ https://templatemo.com/tm-564-plot-listing
 <!--                                                                          ₹ <t t-esc="mk_artist.amount"/></p>-->
                                                                 </div>
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="/booking">Book Now</a>
+                                                                    <a class="btn btn-success" href="/contactus">Book Now</a>
 <!--                                                                    <a class="btn btn-success" href="/makeupartistbooking">Book Now</a>-->
                                                                 </div>
                                                             </div>
@@ -729,7 +737,7 @@ https://templatemo.com/tm-564-plot-listing
 <!--                                                                          ₹ <t t-esc="mk_artist.amount"/></p>-->
                                                                 </div>
                                                                 <div class="col-xs-12 col-md-6">
-                                                                    <a class="btn btn-success" href="/booking">Book Now</a>
+                                                                    <a class="btn btn-success" href="/contactus">Book Now</a>
 <!--                                                                    <a class="btn btn-success" href="/makeupartistbooking">Book Now</a>-->
                                                                 </div>
                                                             </div>
@@ -784,7 +792,7 @@ https://templatemo.com/tm-564-plot-listing
                           <div class="col-lg-4 col-sm-4">
                             <ul>
                               <li><a href="#">Reviews</a></li>
-                              <li><a href="#">Gallery</a></li>
+                              <li><a href="/eventdetails">Gallery</a></li>
                             </ul>
                           </div>
                           <div class="col-lg-4">

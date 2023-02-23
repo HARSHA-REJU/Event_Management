@@ -89,6 +89,7 @@ $(document).ready(function(){
 //	})
 
 	//Displaying or hiding search form depending on user
+    var userCheckMenuAuditorium =  $('p#user_check_menu_auditorium').text().trim();
     var userCheck = $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').parent('.col-lg-10.m-auto').siblings('p#user_check').text().trim();
     if (userCheck === 'Administrator') {
         $('.main-banner > .container > .row > .col-lg-10.m-auto > form#search-form').show();
@@ -117,11 +118,14 @@ $(document).ready(function(){
     if(userCheck != "Administrator" && userCheck != "Public user") {
         $('.main-banner .top-text h2').text(userCheck);
         $('.main-banner > .container > .row > #show.show-only-am-only').show();
+    }
+    if(userCheckMenuAuditorium.length > 0) {
         $('.menu_venues').hide();
-
-
-    }else {
+    }
+    else {
          $('.menu_venues').show();
+//         $('.only_admin').show();
+//         $('.place_only_admin').show();
         }
 
 })
