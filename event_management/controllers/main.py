@@ -239,10 +239,10 @@ class ContactUsPage(http.Controller):
     def contact_page_confirm(self, **args):
         district_id = int(args.get('district_id'))
         type_id = int(args.get('type_id'))
-        email = args.get('useremail')
+        email = args.get('email')
         date = args.get('date')
         mobile = args.get('mobile')
-        name = args.get('username')
+        name = args.get('name')
         # surname = args.get('surname')
         address = args.get('address')
         message = args.get('message')
@@ -522,7 +522,7 @@ class BookingPage(http.Controller):
         if current_user.name == 'Administrator':
             print("I am the admin")
             vals = {
-                'name': args.get('name'),
+                'name': args.get('username'),
                 'place_id': int(args.get('place_id')),
                 'district_id': int(args.get('district_id')),
                 'customer': True,
@@ -537,8 +537,8 @@ class BookingPage(http.Controller):
             date = args.get('date')
             mobile = args.get('mobile')
             address = args.get('address')
-            email = args.get('email')
-            name = args.get('name')
+            email = args.get('useremail')
+            name = args.get('username')
             venue_obj = request.env['res.partner'].sudo().search([('id', '=', venue_id)])
             print("name......................", current_user.name)
             vals = {
@@ -565,7 +565,7 @@ class BookingPage(http.Controller):
                 [('venue', '=', True), ('venue_owner', '=', current_user_id)])
             bookings = False
             vals = {
-                'name': args.get('name'),
+                'name': args.get('username'),
                 'place_id': auditorium.place_id.id,
                 'district_id': auditorium.district_id.id,
                 'customer': True,
@@ -585,8 +585,8 @@ class BookingPage(http.Controller):
                 date = args.get('date')
                 mobile = args.get('mobile')
                 address = args.get('address')
-                email = args.get('email')
-                name = args.get('name')
+                email = args.get('useremail')
+                name = args.get('username')
                 # makeup_package =  int(args.get('makeup_package_id'))
                 # makeup_artist_name =  int(args.get('artist_name'))
                 venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
