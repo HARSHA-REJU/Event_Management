@@ -715,7 +715,7 @@ https://templatemo.com/tm-564-plot-listing
                                                             <h4 class="group inner list-group-item-heading">
                                                                 <t t-esc="pkgs.name"/></h4>
                                                             <p class="group inner list-group-item-text">
-                                                                <t t-esc="pkgs.package_by"/><br/>
+                                                                <t t-esc="pkgs.package_by.name"/><br/>
                                                                 <t t-esc="pkgs.rate"/><br/>
                                                             </p>
                                                             <t t-foreach="pkgs.package_services_ids" t-as="pkg_service">
