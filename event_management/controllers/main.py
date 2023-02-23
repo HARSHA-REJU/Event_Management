@@ -685,30 +685,30 @@ class BookingPage(http.Controller):
         # print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")
         return json.dumps(values)
 
-    @http.route(['/ajax/reservations/get/date'], type='http', auth="public",website=True,csrf=False)
-    def data_calender_ajax(self, venue_id,**args):
-        current_user = request.env.user
-        auditorium = request.env['res.partner'].sudo().search(
-            [('venue', '=', True), ('venue_owner', '=', current_user.id)])
-        venue_id = venue_id
-        bookings = False
-        if current_user.has_group('event_management.group_auditorium_manager'):
-            bookings = request.env['event.management'].sudo().search([('venue_id', '=', auditorium.id)])
-        if venue_id:
-            bookings = request.env['event.management'].sudo().search([('venue_id', '=', venue_id)])
-        print("bookings......................")
-        values = []
-
-        for record in bookings:
-            vals_dict = {
-                'title': "*                        booked",
-                'start': str(record.event_date),
-                'end': str(record.event_date),
-                'display': 'background'
-            }
-            values.append(vals_dict)
-        # print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")
-        return json.dumps(values)
+    # @http.route(['/ajax/reservations/get/date'], type='http', auth="public",website=True,csrf=False)
+    # def data_calender_ajax(self, venue_id,**args):
+    #     current_user = request.env.user
+    #     auditorium = request.env['res.partner'].sudo().search(
+    #         [('venue', '=', True), ('venue_owner', '=', current_user.id)])
+    #     venue_id = venue_id
+    #     bookings = False
+    #     if current_user.has_group('event_management.group_auditorium_manager'):
+    #         bookings = request.env['event.management'].sudo().search([('venue_id', '=', auditorium.id)])
+    #     if venue_id:
+    #         bookings = request.env['event.management'].sudo().search([('venue_id', '=', venue_id)])
+    #     print("bookings......................")
+    #     values = []
+    #
+    #     for record in bookings:
+    #         vals_dict = {
+    #             'title': "*                        booked",
+    #             'start': str(record.event_date),
+    #             'end': str(record.event_date),
+    #             'display': 'background'
+    #         }
+    #         values.append(vals_dict)
+    #     # print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")
+    #     return json.dumps(values)
 
 
 class RegistrationPage(http.Controller):
