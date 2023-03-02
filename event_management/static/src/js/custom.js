@@ -107,10 +107,10 @@ $(document).ready(function(){
 //       $('.page-heading > .container > .row > .col-lg-6 > .top-text.header-text').show();
     }
 
-    if($('a.account-page').html().indexOf('Administrator') > 0){
-        $('.only_admin').show();
-        $('.place_only_admin').show();
-    }
+//    if($('a.account-page').html().indexOf('Administrator') > 0){
+//        $('.only_admin').show();
+//        $('.place_only_admin').show();
+//    }
 
 //    if(userCheck === "Administrator" && userCheck === "Public user") {
 //        $('.main-banner > .container > .row > #show.show-only-am-only').hide();
@@ -124,8 +124,8 @@ $(document).ready(function(){
     }
     else {
          $('.menu_venues').show();
-//         $('.only_admin').show();
-//         $('.place_only_admin').show();
+         $('.only_admin').show();
+         $('.place_only_admin').show();
         }
 
 })
@@ -168,6 +168,18 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
         }
 //       else:
 //            window.location.href = "/";
+ })
+ $(window).on('load', function(){
+    if(window.location.pathname == '/booking'){
+      var venue = $('input#current_user_auditorium').val();
+      if(venue != '' || venue != null){
+      var venue_val = $('select#venue_id').val();
+       if(venue_val != '' || venue_val != null){
+            $('select#venue_id').val(venue).trigger('change')
+      }
+              renderCalendar()
+}
+}
  })
 
 // $('.modal-button').on('click', function(e){

@@ -276,7 +276,8 @@
         <menuitem
                 id="category_root_main_menu"
                 name="Services Configuration"
-                sequence="7"/>
+                sequence="7"
+                groups="event_management.group_event_manager"/>
         <menuitem
                 id="category_root_menu"
                 name="Artists"

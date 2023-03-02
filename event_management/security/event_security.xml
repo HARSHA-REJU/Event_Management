@@ -11,6 +11,7 @@
 <!--            <field name="comment">Office Technology Permission Group.</field>-->
 <!--            <field name="category_id" ref="ng_office_technology.module_category_ng_office_technology"/>-->
 <!--        </record>-->
+
         <record id="group_event_manager" model="res.groups">
             <field name="name">Event Manager</field>
             <field name="category_id" ref="event_management.module_category_event_management"/>
@@ -92,26 +93,26 @@
             <field name="domain_force">[]</field>
             <field name="groups" eval="[(4, ref('event_management.group_event_manager'))]"/>
         </record>
-<!--        <record id = "district_visibility_event_booking" model = "ir.rule">-->
-<!--           <field name = "name"> User can only see his / her bookings </field>-->
-<!--           <field name = "model_id" ref = "model_event_management" />-->
-<!--           <field name = "groups" eval = "[(4, ref ('group_district_manager'))]" />-->
-<!--           <field name = "perm_read" eval = "True" />-->
-<!--           <field name = "perm_write" eval = "True" />-->
-<!--           <field name = "perm_create" eval = "False" />-->
-<!--           <field name = "perm_unlink" eval = "False" />-->
-<!--           <field name = "domain_force"> [('user_id', '=', user.id)] </field>-->
-<!--       </record>-->
-<!--        <record id = "district_visibility_enquiry" model = "ir.rule">-->
-<!--           <field name = "name"> User can only see his / her enquiries </field>-->
-<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
-<!--           <field name = "groups" eval = "[(4, ref ('group_district_manager'))]" />-->
-<!--           <field name = "perm_read" eval = "True" />-->
-<!--           <field name = "perm_write" eval = "True" />-->
-<!--           <field name = "perm_create" eval = "False" />-->
-<!--           <field name = "perm_unlink" eval = "False" />-->
-<!--           <field name = "domain_force"> [('district_id', '=', user.id)] </field>-->
-<!--       </record>-->
+<!--&lt;!&ndash;        <record id = "district_visibility_event_booking" model = "ir.rule">&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "name"> User can only see his / her bookings </field>&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "model_id" ref = "model_event_management" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "groups" eval = "[(4, ref ('group_district_manager'))]" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "perm_read" eval = "True" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "perm_write" eval = "True" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "perm_create" eval = "False" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "perm_unlink" eval = "False" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "domain_force"> [('user_id', '=', user.id)] </field>&ndash;&gt;-->
+<!--&lt;!&ndash;       </record>&ndash;&gt;-->
+<!--&lt;!&ndash;        <record id = "district_visibility_enquiry" model = "ir.rule">&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "name"> User can only see his / her enquiries </field>&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "model_id" ref = "model_customer_enquiry_details" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "groups" eval = "[(4, ref ('group_district_manager'))]" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "perm_read" eval = "True" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "perm_write" eval = "True" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "perm_create" eval = "False" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "perm_unlink" eval = "False" />&ndash;&gt;-->
+<!--&lt;!&ndash;           <field name = "domain_force"> [('district_id', '=', user.id)] </field>&ndash;&gt;-->
+<!--&lt;!&ndash;       </record>&ndash;&gt;-->
 
         <record id = "auditorium_wise_visibility_bookings" model = "ir.rule">
            <field name = "name"> Auditorium Manager can only see bookings in his/her Auditorium</field>
@@ -123,16 +124,16 @@
            <field name = "perm_unlink" eval = "False" />
            <field name = "domain_force"> [('venue_id', '=', user.auditorium.id)] </field>
        </record>
-<!--        <record id = "auditorium_wise_visibility_district_id" model = "ir.rule">-->
-<!--           <field name = "name"> Auditorium Manager can only his/her Auditorium District</field>-->
-<!--           <field name = "model_id" ref = "model_place_district" />-->
-<!--           <field name = "groups" eval = "[(4, ref ('group_auditorium_manager'))]" />-->
-<!--           <field name = "perm_read" eval = "True" />-->
-<!--           <field name = "perm_write" eval = "False" />-->
-<!--           <field name = "perm_create" eval = "False" />-->
-<!--           <field name = "perm_unlink" eval = "False" />-->
-<!--           <field name = "domain_force"> [('id', '=', user.auditorium.district_id.id)] </field>-->
-<!--       </record>-->
+        <record id = "auditorium_wise_visibility_district_id" model = "ir.rule">
+           <field name = "name"> Auditorium Manager can only his/her Auditorium District</field>
+           <field name = "model_id" ref = "model_place_district" />
+           <field name = "groups" eval = "[(4, ref ('group_auditorium_manager'))]" />
+           <field name = "perm_read" eval = "True" />
+           <field name = "perm_write" eval = "False" />
+           <field name = "perm_create" eval = "False" />
+           <field name = "perm_unlink" eval = "False" />
+           <field name = "domain_force"> [('id', '=', user.auditorium.district_id.id)] </field>
+       </record>
         <record id = "manager_wise_visibility_bookings_auditoriums" model = "ir.rule">
            <field name = "name"> Auditorium Manager can only his/her Auditorium</field>
            <field name = "model_id" ref = "model_res_partner" />
@@ -155,441 +156,441 @@
            <field name = "domain_force"> [('venue_id', '=', user.auditorium.id)] </field>
        </record>
 
-        <record id = "trivandrum_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Trivandrum User can only see enquiries in Trivandrum</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_trivandrum'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 1)] </field>
-       </record>
-        <record id = "kollam_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Kollam User can only see enquiries in Kollam</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_kollam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 2)] </field>
-       </record>
-        <record id = "pathanamtitta_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Pathanamtitta User can only see enquiries in Pathanamtitta</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_pathanamtitta'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 3)] </field>
-       </record>
-        <record id = "alappuzha_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Alappuzha User can only see enquiries in Alappuzha</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_alappuzha'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 4)] </field>
-       </record>
-        <record id = "kottayam_district_visibility_user" model = "ir.rule">
-           <field name = "name"> kottayam User can only see enquiries in kottayam</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_kottayam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 5)] </field>
-       </record>
-        <record id = "idukki_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Idukki User can only see enquiries in Idukki</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_idukki'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 6)] </field>
-       </record>
-
-        <record id = "ernakulam_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Ernakulam User can only see enquiries in Ernakulam</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_ernakulam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 7)] </field>
-       </record>
-        <record id = "thrissur_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Thrissur User can only see enquiries in Thrissur</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_thrissur'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 8)] </field>
-       </record>
-        <record id = "palakkad_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Palakkad User can only see enquiries in Palakkad</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_palakkad'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 9)] </field>
-       </record>
-        <record id = "malappuram_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Malappuram User can only see enquiries in Malappuram</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_malappuram'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 10)] </field>
-       </record>
-        <record id = "kozhikode_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Kozhikode User can only see enquiries in Kozhikode</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_kozhikode'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 11)] </field>
-       </record>
-        <record id = "wayanad_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Wayanad User can only see enquiries in Wayanad</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_wayanad'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 12)] </field>
-       </record>
-        <record id = "kannur_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Kannur User can only see enquiries in Kannur</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_kannur'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 13)] </field>
-       </record>
-        <record id = "kasaragod_district_visibility_user" model = "ir.rule">
-           <field name = "name"> Kasaragod User can only see enquiries in Kasaragod</field>
-           <field name = "model_id" ref = "model_customer_enquiry_details" />
-           <field name = "groups" eval = "[(4, ref ('group_kasaragod'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 14)] </field>
-       </record>
-
-        <record id = "trivandrum_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Trivandrum User can only see event in Trivandrum</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_trivandrum'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 1)] </field>
-       </record>
-        <record id = "kollam_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Kollam User can only see event in Kollam</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_kollam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 2)] </field>
-       </record>
-        <record id = "pathanamtitta_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Pathanamtitta User can only see event in Pathanamtitta</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_pathanamtitta'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 3)] </field>
-       </record>
-        <record id = "alappuzha_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Alappuzha User can only see event in Alappuzha</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_alappuzha'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 4)] </field>
-       </record>
-        <record id = "kottayam_district_visibility_event" model = "ir.rule">
-           <field name = "name"> kottayam User can only see event in kottayam</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_kottayam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 5)] </field>
-       </record>
-        <record id = "idukki_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Idukki User can only see event in Idukki</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_idukki'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 6)] </field>
-       </record>
-
-        <record id = "ernakulam_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Ernakulam User can only see event in Ernakulam</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_ernakulam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 7)] </field>
-       </record>
-        <record id = "thrissur_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Thrissur User can only see event in Thrissur</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_thrissur'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 8)] </field>
-       </record>
-        <record id = "palakkad_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Palakkad User can only see event in Palakkad</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_palakkad'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 9)] </field>
-       </record>
-        <record id = "malappuram_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Malappuram User can only see event in Malappuram</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_malappuram'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 10)] </field>
-       </record>
-        <record id = "kozhikode_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Kozhikode User can only see event in Kozhikode</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_kozhikode'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 11)] </field>
-       </record>
-        <record id = "wayanad_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Wayanad User can only see event in Wayanad</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_wayanad'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 12)] </field>
-       </record>
-        <record id = "kannur_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Kannur User can only see event in Kannur</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_kannur'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 13)] </field>
-       </record>
-        <record id = "kasaragod_district_visibility_event" model = "ir.rule">
-           <field name = "name"> Kasaragod User can only see event in Kasaragod</field>
-           <field name = "model_id" ref = "model_event_management" />
-           <field name = "groups" eval = "[(4, ref ('group_kasaragod'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('district_id', '=', 14)] </field>
-       </record>
-
-        <record id = "trivandrum_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Trivandrum User can only see district in Trivandrum</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_trivandrum'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 1)] </field>
-       </record>
-        <record id = "kollam_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Kollam User can only see district in Kollam</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_kollam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 2)] </field>
-       </record>
-        <record id = "pathanamtitta_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Pathanamtitta User can only see district in Pathanamtitta</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_pathanamtitta'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 3)] </field>
-       </record>
-        <record id = "alappuzha_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Alappuzha User can only see district in Alappuzha</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_alappuzha'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 4)] </field>
-       </record>
-        <record id = "kottayam_district_visibility_district" model = "ir.rule">
-           <field name = "name"> kottayam User can only see district in kottayam</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_kottayam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 5)] </field>
-       </record>
-        <record id = "idukki_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Idukki User can only see district in Idukki</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_idukki'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 6)] </field>
-       </record>
-
-        <record id = "ernakulam_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Ernakulam User can only see district in Ernakulam</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_ernakulam'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 7)] </field>
-       </record>
-        <record id = "thrissur_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Thrissur User can only see district in Thrissur</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_thrissur'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 8)] </field>
-       </record>
-        <record id = "palakkad_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Palakkad User can only see district in Palakkad</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_palakkad'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 9)] </field>
-       </record>
-        <record id = "malappuram_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Malappuram User can only see district in Malappuram</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_malappuram'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 10)] </field>
-       </record>
-        <record id = "kozhikode_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Kozhikode User can only see district in Kozhikode</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_kozhikode'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 11)] </field>
-       </record>
-        <record id = "wayanad_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Wayanad User can only see district in Wayanad</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_wayanad'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 12)] </field>
-       </record>
-        <record id = "kannur_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Kannur User can only see district in Kannur</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_kannur'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 13)] </field>
-       </record>
-        <record id = "kasaragod_district_visibility_district" model = "ir.rule">
-           <field name = "name"> Kasaragod User can only see district in Kasaragod</field>
-           <field name = "model_id" ref = "model_place_district" />
-           <field name = "groups" eval = "[(4, ref ('group_kasaragod'))]" />
-           <field name = "perm_read" eval = "True" />
-           <field name = "perm_write" eval = "True" />
-           <field name = "perm_create" eval = "False" />
-           <field name = "perm_unlink" eval = "False" />
-           <field name = "domain_force"> [('id', '=', 14)] </field>
-       </record>
-
-
-
-
-<!--        <record id="event_booking_base_user_rule" model="ir.rule">-->
-<!--            <field name="name">District Wise</field>-->
-<!--            <field ref="model_event_management" name="model_id"/>-->
-<!--            <field name="domain_force">[('user_id', '=', user.id)]</field>-->
-<!--            <field name="groups" eval="[(4, ref('base.group_user'))]"/>-->
+<!--        <record id = "trivandrum_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Trivandrum User can only see enquiries in Trivandrum</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_trivandrum'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 1)] </field>-->
 <!--       </record>-->
+<!--        <record id = "kollam_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Kollam User can only see enquiries in Kollam</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kollam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 2)] </field>-->
+<!--       </record>-->
+<!--        <record id = "pathanamtitta_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Pathanamtitta User can only see enquiries in Pathanamtitta</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_pathanamtitta'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 3)] </field>-->
+<!--       </record>-->
+<!--        <record id = "alappuzha_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Alappuzha User can only see enquiries in Alappuzha</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_alappuzha'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 4)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kottayam_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> kottayam User can only see enquiries in kottayam</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kottayam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 5)] </field>-->
+<!--       </record>-->
+<!--        <record id = "idukki_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Idukki User can only see enquiries in Idukki</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_idukki'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 6)] </field>-->
+<!--       </record>-->
+
+<!--        <record id = "ernakulam_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Ernakulam User can only see enquiries in Ernakulam</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_ernakulam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 7)] </field>-->
+<!--       </record>-->
+<!--        <record id = "thrissur_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Thrissur User can only see enquiries in Thrissur</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_thrissur'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 8)] </field>-->
+<!--       </record>-->
+<!--        <record id = "palakkad_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Palakkad User can only see enquiries in Palakkad</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_palakkad'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 9)] </field>-->
+<!--       </record>-->
+<!--        <record id = "malappuram_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Malappuram User can only see enquiries in Malappuram</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_malappuram'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 10)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kozhikode_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Kozhikode User can only see enquiries in Kozhikode</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kozhikode'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 11)] </field>-->
+<!--       </record>-->
+<!--        <record id = "wayanad_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Wayanad User can only see enquiries in Wayanad</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_wayanad'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 12)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kannur_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Kannur User can only see enquiries in Kannur</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kannur'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 13)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kasaragod_district_visibility_user" model = "ir.rule">-->
+<!--           <field name = "name"> Kasaragod User can only see enquiries in Kasaragod</field>-->
+<!--           <field name = "model_id" ref = "model_customer_enquiry_details" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kasaragod'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 14)] </field>-->
+<!--       </record>-->
+
+<!--        <record id = "trivandrum_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Trivandrum User can only see event in Trivandrum</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_trivandrum'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 1)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kollam_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Kollam User can only see event in Kollam</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kollam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 2)] </field>-->
+<!--       </record>-->
+<!--        <record id = "pathanamtitta_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Pathanamtitta User can only see event in Pathanamtitta</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_pathanamtitta'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 3)] </field>-->
+<!--       </record>-->
+<!--        <record id = "alappuzha_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Alappuzha User can only see event in Alappuzha</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_alappuzha'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 4)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kottayam_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> kottayam User can only see event in kottayam</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kottayam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 5)] </field>-->
+<!--       </record>-->
+<!--        <record id = "idukki_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Idukki User can only see event in Idukki</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_idukki'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 6)] </field>-->
+<!--       </record>-->
+
+<!--        <record id = "ernakulam_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Ernakulam User can only see event in Ernakulam</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_ernakulam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 7)] </field>-->
+<!--       </record>-->
+<!--        <record id = "thrissur_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Thrissur User can only see event in Thrissur</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_thrissur'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 8)] </field>-->
+<!--       </record>-->
+<!--        <record id = "palakkad_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Palakkad User can only see event in Palakkad</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_palakkad'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 9)] </field>-->
+<!--       </record>-->
+<!--        <record id = "malappuram_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Malappuram User can only see event in Malappuram</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_malappuram'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 10)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kozhikode_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Kozhikode User can only see event in Kozhikode</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kozhikode'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 11)] </field>-->
+<!--       </record>-->
+<!--        <record id = "wayanad_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Wayanad User can only see event in Wayanad</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_wayanad'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 12)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kannur_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Kannur User can only see event in Kannur</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kannur'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 13)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kasaragod_district_visibility_event" model = "ir.rule">-->
+<!--           <field name = "name"> Kasaragod User can only see event in Kasaragod</field>-->
+<!--           <field name = "model_id" ref = "model_event_management" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kasaragod'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('district_id', '=', 14)] </field>-->
+<!--       </record>-->
+
+<!--        <record id = "trivandrum_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Trivandrum User can only see district in Trivandrum</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_trivandrum'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 1)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kollam_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Kollam User can only see district in Kollam</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kollam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 2)] </field>-->
+<!--       </record>-->
+<!--        <record id = "pathanamtitta_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Pathanamtitta User can only see district in Pathanamtitta</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_pathanamtitta'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 3)] </field>-->
+<!--       </record>-->
+<!--        <record id = "alappuzha_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Alappuzha User can only see district in Alappuzha</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_alappuzha'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 4)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kottayam_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> kottayam User can only see district in kottayam</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kottayam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 5)] </field>-->
+<!--       </record>-->
+<!--        <record id = "idukki_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Idukki User can only see district in Idukki</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_idukki'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 6)] </field>-->
+<!--       </record>-->
+
+<!--        <record id = "ernakulam_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Ernakulam User can only see district in Ernakulam</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_ernakulam'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 7)] </field>-->
+<!--       </record>-->
+<!--        <record id = "thrissur_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Thrissur User can only see district in Thrissur</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_thrissur'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 8)] </field>-->
+<!--       </record>-->
+<!--        <record id = "palakkad_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Palakkad User can only see district in Palakkad</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_palakkad'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 9)] </field>-->
+<!--       </record>-->
+<!--        <record id = "malappuram_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Malappuram User can only see district in Malappuram</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_malappuram'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 10)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kozhikode_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Kozhikode User can only see district in Kozhikode</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kozhikode'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 11)] </field>-->
+<!--       </record>-->
+<!--        <record id = "wayanad_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Wayanad User can only see district in Wayanad</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_wayanad'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 12)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kannur_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Kannur User can only see district in Kannur</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kannur'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 13)] </field>-->
+<!--       </record>-->
+<!--        <record id = "kasaragod_district_visibility_district" model = "ir.rule">-->
+<!--           <field name = "name"> Kasaragod User can only see district in Kasaragod</field>-->
+<!--           <field name = "model_id" ref = "model_place_district" />-->
+<!--           <field name = "groups" eval = "[(4, ref ('group_kasaragod'))]" />-->
+<!--           <field name = "perm_read" eval = "True" />-->
+<!--           <field name = "perm_write" eval = "True" />-->
+<!--           <field name = "perm_create" eval = "False" />-->
+<!--           <field name = "perm_unlink" eval = "False" />-->
+<!--           <field name = "domain_force"> [('id', '=', 14)] </field>-->
+<!--       </record>-->
+
+
+
+
+        <record id="event_booking_base_user_rule" model="ir.rule">
+            <field name="name">District Wise</field>
+            <field ref="model_event_management" name="model_id"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
 
     </data>
 </odoo>

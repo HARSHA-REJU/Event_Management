@@ -1060,7 +1060,7 @@ label.valid {
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="user_password"><i class="zmdi zmdi-lock"></i></label>
-                                                        <input type="user_password" name="user_password" id="user_password" placeholder="Password"/>
+                                                        <input type="password" name="user_password" id="user_password" placeholder="Password"/>
                                                     </div>
 
                                                     <div class="form-group form-button">
@@ -1112,9 +1112,9 @@ label.valid {
                                             <tr>
                                                 <th>SN</th>
                                                 <th>Reference</th>
-                                                <th>Auditorium Name</th>
+                                                <th>Customer Name</th>
+                                                <th>Phone No</th>
                                                 <th>Event Type</th>
-                                                <th>Booking Date</th>
                                                 <th>Event Date</th>
                                                 <th>Booking Status</th>
                                             </tr>
@@ -1129,9 +1129,9 @@ label.valid {
                                                     </td>
                                                     <t t-set="booking_reference" t-value="record.ref" />
                                                     <td><a href="/record"><span t-esc="record.ref"/></a></td>
-                                                    <td><span t-esc="record.venue_id.name"/></td>
-                                                    <td><span t-esc="record.type_of_event_id.name"/></td>
-                                                    <td><span t-esc="record.date"/></td>
+                                                    <td><span t-esc="record.partner_id.name"/></td>
+                                                    <td><span t-esc="record.booking_id.mobile"/></td>
+                                                    <td><span t-esc="record.type_of_event_id"/></td>
                                                     <td><span t-esc="record.event_date"/></td>
                                                     <td><span t-esc="record.state"/></td>
                                                 </tr>

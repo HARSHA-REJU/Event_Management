@@ -484,7 +484,6 @@ class BookingPage(http.Controller):
                 'makeup_packages': makeup_packages,
 
             }
-
             return request.render(
 
             "event_management.booking_page",values)
@@ -518,9 +517,9 @@ class BookingPage(http.Controller):
     def booking_page_submitt(self, **args):
         current_user = request.env.user
         current_user_id = request.env.user.id
-        print("name is..........................",current_user.name)
+        # print("name is..........................",current_user.name)
         if current_user.name == 'Administrator':
-            print("I am the admin")
+            # print("I am the admin")
             vals = {
                 'name': args.get('username'),
                 'place_id': int(args.get('place_id')),
@@ -540,7 +539,7 @@ class BookingPage(http.Controller):
             email = args.get('useremail')
             name = args.get('username')
             venue_obj = request.env['res.partner'].sudo().search([('id', '=', venue_id)])
-            print("name......................", current_user.name)
+            # print("name......................", current_user.name)
             vals = {
                 'venue_id': venue_id,
                 'type_of_event_id': type_id,
@@ -560,7 +559,7 @@ class BookingPage(http.Controller):
             booking_event = request.env['event.management'].sudo().create(vals)
 
         else:
-            print("name is..........................", current_user.name)
+            # print("name is..........................", current_user.name)
             auditorium = request.env['res.partner'].sudo().search(
                 [('venue', '=', True), ('venue_owner', '=', current_user_id)])
             bookings = False
@@ -573,7 +572,7 @@ class BookingPage(http.Controller):
             new_user = request.env['res.partner'].sudo().create(vals)
 
             if auditorium:
-                print("yessssssssssssssssssssss")
+                # print("yessssssssssssssssssssss")
                 # venue_id = int(args.get('venue_id'))
                 venue_id = auditorium.id
                 amount = auditorium.amount
@@ -633,11 +632,12 @@ class BookingPage(http.Controller):
             # }
             # return request.render("survey.survey_auth_required", {'survey': survey_sudo, 'redirect_url': redirect_url})
 
-        # return http.redirect_with_hash('/booking')
         vals = {
                 'move_type': 'out_invoice',
                 'invoice_date': fields.Date.today(),
                 'partner_id': new_user.id,
+                'booking_id':booking_event.id,
+                'address': address,
                 # 'currency_id': self.currency_id.id,
                 # 'amount_total': self.delivery_total,
                 # 'invoice_line_ids': [
@@ -651,14 +651,12 @@ class BookingPage(http.Controller):
 
         }
         account_invoice = request.env['account.move'].create(vals)
+        if current_user.has_group('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
+            action_id = request.env.ref('account.action_move_out_invoice_type')
+            return request.redirect('/web?&#id=%s&action=%s&model=account.move&view_type=form' % (str(account_invoice.id),action_id.id))
 
-        # return http.redirect_with_hash("/web#ID=&action=196&model=account.move&view_type=list&cids=1&menu_id=101")
-        return http.redirect_with_hash("/web#ID=&action=196&model=account.move&view_type=list&cids=1&menu_id=101")
-        # return http.redirect_with_hash("/web#id=&action=196&model=account.move&view_type=form&cids=1&menu_id=101")
-
-            # response = redirect("/booking")
-            # return response
-
+        else:
+            return http.redirect_with_hash("/invoices")
 
     @http.route(['/ajax/reservations/get/<int:venue_id>'], type='http', auth="public",website=True,csrf=False)
     def venue_calender_ajax(self, venue_id,**args):

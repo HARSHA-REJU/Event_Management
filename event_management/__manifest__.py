@@ -8,7 +8,7 @@
     'company': 'Hiworth Solutions',
     'maintainer': 'Hiworth Solutions',
     'website': "https://www.https://hiworthsolutions.com",
-    'depends': ['product', 'account', 'website','mail',],
+    'depends': ['product', 'account', 'website','mail','l10n_in','account_edi_ubl'],
     'data': ['security/event_security.xml',
              'security/ir.model.access.csv',
              'views/event_type_view.xml',

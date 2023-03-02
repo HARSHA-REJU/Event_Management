@@ -798,7 +798,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="user_password"><i class="zmdi zmdi-lock"></i></label>
-                                                        <input type="user_password" name="user_password" id="user_password" placeholder="Password"/>
+                                                        <input type="password" name="user_password" id="user_password" placeholder="Password"/>
                                                     </div>
 
                                                     <div class="form-group form-button">
@@ -1396,14 +1396,6 @@
                               renderCalendar()
                         })
 
-                      $('input#date').on('change', function(){
-                      var venue = $('input#current_user_auditorium').val();
-                      var venue_val = $('select#venue_id').val();
-                       if(venue_val != '' || venue_val != null){
-                            $('select#venue_id').val(venue).trigger('change')
-                      }
-                              renderCalendar()
-                        })
 
 
                   </script>
