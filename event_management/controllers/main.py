@@ -517,6 +517,7 @@ class BookingPage(http.Controller):
     def booking_page_submitt(self, **args):
         current_user = request.env.user
         current_user_id = request.env.user.id
+        booking_event = None
         # print("name is..........................",current_user.name)
         if current_user.has_group('event_management.group_auditorium_manager'):
             # print("name is..........................", current_user.name)
@@ -567,7 +568,6 @@ class BookingPage(http.Controller):
                     'email': email,
                 }
                 booking_event = request.env['event.management'].sudo().create(vals)
-
 
         else:
             vals = {
