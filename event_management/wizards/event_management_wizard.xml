@@ -35,7 +35,7 @@
         <field name="view_id" ref="event_management_wizard_view_form"/>
         <field name="target">new</field>
     </record>
-    <menuitem id="reports_root_menu" name="Reports" sequence="10"/>
+    <menuitem id="reports_root_menu" name="Reports" sequence="10" groups="event_management.group_event_manager"/>
 
 <!--    <menuitem id="event_management_wizard_menu" name="Reporting"-->
 <!--              parent="event_management.event_management_root_menu" sequence="15">-->

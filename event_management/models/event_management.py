@@ -887,14 +887,18 @@ class ResUsers(models.Model):
 
     auditorium = fields.Many2one('res.partner',string="Select Auditorium",default= get_partner_id)
 
+    def get_user_address(self):
+        user = self.env.user
+        address = ""
+        if user:
+            address = user.partner_id.street + "," + user.partner_id.city + "," + user.partner_id.state_id.name
+        return address
 
-from odoo import models
 
-class ResUser(models.Model):
-   _inherit = 'res.users'
-   def get_user_address(self):
-       user = self.env.user
-       address = ""
-       if user:
-           address = user.partner_id.street + ","+user.partner_id.city+","+user.partner_id.state_id.name
-       return address
+    @api.model
+    def create(self, values):
+        res = super(ResUsers, self).create(values)
+        if res.has_group('event_management.group_auditorium_manager'):
+            if not res.auditorium:
+                raise UserError(_("please select an auditorium for manager"))
+        return res

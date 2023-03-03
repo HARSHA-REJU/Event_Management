@@ -201,20 +201,21 @@ class HomePage(http.Controller):
         else:
             return http.redirect_with_hash('/account')
 
-    @http.route(['/record'], type='http', auth="public", website=True)
-    def booking_direct_controller(self, **args):
+    @http.route(['/record/<int:booking_id>/'], type='http', auth="public", website=True)
+    def booking_direct_controller(self, booking_id, **args):
         current_user = request.env.user
         if current_user.has_group ('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
-
-            return http.redirect_with_hash("/web#action=281&model=event.management&view_type=list&cids=&menu_id=186")
+            action_id = request.env.ref('event_management.event_management_action_view_kanban')
+            return request.redirect('/web#id=%s&action=%s&model=event.management&view_type=form' % (str(booking_id),action_id.id))
         else:
             return http.redirect_with_hash('/account')
-    @http.route(['/enquiry'], type='http', auth="public", website=True)
-    def enquiry_direct_controller(self, **args):
+
+    @http.route(['/enquiry/<int:enquiry_id>/'], type='http', auth="public", website=True)
+    def enquiry_direct_controller(self, enquiry_id, **args):
         current_user = request.env.user
         if current_user.has_group ('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
-
-            return http.redirect_with_hash("/web#action=273&model=customer.enquiry.details&view_type=list&cids=&menu_id=180")
+            action_id = request.env.ref('event_management.customer_enquiry_details_action_view')
+            return request.redirect('/web#id=%s&action=%s&model=customer.enquiry.details&view_type=form' % (str(enquiry_id),action_id.id))
         else:
             return http.redirect_with_hash('/account')
 
@@ -500,7 +501,6 @@ class BookingPage(http.Controller):
             package = int(args.get('package_id'))
             b_date = args.get('date')
             price = args.get('price')
-            # price = venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
             vals = {
                 'artist_name': artist_name,
                 'customer_name': customer_name,
@@ -516,143 +516,61 @@ class BookingPage(http.Controller):
     @http.route(['/booking/confirm'], type='http', auth="public",website=True)
     def booking_page_submitt(self, **args):
         current_user = request.env.user
-        current_user_id = request.env.user.id
-        booking_event = None
-        # print("name is..........................",current_user.name)
+        auditorium = False
+        venue_id = int(args.get('venue_id'))
+        if venue_id:
+            auditorium = request.env['res.partner'].sudo().browse(venue_id)
         if current_user.has_group('event_management.group_auditorium_manager'):
-            # print("name is..........................", current_user.name)
-            auditorium = request.env['res.partner'].sudo().search(
-                [('venue', '=', True), ('venue_owner', '=', current_user_id)])
-            bookings = False
-            vals = {
-                'name': args.get('username'),
-                'place_id': auditorium.place_id.id,
-                'district_id': auditorium.district_id.id,
-                'customer': True,
-            }
-            new_user = request.env['res.partner'].sudo().create(vals)
-
-            if auditorium:
-                # print("yessssssssssssssssssssss")
-                # venue_id = int(args.get('venue_id'))
-                venue_id = auditorium.id
-                amount = auditorium.amount
-                # district_id = int(args.get('district_id'))
-                district_id = auditorium.district_id.id
-                # place_id = int(args.get('place_id'))
-                place_id = auditorium.place_id.id
-                type_id = int(args.get('type_id'))
-                date = args.get('date')
-                mobile = args.get('mobile')
-                address = args.get('address')
-                email = args.get('useremail')
-                name = args.get('username')
-                # makeup_package =  int(args.get('makeup_package_id'))
-                # makeup_artist_name =  int(args.get('artist_name'))
-                venue_obj = request.env['res.partner'].sudo().search([('id', '=', venue_id)])
-
-                vals = {
-                    'venue_id': venue_id,
-                    'type_of_event_id': type_id,
-                    'date': fields.Date.today(),
-                    'event_date': date,
-                    'mobile': mobile,
-                    'district_id': district_id,
-                    'place_id': place_id,
-                    # 'package_id':makeup_package,
-                    # 'makeup_id':makeup_artist_name,
-                    # 'partner_id':current_user.partner_id.id,
-                    'partner_id': new_user.id,
-                    'rent': amount,
-                    'address': address,
-                    'email': email,
-                }
-                booking_event = request.env['event.management'].sudo().create(vals)
-
-        else:
-            vals = {
-                'name': args.get('username'),
-                'place_id': int(args.get('place_id')),
-                'district_id': int(args.get('district_id')),
-                'customer': True,
-            }
-            new_user = request.env['res.partner'].sudo().create(vals)
-            venue_id = int(args.get('venue_id'))
-            auditorium_obj = request.env['res.partner'].sudo().browse(venue_id)
-            amount = auditorium_obj.amount
-            district_id = int(args.get('district_id'))
-            place_id = int(args.get('place_id'))
-            type_id = int(args.get('type_id'))
-            date = args.get('date')
-            mobile = args.get('mobile')
-            address = args.get('address')
-            email = args.get('useremail')
-            name = args.get('username')
-            venue_obj = request.env['res.partner'].sudo().search([('id', '=', venue_id)])
-            # print("name......................", current_user.name)
-            vals = {
-                'venue_id': venue_id,
-                'type_of_event_id': type_id,
-                'date': fields.Date.today(),
-                'event_date': date,
-                'mobile': mobile,
-                'district_id': district_id,
-                'place_id': place_id,
-                # 'package_id':makeup_package,
-                # 'makeup_id':makeup_artist_name,
-                # 'partner_id':current_user.partner_id.id,
-                'partner_id': new_user.id,
-                'rent': amount,
-                'address': address,
-                'email': email,
-            }
-            booking_event = request.env['event.management'].sudo().create(vals)
+            auditorium = current_user.auditorium
         vals = {
+            'name': args.get('username'),
+            'place_id': auditorium.place_id.id,
+            'district_id': auditorium.district_id.id,
+            'customer': True,
+        }
+        new_customer = request.env['res.partner'].sudo().create(vals)
+        venue_id = auditorium.id
+        amount = auditorium.amount
+        district_id = auditorium.district_id.id
+        place_id = auditorium.place_id.id
+        type_id = int(args.get('type_id'))
+        date = args.get('date')
+        mobile = args.get('mobile')
+        address = args.get('address')
+        email = args.get('useremail')
+
+        vals = {
+            'venue_id': venue_id,
+            'type_of_event_id': type_id,
+            'date': fields.Date.today(),
+            'event_date': date,
+            'mobile': mobile,
+            'district_id': district_id,
+            'place_id': place_id,
+            'partner_id': new_customer.id,
+            'rent': amount,
+            'address': address,
+            'email': email,
+        }
+        booking_event = request.env['event.management'].sudo().create(vals)
+
+
+        invoice_vals = {
             'move_type': 'out_invoice',
             'invoice_date': fields.Date.today(),
-            'partner_id': new_user.id,
+            'partner_id': new_customer.id,
             'booking_id': booking_event.id,
             'address': address,
-            # 'currency_id': self.currency_id.id,
-            # 'amount_total': self.delivery_total,
-            # 'invoice_line_ids': [
-            #     (0, None, {
-            #         'product_id': 1,
-            #         'name': 'Delivery Service',
-            #         'quantity': 1,
-            #         'price_unit': self.delivery_total,
-            #         'price_subtotal': self.delivery_total,
-            #     }),
+            'invoice_line_ids': [
+                (0, 0, {
+                    'name': 'Auditorium Rent',
+                    'price_unit': self.delivery_total,
+                    'price_subtotal': self.delivery_total,
+                }),]
 
         }
 
-
-            # print(venue_id,type_id,date,mobile,name,venue_obj.district_id.id,venue_obj.place_id.id)
-            # booking_event = request.env['customer.enquiry.details'].sudo().create(vals)
-
-
-            # booking_event.action_create_quote()
-            # booking_event.action_enquiry_confirm()
-            # booking_event.action_create_event()
-            # print ("My bookingssssssssssssssssss///////////...................")
-            # print (booking_event.id)
-            # venues = request.env['res.partner'].sudo().search([('venue', '=', True)])
-            # districts = request.env['place.district'].sudo().search([])
-            # types = request.env['event.management.type'].sudo().search([])
-            # places = request.env['place.place'].sudo().search([])
-            # makeup_artists = request.env['res.partner'].sudo().search([('makeup_artist', '=', True)])
-
-            # values = {
-            #     'venues': venues,
-            #     'districts': districts,
-            #     'types': types,
-            #     'places': places,
-            #     'makeup_artists': makeup_artists,
-            # }
-            # return request.render("survey.survey_auth_required", {'survey': survey_sudo, 'redirect_url': redirect_url})
-        # print("I am the admin")
-
-        account_invoice = request.env['account.move'].create(vals)
+        account_invoice = request.env['account.move'].create(invoice_vals)
         if current_user.has_group('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
             action_id = request.env.ref('account.action_move_out_invoice_type')
             return request.redirect('/web?&#id=%s&action=%s&model=account.move&view_type=form' % (str(account_invoice.id),action_id.id))

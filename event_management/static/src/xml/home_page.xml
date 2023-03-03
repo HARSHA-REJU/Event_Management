@@ -1626,7 +1626,7 @@ label.valid {
                               <li><a href="/contactus">Contact Us</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-4 col-sm-4">
+                          <div class="col-lg-4">
                             <ul>
                               <li><a href="#">Reviews</a></li>
                               <li><a href="/eventdetails">Gallery</a></li>

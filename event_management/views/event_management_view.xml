@@ -311,7 +311,7 @@
             </field>
         </record>
 
-        <menuitem id="event_management_root_menu" name="Event Management" sequence="6"/>
+        <menuitem id="event_management_root_menu" name="Event Management" sequence="6" groups="event_management.group_event_manager"/>
         <menuitem id="event_management_bookings" name="Bookings"  parent="event_management_root_menu"
                   sequence="5"/>
         <menuitem id="event_management_sub_menu1" name="Auditorium Booking" action="event_management_action_view_kanban" parent="event_management_bookings"

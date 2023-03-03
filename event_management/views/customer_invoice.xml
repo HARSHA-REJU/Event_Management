@@ -10,7 +10,7 @@
                     <field name="booking_id" string="Booking"/>
                 </xpath>
                 <xpath expr="//field[@name='amount_untaxed']" position="before">
-                    <field name="fortuna_discount"/>
+                    <field name="fortuna_discount" string="Fortuna Disc Amount"/>
                 </xpath>
                 <xpath expr="//field[@name='invoice_date']" position="after">
                     <field name="address"/>

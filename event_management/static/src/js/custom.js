@@ -107,10 +107,10 @@ $(document).ready(function(){
 //       $('.page-heading > .container > .row > .col-lg-6 > .top-text.header-text').show();
     }
 
-//    if($('a.account-page').html().indexOf('Administrator') > 0){
-//        $('.only_admin').show();
-//        $('.place_only_admin').show();
-//    }
+    if($('a.account-page').html().indexOf('Administrator') > 0){
+        $('.only_admin').show();
+        $('.place_only_admin').show();
+    }
 
 //    if(userCheck === "Administrator" && userCheck === "Public user") {
 //        $('.main-banner > .container > .row > #show.show-only-am-only').hide();
@@ -124,8 +124,9 @@ $(document).ready(function(){
     }
     else {
          $('.menu_venues').show();
-         $('.only_admin').show();
-         $('.place_only_admin').show();
+//         $('.only_admin').show();
+//         $('.place_only_admin').show();
+         $('.venue').show();
         }
 
 })
@@ -169,6 +170,15 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
 //       else:
 //            window.location.href = "/";
  })
+
+//$('td').click(function () {
+//    var string_no = $(this).text().trim();
+//    var string_no2 = $(this).find("p#record_value").text().trim();
+//    console.log(string_no);
+//    console.log(string_no2);
+//    window.location.href = "/record/"+string_no2+"/";
+//});
+
  $(window).on('load', function(){
     if(window.location.pathname == '/booking'){
       var venue = $('input#current_user_auditorium').val();
