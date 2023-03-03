@@ -1266,13 +1266,7 @@ label.valid {
 
                       $('td').click(function () {
                         var string_no2 = $(this).find("p#record_value").text().trim();
-                         if(string_no2 != '' || string_no2 != null){
-                            var string_no3 = $(this).find("p#record_value").text().trim();
-                            window.location.href = "/enquiry/"+string_no3+"/";
-                        }else{
                       window.location.href = "/record/"+string_no2+"/";
-                      }
-
                     });
 
 <!--                       function customFunction() {-->
