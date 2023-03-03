@@ -170,7 +170,7 @@ class HomePage(http.Controller):
         elif current_user.has_group('base.group_system'):
             invoices = request.env['account.move'].sudo().search([])
         else:
-            invoices = request.env['account.move'].sudo().search([('partner_id','=',current_user_id.partner_id)])
+            invoices = request.env['account.move'].sudo().search([('partner_id','=',current_user.partner_id.id)])
 
         values = {
             'invoices':invoices,
@@ -518,8 +518,58 @@ class BookingPage(http.Controller):
         current_user = request.env.user
         current_user_id = request.env.user.id
         # print("name is..........................",current_user.name)
-        if current_user.name == 'Administrator':
-            # print("I am the admin")
+        if current_user.has_group('event_management.group_auditorium_manager'):
+            # print("name is..........................", current_user.name)
+            auditorium = request.env['res.partner'].sudo().search(
+                [('venue', '=', True), ('venue_owner', '=', current_user_id)])
+            bookings = False
+            vals = {
+                'name': args.get('username'),
+                'place_id': auditorium.place_id.id,
+                'district_id': auditorium.district_id.id,
+                'customer': True,
+            }
+            new_user = request.env['res.partner'].sudo().create(vals)
+
+            if auditorium:
+                # print("yessssssssssssssssssssss")
+                # venue_id = int(args.get('venue_id'))
+                venue_id = auditorium.id
+                amount = auditorium.amount
+                # district_id = int(args.get('district_id'))
+                district_id = auditorium.district_id.id
+                # place_id = int(args.get('place_id'))
+                place_id = auditorium.place_id.id
+                type_id = int(args.get('type_id'))
+                date = args.get('date')
+                mobile = args.get('mobile')
+                address = args.get('address')
+                email = args.get('useremail')
+                name = args.get('username')
+                # makeup_package =  int(args.get('makeup_package_id'))
+                # makeup_artist_name =  int(args.get('artist_name'))
+                venue_obj = request.env['res.partner'].sudo().search([('id', '=', venue_id)])
+
+                vals = {
+                    'venue_id': venue_id,
+                    'type_of_event_id': type_id,
+                    'date': fields.Date.today(),
+                    'event_date': date,
+                    'mobile': mobile,
+                    'district_id': district_id,
+                    'place_id': place_id,
+                    # 'package_id':makeup_package,
+                    # 'makeup_id':makeup_artist_name,
+                    # 'partner_id':current_user.partner_id.id,
+                    'partner_id': new_user.id,
+                    'rent': amount,
+                    'address': address,
+                    'email': email,
+                }
+                booking_event = request.env['event.management'].sudo().create(vals)
+
+
+        else:
             vals = {
                 'name': args.get('username'),
                 'place_id': int(args.get('place_id')),
@@ -553,61 +603,30 @@ class BookingPage(http.Controller):
                 # 'partner_id':current_user.partner_id.id,
                 'partner_id': new_user.id,
                 'rent': amount,
-                'address':address,
-                'email':email,
+                'address': address,
+                'email': email,
             }
             booking_event = request.env['event.management'].sudo().create(vals)
+        vals = {
+            'move_type': 'out_invoice',
+            'invoice_date': fields.Date.today(),
+            'partner_id': new_user.id,
+            'booking_id': booking_event.id,
+            'address': address,
+            # 'currency_id': self.currency_id.id,
+            # 'amount_total': self.delivery_total,
+            # 'invoice_line_ids': [
+            #     (0, None, {
+            #         'product_id': 1,
+            #         'name': 'Delivery Service',
+            #         'quantity': 1,
+            #         'price_unit': self.delivery_total,
+            #         'price_subtotal': self.delivery_total,
+            #     }),
 
-        else:
-            # print("name is..........................", current_user.name)
-            auditorium = request.env['res.partner'].sudo().search(
-                [('venue', '=', True), ('venue_owner', '=', current_user_id)])
-            bookings = False
-            vals = {
-                'name': args.get('username'),
-                'place_id': auditorium.place_id.id,
-                'district_id': auditorium.district_id.id,
-                'customer': True,
-            }
-            new_user = request.env['res.partner'].sudo().create(vals)
-
-            if auditorium:
-                # print("yessssssssssssssssssssss")
-                # venue_id = int(args.get('venue_id'))
-                venue_id = auditorium.id
-                amount = auditorium.amount
-                # district_id = int(args.get('district_id'))
-                district_id = auditorium.district_id.id
-                # place_id = int(args.get('place_id'))
-                place_id = auditorium.place_id.id
-                type_id =  int(args.get('type_id'))
-                date = args.get('date')
-                mobile = args.get('mobile')
-                address = args.get('address')
-                email = args.get('useremail')
-                name = args.get('username')
-                # makeup_package =  int(args.get('makeup_package_id'))
-                # makeup_artist_name =  int(args.get('artist_name'))
-                venue_obj = request.env['res.partner'].sudo().search([('id','=',venue_id)])
+        }
 
 
-                vals = {
-                        'venue_id':venue_id,
-                        'type_of_event_id':type_id,
-                        'date':fields.Date.today(),
-                        'event_date':date,
-                        'mobile':mobile,
-                        'district_id':district_id,
-                        'place_id':place_id,
-                        # 'package_id':makeup_package,
-                        # 'makeup_id':makeup_artist_name,
-                        # 'partner_id':current_user.partner_id.id,
-                        'partner_id':new_user.id,
-                        'rent':amount,
-                        'address': address,
-                        'email': email,
-                }
-                booking_event = request.env['event.management'].sudo().create(vals)
             # print(venue_id,type_id,date,mobile,name,venue_obj.district_id.id,venue_obj.place_id.id)
             # booking_event = request.env['customer.enquiry.details'].sudo().create(vals)
 
@@ -631,25 +650,8 @@ class BookingPage(http.Controller):
             #     'makeup_artists': makeup_artists,
             # }
             # return request.render("survey.survey_auth_required", {'survey': survey_sudo, 'redirect_url': redirect_url})
+        # print("I am the admin")
 
-        vals = {
-                'move_type': 'out_invoice',
-                'invoice_date': fields.Date.today(),
-                'partner_id': new_user.id,
-                'booking_id':booking_event.id,
-                'address': address,
-                # 'currency_id': self.currency_id.id,
-                # 'amount_total': self.delivery_total,
-                # 'invoice_line_ids': [
-                #     (0, None, {
-                #         'product_id': 1,
-                #         'name': 'Delivery Service',
-                #         'quantity': 1,
-                #         'price_unit': self.delivery_total,
-                #         'price_subtotal': self.delivery_total,
-                #     }),
-
-        }
         account_invoice = request.env['account.move'].create(vals)
         if current_user.has_group('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
             action_id = request.env.ref('account.action_move_out_invoice_type')

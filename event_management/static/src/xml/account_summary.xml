@@ -1130,8 +1130,8 @@ label.valid {
                                                     <t t-set="booking_reference" t-value="record.ref" />
                                                     <td><a href="/record"><span t-esc="record.ref"/></a></td>
                                                     <td><span t-esc="record.partner_id.name"/></td>
-                                                    <td><span t-esc="record.booking_id.mobile"/></td>
-                                                    <td><span t-esc="record.type_of_event_id"/></td>
+                                                    <td><span t-esc="record.mobile"/></td>
+                                                    <td><span t-esc="record.type_of_event_id.name"/></td>
                                                     <td><span t-esc="record.event_date"/></td>
                                                     <td><span t-esc="record.state"/></td>
                                                 </tr>
