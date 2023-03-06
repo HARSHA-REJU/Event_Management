@@ -1114,7 +1114,7 @@ label.valid {
 <!--                                    <th>Amount</th>-->
 <!--                                    <th>Tax%</th>-->
                                     <th>Total Amount</th>
-                                    <th>Paid Amount</th>
+<!--                                    <th>Paid Amount</th>-->
                                     <th>Balance Amount</th>
                                 </tr>
                             </thead>
@@ -1135,7 +1135,7 @@ label.valid {
 <!--                                        <td><span t-esc="record.amount_untaxed"/></td>-->
 <!--                                        <td><span t-esc="sum(record.amount_by_group)"/></td>-->
                                         <td><span t-esc="record.amount_total"/></td>
-                                        <td><span t-esc="record.amount_total"/></td>
+<!--                                        <td><span t-esc="record.amount_total"/></td>-->
                                         <td><span t-esc="record.amount_residual"/></td>
                                     </tr>
                                 </t>
