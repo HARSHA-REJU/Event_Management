@@ -11,12 +11,13 @@ class AccountMove(models.Model):
     booking_id = fields.Many2one('event.management')
     fortuna_discount = fields.Float()
     address = fields.Text()
-    total_advance = fields.Float(compute="_compute_total_advance_amount",store=True)
-
-    @api.depends('line_ids.advance')
-    def _compute_total_advance_amount(self):
-        for move in self:
-            move.total_advance=sum(move.line_ids.mapped('advance'))
+    total_advance = fields.Float()
+    # total_advance = fields.Float(compute="_compute_total_advance_amount",store=True)
+    # payment_done = fields.Boolean()
+    # @api.depends('line_ids.advance')
+    # def _compute_total_advance_amount(self):
+    #     for move in self:
+    #         move.total_advance=sum(move.line_ids.mapped('advance'))
 
     @api.depends(
         'line_ids.matched_debit_ids.debit_move_id.move_id.payment_id.is_matched',
@@ -135,17 +136,18 @@ class AccountMove(models.Model):
     @api.model
     def create(self, vals_list):
         res = super(AccountMove,self).create(vals_list)
-        if res.total_advance >0:
-            values = {
-                'partner_type':'customer',
-                'date':fields.Date.today(),
-                'destination_account_id':self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1),
-                'amount': res.total_advance,
-                'journal_id':'cash',
-            }
-            payment = self.env['account.account'].create(values)
-            res.payment_ids = payment.id
-            payment.reconciled_invoice_ids = res.id
+        # if res.total_advance > 0:
+        #     values = {
+        #         'partner_type':'customer',
+        #         'date':fields.Date.today(),
+        #         'destination_account_id':self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1),
+        #         'amount': res.total_advance,
+        #         'journal_id':'cash',
+        #     }
+        #     payment = self.env['account.account'].create(values)
+        #     res.payment_ids = payment.id
+        #     payment.reconciled_invoice_ids = res.id
+        # res.payment_done = True
         return res
 
 

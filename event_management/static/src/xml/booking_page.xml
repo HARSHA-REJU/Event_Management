@@ -954,10 +954,6 @@
                                                                 </div>
                                                             </div>
                                                             <hr class="rounded"/>
-
-
-
-
                                                             <div class="row only_admin" style="display:none;">
                                                                 <h4 class="section-title">Book Auditorium</h4>
                                                                 <div class="col-md-6">
@@ -967,7 +963,7 @@
                                                                                 class="form-control form-select link-style">
                                                                                      <option value="" disabled="" selected="">Select Venue</option>
                                                                             <t t-foreach="venues" t-as="record">
-                                                                                <option t-att-value="record.id" t-att-data-price="record.amount">
+                                                                                <option t-att-value="record.id" t-att-data-price="record.amount" t-att-data-place="record.place_id.id">
                                                                                     <t t-esc="record.name" t-att-value="record.id"/>
                                                                                 </option>
                                                                             </t>
@@ -1123,123 +1119,6 @@
                           </div>
                         </div>
                       </div>
-                     <!-- ***** Main Content Div End ***** -->
-<!--                            <div class="col-lg-9 align-self-center">-->
-<!--                              <ul class="nacc">-->
-<!--                                <li class="active">-->
-<!--                                  <div>-->
-<!--                                    <div class="thumb">-->
-<!--                                      <div class="row">-->
-<!--                                        <div class="col-lg-5 align-self-center">-->
-<!--                                          <div class="left-text">-->
-<!--                                            <h4>-->
-<!--                                                Kerala’s most recommended and famous bridal makeup services provider, also ensures the best celebrity makeup services too.!-->
-<!--                                            </h4>-->
-<!--                                            <p>-->
-<!--                                                We are the best and professional bridal make up service providers all over Kerala. Our special services are HD Bridal make up, Engagement and reception make up. HD bridal makeup is a great choice /most wanted one of a bride.-->
-<!--                                            </p>-->
-<!--                                            <div class="main-white-button"><a href="/makeup"><i class="fa fa-eye"></i> Discover More</a></div>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-lg-7 align-self-center">-->
-<!--                                          <div class="right-image">-->
-<!--                                            <img src="event_management/static/img/makeup.jpg" alt=""/>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                  <div>-->
-<!--                                    <div class="thumb">-->
-<!--                                      <div class="row">-->
-<!--                                        <div class="col-lg-5 align-self-center">-->
-<!--                                          <div class="left-text">-->
-<!--                                            <h4>-->
-<!--                                                The Best Wedding Photographers in Kerala!-->
-<!--                                            </h4>-->
-<!--                                            <p>-->
-<!--                                              Do you want to make your beautiful day more memorable? We know you have such a strong wish in your heart; because We capture most attractive photographs of your special events including weddings, birthday parties, engagements, religious ceremonies and all other awesome occasions. Our professionals know the best way to capture the most creative, lively and incredible photographs for you.-->
-<!--                                            </p>-->
-<!--                                              <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-lg-7 align-self-center">-->
-<!--                                          <div class="right-image">-->
-<!--                                            <img src="event_management/static/img/photography.jpeg" alt="Foods on the table"/>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                  <div>-->
-<!--                                    <div class="thumb">-->
-<!--                                      <div class="row">-->
-<!--                                        <div class="col-lg-5 align-self-center">-->
-<!--                                          <div class="left-text">-->
-<!--                                            <h4>Best car rentals for your trips!</h4>-->
-<!--                                            <p>Did you know? You can get the best free HTML templates on Too CSS blog. Visit the blog pages and explore fresh and latest website templates.</p>-->
-<!--                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> More Listing</a></div>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-lg-7 align-self-center">-->
-<!--                                          <div class="right-image">-->
-<!--                                            <img src="event_management/static/img/wedding-decoration.jpg" alt="cars in the city"/>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                  <div>-->
-<!--                                    <div class="thumb">-->
-<!--                                      <div class="row">-->
-<!--                                        <div class="col-lg-5 align-self-center">-->
-<!--                                          <div class="left-text">-->
-<!--                                            <h4>-->
-<!--                                                Experience Excellent and Quality Catering-->
-<!--                                            </h4>-->
-<!--                                            <p>-->
-<!--                                              We have a group of  professional caters with resourceful experience in the hospitality/catering industries of Kerala . They offer impeccable service and innovative cuisine featuring the finest and freshest ingredients available. Concentrating not just on taste, but also on texture, style, freshness and presentation all over Kerala.                                            <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>-->
-<!--                                            </p>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-lg-7 align-self-center">-->
-<!--                                          <div class="right-image">-->
-<!--                                            <img src="event_management/static/img/food.jpg" alt="Shopping Girl"/>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                  <div>-->
-<!--                                    <div class="thumb">-->
-<!--                                      <div class="row">-->
-<!--                                        <div class="col-lg-5 align-self-center">-->
-<!--                                          <div class="left-text">-->
-<!--                                            <h4>Information and Safety Tips for Traveling</h4>-->
-<!--                                            <p>You are allowed to use this template for your commercial websites. You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites.</p>-->
-<!--                                            <div class="main-white-button"><a rel="nofollow" href="#"><i class="fa fa-eye"></i> Read More</a></div>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-lg-7 align-self-center">-->
-<!--                                          <div class="right-image">-->
-<!--                                            <img src="event_management/static/img/music-band.png" alt="Traveling Beach"/>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </li>-->
-<!--                              </ul>-->
-<!--                            </div>-->
-
 
 
 
@@ -1321,7 +1200,20 @@
                         }else{
                             $(this).hide()
                         }
+                      $('select#place_id').val('').trigger('change')
                     })
+
+                    })
+                      $('select#place_id').on('change', function(){
+                        var val = $(this).val();
+                    $('select#venue_id > option').each(function(){
+                        if($(this).data('place') == val){
+                            $(this).show()
+                        }else{
+                            $(this).hide()
+                        }
+                    })
+                      $('select#venue_id').val('').trigger('change')
                     })
 
 
@@ -1390,10 +1282,12 @@
 
                       $('select#venue_id').on('change', function(){
                         var price = $(this).find('option:selected').data('price');
+                        var venue =  $('select#venue_id').val();
                         if(price != '' || price != null){
                             $('input#auditorium_price').val(price).trigger('change')
-                        }
+                        } if(venue != '' || venue != null){
                               renderCalendar()
+                      }
                         })
 
 

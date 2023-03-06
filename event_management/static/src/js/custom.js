@@ -216,6 +216,7 @@ $('select#venue_id').on('change', function(){
 if(price != '' || price != null){
     $('input#auditorium_price').val(price).trigger('change')
 }
+
 })
 
 
