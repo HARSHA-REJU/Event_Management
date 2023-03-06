@@ -135,12 +135,12 @@ class AccountMove(models.Model):
     @api.model
     def create(self, vals_list):
         res = super(AccountMove,self).create(vals_list)
-        if res.advance >0:
+        if res.total_advance >0:
             values = {
                 'partner_type':'customer',
                 'date':fields.Date.today(),
                 'destination_account_id':self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1),
-                'amount': res.advance,
+                'amount': res.total_advance,
                 'journal_id':'cash',
             }
             payment = self.env['account.account'].create(values)
