@@ -8,10 +8,13 @@ from odoo.exceptions import UserError, ValidationError
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    booking_id = fields.Many2one('event.management')
+    booking_id = fields.Many2one('event.management',required=True)
+    auditorium_id = fields.Many2one('res.partner', related='booking_id.venue_id')
     fortuna_discount = fields.Float()
     address = fields.Text()
     total_advance = fields.Float()
+    user_id = fields.Many2one('res.users', default=lambda self: self.env.user.id)
+
     # total_advance = fields.Float(compute="_compute_total_advance_amount",store=True)
     # payment_done = fields.Boolean()
     # @api.depends('line_ids.advance')
