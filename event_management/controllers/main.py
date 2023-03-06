@@ -179,12 +179,12 @@ class HomePage(http.Controller):
         return request.render(
         "event_management.invoices_page",values)
 
-    @http.route(['/bill/ref'], type='http', auth="public", website=True)
-    def user_invoices_direct_controller(self, **args):
+    @http.route(['/bill/ref<int:invoice_id>/'], type='http', auth="public", website=True)
+    def user_invoices_direct_controller(self, invoice_id, **args):
         current_user = request.env.user
         if current_user.has_group ('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
-
-            return http.redirect_with_hash("/web#action=196&model=account.move&view_type=list&cids=1&menu_id=101")
+            action_id = request.env.ref('account.action_move_out_invoice_type')
+            return request.redirect('/web#id=%s&action=%s&model=account.move&view_type=form' % (str(invoice_id),action_id.id))
         else:
             return http.redirect_with_hash('/invoices')
 

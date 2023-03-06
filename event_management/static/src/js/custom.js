@@ -126,7 +126,7 @@ $(document).ready(function(){
          $('.menu_venues').show();
 //         $('.only_admin').show();
 //         $('.place_only_admin').show();
-         $('.venue').show();
+         $('.venue_show').show();
         }
 
 })

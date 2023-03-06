@@ -12,6 +12,9 @@
                 <xpath expr="//field[@name='amount_untaxed']" position="before">
                     <field name="fortuna_discount" string="Fortuna Disc Amount"/>
                 </xpath>
+                <xpath expr="//field[@name='amount_total']" position="after">
+                    <field name="total_advance" string="Advance"/>
+                </xpath>
                 <xpath expr="//field[@name='invoice_date']" position="after">
                     <field name="address"/>
                 </xpath>
@@ -21,9 +24,9 @@
                 <xpath expr="//div[@class='d-flex']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-<!--                <xpath expr="//page[@name='other_info']" position="attributes">-->
-<!--                    <attribute name="invisible">1</attribute>-->
-<!--                </xpath>-->
+                <xpath expr="//page[@name='other_info']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
                 <xpath expr="//field[@name='invoice_line_ids']/tree" position="replace">
                     <field name="invoice_line_ids"
                            widget="section_and_note_one2many"
@@ -66,12 +69,12 @@
                             <field name="product_uom_id" string="UoM" groups="uom.group_uom" optional="show"/>
                             <field name="price_unit" string="Amount"/>
                             <field name="advance" string="Advance"/>
-                            <field name="discount" string="Auditorium Disc.%" optional="hide"/>
+                            <field name="discount" string="Aud Disc.%"/>
                             <field name="tax_ids" widget="many2many_tags"
                                    domain="[('type_tax_use', '=?', parent.invoice_filter_type_domain), ('company_id', '=', parent.company_id)]"
                                    context="{'append_type_to_tax_name': not parent.invoice_filter_type_domain}"
                                    options="{'no_create': True}"
-                                   optional="show"/>
+                                   />
                             <field name="price_subtotal"
                                    string="Subtotal"
                                    groups="account.group_show_line_subtotals_tax_excluded"/>

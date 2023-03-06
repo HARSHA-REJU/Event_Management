@@ -1105,16 +1105,17 @@ label.valid {
                         <table class="table table-bordered account-summary">
                             <thead>
                                 <tr>
-                                    <th>SN</th>
+                                    <th>SL.NO</th>
                                     <th>Invoice No</th>
                                     <th>Invoice Date</th>
                                     <th>Customer Name</th>
-                                    <th>Booking Reference</th>
+                                    <th>Booking No</th>
                                     <th>Booking Date</th>
 <!--                                    <th>Amount</th>-->
 <!--                                    <th>Tax%</th>-->
                                     <th>Total Amount</th>
-                                    <th>Status</th>
+                                    <th>Paid Amount</th>
+                                    <th>Balance Amount</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1125,8 +1126,8 @@ label.valid {
                                             <span t-esc="sl_no" />
                                             <t t-set="sl_no" t-value="sl_no+1" />
                                         </td>
-                                        <t t-set="booking_reference" t-value="record.name" />
-                                        <td><a href="/bill/ref"><span t-esc="record.name"/></a></td>
+                                            <t t-set="invoice_id" t-value="record.id" />
+                                        <td class="invoice_no_go"><a href="#"><p style="display:none;" id="invoice_record_value"><t t-esc="record.id"/></p><span t-esc="record.name"/></a></td>
                                         <td><span t-esc="record.invoice_date"/></td>
                                         <td><span t-esc="record.partner_id.name"/></td>
                                         <td><span t-esc="record.booking_id.ref"/></td>
@@ -1134,56 +1135,14 @@ label.valid {
 <!--                                        <td><span t-esc="record.amount_untaxed"/></td>-->
 <!--                                        <td><span t-esc="sum(record.amount_by_group)"/></td>-->
                                         <td><span t-esc="record.amount_total"/></td>
-                                        <td><span t-esc="record.state"/></td>
+                                        <td><span t-esc="record.amount_total"/></td>
+                                        <td><span t-esc="record.amount_residual"/></td>
                                     </tr>
                                 </t>
                             </tbody>
                         </table>
 
                     </div>
-<!--                    <div class="row">-->
-<!--                      <div class="col-lg-6">-->
-<!--                        <div class="top-text header-text">-->
-<!--                            <h2>Enquiries</h2>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                        <table class="table table-bordered account-summary">-->
-<!--                                        <thead>-->
-<!--                                            <tr>-->
-<!--                                                <th>SN</th>-->
-<!--                                                <th>Reference</th>-->
-<!--                                                <th>Booking Date</th>-->
-<!--                                                <th>Event Date</th>-->
-<!--                                                <th>District</th>-->
-<!--                                                <th>Event Type</th>-->
-<!--                                                <th>Services Selected</th>-->
-<!--                                                <th>Enquiry Status</th>-->
-<!--                                            </tr>-->
-<!--                                        </thead>-->
-<!--                                        <tbody>-->
-<!--                                            <t t-set="sl_no" t-value="1" />-->
-<!--                                            <t t-foreach="enquiries" t-as="record">-->
-<!--                                                <tr>-->
-<!--                                                    <td><span t-esc="sl_no"/><t t-set="sl_no" t-value="sl_no+1"/></td>-->
-<!--                                                    <td><a href="/enquiry"><span t-esc="record.reference"/></a></td>-->
-<!--                                                    <td><span t-esc="record.date"/></td>-->
-<!--                                                    <td><span t-esc="record.event_date"/></td>-->
-<!--                                                    <td><span t-esc="record.district_id.name"/></td>-->
-<!--                                                    <td><span t-esc="record.type_of_event_id.name"/></td>-->
-<!--                                                    <td><t t-if="record.auditorium">Auditorium</t>-->
-<!--                                                        <t t-if="record.makeup">,Makeup</t>-->
-<!--                                                        <t t-if="record.catering">,Food &amp; Caterers</t>-->
-<!--                                                        <t t-if="record.photography">,Photo &amp; Video</t>-->
-<!--                                                        <t t-if="record.entertainment">,Entertainment</t>-->
-<!--                                                        <t t-if="record.decoration">,Decoration</t>-->
-<!--                                                    </td>-->
-<!--                                                    <td><span t-esc="record.state"/></td>-->
-<!--                                                </tr>-->
-<!--                                            </t>-->
-<!--                                        </tbody>-->
-<!--                                    </table>-->
-
-<!--                    </div>-->
                   </div>
                 </div>
 
@@ -1246,11 +1205,12 @@ label.valid {
                 </div>
                   <script>
                       $('.dropdown > a#menu_service_div_id').on('click', function(e){
-                        e.preventDefault();
-                        $('html, body').animate({
-                            scrollTop: $(".popular-categories").offset().top - 160
-                        }, 300)
-                    })
+    e.preventDefault();
+                       window.location.href = "/#service_div";
+    $('html, body').animate({
+        scrollTop: $(".popular-categories").offset().top - 160
+    }, 300)
+})
 
                     $('.login_btn').on('click', function(){
                         $('#RegistrationModal').modal('toggle')
@@ -1261,6 +1221,13 @@ label.valid {
                         $('#LoginModal').modal('toggle')
                         $('#RegistrationModal').modal('toggle')
                       })
+
+                      $('td.invoice_no_go').click(function () {
+                        var invoice_id = $(this).find("p#invoice_record_value").text().trim();
+                        window.location.href = "/bill/ref"+invoice_id+"/";
+
+                    });
+
 
 <!--                       function customFunction() {-->
 <!--                      alert('Thanks for Registering..!');-->
