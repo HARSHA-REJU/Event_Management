@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-        <template id="web.external_layout_boxed">
+        <template id="fortuna_external_layout_boxed">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
 <!--            <div class="o_boxed_header">-->
 <!--            <div class="row mb8">-->

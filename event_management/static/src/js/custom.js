@@ -107,10 +107,10 @@ $(document).ready(function(){
 //       $('.page-heading > .container > .row > .col-lg-6 > .top-text.header-text').show();
     }
 
-    if($('a.account-page').html().indexOf('Administrator') > 0){
-        $('.only_admin').show();
-        $('.place_only_admin').show();
-    }
+//    if($('a.account-page').html().indexOf('Administrator') > 0){
+//        $('.only_admin').show();
+//        $('.place_only_admin').show();
+//    }
 
 //    if(userCheck === "Administrator" && userCheck === "Public user") {
 //        $('.main-banner > .container > .row > #show.show-only-am-only').hide();
@@ -124,8 +124,8 @@ $(document).ready(function(){
     }
     else {
          $('.menu_venues').show();
-//         $('.only_admin').show();
-//         $('.place_only_admin').show();
+         $('.only_admin').show();
+         $('.place_only_admin').show();
          $('.venue_show').show();
         }
 

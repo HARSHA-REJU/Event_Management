@@ -942,7 +942,7 @@
                                                                     <div class="form-group">
                                                                         <span class="form-label">Place</span>
                                                                         <select name="place_id" id="place_id"
-                                                                                class="form-control form-select link-style">
+                                                                                class="form-control form-select link-style divScroll">
                                                                             <option value="" disabled="" selected="">Select Place</option>
                                                                             <t t-foreach="places" t-as="record">
                                                                                 <option t-att-value="record.id" t-att-data-distid="record.district_id.id">
@@ -960,7 +960,7 @@
                                                                     <div class="form-group">
                                                                         <span class="form-label">Auditorium</span>
                                                                         <select name="venue_id" id="venue_id"
-                                                                                class="form-control form-select link-style">
+                                                                                class="form-control form-select link-style divScroll">
                                                                                      <option value="" disabled="" selected="">Select Venue</option>
                                                                             <t t-foreach="venues" t-as="record">
                                                                                 <option t-att-value="record.id" t-att-data-price="record.amount" t-att-data-place="record.place_id.id">

@@ -2493,3 +2493,8 @@ div#navbarSupportedContent {
     background-image: url(/event_management/static/img/bar-bar.svg);
 
 }
+.divScroll {
+overflow:scroll;
+height:25px;
+width:200px;
+}
