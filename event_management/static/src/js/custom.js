@@ -121,6 +121,7 @@ $(document).ready(function(){
     }
     if(userCheckMenuAuditorium.length > 0) {
         $('.menu_venues').hide();
+        $('.venue_show').hide();
     }
     else {
          $('.menu_venues').show();
