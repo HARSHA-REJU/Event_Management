@@ -561,12 +561,12 @@ class BookingPage(http.Controller):
             'partner_id': new_customer.id,
             'booking_id': booking_event.id,
             'address': address,
-            # 'invoice_line_ids': [
-            #     (0, 0, {
-            #         'name': 'Auditorium Rent',
-            #         'price_unit': self.delivery_total,
-            #         'price_subtotal': self.delivery_total,
-            #     }),]
+            'invoice_line_ids': [
+                (0, 0, {
+                    'name': 'Auditorium Rent',
+                    'price_unit': amount,
+                    'quantity':1,
+                }),]
 
         }
 

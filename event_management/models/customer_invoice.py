@@ -37,7 +37,8 @@ class AccountMove(models.Model):
         'line_ids.amount_residual_currency',
         'line_ids.payment_id.state',
         'line_ids.full_reconcile_id',
-        'fortuna_discount')
+        'fortuna_discount',
+        'total_advance')
     def _compute_amount(self):
         for move in self:
             if move.payment_state == 'invoicing_legacy':
@@ -90,9 +91,9 @@ class AccountMove(models.Model):
                 sign = 1
             else:
                 sign = -1
-            move.amount_untaxed = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) - move.fortuna_discount
+            move.amount_untaxed = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) - (move.fortuna_discount+move.total_advance)
             move.amount_tax = sign * (total_tax_currency if len(currencies) == 1 else total_tax)
-            move.amount_total = (sign * (total_currency if len(currencies) == 1 else total)) - move.fortuna_discount
+            move.amount_total = (sign * (total_currency if len(currencies) == 1 else total)) - (move.fortuna_discount+move.total_advance)
             move.amount_residual = -sign * (total_residual_currency if len(currencies) == 1 else total_residual)
             move.amount_untaxed_signed = -total_untaxed
             move.amount_tax_signed = -total_tax
