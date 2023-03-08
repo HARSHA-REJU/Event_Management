@@ -1246,8 +1246,30 @@
                             },
                             });
                             calendar.render();
+                                            var currentDate = $('input#date').val();
+                      $('#calendar').fullCalendar('gotoDate', currentDate);
+
+
 
                     };
+
+
+
+                      function CheckCalendarEvents() {
+                        var date = $('input#date').val();
+                        var audi = $('select#venue_id').val();
+                        var eventsCount = $('#calendar table.fc-scrollgrid-sync-table .fc-day[data-date="'+date+'"] .fc-event').length
+
+
+
+                         if(eventsCount > 0){
+                             alert('Event already exists for this date, Please choose another date.')
+                             return false
+                         }
+
+
+                    };
+
 
 
                 document.addEventListener('DOMContentLoaded', function() {
@@ -1276,6 +1298,9 @@
                 <!--		},-->
                         });
                         calendar.render();
+                      var currentDate = $('input#date').val();
+                      $('#calendar').fullCalendar('gotoDate', currentDate);
+
                       });
 
 
@@ -1287,8 +1312,28 @@
                             $('input#auditorium_price').val(price).trigger('change')
                         } if(venue != '' || venue != null){
                               renderCalendar()
+                                CheckCalendarEvents()
                       }
                         })
+
+                      $('input#date').on('change', function(){
+                        var date = $(this).val();
+                        var audi = $('select#venue_id').val();
+                        var eventsCount = $('#calendar table.fc-scrollgrid-sync-table .fc-day[data-date="'+date+'"] .fc-event').length
+
+                        if(audi == null){
+                            alert('Please select an Auditorium')
+                            $('html,body').animate({
+                                scrollTop: $('select#venue_id').offset().top
+                            }, 500);
+                        }else{
+                             if(eventsCount > 0){
+                                 alert('Event already exists for this date, Please choose another date.')
+                                 return false
+                             }
+                        }
+
+                    })
 
 
 
