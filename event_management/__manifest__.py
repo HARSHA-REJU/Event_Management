@@ -32,7 +32,6 @@
              'reports/event_management_pdf_report.xml',
              'reports/pdf_report_template.xml',
              'reports/booking_summary_template.xml',
-             # 'reports/report_invoice.xml',
              'wizards/event_management_wizard.xml',
              'wizards/booking_summary_report_wizard.xml',
              'wizards/enquiry_report_wizard.xml',

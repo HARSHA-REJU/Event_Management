@@ -14,10 +14,10 @@
                         <t t-name="kanban-box">
                             <div class="col-md-1 oe_kanban_card">
                                 <div>
-                                    <button type="edit" string="Settings" class="button_background" groups="event_management.group_event_manager"
-                                            style="float: right;margin-top: 2px;background: none !important;border: none !IMPORTANT;FONT-SIZE: 16px;">
-                                        <i class="fa fa-cog" title="setting"/>
-                                    </button>
+<!--                                    <button type="edit" string="Settings" class="button_background" groups="event_management.group_event_manager"-->
+<!--                                            style="float: right;margin-top: 2px;background: none !important;border: none !IMPORTANT;FONT-SIZE: 16px;">-->
+<!--                                        <i class="fa fa-cog" title="setting"/>-->
+<!--                                    </button>-->
                                 </div>
                                 <div class="o_primary style_event_type col-md-12" style="padding: 4%;">
                                     <div class="col-md-12">

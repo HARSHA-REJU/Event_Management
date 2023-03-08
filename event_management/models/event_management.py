@@ -216,7 +216,7 @@ class EventManagement(models.Model):
     # venue_id = fields.Many2one('res.partner', domain=[('venue','=',True)], string="Venue", required=True)
     place_id = fields.Many2one('place.place', string="Place", required=True)
     partner_id = fields.Many2one('res.partner', string="Customer",
-                                 required=True)
+                                 required=True,domain=[('customer', '=', True)])
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
     event_date = fields.Date(string="Event Date", default=fields.Date.today, required=True)
     start_date = fields.Datetime(string="Start date",

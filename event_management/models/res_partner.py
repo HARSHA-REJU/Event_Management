@@ -59,6 +59,10 @@ class ResPartner(models.Model):
                 ('venue_id', '=', records.id)])
             records.event_count = len(events)
         return
+    @api.onchange('district_id')
+    def onchange_district_id(self):
+        self.place_id = ''
+        return {'domain': {'place_id': [('district_id', '=', self.district_id.id)]}}
 
     # def _get_action(self, action_xml_id):
     #     action = self.env['ir.actions.actions']._for_xml_id(action_xml_id)
