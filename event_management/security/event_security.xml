@@ -157,7 +157,7 @@
        </record>
         <record id = "auditorium_wise_visibility_invoices" model = "ir.rule">
            <field name = "name"> Auditorium Manager can only see invoices in his/her Auditorium</field>
-           <field name = "model_id" ref = "model_account_move" />
+           <field name = "model_id" ref = "account.model_account_move" />
            <field name = "groups" eval = "[(4, ref ('event_management.group_auditorium_manager'))]" />
            <field name = "perm_read" eval = "True" />
            <field name = "perm_write" eval = "True" />

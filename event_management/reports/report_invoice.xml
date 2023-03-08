@@ -47,7 +47,7 @@
 
 
 
-<!--        <template id="account.report_invoice_document">-->
+<!--        <template id="account.report_invoice">-->
 <!--            <t t-call="web.external_layout">-->
 <!--                <t t-set="o" t-value="o.with_context(lang=lang)" />-->
 <!--&lt;!&ndash;                <div class="o_boxed_header">&ndash;&gt;-->

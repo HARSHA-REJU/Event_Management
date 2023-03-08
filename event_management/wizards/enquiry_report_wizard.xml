@@ -19,9 +19,9 @@
                 <footer>
                     <button name="print_enquiries_pdf_report" type="object"
                             class="oe_highlight" string="Print PDF"/>
-                    <button name="view_summary_pdf_report" type="object"
-                            class="oe_highlight" string="View"/>
-<!--                    <button name="cancel" string="Cancel" type="object" class="oe_highlight"/>-->
+<!--                    <button name="view_summary_pdf_report" type="object"-->
+<!--                            class="oe_highlight" string="View"/>-->
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
         </field>

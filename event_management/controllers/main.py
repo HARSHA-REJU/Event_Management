@@ -530,7 +530,7 @@ class BookingPage(http.Controller):
         }
         new_customer = request.env['res.partner'].sudo().create(vals)
         venue_id = auditorium.id
-        amount = auditorium.amount
+        amount = args.get('auditorium_price') or auditorium.amount
         district_id = auditorium.district_id.id
         place_id = auditorium.place_id.id
         type_id = int(args.get('type_id'))

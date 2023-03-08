@@ -14,6 +14,15 @@ class AccountMove(models.Model):
     address = fields.Text()
     total_advance = fields.Float()
     user_id = fields.Many2one('res.users', default=lambda self: self.env.user.id)
+    l10n_in_gst_treatment = fields.Selection([
+            ('regular', 'Registered Business - Regular'),
+            ('composition', 'Registered Business - Composition'),
+            ('unregistered', 'Unregistered Business'),
+            ('consumer', 'Consumer'),
+            ('overseas', 'Overseas'),
+            ('special_economic_zone', 'Special Economic Zone'),
+            ('deemed_export', 'Deemed Export')
+        ],default="unregistered", string="GST Treatment", compute="_compute_l10n_in_gst_treatment", store=True, readonly=False)
 
     # total_advance = fields.Float(compute="_compute_total_advance_amount",store=True)
     # payment_done = fields.Boolean()
@@ -91,9 +100,10 @@ class AccountMove(models.Model):
                 sign = 1
             else:
                 sign = -1
-            move.amount_untaxed = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) - (move.fortuna_discount+move.total_advance)
+            fortuna_discount = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) * (move.fortuna_discount /100)
+            move.amount_untaxed = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) - (fortuna_discount+move.total_advance)
             move.amount_tax = sign * (total_tax_currency if len(currencies) == 1 else total_tax)
-            move.amount_total = (sign * (total_currency if len(currencies) == 1 else total)) - (move.fortuna_discount+move.total_advance)
+            move.amount_total = (sign * (total_currency if len(currencies) == 1 else total)) - (fortuna_discount+move.total_advance)
             move.amount_residual = -sign * (total_residual_currency if len(currencies) == 1 else total_residual)
             move.amount_untaxed_signed = -total_untaxed
             move.amount_tax_signed = -total_tax
