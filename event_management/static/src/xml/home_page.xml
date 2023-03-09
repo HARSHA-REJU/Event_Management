@@ -1114,7 +1114,8 @@ label.valid {
               <div class="main-banner">
                   <div class="hm_vid_fr">
 <!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Y7F0yE2_84Q?controls=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>-->
-                      <video poster="/event_management/static/img/poster.jpg" width="100%" height="100%" playsinline="true" autoplay="true" loop="true" muted="true">
+                      <video width="100%" height="100%" playsinline="true" autoplay="true" loop="true" muted="true">
+<!--                      <video poster="/event_management/static/img/poster.jpg" width="100%" height="100%" playsinline="true" autoplay="true" loop="true" muted="true">-->
                           <source src="/event_management/static/video/video.mp4" type="video/mp4"/>
                       </video>
                   </div>
