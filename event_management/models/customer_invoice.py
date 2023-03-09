@@ -366,7 +366,8 @@ class AccountMoveLine(models.Model):
 
     advance = fields.Float()
     fortuna_discount_line = fields.Float()
-    fortuna_discount_line1 = fields.Float(compute="onchange_fortuna_discount_line")
+    # fortuna_discount_line1 = fields.Float(compute="onchange_fortuna_discount_line")
+    fortuna_discount_line1 = fields.Float()
 
     @api.depends('fortuna_discount_line')
     def onchange_fortuna_discount_line(self):
