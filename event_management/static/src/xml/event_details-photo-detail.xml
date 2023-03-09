@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900 &amp; display=swap" rel="stylesheet"/>
 
-    <title>Fortuna Events</title>
+    <title>FORTUNA BOOKINGS</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -29,6 +29,8 @@
       <link rel="stylesheet" href="/event_management/static/src/css/owl.css"/>
       <link rel="stylesheet" href="/event_management/static/src/css/style.css"/>
       <link rel="stylesheet" href="/event_management/static/src/css/templatemo-style.css"/>
+                            <link rel="stylesheet" href="/event_management/static/src/css/fortuna_common_style.css"/>
+
 
 
       <script type="text/javascript" src="/event_management/static/jquery/jquery.min.js"></script>
