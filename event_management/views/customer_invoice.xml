@@ -73,7 +73,6 @@
                             <field name="price_unit" string="Amount"/>
                             <field name="discount" string="Aud Disc%"/>
                             <field name="fortuna_discount_line" string="Fortuna Disc%"/>
-                            <field name="fortuna_discount_line1" string="Fortuna Disc%"/>
 <!--                            <field name="advance" string="Advance"/>-->
                             <field name="tax_ids" widget="many2many_tags"
                                    domain="[('type_tax_use', '=?', parent.invoice_filter_type_domain), ('company_id', '=', parent.company_id)]"
@@ -204,7 +203,10 @@
                                     <field name="quantity"/>
                                     <field name="product_uom_id" groups="uom.group_uom"/>
                                     <field name="price_unit" string="Amount"/>
-                                    <field name="advance" string="Advance"/>                                    <field name="discount" string="Disc.%"/>
+                                    <field name="advance" string="Advance"/>
+                                    <field name="discount" string="Disc.%"/>
+                                    <field name="fortuna_discount_line" string="Disc.%"/>
+
                                     <field name="currency_id" invisible="1"/>
                                 </group>
                                 <group>
