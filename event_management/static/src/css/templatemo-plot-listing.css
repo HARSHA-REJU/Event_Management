@@ -783,7 +783,7 @@ Banner Style
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-image: url(/event_management/static/img/bigstock.jpg);
+  /*  background-image: url(/event_management/static/img/bigstock.jpg);*/
     padding: 150px 0px 60px;
     position: relative;
     overflow: hidden;

@@ -1121,8 +1121,8 @@ label.valid {
                           <source src="/event_management/static/video/video.mp4" type="video/mp4"/>
                       </video>
                   </div>
-                <div class="container">
-                  <div class="row">
+                <div class="container h-100">
+                  <div class="row h-100 align-content-end">
                       <p id="user_check"><t t-esc="current_user.name"/></p>
 <!--                      <div class="offset-lg-6 col-4 slider-iframe-video">-->
 <!--                          <iframe width="560" height="315" src="https://www.youtube.com/embed/rvyFyC6nzQo" title="YouTube video player" frameborder="0" autoplay="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>-->
