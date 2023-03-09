@@ -471,6 +471,8 @@ class AccountMoveLine(models.Model):
             sign = 1
         amount_currency *= sign
 
+        print("Fortuna Discount*****************************************************************************" )
+        print(fortuna_discount_line)
         # Avoid rounding issue when dealing with price included taxes. For example, when the price_unit is 2300.0 and
         # a 5.5% price included tax is applied on it, a balance of 2300.0 / 1.055 = 2180.094 ~ 2180.09 is computed.
         # However, when triggering the inverse, 2180.09 + (2180.09 * 0.055) = 2180.09 + 119.90 = 2299.99 is computed.
