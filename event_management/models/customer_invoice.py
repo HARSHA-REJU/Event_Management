@@ -100,13 +100,15 @@ class AccountMove(models.Model):
                 sign = 1
             else:
                 sign = -1
-            fortuna_discount = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) * (move.fortuna_discount /100)
-            move.amount_untaxed = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) - (fortuna_discount+move.total_advance)
+            # fortuna_discount = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) * (move.fortuna_discount /100)
+            move.amount_untaxed = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed))
+            # move.amount_untaxed = (sign * (total_untaxed_currency if len(currencies) == 1 else total_untaxed)) - (fortuna_discount+move.total_advance)
             move.amount_tax = sign * (total_tax_currency if len(currencies) == 1 else total_tax)
-            move.amount_total = (sign * (total_currency if len(currencies) == 1 else total)) - (fortuna_discount+move.total_advance)
-            move.amount_residual = -sign * (total_residual_currency if len(currencies) == 1 else total_residual)
-            move.amount_untaxed_signed = -total_untaxed
-            move.amount_tax_signed = -total_tax
+            move.amount_total = (sign * (total_currency if len(currencies) == 1 else total)) - (move.total_advance)
+            # move.amount_total = (sign * (total_currency if len(currencies) == 1 else total)) - (fortuna_discount+move.total_advance)
+            move.amount_residual = -sign * (total_residual_currency if len(currencies) == 1 else total_residual) - (move.total_advance)
+            move.amount_untaxed_signed = - total_untaxed
+            move.amount_tax_signed = - total_tax
             move.amount_total_signed = abs(total) if move.move_type == 'entry' else -total
             move.amount_residual_signed = total_residual
 
@@ -217,8 +219,10 @@ class AccountMoveLine(models.Model):
         res = {}
 
         # Compute 'price_subtotal'.
-        line_discount_price_unit = (price_unit * (1 - ((discount+fortuna_discount) / 100.0)) )
-        subtotal = (quantity * line_discount_price_unit) - advance
+        line_discount_price_unit = (price_unit * (1 - (discount / 100.0)))*(1 - (fortuna_discount / 100.0))
+
+        subtotal = quantity * line_discount_price_unit
+        # subtotal = (quantity * line_discount_price_unit) - advance
 
         # Compute 'price_total'.
         if taxes:
@@ -323,12 +327,4 @@ class AccountMoveLine(models.Model):
                     ))
 
         lines = super(AccountMoveLine, self).create(vals_list)
-
-        moves = lines.mapped('move_id')
-        if self._context.get('check_move_validity', True):
-            moves._check_balanced()
-        moves._check_fiscalyear_lock_date()
-        lines._check_tax_lock_date()
-        moves._synchronize_business_models({'line_ids'})
-
         return lines
