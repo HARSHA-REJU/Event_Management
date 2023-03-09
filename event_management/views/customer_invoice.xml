@@ -73,6 +73,7 @@
                             <field name="price_unit" string="Amount"/>
                             <field name="discount" string="Aud Disc%"/>
                             <field name="fortuna_discount_line" string="Fortuna Disc%"/>
+                            <field name="fortuna_discount_line1" string="Fortuna Disc%"/>
 <!--                            <field name="advance" string="Advance"/>-->
                             <field name="tax_ids" widget="many2many_tags"
                                    domain="[('type_tax_use', '=?', parent.invoice_filter_type_domain), ('company_id', '=', parent.company_id)]"
