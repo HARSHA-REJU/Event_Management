@@ -806,8 +806,8 @@ Banner Style
   font-size: 45px;
   font-weight: 800;
   text-transform: capitalize;
-  margin-top: 15px;
-  margin-bottom: 45px;
+ /* margin-top: 15px;
+  margin-bottom: 45px;*/
 }
 
 .main-banner ul.categories {
