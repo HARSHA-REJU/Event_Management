@@ -236,6 +236,20 @@ class AccountMoveLine(models.Model):
         if currency:
             res = {k: currency.round(v) for k, v in res.items()}
         return res
+    def _get_fields_onchange_balance(self, quantity=None, discount=None, advance=None, fortuna_discount=None, amount_currency=None, move_type=None, currency=None, taxes=None, price_subtotal=None, force_computation=False):
+        self.ensure_one()
+        return self._get_fields_onchange_balance_model(
+            quantity=self.quantity if quantity is None else quantity,
+            advance=self.advance if advance is None else advance,
+            fortuna_discount=self.fortuna_discount if fortuna_discount is None else fortuna_discount,
+            discount=self.discount if discount is None else discount,
+            amount_currency=self.amount_currency if amount_currency is None else amount_currency,
+            move_type=self.move_id.move_type if move_type is None else move_type,
+            currency=(self.currency_id or self.move_id.currency_id) if currency is None else currency,
+            taxes=self.tax_ids if taxes is None else taxes,
+            price_subtotal=self.price_subtotal if price_subtotal is None else price_subtotal,
+            force_computation=force_computation,
+        )
 
 
     @api.model
@@ -300,6 +314,7 @@ class AccountMoveLine(models.Model):
             # discount != 100%
             vals = {
                 'quantity': quantity or 1.0,
+                'fortuna_discount':fortuna_discount,
                 # 'price_unit': amount_currency / discount_factor / (quantity or 1.0),
             }
         elif amount_currency and not discount_factor:
@@ -307,6 +322,7 @@ class AccountMoveLine(models.Model):
             vals = {
                 'quantity': quantity or 1.0,
                 'discount': 0.0,
+                'fortuna_discount':fortuna_discount,
                 # 'price_unit': amount_currency / (quantity or 1.0),
             }
         elif not discount_factor:
