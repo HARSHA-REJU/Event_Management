@@ -169,9 +169,11 @@ class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
     advance = fields.Float()
+    fortuna_discount = fields.Float()
 
 
-    def _get_price_total_and_subtotal(self, price_unit=None, quantity=None, discount=None, currency=None, product=None, partner=None, taxes=None, move_type=None):
+
+    def _get_price_total_and_subtotal(self, price_unit=None, quantity=None, discount=None, currency=None, product=None, partner=None, taxes=None, move_type=None, advance=None, fortuna_discount=None):
         self.ensure_one()
         return self._get_price_total_and_subtotal_model(
             price_unit=self.price_unit if price_unit is None else price_unit,
@@ -182,5 +184,44 @@ class AccountMoveLine(models.Model):
             partner=self.partner_id if partner is None else partner,
             taxes=self.tax_ids if taxes is None else taxes,
             move_type=self.move_id.move_type if move_type is None else move_type,
+            advance=self.advance if advance is None else advance,
+            fortuna_discount=self.fortuna_discount if fortuna_discount is None else fortuna_discount,
 
         )
+
+
+
+    @api.model
+    def _get_price_total_and_subtotal_model(self, price_unit, quantity, discount, currency, product, partner, taxes, move_type,advance,fortuna_discount):
+        ''' This method is used to compute 'price_total' & 'price_subtotal'.
+
+        :param price_unit:  The current price unit.
+        :param quantity:    The current quantity.
+        :param discount:    The current discount.
+        :param currency:    The line's currency.
+        :param product:     The line's product.
+        :param partner:     The line's partner.
+        :param taxes:       The applied taxes.
+        :param move_type:   The type of the move.
+        :return:            A dictionary containing 'price_subtotal' & 'price_total'.
+        '''
+        res = {}
+
+        # Compute 'price_subtotal'.
+        line_discount_price_unit = price_unit * (1 - (discount+fortuna_discount / 100.0)) + advance
+        subtotal = quantity * line_discount_price_unit
+
+        # Compute 'price_total'.
+        if taxes:
+            taxes_res = taxes._origin.with_context(force_sign=1).compute_all(line_discount_price_unit,
+                quantity=quantity, currency=currency, product=product, partner=partner, is_refund=move_type in ('out_refund', 'in_refund'))
+            res['price_subtotal'] = taxes_res['total_excluded']
+            res['price_total'] = taxes_res['total_included']
+        else:
+            res['price_total'] = res['price_subtotal'] = subtotal
+        #In case of multi currency, round before it's use for computing debit credit
+        if currency:
+            res = {k: currency.round(v) for k, v in res.items()}
+        return res
+
+

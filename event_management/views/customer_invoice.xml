@@ -70,8 +70,9 @@
                             <field name="product_uom_category_id" invisible="1"/>
                             <field name="product_uom_id" string="UoM" groups="uom.group_uom" optional="show"/>
                             <field name="price_unit" string="Amount"/>
-<!--                            <field name="advance" string="Advance"/>-->
+                            <field name="fortuna_discount" string="Fortuna Disc%"/>
                             <field name="discount" string="Aud Disc%"/>
+                            <field name="advance" string="Advance"/>
                             <field name="tax_ids" widget="many2many_tags"
                                    domain="[('type_tax_use', '=?', parent.invoice_filter_type_domain), ('company_id', '=', parent.company_id)]"
                                    context="{'append_type_to_tax_name': not parent.invoice_filter_type_domain}"

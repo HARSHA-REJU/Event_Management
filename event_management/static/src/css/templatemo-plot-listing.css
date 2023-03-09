@@ -948,6 +948,7 @@ Popular Categories
 /*    padding: 60px 0px; */
     padding-bottom: 60px;
     background-color: #2b2d42;
+    overflow:hidden;
 }
 
 .popular-categories .section-heading {
@@ -2496,3 +2497,15 @@ div#navbarSupportedContent {
 .divScroll {
 overflow:scroll;
 }
+
+/* JS09AK03HI2023L */
+#navbarSupportedContent ul.nav.navbar-nav {
+    margin-left: auto;
+    margin-right: 0 !important;
+}
+.main-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*  */
