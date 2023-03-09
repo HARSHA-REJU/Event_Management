@@ -521,6 +521,8 @@ class AccountMoveLine(models.Model):
                     price_unit=to_write.get('price_unit', line.price_unit),
                     quantity=to_write.get('quantity', line.quantity),
                     discount=to_write.get('discount', line.discount),
+                    advance=to_write.get('advance', line.advance),
+                    fortuna_discount=to_write.get('fortuna_discount', line.fortuna_discount),
                 ))
                 print("Inside write function.....................")
                 result |= super(AccountMoveLine, line).write(to_write)
