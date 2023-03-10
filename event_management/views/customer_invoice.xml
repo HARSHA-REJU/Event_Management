@@ -57,7 +57,12 @@
                     <field name="user_id" string="User" invisible="1"/>
                 </xpath>
                 <xpath expr="//field[@name='amount_untaxed']" position="before">
-                    <field name="total_advance" string="Advance"/>
+                    <div>
+                         <label for="total_advance" string="advance"/>
+                        <field name="total_advance" string="Advance" width="50%"/>
+                        <button name="action_pay_advance"  string="Pay Advance" type="object" class="oe_highlight" states="draft" width="50%"/>
+<!--                        <button name="Pay Advance" string="Advance" width="50%"/>-->
+                    </div>
 <!--                    <field name="fortuna_discount" string="Fortuna Disc%"/>-->
                 </xpath>
 <!--                <xpath expr="//field[@name='amount_total']" position="before">-->

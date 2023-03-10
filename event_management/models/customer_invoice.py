@@ -33,6 +33,10 @@ class AccountMove(models.Model):
     #     for move in self:
     #         move.total_advance=sum(move.line_ids.mapped('advance'))
 
+    def action_pay_advance(self):
+        print("Inside Functionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+        return
+
     @api.depends(
         'line_ids.matched_debit_ids.debit_move_id.move_id.payment_id.is_matched',
         'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual',
