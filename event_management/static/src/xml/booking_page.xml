@@ -51,9 +51,12 @@
                     <script src='event_management/static/src/js/jquery-1.10.2.js' type="text/javascript"></script>
                     <script src='event_management/static/src/js/jquery-ui.custom.min.js' type="text/javascript"></script>
                     <script src='event_management/static/src/js/fullcalendar.js' type="text/javascript"></script>
+<!--                    <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.4/index.global.min.js'></script>-->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
 
-                      <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.1/index.global.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.1/index.global.min.js'></script>
+
+<!--                      <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.1/index.global.min.js'></script>-->
+<!--    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.1/index.global.min.js'></script>-->
 
 
 <!--                <script type="text/javascript" src="event_management/static/src/js/select2.full.min.js"></script>-->
@@ -1225,6 +1228,7 @@
                             var token = $('[name="csrf_token"]').val();
                             var calendarEl = document.getElementById('calendar');
                             var calendar = new FullCalendar.Calendar(calendarEl, {
+                       selectable: true,
                               initialView: 'dayGridMonth',
                             events: {
                                 url: '/ajax/reservations/get/' + venue_id,
@@ -1245,6 +1249,9 @@
                     <!--			},-->
                                 color: '#5aaaff',
                                 textColor: 'black',
+                            },
+                            dateClick: function(info) {
+                              alert('clicked ' + info.resource);
                             },
                             });
                             calendar.render();
@@ -1278,28 +1285,21 @@
                         var venue_id = $('#venue_id').val();
                         var calendarEl = document.getElementById('calendar');
                         var calendar = new FullCalendar.Calendar(calendarEl, {
-                          initialView: 'dayGridMonth',
-                <!--		events: {-->
-                <!--			url: '/ajax/reservations/get/' + venue_id,-->
-                <!--			method: 'POST',-->
-                <!--&lt;!&ndash;			extraParams: {&ndash;&gt;-->
-                <!--&lt;!&ndash;				_token: token,&ndash;&gt;-->
-                <!--&lt;!&ndash;			},&ndash;&gt;-->
-                <!--&lt;!&ndash;			failure: function () {&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;				toastr.error(&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;					'There was an error while fetching events!',&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;					'Error!',&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;					{&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;						timeOut: 2000,&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;						fadeOut: 2000,&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;					}&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;				);&ndash;&gt;-->
-                <!--&lt;!&ndash;			},&ndash;&gt;-->
-                <!--			color: '#5aaaff',-->
-                <!--			textColor: 'black',-->
-                <!--		},-->
-                        });
+                            selectable: true,
+                            headerToolbar: {
+                              left: 'prev,next today',
+                              center: 'title',
+                              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                            },
+                            dateClick: function(info) {
+                              alert('clicked ' + info.dateStr);
+                            },
+                            select: function(info) {
+                              alert('selected ' + info.startStr + ' to ' + info.endStr);
+                            }
+                          });
                         calendar.render();
+
                       var currentDate = $('input#date').val();
                       $('#calendar').fullCalendar('gotoDate', currentDate);
 

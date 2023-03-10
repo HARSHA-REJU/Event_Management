@@ -595,6 +595,7 @@ class BookingPage(http.Controller):
         for record in bookings:
             vals_dict = {
                 'title': "*                        booked",
+                'id':str(record.ref)+"/"+str(record.name),
                 'start': str(record.event_date),
                 'end': str(record.event_date),
                 'display': 'background'
