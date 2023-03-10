@@ -1251,7 +1251,8 @@
                                 textColor: 'black',
                             },
                             dateClick: function(info) {
-                              alert('clicked ' + info.resource);
+                              alert(info.dayEl.innerText);
+                      console.log(info);
                             },
                             });
                             calendar.render();
