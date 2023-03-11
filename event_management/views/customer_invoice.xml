@@ -124,7 +124,7 @@
                             <field name="product_uom_category_id" invisible="1"/>
                             <field name="product_uom_id" string="UoM" groups="uom.group_uom" optional="show"/>
                             <field name="price_unit" string="Amount"/>
-                            <field name="discount" string="Aud Disc%" optional="hide"/>
+                            <field name="discount" string="Aud Disc%" invisible="1"/>
                             <field name="auditorium_discount" string="Aud Disc%"/>
                             <field name="fortuna_discount_line" string="Fortuna Disc%"/>
 <!--                            <field name="advance" string="Advance"/>-->
