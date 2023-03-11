@@ -44,7 +44,6 @@ class AccountMove(models.Model):
                     'journal_id': self.env['account.journal'].search([('type', '=', 'cash')],limit=1).id,
                 }
                 payment = self.env['account.payment'].create(values)
-                rec.payment_ids = payment.id
                 payment.reconciled_invoice_ids = rec.id
                 rec.payment_done = True
                 rec.state = 'posted'
