@@ -26,14 +26,31 @@ class AccountMove(models.Model):
             ('deemed_export', 'Deemed Export')
         ],default="unregistered", string="GST Treatment", compute="_compute_l10n_in_gst_treatment", store=True, readonly=False)
 
+    payment_done = fields.Boolean()
     # total_advance = fields.Float(compute="_compute_total_advance_amount",store=True)
-    # payment_done = fields.Boolean()
     # @api.depends('line_ids.advance')
     # def _compute_total_advance_amount(self):
     #     for move in self:
     #         move.total_advance=sum(move.line_ids.mapped('advance'))
 
     def action_pay_advance(self):
+        for rec in self:
+            if rec.total_advance > 0:
+                values = {
+                    'partner_type': 'customer',
+                    'date': fields.Date.today(),
+                    'destination_account_id': self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1),
+                    'amount': rec.total_advance,
+                    'journal_id': 'cash',
+                }
+                payment = self.env['account.account'].create(values)
+                rec.payment_ids = payment.id
+                payment.reconciled_invoice_ids = rec.id
+                rec.payment_done = True
+                rec.state = 'posted'
+                rec.payment_state = 'partial'
+            else:
+                raise UserError(_("please select an auditorium for manager"))
         print("Inside Functionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
         return
 
@@ -355,18 +372,6 @@ class AccountMove(models.Model):
     @api.model
     def create(self, vals_list):
         res = super(AccountMove,self).create(vals_list)
-        # if res.total_advance > 0:
-        #     values = {
-        #         'partner_type':'customer',
-        #         'date':fields.Date.today(),
-        #         'destination_account_id':self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1),
-        #         'amount': res.total_advance,
-        #         'journal_id':'cash',
-        #     }
-        #     payment = self.env['account.account'].create(values)
-        #     res.payment_ids = payment.id
-        #     payment.reconciled_invoice_ids = res.id
-        # res.payment_done = True
         return res
 
 
