@@ -39,9 +39,9 @@ class AccountMove(models.Model):
                 values = {
                     'partner_type': 'customer',
                     'date': fields.Date.today(),
-                    'destination_account_id': self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1),
+                    'destination_account_id': self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1).id,
                     'amount': rec.total_advance,
-                    'journal_id': 'cash',
+                    'journal_id': self.env['account.journal'].search([('.type', '=', 'cash')],limit=1).id,
                 }
                 payment = self.env['account.payment'].create(values)
                 rec.payment_ids = payment.id
