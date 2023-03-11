@@ -43,7 +43,7 @@ class AccountMove(models.Model):
                     'amount': rec.total_advance,
                     'journal_id': 'cash',
                 }
-                payment = self.env['account.account'].create(values)
+                payment = self.env['account.payment'].create(values)
                 rec.payment_ids = payment.id
                 payment.reconciled_invoice_ids = rec.id
                 rec.payment_done = True
