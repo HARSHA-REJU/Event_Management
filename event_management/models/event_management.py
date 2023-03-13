@@ -218,11 +218,13 @@ class EventManagement(models.Model):
     partner_id = fields.Many2one('res.partner', string="Customer",
                                  required=True,domain=[('customer', '=', True)])
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
-    event_date = fields.Date(string="Event Date", default=fields.Date.today, required=True)
+    event_date = fields.Date(string="Event Date", compute = '_event_date_set', required=True)
+    # event_date = fields.Date(string="Event Date", required=True)
     start_date = fields.Datetime(string="Start date",
-                                 default=lambda self: fields.datetime.now(),
+                                 default=lambda self: fields.datetime.now(),required=True
                                  )
     end_date = fields.Datetime(string="End date")
+
     service_line_ids = fields.One2many('event.service.line', 'event_id',
                                        string="Services")
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'),
@@ -248,6 +250,13 @@ class EventManagement(models.Model):
     facility_ids = fields.Many2many('product.product')
     facilities_ids2 = fields.One2many('facility.event', 'facility_id2')
     user_id = fields.Many2one('res.users', default=lambda self: self.env.user.id)
+
+
+    def _event_date_set(self):
+        for rec in self:
+            rec.event_date = rec.start_date
+            print(str(rec.event_date))
+
 
     # @api.onchange('total_amt', 'rent', 'makeup_rate', 'mehndi_rate', 'photography_rate','entert_rate','catering_rate','no_people')
     # def _compute_grand_rate(self):

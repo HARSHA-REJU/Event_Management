@@ -325,7 +325,6 @@ class VenueListingPage(http.Controller):
                 'current_user':current_user
                   }
         return request.render(
-
         "event_management.venue_page",values)
     # @http.route(['/venuelist'], type='http', auth="public",website=True)
     # def venue_page_controller(self):
@@ -534,7 +533,8 @@ class BookingPage(http.Controller):
         district_id = auditorium.district_id.id
         place_id = auditorium.place_id.id
         type_id = int(args.get('type_id'))
-        date = args.get('date')
+        start_date = args.get('start_date')
+        end_date = args.get('end_date')
         mobile = args.get('mobile')
         address = args.get('address')
         email = args.get('useremail')
@@ -543,7 +543,8 @@ class BookingPage(http.Controller):
             'venue_id': venue_id,
             'type_of_event_id': type_id,
             'date': fields.Date.today(),
-            'event_date': date,
+            'start_date': start_date,
+            'end_date': end_date,
             'mobile': mobile,
             'district_id': district_id,
             'place_id': place_id,
@@ -592,13 +593,25 @@ class BookingPage(http.Controller):
             print("bookings......................")
         values = []
 
+
         for record in bookings:
+            start_date = ''
+            end_date = ''
+            if record.start_date:
+                start_date = datetime.datetime.strftime(record.start_date, "%Y-%m-%d")
+                print(start_date)
+            if record.end_date:
+                end_date =  datetime.datetime.strftime(record.end_date, "%Y-%m-%d")
+                print(end_date)
+
             vals_dict = {
-                'id': "*                        booked",
-                'title':"   Event Ref: "+str(record.ref)+"      Event name: "+str(record.name)+"      start :  "+str(record.event_date) + "      End : "+str(record.event_date),
-                'start': str(record.event_date),
-                'end': str(record.event_date),
-                'display': 'background'
+                'id':str(record.id),
+                'title': "*                        booked/"+str(record.id),
+                # 'title':"   Event Ref: "+str(record.ref)+"      Event name: "+str(record.name)+"      start :  "+str(record.event_date) + "      End : "+str(record.event_date),
+                'start': start_date,
+                'end': end_date,
+                'display': 'background',
+                'url':'google.com',
             }
             values.append(vals_dict)
         # print ("valueeeeeeeeeeeeeeeeessssssssssssssssssssss")

@@ -36,21 +36,41 @@ class AccountMove(models.Model):
     def action_pay_advance(self):
         for rec in self:
             if rec.total_advance > 0:
-                values = {
-                    'partner_type': 'customer',
-                    'date': fields.Date.today(),
-                    'destination_account_id': self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1).id,
-                    'amount': rec.total_advance,
-                    'journal_id': self.env['account.journal'].search([('type', '=', 'cash')],limit=1).id,
-                }
-                payment = self.env['account.payment'].create(values)
-                payment.reconciled_invoice_ids = [rec.id]
+                # values = {
+                #     'partner_type': 'customer',
+                #     'date': fields.Date.today(),
+                #     'destination_account_id': self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1).id,
+                #     'amount': rec.total_advance,
+                #     'journal_id': self.env['account.journal'].search([('type', '=', 'cash')],limit=1).id,
+                # }
+
+                # values = {
+                #     'communication':rec.name,
+                #     'payment_date': fields.Date.today(),
+                #     'destination_account_id': self.env['account.account'].search([('user_type_id.type', '=', 'receivable')],limit=1).id,
+                #     'amount': rec.total_advance,
+                #     'journal_id': self.env['account.journal'].search([('type', '=', 'cash')],limit=1).id,
+                # }
+                # self._context = {
+                #     'active_model': 'account.move',
+                #     'active_ids': rec.ids,
+                # }
+                # wizard = self.env['account.payment.register'].create(values)
+                # print("Inside Functionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+                #
+                # wizard._context = {
+                #     'active_model': 'account.move',
+                #     'active_ids': rec.ids,
+                # }
+                # # rec.action_register_payment
+                # wizard.action_create_payments()
+                # payment = self.env['account.payment'].create(values)
+                # payment.reconciled_invoice_ids = [rec.id]
                 rec.payment_done = True
                 rec.state = 'posted'
                 rec.payment_state = 'partial'
             else:
-                raise UserError(_("please select an auditorium for manager"))
-        print("Inside Functionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+                raise UserError(_("Please give amount in advance column"))
         return
 
     @api.depends(

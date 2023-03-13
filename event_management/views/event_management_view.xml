@@ -106,9 +106,9 @@
                             </group>
                             <group>
                                 <field name="date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-                                <field name="event_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
-<!--                                <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
-<!--                                <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>-->
+                                <field name="event_date" invisible="1" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="start_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="end_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                                 <field name="ref" readonly="1"/>
                                 <field name="mobile"/>
                                 <field name="email"/>
