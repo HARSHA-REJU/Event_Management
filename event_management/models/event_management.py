@@ -223,7 +223,7 @@ class EventManagement(models.Model):
     start_date = fields.Datetime(string="Start date",
                                  default=lambda self: fields.datetime.now(),required=True
                                  )
-    end_date = fields.Datetime(string="End date")
+    end_date = fields.Datetime(string="End date", required=True)
 
     service_line_ids = fields.One2many('event.service.line', 'event_id',
                                        string="Services")

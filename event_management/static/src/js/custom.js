@@ -179,19 +179,32 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
 //    console.log(string_no2);
 //    window.location.href = "/record/"+string_no2+"/";
 //});
-
- $(window).on('load', function(){
-    if(window.location.pathname == '/booking'){
-      var venue = $('input#current_user_auditorium').val();
-      if(venue != '' || venue != null){
-      var venue_val = $('select#venue_id').val();
-       if(venue_val != '' || venue_val != null){
-            $('select#venue_id').val(venue).trigger('change')
-      }
-              renderCalendar()
-}
-}
- })
+//
+// $(window).on('load', function(){
+//    if(window.location.pathname == '/booking'){
+//      var venue = $('input#current_user_auditorium').val();
+//      if(venue != '' || venue != null){
+//      var venue_val = $('select#venue_id').val();
+//      console.log(venue_val)
+//      console.log('venue_val')
+//      console.log(venue)
+//      console.log('venue')
+//       if(venue_val != '' || venue_val != null){
+//            $('select#venue_id').val(venue).trigger('change')
+//              renderCalendar()
+//      }else{
+//      var calendar = new Calendar(calendarEl, {
+//      events: [
+//        {
+//
+//        }
+//      ],
+//
+//    });
+//    }
+//    }
+//    }
+// })
 
 // $('.modal-button').on('click', function(e){
 //    if(window.location.hash == '#loginModal?error=true'){

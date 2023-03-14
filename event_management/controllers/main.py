@@ -533,8 +533,9 @@ class BookingPage(http.Controller):
         district_id = auditorium.district_id.id
         place_id = auditorium.place_id.id
         type_id = int(args.get('type_id'))
-        start_date = args.get('start_date')
-        end_date = args.get('end_date')
+        start_date = args.get('start_date').split("T")
+        print(start_date)
+        end_date = args.get('end_date').split("T")
         mobile = args.get('mobile')
         address = args.get('address')
         email = args.get('useremail')
@@ -543,8 +544,8 @@ class BookingPage(http.Controller):
             'venue_id': venue_id,
             'type_of_event_id': type_id,
             'date': fields.Date.today(),
-            'start_date': start_date,
-            'end_date': end_date,
+            'start_date': start_date[0]+" "+start_date[1]+":00",
+            'end_date': end_date[0]+" "+end_date[1]+":00",
             'mobile': mobile,
             'district_id': district_id,
             'place_id': place_id,
@@ -597,19 +598,26 @@ class BookingPage(http.Controller):
         for record in bookings:
             start_date = ''
             end_date = ''
+            endStr = ''
+            startStr = ''
             if record.start_date:
                 start_date = datetime.datetime.strftime(record.start_date, "%Y-%m-%d")
+                startStr = record.start_date.strftime("%X")
                 print(start_date)
             if record.end_date:
                 end_date =  datetime.datetime.strftime(record.end_date, "%Y-%m-%d")
+                endStr = record.end_date.strftime("%X")
+
                 print(end_date)
 
             vals_dict = {
                 'id':str(record.id),
-                'title': "*                        booked/"+str(record.id),
+                'title': "*                        booked/",
                 # 'title':"   Event Ref: "+str(record.ref)+"      Event name: "+str(record.name)+"      start :  "+str(record.event_date) + "      End : "+str(record.event_date),
                 'start': start_date,
                 'end': end_date,
+                'endStr':endStr,
+                'startStr':startStr,
                 'display': 'background',
                 'url':'google.com',
             }

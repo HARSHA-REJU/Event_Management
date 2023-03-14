@@ -60,7 +60,6 @@
 <!--                    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>-->
 
 
-
 <!--                      <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.1/index.global.min.js'></script>-->
 <!--    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.1/index.global.min.js'></script>-->
 
@@ -1201,53 +1200,125 @@
                   </div>
                 </div>
                   <script>
-                      function renderCalendar() {
-                            var currentDate = $('input#start_date').val();
-                            console.log(currentDate);
-                            if(currentDate != '' || currentDate != null){
-                            currentDate = new Date();
-                            }
-                            var venue_id = $('#venue_id').val();
-                            var token = $('[name="csrf_token"]').val();
-                            var calendarEl = document.getElementById('calendar');
-                            var calendar = new FullCalendar.Calendar(calendarEl, {
-                            selectable: true,
-                            initialView: 'dayGridMonth',
-                            initialDate: currentDate,
-                            eventClick: function(calEvent, jsEvent, view) {
-                            console.log(calEvent);
-                              },
-                                events: {
-                                url: '/ajax/reservations/get/' + venue_id,
-                                method: 'POST',
-                                color: '#5aaaff',
-                                textColor: 'black',
-                            },
+<!--                      function renderCalendar() {-->
+<!--                            var currentDate = $('input#start_date').val();-->
+<!--                            console.log(currentDate);-->
+<!--                            if(currentDate != '' || currentDate != null){-->
+<!--                            currentDate = new Date();-->
+<!--                            }-->
+<!--                            var venue_id = $('#venue_id').val();-->
+<!--                            var token = $('[name="csrf_token"]').val();-->
+<!--                            var calendarEl = document.getElementById('calendar');-->
+<!--                            var calendar = new FullCalendar.Calendar(calendarEl, {-->
+<!--                      eventClick: function(info) {-->
+<!--                          var eventObj = info.event;-->
 
+<!--                          if (eventObj.url) {-->
+<!--                            alert(-->
+<!--                              'Clicked ' + eventObj.title + '.\n' +-->
+<!--                              'Will open ' + eventObj.url + ' in a new tab'-->
+<!--                            );-->
 
-                            dateClick: function(info) {
-                              alert(info.dayEl.innerText);
-                      var text = info.dayEl.innerText;
-                      event_id = text.split("/");
-                        alert(event_id[1]);
-                      event = calendar.getEventById('event_id[1]')
-                      console.log(event);
+<!--                            window.open(eventObj.url);-->
+
+<!--                            info.jsEvent.preventDefault(); // prevents browser from following link in current tab.-->
+<!--                          } else {-->
+<!--                            alert('Clicked ' + eventObj.title);-->
+<!--                          }-->
+<!--                        },-->
+<!--                            selectable: true,-->
+<!--                            initialView: 'dayGridMonth',-->
+<!--                            initialDate: currentDate,-->
+<!--                            eventClick: function(calEvent, jsEvent, view) {-->
+<!--                            console.log(calEvent);-->
+<!--                              },-->
+<!--                                events: {-->
+<!--                                url: '/ajax/reservations/get/' + venue_id,-->
+<!--                                method: 'POST',-->
+<!--&lt;!&ndash;                                color: '#5aaaff',&ndash;&gt;-->
+<!--&lt;!&ndash;                                textColor: 'black',&ndash;&gt;-->
 <!--                            },-->
-<!--                      var currentDate = $('input#date').val();-->
-<!--                      $('#calendar').fullCalendar('gotoDate', currentDate);-->
-<!--                                            console.log(currentDate)-->
-                            });
-                            calendar.render();
-                    };
 
 
-                      $('select#venue_id').on('change', function(){
-                        var price = $(this).find('option:selected').data('price');
-                        var venue =  $('select#venue_id').val();
-                        if(venue != '' || venue != null){
-                              renderCalendar()
-                      }
-                        })
+<!--                            dateClick: function(info) {-->
+<!--                              alert(info.dayEl.innerText);-->
+<!--                      var text = info.dayEl.innerText;-->
+<!--                      event_id = text.split("/");-->
+<!--                        alert(event_id[1]);-->
+<!--                      event = calendar.getEventById('event_id[1]')-->
+<!--                      console.log(event);-->
+<!--                            },-->
+<!--&lt;!&ndash;                      var currentDate = $('input#date').val();&ndash;&gt;-->
+<!--&lt;!&ndash;                      $('#calendar').fullCalendar('gotoDate', currentDate);&ndash;&gt;-->
+<!--&lt;!&ndash;                                            console.log(currentDate)&ndash;&gt;-->
+<!--                            });-->
+<!--                            calendar.render();-->
+<!--                    };-->
+
+
+<!--                      $('select#venue_id').on('change', function(){-->
+<!--                        var price = $(this).find('option:selected').data('price');-->
+<!--                        var venue =  $('select#venue_id').val();-->
+<!--                        if(venue != '' || venue != null){-->
+<!--                              renderCalendar()-->
+<!--                      }-->
+<!--                        })-->
+                      document.getElementById("venue_id").addEventListener("change",function() {
+            var calendarEl = document.getElementById('calendar');
+            var currentDate = $('input#start_date').val();
+            var venue =  $('select#venue_id').val();
+<!--            console.log('currentDate');-->
+<!--            console.log(currentDate);-->
+<!--            console.log('venue');-->
+<!--            console.log(venue);-->
+        if(currentDate != '' || currentDate != null){
+            currentDate = new Date();
+        }
+<!--        if(venue == '' || venue == null){-->
+<!--           var string = window.location.search;-->
+<!--           if (string != '' || string != null){-->
+<!--                venue = string.split("?")[1]-->
+<!--           }-->
+<!--        }-->
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            eventClick: function(info) {
+              var eventObj = info.event;
+              console.log(eventObj)
+                      console.log("eventObj")
+              console.log(eventObj.extendedProps.endStr)
+              console.log(eventObj.extendedProps.startStr)
+              if (eventObj.url) {
+                alert(
+                  'Start Time :-' + eventObj.startStr +  ' : ' + eventObj.extendedProps.startStr + '.\n' +
+                  'End Time :-' + eventObj.endStr +  ' : '  + eventObj.extendedProps.endStr
+                );
+                info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+              } else {
+                alert('Clicked ' + eventObj.title);
+              }
+            },
+
+            initialDate: currentDate,
+            events: {
+                url: '/ajax/reservations/get/' + venue,
+                method: 'POST',
+                color: '#5aaaff',
+           },
+          });
+
+  calendar.render();
+})
+
+
+<!--                      $('select#venue_id').on('change', function(){-->
+<!--&lt;!&ndash;                        var venue =  $('select#venue_id').val();&ndash;&gt;-->
+<!--&lt;!&ndash;                        console.log("venue..........................")&ndash;&gt;-->
+<!--&lt;!&ndash;                        console.log(venue)&ndash;&gt;-->
+<!--&lt;!&ndash;                        if(venue != '' || venue != null){&ndash;&gt;-->
+<!--&lt;!&ndash;                        history.pushState(null, '', '?'+venue);&ndash;&gt;-->
+<!--&lt;!&ndash;                        console.log(window.location.href)&ndash;&gt;-->
+<!--&lt;!&ndash;                      }&ndash;&gt;-->
+<!--                        })-->
 
                   </script>
 
