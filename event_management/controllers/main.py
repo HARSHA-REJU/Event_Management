@@ -11,7 +11,7 @@ from odoo.tools import html_escape
 import werkzeug
 from werkzeug.utils import redirect
 from odoo.exceptions import AccessError, UserError, AccessDenied
-
+import odoo
 
 SIGN_UP_REQUEST_PARAMS = {'db', 'login', 'debug', 'token', 'message', 'error', 'scope', 'mode',
                           'redirect', 'redirect_hostname', 'email', 'name', 'partner_id',

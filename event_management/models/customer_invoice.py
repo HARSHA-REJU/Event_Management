@@ -36,7 +36,7 @@ class AccountMove(models.Model):
 
     def action_pay_advance(self):
         for rec in self:
-            if rec.total_advance > 0:
+            if rec.total_advance > 0 and rec.payment_done:
                 # values = {
                 #     'partner_type': 'customer',
                 #     'date': fields.Date.today(),
