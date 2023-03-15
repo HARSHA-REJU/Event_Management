@@ -25,8 +25,9 @@ class AccountMove(models.Model):
             ('special_economic_zone', 'Special Economic Zone'),
             ('deemed_export', 'Deemed Export')
         ],default="unregistered", string="GST Treatment", compute="_compute_l10n_in_gst_treatment", store=True, readonly=False)
-
+    number2 = fields.Char()
     payment_done = fields.Boolean()
+
     # total_advance = fields.Float(compute="_compute_total_advance_amount",store=True)
     # @api.depends('line_ids.advance')
     # def _compute_total_advance_amount(self):
@@ -389,9 +390,16 @@ class AccountMove(models.Model):
 #####################################################################################################
 
     @api.model
-    def create(self, vals_list):
-        res = super(AccountMove,self).create(vals_list)
+    def create(self, values):
+        sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
+        values['number2'] = sequence_number
+        res = super(AccountMove,self).create(values)
         return res
+    def write(self, vals):
+        for record in self:
+            if 'name' in vals:
+                vals['name'] = record.number2
+                return super(AccountMove,self).write(vals)
 
 
 class AccountMoveLine(models.Model):

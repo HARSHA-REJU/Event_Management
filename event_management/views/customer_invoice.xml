@@ -300,5 +300,15 @@
 <!--        </record>-->
 
 
+        <record id="sequence_invoice_order" model="ir.sequence">
+            <field name="name">Invoice Order</field>
+            <field name="code">account.move.sequence</field>
+            <field name="suffix">/%(month)s/%(year)s</field>
+            <field name="prefix"></field>
+            <field name="number_increment">1</field>
+            <field name="padding">3</field>
+        </record>
+
+
     </data>
 </odoo>

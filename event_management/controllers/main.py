@@ -10,8 +10,8 @@ from odoo.http import serialize_exception as _serialize_exception
 from odoo.tools import html_escape
 import werkzeug
 from werkzeug.utils import redirect
+from odoo.exceptions import AccessError, UserError, AccessDenied
 
-import odoo
 
 SIGN_UP_REQUEST_PARAMS = {'db', 'login', 'debug', 'token', 'message', 'error', 'scope', 'mode',
                           'redirect', 'redirect_hostname', 'email', 'name', 'partner_id',
@@ -618,7 +618,7 @@ class BookingPage(http.Controller):
                 'end': end_date,
                 'endStr':endStr,
                 'startStr':startStr,
-                'display': 'background',
+                'display': 'list-item',
                 'url':'google.com',
             }
             values.append(vals_dict)
@@ -803,3 +803,23 @@ class AllVenueListPage(http.Controller):
 
         "event_management.all_venue_list_page",values)
 
+    # @http.route(['/change_password'], type='http', auth="public",website=True)
+    # def change_password(self, **args):
+    #     old_password, new_password,confirm_password = args.get('old_pwd'), args.get('new_password'), args.get('confirm_pwd')(
+    #         {f['name']: f['value'] for f in fields})
+    #     if not (old_password.strip() and new_password.strip() and confirm_password.strip()):
+    #         return {'error':_('You cannot leave any password empty.'),'title': _('Change Password')}
+    #     if new_password != confirm_password:
+    #         return {'error': _('The new password and its confirmation must be identical.'),'title': _('Change Password')}
+    #
+    #     msg = _("Error, password not changed !")
+    #     try:
+    #         if request.env['res.users'].change_password(old_password, new_password):
+    #             return {'new_password':new_password}
+    #     except AccessDenied as e:
+    #         msg = e.args[0]
+    #         if msg == AccessDenied().args[0]:
+    #             msg = _('The old password you provided is incorrect, your password was not changed.')
+    #     except UserError as e:
+    #         msg = e.args[0]
+    #     return {'title': _('Change Password'), 'error': msg}
