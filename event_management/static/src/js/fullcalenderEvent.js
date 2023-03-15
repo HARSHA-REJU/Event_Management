@@ -70,17 +70,12 @@
           var calendar = new FullCalendar.Calendar(calendarEl, {
             eventClick: function(info) {
               var eventObj = info.event;
-              console.log(eventObj)
-              console.log("eventObj")
-              console.log(eventObj.extendedProps)
-              if (eventObj.url) {
+              if (eventObj.start) {
                 alert(
-                  'Clicked ' + eventObj.title + '.\n' +
-                  'Will open ' + eventObj.url + ' in a new tab'
+                  'Start Time :-' + eventObj.startStr +  ' : ' + eventObj.extendedProps.startStr + '.\n' +
+                  'End Time :-' + eventObj.endStr +  ' : '  + eventObj.extendedProps.endStr
                 );
                 info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
-              } else {
-                alert('Clicked ' + eventObj.title);
               }
             },
 
