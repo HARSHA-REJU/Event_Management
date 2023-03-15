@@ -36,7 +36,7 @@ class AccountMove(models.Model):
 
     def action_pay_advance(self):
         for rec in self:
-            if rec.total_advance > 0 and rec.payment_done:
+            if rec.total_advance > 0:
                 # values = {
                 #     'partner_type': 'customer',
                 #     'date': fields.Date.today(),
@@ -67,9 +67,10 @@ class AccountMove(models.Model):
                 # wizard.action_create_payments()
                 # payment = self.env['account.payment'].create(values)
                 # payment.reconciled_invoice_ids = [rec.id]
-                rec.payment_done = True
-                rec.state = 'posted'
-                rec.payment_state = 'partial'
+                if not rec.payment_done:
+                    rec.payment_done = True
+                    rec.state = 'posted'
+                    rec.payment_state = 'partial'
             else:
                 raise UserError(_("Please give amount in advance column"))
         return
