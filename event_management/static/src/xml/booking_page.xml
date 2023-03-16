@@ -942,7 +942,7 @@
                                                                 </div>
                                                             </div>
                                                             <hr class="rounded"/>
-                                                            <div class="row only_admin" style="display:none;">
+                                                            <div class="row">
                                                                 <h4 class="section-title">Book Auditorium</h4>
 
                                                                 <div class="col-md-6">
@@ -960,7 +960,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-6  only_admin" style="display:none;">
                                                                     <div class="form-group">
                                                                         <span class="form-label">Auditorium</span>
                                                                         <select name="venue_id" id="venue_id"
@@ -1055,50 +1055,7 @@
                                                 </div>
                                             </div>
                                         </div>
-<!--                      <div>-->
-<!--&lt;!&ndash;                        <div class="thumb" style="margin:-155px 20px 20px 20px; ">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <h2>Checkout our best Makeup artists right next you</h2>&ndash;&gt;-->
-<!--&lt;!&ndash;                          <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="col-lg-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                              <div class="top-content">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="container">&ndash;&gt;-->
 
-<!--&lt;!&ndash;                                        <div id="products" class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                             <t t-foreach="makeup_artists" t-as="mk_artist">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                 <div class="item  col-xs-4 col-lg-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    <div class="thumbnail">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <img class="group list-group-image" src="event_management/static/img/makeup.jpg" alt=""/>&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                                                        <img class="group list-group-image" t-att-src="'/website/image/res.partner/%s/image_1920' % venue.id" alt="" />&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        <div class="caption">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                            <h4 class="group inner list-group-item-heading">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                <t t-esc="mk_artist.name"/></h4>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                            <p class="group inner list-group-item-text">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                Artist description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                            <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                <div class="col-xs-12 col-md-6">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                    <p class="lead">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                        $21.000</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                <div class="col-xs-12 col-md-6">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                    <a class="btn btn-success" href="#1">Book Now</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                             </t>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-
-<!--                      </div>-->
 
                     </div>
 
