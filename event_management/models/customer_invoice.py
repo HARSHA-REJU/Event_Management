@@ -448,8 +448,8 @@ class AccountMoveLine(models.Model):
                 taxes = self.new({'tax_ids': vals.get('tax_ids', [])}).tax_ids
                 tax_ids = set(taxes.ids)
                 taxes = self.env['account.tax'].browse(tax_ids)
-                discount =  vals.get('discount')
-                if discount < 0:
+                discount =  vals.get('discount', 0.0)
+                if discount == 0:
                     discount = vals.get('fortuna_discount_line') + vals.get('auditorium_discount')
                     
                 # Ensure consistency between accounting & business fields.
