@@ -260,6 +260,7 @@
                                     <field name="price_unit" string="Amount"/>
                                     <field name="advance" string="Advance"/>
                                     <field name="discount" string="Disc.%"/>
+                                    <field name="auditorium_discount" string="Disc.%"/>
                                     <field name="fortuna_discount_line" string="Disc.%"/>
 
                                     <field name="currency_id" invisible="1"/>
