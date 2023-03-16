@@ -71,8 +71,6 @@ class AccountMove(models.Model):
                     rec.payment_done = True
                     rec.state = 'posted'
                     rec.payment_state = 'partial'
-            else:
-                raise UserError(_("Please give amount in advance column"))
         return
 
     @api.depends(
