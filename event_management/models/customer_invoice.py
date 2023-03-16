@@ -409,21 +409,21 @@ class AccountMoveLine(models.Model):
     advance = fields.Float()
     fortuna_discount_line = fields.Float()
     auditorium_discount = fields.Float()
-    discount = fields.Float(string='Discount (%)', digits='Discount', default=0.0, compute="_compute_total_discount")
+    discount = fields.Float(string='Discount (%)', digits='Discount', default=0.0, compute="_compute_total_discount",store=True )
 
     @api.depends('auditorium_discount','fortuna_discount_line')
     def _compute_total_discount(self):
         for rec in self:
             rec.discount = rec.fortuna_discount_line + rec.auditorium_discount
 
-    @api.onchange('quantity', 'discount', 'price_unit', 'tax_ids', 'fortuna_discount_line', 'auditorium_discount', 'advance')
-    def _onchange_price_subtotal(self):
-        for line in self:
-            if not line.move_id.is_invoice(include_receipts=True):
-                continue
-
-            line.update(line._get_price_total_and_subtotal())
-            line.update(line._get_fields_onchange_subtotal())
+    # @api.onchange('quantity', 'discount', 'price_unit', 'tax_ids', 'fortuna_discount_line', 'auditorium_discount', 'advance')
+    # def _onchange_price_subtotal(self):
+    #     for line in self:
+    #         if not line.move_id.is_invoice(include_receipts=True):
+    #             continue
+    #
+    #         line.update(line._get_price_total_and_subtotal())
+    #         line.update(line._get_fields_onchange_subtotal())
 
 
 
