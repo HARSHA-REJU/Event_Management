@@ -419,15 +419,33 @@ class AccountMoveLine(models.Model):
     def _compute_total_discount(self):
         for rec in self:
             rec.discount = rec.fortuna_discount_line + rec.auditorium_discount
-            
+
+    def _get_price_total_and_subtotal(self, price_unit=None, quantity=None, discount=None, currency=None, product=None, partner=None, taxes=None, move_type=None):
+        self.ensure_one()
+        discount = self.discount if discount is None else discount
+        if not discount:
+            discount = self.fortuna_discount_line + self.auditorium_discount
+        return self._get_price_total_and_subtotal_model(
+            price_unit=self.price_unit if price_unit is None else price_unit,
+            quantity=self.quantity if quantity is None else quantity,
+            discount=discount,
+            currency=self.currency_id if currency is None else currency,
+            product=self.product_id if product is None else product,
+            partner=self.partner_id if partner is None else partner,
+            taxes=self.tax_ids if taxes is None else taxes,
+            move_type=self.move_id.move_type if move_type is None else move_type,
+        )
     @api.model_create_multi
     def create(self, vals_list):
         # OVERRIDE
         for vals in vals_list:
             move = self.env['account.move'].browse(vals['move_id'])
             discount = vals.get('discount', 0.0)
-            if discount == 0:
+            print (discount)
+            if discount == 0 or not discount:
                 vals['discount'] = vals.get('fortuna_discount_line') + vals.get('auditorium_discount')
+                print("...........................vals['discount']")
+                print(vals['discount'])
         lines = super(AccountMoveLine, self).create(vals_list)
         return lines
 
