@@ -419,6 +419,10 @@ class AccountMoveLine(models.Model):
     def _compute_total_discount(self):
         for rec in self:
             rec.discount = rec.fortuna_discount_line + rec.auditorium_discount
+    @api.onchange('auditorium_discount','fortuna_discount_line')
+    def _onchange_discounts(self):
+        for rec in self:
+            rec.discount = rec.fortuna_discount_line + rec.auditorium_discount
 
     def _get_price_total_and_subtotal(self, price_unit=None, quantity=None, discount=None, currency=None, product=None, partner=None, taxes=None, move_type=None):
         self.ensure_one()
