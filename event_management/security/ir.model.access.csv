@@ -228,3 +228,7 @@ access_book_entertainer_group_alappuzha,book.entertainer.group.alappuzha,event_m
 access_book_entertainer_group_pathanamtitta,book.entertainer.group.pathanamtitta,event_management.model_book_entertainer,event_management.group_pathanamtitta,1,1,1,1
 access_book_entertainer_group_kottayam,book.entertainer.group.kottayam,event_management.model_book_entertainer,event_management.group_kottayam,1,1,1,1
 access_book_entertainer_group_idukki,book.entertainer.group.idukki,event_management.model_book_entertainer,event_management.group_idukki,1,1,1,1
+
+access_account_move_group_auditorium_manager,access.account.move.group.auditorium.manager,account.model_account_move,event_management.group_auditorium_manager,1,1,1,1
+access_account_move_line_group_auditorium_manager,access.account.move.line.group.auditorium.manager,account.model_account_move_line,event_management.group_auditorium_manager,1,1,1,1
+access_account_account_journal_group_auditorium_manager,access.account.account.journal.group.auditorium.manager,account.model_account_journal,event_management.group_auditorium_manager,1,1,1,1

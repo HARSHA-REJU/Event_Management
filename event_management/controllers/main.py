@@ -81,6 +81,7 @@ class HomePage(http.Controller):
         # print(vals)
         if password==re_password:
             new_user = request.env['res.users'].sudo().create(vals)
+            customer_group = request.env['res.users'].sudo().search([('')])
             new_user.partner_id.write({'mobile': mobile})
             new_user.partner_id.write({'email': email})
             return http.redirect_with_hash('/#loginModal')
@@ -618,7 +619,7 @@ class BookingPage(http.Controller):
                 'end': end_date,
                 'endStr':endStr,
                 'startStr':startStr,
-                'display': 'list-item',
+                # 'display': 'list-item',
                 'url':'google.com',
             }
             values.append(vals_dict)

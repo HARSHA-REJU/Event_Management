@@ -22,6 +22,10 @@
             <field name="name">Auditorium Manager</field>
             <field name="category_id" ref="event_management.module_category_event_management"/>
         </record>
+<!--        <record id="group_customer" model="res.groups">-->
+<!--            <field name="name">Customer</field>-->
+<!--            <field name="category_id" ref="event_management.module_category_event_management"/>-->
+<!--        </record>-->
 
 
         <record id="group_district_manager" model="res.groups">
@@ -592,7 +596,19 @@
 <!--           <field name = "domain_force"> [('id', '=', 14)] </field>-->
 <!--       </record>-->
 
+<!--        <record id="account.account_move_see_all" model="ir.rule">-->
+<!--            <field name="name">All Journal Entries</field>-->
+<!--            <field ref="model_account_move" name="model_id"/>-->
+<!--            <field name="domain_force">[('auditorium_id', '=', user.auditorium.id)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>-->
+<!--        </record>-->
 
+            <record id="account.menu_finance" model="ir.ui.menu">
+                <field name="groups_id" eval="[(4,ref('event_management.group_auditorium_manager'))]"/>
+            </record>
+            <record id="account.account_invoices" model="ir.actions.report">
+                <field name="groups_id" eval="[(4,ref('event_management.group_auditorium_manager'))]"/>
+            </record>
 
 
         <record id="event_booking_base_user_rule" model="ir.rule">
