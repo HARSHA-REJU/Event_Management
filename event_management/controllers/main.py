@@ -516,9 +516,9 @@ class BookingPage(http.Controller):
     def booking_page_submitt(self, **args):
         current_user = request.env.user
         auditorium = False
-        venue_id = int(args.get('venue_id'))
+        venue_id = args.get('venue_id')
         if venue_id:
-            auditorium = request.env['res.partner'].sudo().browse(venue_id)
+            auditorium = request.env['res.partner'].sudo().browse(int(venue_id))
         if current_user.has_group('event_management.group_auditorium_manager'):
             auditorium = current_user.auditorium
         vals = {
