@@ -392,18 +392,23 @@ class AccountMove(models.Model):
 
 #####################################################################################################
 
-    @api.model
-    def create(self, values):
-        sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
-        values['number2'] = sequence_number
-        res = super(AccountMove,self).create(values)
-        return res
+    # @api.model
+    # def create(self, values):
+    #     res = super(AccountMove,self).create(values)
+    #     print("res.number2...................")
+    #     print(res.number2)
+    #     return res
 
     def write(self, vals):
         for record in self:
+            sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
+            vals['number2'] = sequence_number
             if 'name' in vals:
-                vals['name'] = record.number2
+                vals['name'] = sequence_number
                 print(vals['name'])
+                print(record.number2)
+        print(vals)
+        print("vals.................")
         return super(AccountMove,self).write(vals)
 
     # @api.multi
