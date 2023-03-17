@@ -401,7 +401,7 @@ class AccountMove(models.Model):
 
     def write(self, vals):
         for record in self:
-            if 'line_ids' in vals:
+            if 'payment_reference' in vals:
                 sequence_number = record.number2
                 if not record.number2:
                     sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
