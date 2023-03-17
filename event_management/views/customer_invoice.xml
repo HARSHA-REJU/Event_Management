@@ -34,7 +34,8 @@
                     <field name="amount_untaxed_signed" string="Tax Excluded" sum="Total" optional="show"/>
                     <field name="amount_tax_signed" string="Tax" sum="Total" optional="hide"/>
                     <field name="amount_total_signed" string="Total" sum="Total" decoration-bf="1" optional="show"/>
-                    <field name="total_advance" string="Advance Received"/>
+                    <field name="payment_done" invisible="1"/>
+                    <field name="total_advance" string="Advance Received" attrs="{'readonly': [('payment_done', '=', True)]}"/>
                     <field name="amount_residual_signed" string="Amount Due" sum="Amount Due" optional="hide"/>
                     <field name="currency_id" invisible="1"/>
                     <field name="company_currency_id" invisible="1"/>
@@ -59,7 +60,7 @@
                 <xpath expr="//field[@name='amount_untaxed']" position="before">
                     <field name="payment_done" invisible="1"/>
                     <button name="action_pay_advance"  string="Pay Advance" type="object" class="oe_highlight o_address_city" states="draft,confirm" width="50%" attrs="{'invisible': [('payment_done', '=', True)]}"/>
-                    <field name="total_advance" string="Advance" width="50%"/>
+                    <field name="total_advance" string="Advance" width="50%" attrs="{'readonly': [('payment_done', '=', True)]}"/>
 <!--                    <field name="fortuna_discount" string="Fortuna Disc%"/>-->
                 </xpath>
 <!--&lt;!&ndash;                <xpath expr="//field[@name='amount_total']" position="before">&ndash;&gt;-->
