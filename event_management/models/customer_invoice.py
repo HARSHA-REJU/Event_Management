@@ -903,16 +903,16 @@ class AccountPaymentRegister(models.TransientModel):
     source_amount_currency = fields.Monetary(
         string="Amount to Pay (foreign currency)", store=True, copy=False,
         currency_field='source_currency_id',
-        compute='_compute_from_lines')
+        compute='_compute_amount_duplicate')
 
     source_amount = fields.Monetary(
         string="Amount to Pay (company currency)", store=True, copy=False,
         currency_field='company_currency_id',
-        compute='_compute_from_lines')
-
-
-    amount = fields.Monetary(currency_field='currency_id', store=True, readonly=False,
         compute='_compute_amount_duplicate')
+
+    #
+    # amount = fields.Monetary(currency_field='currency_id', store=True, readonly=False,
+    #     compute='_compute_amount_duplicate')
 
     def _compute_amount_duplicate(self):
         for rec in self:
@@ -926,7 +926,7 @@ class AccountPaymentRegister(models.TransientModel):
             print(self._active_id)
             print("self._context..............")
             print(self._context)
-            rec.amount = 0
+            # rec.amount = 0
     @api.depends('line_ids')
     def _compute_from_lines(self):
         ''' Load initial values from the account.moves passed through the context. '''
