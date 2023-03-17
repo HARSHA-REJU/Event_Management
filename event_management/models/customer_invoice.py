@@ -447,7 +447,7 @@ class AccountMoveLine(models.Model):
             discount = vals.get('discount', 0.0)
             print (discount)
             if discount == 0 or not discount:
-                vals['discount'] = vals.get('fortuna_discount_line') + vals.get('auditorium_discount')
+                vals['discount'] = vals.get('fortuna_discount_line',0.0) + vals.get('auditorium_discount',0.0)
                 print("...........................vals['discount']")
                 print(vals['discount'])
         lines = super(AccountMoveLine, self).create(vals_list)
