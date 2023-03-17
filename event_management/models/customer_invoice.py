@@ -403,7 +403,7 @@ class AccountMove(models.Model):
         for record in self:
             if 'name' in vals:
                 vals['name'] = record.number2
-        print(vals['name'])
+        #       print(vals['name'])
         return super(AccountMove,self).write(vals)
 
     # @api.multi
