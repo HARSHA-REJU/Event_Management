@@ -59,6 +59,8 @@
                   <script src='event_management/static/src/js/fullcalenderEvent.js' type="text/javascript"></script>
 <!--                    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>-->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!--                      <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.1/index.global.min.js'></script>-->
 <!--    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.1/index.global.min.js'></script>-->
@@ -990,14 +992,14 @@
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <span class="form-label">Event Start</span>
-                                                                        <input class="form-control" name="start_date" id="start_date" type="datetime-local" required="1"/>
+                                                                        <span class="form-label">Start Time</span>
+                                                                        <input class="form-control" name="start_date" id="start_date" type="text" required="1"/>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <span class="form-label">Event End</span>
-                                                                        <input class="form-control" name="end_date" id="end_date" type="datetime-local" required="1"/>
+                                                                        <span class="form-label">End Time</span>
+                                                                        <input class="form-control" name="end_date" id="end_date" type="text" required="1"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1158,6 +1160,15 @@
                 </div>
                   <script>
 
+                          $('input#start_date').ejDateTimePicker({
+                               dayHeaderFormat: "showHeaderShort",
+                               width: '200px',
+                            });
+                            $('input#end_date').ejDateTimePicker({
+                               dayHeaderFormat: "showHeaderShort",
+                               width: '200px',
+                            });
+
 
                      $('.login_btn').on('click', function(){
                         $('#RegistrationModal').modal('toggle')
@@ -1195,13 +1206,14 @@
                     })
 
 
-                      $('input#date').on('change', function(){
+                      $('input#start_date').on('change', function(){
                         var date = $(this).val();
                       console.log(date)
                         var venue = $('select#venue_id').val();
                         var eventsCount = $('#calendar table.fc-scrollgrid-sync-table .fc-day[data-date="'+date+'"] .fc-event').length
 
-                        if(venue == null){
+                     console.log(eventsCount);
+                      if(venue == null){
                             alert('Please select an Auditorium')
                             $('html,body').animate({
                                 scrollTop: $('select#venue_id').offset().top
