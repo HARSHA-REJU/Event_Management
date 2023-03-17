@@ -913,3 +913,32 @@ class AccountPaymentRegister(models.TransientModel):
             print("self._context..............")
             print(self._context)
             rec.amount = 0
+    @api.depends('line_ids')
+    def _compute_from_lines(self):
+        ''' Load initial values from the account.moves passed through the context. '''
+        for wizard in self:
+            batches = wizard._get_batches()
+            batch_result = batches[0]
+            wizard_values_from_batch = wizard._get_wizard_values_from_batch(batch_result)
+            print("Batchesss...............................................")
+            print(batches)
+            if len(batches) == 1:
+                # == Single batch to be mounted on the view ==
+                wizard.update(wizard_values_from_batch)
+
+                wizard.can_edit_wizard = True
+                wizard.can_group_payments = len(batch_result['lines']) != 1
+            else:
+                # == Multiple batches: The wizard is not editable  ==
+                wizard.update({
+                    'company_id': batches[0]['lines'][0].company_id.id,
+                    'partner_id': False,
+                    'partner_type': False,
+                    'payment_type': wizard_values_from_batch['payment_type'],
+                    'source_currency_id': False,
+                    'source_amount': False,
+                    'source_amount_currency': False,
+                })
+
+                wizard.can_edit_wizard = False
+                wizard.can_group_payments = any(len(batch_result['lines']) != 1 for batch_result in batches)
