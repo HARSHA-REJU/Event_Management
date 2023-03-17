@@ -534,9 +534,9 @@ class BookingPage(http.Controller):
         district_id = auditorium.district_id.id
         place_id = auditorium.place_id.id
         type_id = int(args.get('type_id'))
-        start_date = args.get('start_date').split("T")
+        start_date = args.get('start_date').split("/")
         print(start_date)
-        end_date = args.get('end_date').split("T")
+        end_date = args.get('end_date').split("/")
         mobile = args.get('mobile')
         address = args.get('address')
         email = args.get('useremail')
@@ -545,8 +545,8 @@ class BookingPage(http.Controller):
             'venue_id': venue_id,
             'type_of_event_id': type_id,
             'date': fields.Date.today(),
-            'start_date': start_date[0]+" "+start_date[1]+":00",
-            'end_date': end_date[0]+" "+end_date[1]+":00",
+            'start_date': start_date[0]+"-"+start_date[1]+"-"+start_date[2]+":00",
+            'end_date': end_date[0]+"-"+end_date[1]+"-"+end_date[2]+":00",
             'mobile': mobile,
             'district_id': district_id,
             'place_id': place_id,
@@ -555,6 +555,9 @@ class BookingPage(http.Controller):
             'address': address,
             'email': email,
         }
+        print("start.....................................")
+        print()
+        print("end.....................................")
         start_date_time = datetime.datetime.strptime(vals['start_date'], "%Y-%m-%d %H:%M:%S")
         end_date_time = datetime.datetime.strptime(vals['end_date'], "%Y-%m-%d %H:%M:%S")
         events_count = request.env['event.management'].sudo().search([('start_date', '>=', start_date_time), ('end_date','<=',end_date_time),])
