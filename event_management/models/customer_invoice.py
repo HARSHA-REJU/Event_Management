@@ -451,11 +451,9 @@ class AccountMoveLine(models.Model):
         lines = super(AccountMoveLine, self).create(vals_list)
 
         for line in lines:
-            line.discount = line.fortuna_discount_line + line.auditorium_discount
-
-        # for line in lines:
-        #     line.update(line._get_price_total_and_subtotal())
-        #     line.update(line._get_fields_onchange_subtotal())
+            price_unit = line.price_unit
+            line.price_unit = 0
+            line.price_unit = price_unit
         return lines
 
 #################################################################################################
@@ -872,3 +870,18 @@ class AccountMoveLine(models.Model):
     #     return result
 
 ######################################################################################################################
+
+
+
+class AccountPaymentRegister(models.TransientModel):
+    _inherit = 'account.payment.register'
+    _description = 'Register Payment'
+
+    amount = fields.Monetary(currency_field='currency_id', store=True, readonly=False,
+        compute='_compute_amount_duplicate')
+
+    def _compute_amount_duplicate(self):
+        for rec in self:
+            lines = self.line_ids._origin
+            print(lines)
+            rec.amount = 0
