@@ -555,6 +555,11 @@ class BookingPage(http.Controller):
             'address': address,
             'email': email,
         }
+        start_date_time = datetime.datetime.strptime(vals['start_date'], "%Y-%m-%d %H:%M:%S")
+        end_date_time = datetime.datetime.strptime(vals['end_date'], "%Y-%m-%d %H:%M:%S")
+        events_count = request.env['event.management'].sudo().search([('start_date', '>=', start_date_time), ('end_date','<=',end_date_time),])
+        if events_count:
+            raise UserError('Please change the dates because there is an event with in same time')
         booking_event = request.env['event.management'].sudo().create(vals)
 
 
