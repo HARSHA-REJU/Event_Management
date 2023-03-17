@@ -69,9 +69,10 @@ class AccountMove(models.Model):
                 # payment.reconciled_invoice_ids = [rec.id]
                 if not rec.payment_done:
                     rec.payment_done = True
-                    rec.action_post()
-                    rec.state = 'posted'
+                if rec.payment_state == 'not_paid':
                     rec.payment_state = 'partial'
+                if rec.state == 'draft':
+                    rec.action_post()
         return
 
     @api.depends(

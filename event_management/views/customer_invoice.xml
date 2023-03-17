@@ -59,7 +59,7 @@
                 </xpath>
                 <xpath expr="//field[@name='amount_untaxed']" position="before">
                     <field name="payment_done" invisible="1"/>
-                    <button name="action_pay_advance"  string="Pay Advance" type="object" class="oe_highlight o_address_city" states="draft,confirm" width="50%" attrs="{'invisible': [('payment_done', '=', True)]}"/>
+                    <button name="action_pay_advance"  string="Pay Advance" type="object" class="oe_highlight o_address_city" states="draft,confirm" width="50%" attrs="{'invisible': [('payment_state', '!=', 'not_paid')]}"/>
                     <field name="total_advance" string="Advance" width="50%" attrs="{'readonly': [('payment_done', '=', True)]}"/>
 <!--                    <field name="fortuna_discount" string="Fortuna Disc%"/>-->
                 </xpath>
