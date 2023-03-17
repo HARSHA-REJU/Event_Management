@@ -900,32 +900,48 @@ class AccountPaymentRegister(models.TransientModel):
     _inherit = 'account.payment.register'
     _description = 'Register Payment'
 
-    source_amount_currency = fields.Monetary(
-        string="Amount to Pay (foreign currency)", store=True, copy=False,
-        currency_field='source_currency_id',
-        compute='_compute_amount_duplicate')
-
-    source_amount = fields.Monetary(
-        string="Amount to Pay (company currency)", store=True, copy=False,
-        currency_field='company_currency_id',
-        compute='_compute_amount_duplicate')
-
-    #
-    # amount = fields.Monetary(currency_field='currency_id', store=True, readonly=False,
+    # source_amount_currency = fields.Monetary(
+    #     string="Amount to Pay (foreign currency)", store=True, copy=False,
+    #     currency_field='source_currency_id',
     #     compute='_compute_amount_duplicate')
+    #
+    # source_amount = fields.Monetary(
+    #     string="Amount to Pay (company currency)", store=True, copy=False,
+    #     currency_field='company_currency_id',
+    #     compute='_compute_amount_duplicate')
+
+    payment_difference = fields.Monetary(
+        compute='_compute_payment_difference_duplicate')
+
+    amount = fields.Monetary(currency_field='currency_id', store=True, readonly=False,
+        compute='_compute_amount_duplicate')
+
+    @api.depends('amount')
+    def _compute_payment_difference_duplicate(self):
+        for rec in self:
+            move_id = self.env['account.move'].browse(self._context.get('active_ids', []))
+            rec.payment_difference = move_id.amount_residual -  rec.amount
+
+    @api.onchange('amount')
+    def _onchange_payment_difference_duplicate(self):
+        for rec in self:
+            move_id = self.env['account.move'].browse(self._context.get('active_ids', []))
+            rec.payment_difference = move_id.amount_residual -  rec.amount
 
     def _compute_amount_duplicate(self):
         for rec in self:
             move_id = self.env['account.move'].browse(self._context.get('active_ids', []))
-            rec.source_amount = move_id.amount_residual
-            rec.source_amount_currency = move_id.amount_residual
-            lines = self.line_ids._origin
-            print("lines////////////////////.............................")
-            print(lines)
-            print("self._active_id..............")
-            print(self._active_id)
-            print("self._context..............")
-            print(self._context)
+            rec.amount = move_id.amount_residual
+            #
+            # rec.source_amount = move_id.amount_residual
+            # rec.source_amount_currency = move_id.amount_residual
+            # lines = self.line_ids._origin
+            # print("lines////////////////////.............................")
+            # print(lines)
+            # print("self._active_id..............")
+            # print(self._active_id)
+            # print("self._context..............")
+            # print(self._context)
             # rec.amount = 0
     @api.depends('line_ids')
     def _compute_from_lines(self):
