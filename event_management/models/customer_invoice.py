@@ -397,12 +397,12 @@ class AccountMove(models.Model):
         res = super(AccountMove,self).create(values)
         return res
 
-    # def write(self, vals):
-    #     for record in self:
-    #         if 'name' in vals:
-    #             vals['name'] = record.number2
-    #             res = super(AccountMove,self).write(vals)
-    #             return res
+    def write(self, vals):
+        for record in self:
+            if 'name' in vals:
+                vals['name'] = record.number2
+        res = super(AccountMove,self).write(vals)
+        return res
 
 
 class AccountMoveLine(models.Model):
