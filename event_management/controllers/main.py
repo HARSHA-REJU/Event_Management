@@ -597,7 +597,7 @@ class BookingPage(http.Controller):
             bookings = request.env['event.management'].sudo().search([('venue_id', '=', auditorium.id)])
         if venue_id:
             bookings = request.env['event.management'].sudo().search([('venue_id', '=', venue_id)])
-            print("bookings......................")
+            # print("bookings......................")
         values = []
 
 
