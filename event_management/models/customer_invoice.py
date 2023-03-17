@@ -457,7 +457,7 @@ class AccountMoveLine(models.Model):
         lines = super(AccountMoveLine, self).create(vals_list)
         for line in lines:
                 line.update(line._get_price_total_and_subtotal())
-                line.update(line._get_fields_onchange_subtotal())
+                # line.update(line._get_fields_onchange_subtotal())
         return lines
 
 #################################################################################################
