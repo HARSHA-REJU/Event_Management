@@ -900,11 +900,25 @@ class AccountPaymentRegister(models.TransientModel):
     _inherit = 'account.payment.register'
     _description = 'Register Payment'
 
+    source_amount_currency = fields.Monetary(
+        string="Amount to Pay (foreign currency)", store=True, copy=False,
+        currency_field='source_currency_id',
+        compute='_compute_from_lines')
+
+    source_amount = fields.Monetary(
+        string="Amount to Pay (company currency)", store=True, copy=False,
+        currency_field='company_currency_id',
+        compute='_compute_from_lines')
+
+
     amount = fields.Monetary(currency_field='currency_id', store=True, readonly=False,
         compute='_compute_amount_duplicate')
 
     def _compute_amount_duplicate(self):
         for rec in self:
+            move_id = self.env['account.move'].browse(self._context.get('active_ids', []))
+            rec.source_amount = move_id.amount_residual
+            rec.source_amount_currency = move_id.amount_residual
             lines = self.line_ids._origin
             print("lines////////////////////.............................")
             print(lines)
