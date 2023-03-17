@@ -993,13 +993,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <span class="form-label">Start Time</span>
-                                                                        <input class="form-control" name="start_date" id="start_date" type="text" required="1"/>
+                                                                        <input class="form-control" name="start_date" id="start_date" type="datetime-local" required="1"/>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <span class="form-label">End Time</span>
-                                                                        <input class="form-control" name="end_date" id="end_date" type="text" required="1"/>
+                                                                        <input class="form-control" name="end_date" id="end_date" type="datetime-local" required="1"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1160,14 +1160,14 @@
                 </div>
                   <script>
 
-                          $('input#start_date').ejDateTimePicker({
-                               dayHeaderFormat: "showHeaderShort",
-                               width: '200px',
-                            });
-                            $('input#end_date').ejDateTimePicker({
-                               dayHeaderFormat: "showHeaderShort",
-                               width: '200px',
-                            });
+<!--                          $('input#start_date').ejDateTimePicker({-->
+<!--                               dayHeaderFormat: "showHeaderShort",-->
+<!--                               width: '200px',-->
+<!--                            });-->
+<!--                            $('input#end_date').ejDateTimePicker({-->
+<!--                               dayHeaderFormat: "showHeaderShort",-->
+<!--                               width: '200px',-->
+<!--                            });-->
 
 
                      $('.login_btn').on('click', function(){
