@@ -424,7 +424,7 @@ class AccountMoveLine(models.Model):
     def _onchange_price_subtotal_duplicate(self):
         for rec in self:
             if rec.price_subtotal == 0:
-                rec._onchange_price_subtotal()
+                rec._get_price_total_and_subtotal()
 
 
     def _get_price_total_and_subtotal(self, price_unit=None, quantity=None, discount=None, currency=None, product=None, partner=None, taxes=None, move_type=None):
