@@ -451,9 +451,8 @@ class AccountMoveLine(models.Model):
         lines = super(AccountMoveLine, self).create(vals_list)
 
         for line in lines:
-            price_unit = line.price_unit
-            line.price_unit = 0
-            line.price_unit = price_unit
+            line.discount = 1-line.discount
+            line.discount = 1+line.discount
         return lines
 
 #################################################################################################
