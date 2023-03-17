@@ -401,8 +401,7 @@ class AccountMove(models.Model):
         for record in self:
             if 'name' in vals:
                 vals['name'] = record.number2
-        res = super(AccountMove,self).write(vals)
-        return res
+        return super(AccountMove,self).write(vals)
 
 
 class AccountMoveLine(models.Model):
