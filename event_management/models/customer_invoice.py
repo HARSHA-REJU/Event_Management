@@ -69,6 +69,7 @@ class AccountMove(models.Model):
                 # payment.reconciled_invoice_ids = [rec.id]
                 if not rec.payment_done:
                     rec.payment_done = True
+                    rec.action_post()
                     rec.state = 'posted'
                     rec.payment_state = 'partial'
         return
@@ -419,10 +420,7 @@ class AccountMoveLine(models.Model):
     def _compute_total_discount(self):
         for rec in self:
             rec.discount = rec.fortuna_discount_line + rec.auditorium_discount
-    @api.onchange('auditorium_discount','fortuna_discount_line')
-    def _onchange_discounts(self):
-        for rec in self:
-            rec.discount = rec.fortuna_discount_line + rec.auditorium_discount
+
 
     def _get_price_total_and_subtotal(self, price_unit=None, quantity=None, discount=None, currency=None, product=None, partner=None, taxes=None, move_type=None):
         self.ensure_one()
@@ -451,9 +449,13 @@ class AccountMoveLine(models.Model):
                 print("...........................vals['discount']")
                 print(vals['discount'])
         lines = super(AccountMoveLine, self).create(vals_list)
+
         for line in lines:
-            line.update(line._get_price_total_and_subtotal())
-            line.update(line._get_fields_onchange_subtotal())
+            line.discount = line.fortuna_discount_line + line.auditorium_discount
+
+        # for line in lines:
+        #     line.update(line._get_price_total_and_subtotal())
+        #     line.update(line._get_fields_onchange_subtotal())
         return lines
 
 #################################################################################################
