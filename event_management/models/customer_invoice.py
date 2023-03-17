@@ -410,7 +410,7 @@ class AccountMoveLine(models.Model):
     advance = fields.Float()
     fortuna_discount_line = fields.Float()
     auditorium_discount = fields.Float()
-
+    price_subtotal_duplicate = fields.Float()
     #################################################################################################
     ## calculation with different discounts together
 
@@ -420,6 +420,12 @@ class AccountMoveLine(models.Model):
     def _compute_total_discount(self):
         for rec in self:
             rec.discount = rec.fortuna_discount_line + rec.auditorium_discount
+
+    @api.onchange('invoice_id.amount_total')
+    def _onchange_price_subtotal_duplicate(self):
+        for rec in self:
+            if rec.price_subtotal==0:
+                rec._onchange_price_subtotal()
 
 
     def _get_price_total_and_subtotal(self, price_unit=None, quantity=None, discount=None, currency=None, product=None, partner=None, taxes=None, move_type=None):
