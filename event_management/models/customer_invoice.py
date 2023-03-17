@@ -456,7 +456,7 @@ class AccountMoveLine(models.Model):
                 print(vals['discount'])
         lines = super(AccountMoveLine, self).create(vals_list)
         for line in lines:
-            line.price_subtotal = line.quantity * (line.price_unit * (1 - (discount / 100.0)))
+            line.price_subtotal = line.quantity * (line.price_unit * (1 - (line.discount / 100.0)))
                 # line.update(line._get_price_total_and_subtotal())
                 # line.update(line._get_fields_onchange_subtotal())
         return lines
