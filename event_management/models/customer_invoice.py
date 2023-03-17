@@ -401,13 +401,15 @@ class AccountMove(models.Model):
 
     def write(self, vals):
         for record in self:
-            sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
-            vals['number2'] = sequence_number
-            if 'name' in vals:
+            if not record.number2:
+                sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
+                vals['number2'] = sequence_number
+            if 'line_ids' in vals:
                 vals['name'] = sequence_number
                 print(vals['name'])
                 print(record.number2)
         print(vals)
+        print(self.id)
         print("vals.................")
         return super(AccountMove,self).write(vals)
 
