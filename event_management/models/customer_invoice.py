@@ -193,6 +193,8 @@ class AccountMove(models.Model):
 
             move.payment_state = new_pmt_state
 
+
+
 ########################################################################################################################
 
     ## calculation with different discounts one after other
@@ -392,8 +394,8 @@ class AccountMove(models.Model):
 
     @api.model
     def create(self, values):
-        # sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
-        # values['number2'] = sequence_number
+        sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
+        values['number2'] = sequence_number
         res = super(AccountMove,self).create(values)
         return res
 
@@ -401,9 +403,17 @@ class AccountMove(models.Model):
         for record in self:
             if 'name' in vals:
                 vals['name'] = record.number2
+        print(vals['name'])
         return super(AccountMove,self).write(vals)
 
-
+    # @api.multi
+    # @api.depends('number2')
+    # def name_get(self):
+    #     result = []
+    #     for account in self:
+    #         name = account.number2
+    #         result.append((account.id, name))
+    #     return result
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
