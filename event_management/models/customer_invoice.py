@@ -398,17 +398,17 @@ class AccountMove(models.Model):
     #     print("res.number2...................")
     #     print(res.number2)
     #     return res
-
     def write(self, vals):
         for record in self:
-            if 'payment_reference' in vals:
-                sequence_number = record.number2
-                if not record.number2:
-                    sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
-                    vals['number2'] = sequence_number
-                vals['name'] = sequence_number
-                print(vals['name'])
-                print(record.number2)
+            if 'payment_reference' in vals and vals.get("payment_reference"):
+                if record.number2 != record.name:
+                    sequence_number = record.number2
+                    if not record.number2:
+                        sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
+                        vals['number2'] = sequence_number
+                        vals['name'] = sequence_number
+                    print(vals['name'])
+                    print(record.number2)
         print(vals)
         print(self.id)
         print("vals.................")
