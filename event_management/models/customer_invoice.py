@@ -410,7 +410,7 @@ class AccountMoveLine(models.Model):
     advance = fields.Float()
     fortuna_discount_line = fields.Float()
     auditorium_discount = fields.Float()
-    # price_subtotal_duplicate = fields.Float(compute="_onchange_price_subtotal_duplicate")
+    price_subtotal_duplicate = fields.Float()
     #################################################################################################
     ## calculation with different discounts together
 
