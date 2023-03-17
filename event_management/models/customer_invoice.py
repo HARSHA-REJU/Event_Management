@@ -410,7 +410,7 @@ class AccountMoveLine(models.Model):
     advance = fields.Float()
     fortuna_discount_line = fields.Float()
     auditorium_discount = fields.Float()
-    # price_subtotal_duplicate = fields.Float()
+    price_subtotal_duplicate = fields.Float(compute="_onchange_price_subtotal_duplicate")
     #################################################################################################
     ## calculation with different discounts together
 
@@ -420,9 +420,10 @@ class AccountMoveLine(models.Model):
     def _compute_total_discount(self):
         for rec in self:
             rec.discount = rec.fortuna_discount_line + rec.auditorium_discount
-    @api.onchange('price_subtotal')
+    @api.depends('price_subtotal')
     def _onchange_price_subtotal_duplicate(self):
         for rec in self:
+            rec.price_subtotal_duplicate = rec.price_subtotal
             if rec.price_subtotal == 0:
                 rec._get_price_total_and_subtotal()
 
@@ -454,9 +455,9 @@ class AccountMoveLine(models.Model):
                 print("...........................vals['discount']")
                 print(vals['discount'])
         lines = super(AccountMoveLine, self).create(vals_list)
-        # for line in lines:
-        #         line.update(line._get_price_total_and_subtotal())
-        #         line.update(line._get_fields_onchange_subtotal())
+        for line in lines:
+                line.update(line._get_price_total_and_subtotal())
+                line.update(line._get_fields_onchange_subtotal())
         return lines
 
 #################################################################################################
@@ -888,4 +889,8 @@ class AccountPaymentRegister(models.TransientModel):
             lines = self.line_ids._origin
             print("lines////////////////////.............................")
             print(lines)
+            print("self._active_id..............")
+            print(self._active_id)
+            print("self._context..............")
+            print(self._context)
             rec.amount = 0

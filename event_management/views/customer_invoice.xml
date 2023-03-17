@@ -83,7 +83,7 @@
                 <xpath expr="//field[@name='line_ids']/tree/field[@name='account_id']" position="after">
                     <field name="fortuna_discount_line" string="Fortuna Disc%" invisible="1"/>
                     <field name="auditorium_discount" string="Auditorium Disc%" invisible="1"/>
-
+                    <field name="price_subtotal_duplicate" invisible="1"/>
                 </xpath>
                 <xpath expr="//field[@name='invoice_line_ids']/tree" position="replace">
                     <field name="invoice_line_ids"
@@ -135,12 +135,14 @@
                                    context="{'append_type_to_tax_name': not parent.invoice_filter_type_domain}"
                                    options="{'no_create': True}"
                                    />
+
                             <field name="price_subtotal"
                                    string="Subtotal"
                                    groups="account.group_show_line_subtotals_tax_excluded"/>
                             <field name="price_total"
                                    string="Total"
                                    groups="account.group_show_line_subtotals_tax_included"/>
+                            <field name="price_subtotal_duplicate" invisible="1"/>
 
                             <!-- Others fields -->
                             <field name="partner_id" invisible="1"/>
@@ -169,9 +171,11 @@
                             <!-- Displayed fields -->
                             <field name="name"/>
                             <field name="product_id" invisible="1"/>
-                            <field name="price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+
+                            <field name="price_subtotal" force_save="1" groups="account.group_show_line_subtotals_tax_excluded"/>
                             <field name="price_total" groups="account.group_show_line_subtotals_tax_included"/>
-<!--                            <field name="quantity" invisible="1"/>-->
+                            <field name="price_subtotal_duplicate" invisible="1"/>
+                            <!--                            <field name="quantity" invisible="1"/>-->
                             <field name="product_uom_category_id" invisible="1"/>
                             <field name="product_uom_id" groups="uom.group_uom"/>
                             <field name="price_unit"/>
@@ -200,7 +204,6 @@
                                                     </div>
                                                     <strong>
                                                         <span class="float-right text-right">
-                                                            <t t-esc="record.price_subtotal.value" groups="account.group_show_line_subtotals_tax_excluded"/>
                                                             <t t-esc="record.price_total.value" groups="account.group_show_line_subtotals_tax_included"/>
                                                         </span>
                                                     </strong>
@@ -277,8 +280,9 @@
                                 <label for="name" string="Note" attrs="{'invisible': [('display_type', '!=', 'line_note')]}"/>
                                 <field name="name" widget="text"/>
                                 <group>
-                                    <field name="price_subtotal" string="Subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                    <field name="price_subtotal" force_save="1" string="Subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
                                     <field name="price_total" string="Total" groups="account.group_show_line_subtotals_tax_included"/>
+                                    <field name="price_subtotal_duplicate" invisible="1"/>
                                 </group>
                             </sheet>
                         </form>
