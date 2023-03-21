@@ -155,6 +155,7 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
      if (!results[2]) return '';
      return decodeURIComponent(results[2].replace(/\+/g, " "));
  }
+
  $(window).on('load', function(){
     if(window.location.hash == '#loginModal?error=true'){
         $('#LoginModal').modal('toggle')

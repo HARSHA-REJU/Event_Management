@@ -276,16 +276,16 @@
         <xpath expr="//span[@t-field='o.partner_id.vat']" position="after">
             <span t-field="o.l10n_in_gstin" t-if="o.company_id.country_id.code == 'IN'"/>
         </xpath>
-        <xpath expr="//t[@t-set='address']" position="inside">
-            <t t-if="o.company_id.country_id.code == 'IN' and o.l10n_in_state_id" class="mt16">
-                <t t-if="o.move_type in ('in_invoice', 'in_refund')">
-                    Destination of supply: <span t-esc="o.l10n_in_state_id.name"/>
-                </t>
-                <t t-if="o.move_type in ('out_invoice', 'out_refund')">
-                    Place of supply: <span t-esc="o.l10n_in_state_id.name"/>
-                </t>
-            </t>
-        </xpath>
+<!--        <xpath expr="//t[@t-set='address']" position="inside">-->
+<!--            <t t-if="o.company_id.country_id.code == 'IN' and o.l10n_in_state_id" class="mt16">-->
+<!--                <t t-if="o.move_type in ('in_invoice', 'in_refund')">-->
+<!--                    Destination of supply: <span t-esc="o.l10n_in_state_id.name"/>-->
+<!--                </t>-->
+<!--                <t t-if="o.move_type in ('out_invoice', 'out_refund')">-->
+<!--                    Place of supply: <span t-esc="o.l10n_in_state_id.name"/>-->
+<!--                </t>-->
+<!--            </t>-->
+<!--        </xpath>-->
         <xpath expr="//p[@t-if='o.narration']" position="before">
             <t t-if="o.company_id.country_id.code == 'IN'">
                 <p id="total_in_words" class="mb16">
