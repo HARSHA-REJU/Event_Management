@@ -227,9 +227,10 @@ class ContactUsPage(http.Controller):
         current_user = request.env.user
         districts = request.env['place.district'].sudo().search([])
         types = request.env['event.management.type'].sudo().search([])
+        venues = request.env['res.partner'].sudo().search([('venue', '=', True)])
 
         values = {
-            # 'venues':venues,
+            'venues':venues,
             'districts':districts,
             'types':types,
             # 'places':places,
@@ -240,6 +241,7 @@ class ContactUsPage(http.Controller):
     @http.route(['/enquiry/confirm'], type='http', auth="public",website=True)
     def contact_page_confirm(self, **args):
         district_id = int(args.get('district_id'))
+        venue_id = int(args.get('venue_id'))
         type_id = int(args.get('type_id'))
         email = args.get('email')
         date = args.get('date')
@@ -257,7 +259,7 @@ class ContactUsPage(http.Controller):
 
 
         vals = {
-            'district_id':district_id,
+            'venue_id':venue_id,
             'type_of_event_id':type_id,
             'email':email,
             'date':fields.Date.today(),

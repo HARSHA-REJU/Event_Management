@@ -160,7 +160,6 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
         $('#LoginModal').modal('toggle')
         if(getParameterByName('error') == 'true'){
             $('div#LoginModal .form-group.form-button').after('<div class="d-block"><p class="alert alert-danger" role="alert">Wrong login/password</p></div>')
-               window.history.pushState(null, '', '/booking');
 
         }
     }
