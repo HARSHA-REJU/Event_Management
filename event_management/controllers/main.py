@@ -535,7 +535,7 @@ class BookingPage(http.Controller):
         place_id = auditorium.place_id.id
         type_id = int(args.get('type_id'))
         start_date = args.get('start_date').split("/")
-        print(start_date)
+        # print(start_date)
         end_date = args.get('end_date').split("/")
         mobile = args.get('mobile')
         address = args.get('address')
@@ -555,39 +555,46 @@ class BookingPage(http.Controller):
             'address': address,
             'email': email,
         }
-        print("start.....................................")
-        print()
-        print("end.....................................")
+        # print("start.....................................")
+        # print("end.....................................")
         start_date_time = datetime.datetime.strptime(vals['start_date'], "%Y-%m-%d %H:%M:%S")
         end_date_time = datetime.datetime.strptime(vals['end_date'], "%Y-%m-%d %H:%M:%S")
-        events_count = request.env['event.management'].sudo().search([('start_date', '>=', start_date_time), ('end_date','<=',end_date_time),])
-        # if events_count:
-        #     raise UserError('Please change the dates because there is an event with in same time')
-        booking_event = request.env['event.management'].sudo().create(vals)
+        events_count_start = request.env['event.management'].sudo().search([('start_date', '<=', start_date_time), ('end_date','>=',start_date_time),])
+        events_count_end = request.env['event.management'].sudo().search([('start_date', '<=', end_date_time), ('end_date','>=',end_date_time),])
+        events_count = len(events_count_start) + len(events_count_end)
+        print("events_count_start....................................")
+        print(events_count_start.ids)
+        print(events_count_end.ids)
+        if events_count>0:
+            print("Ayyoooo Event undeeeeeeend.....................................")
 
-
-        invoice_vals = {
-            'move_type': 'out_invoice',
-            'invoice_date': fields.Date.today(),
-            'partner_id': new_customer.id,
-            'booking_id': booking_event.id,
-            'address': address,
-            'invoice_line_ids': [
-                (0, 0, {
-                    'name': 'Auditorium Rent',
-                    'price_unit': amount,
-                    'quantity':1,
-                }),]
-
-        }
-
-        account_invoice = request.env['account.move'].create(invoice_vals)
-        if current_user.has_group('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
-            action_id = request.env.ref('account.action_move_out_invoice_type')
-            return request.redirect('/web?&#id=%s&action=%s&model=account.move&view_type=form' % (str(account_invoice.id),action_id.id))
-
+            return http.redirect_with_hash("/booking?error")
+            # raise UserError('Please change the dates because there is an event with in same time')
         else:
-            return http.redirect_with_hash("/invoices")
+            booking_event = request.env['event.management'].sudo().create(vals)
+
+            invoice_vals = {
+                'move_type': 'out_invoice',
+                'invoice_date': fields.Date.today(),
+                'partner_id': new_customer.id,
+                'booking_id': booking_event.id,
+                'address': address,
+                'invoice_line_ids': [
+                    (0, 0, {
+                        'name': 'Auditorium Rent',
+                        'price_unit': amount,
+                        'quantity':1,
+                    }),]
+
+            }
+
+            account_invoice = request.env['account.move'].create(invoice_vals)
+            if current_user.has_group('event_management.group_auditorium_manager') or current_user.has_group ('base.group_system'):
+                action_id = request.env.ref('account.action_move_out_invoice_type')
+                return request.redirect('/web?&#id=%s&action=%s&model=account.move&view_type=form' % (str(account_invoice.id),action_id.id))
+
+            else:
+                return http.redirect_with_hash("/invoices")
 
     @http.route(['/ajax/reservations/get/<int:venue_id>'], type='http', auth="public",website=True,csrf=False)
     def venue_calender_ajax(self, venue_id,**args):
@@ -612,12 +619,12 @@ class BookingPage(http.Controller):
             if record.start_date:
                 start_date = datetime.datetime.strftime(record.start_date, "%Y-%m-%d")
                 startStr = record.start_date.strftime("%X")
-                print(start_date)
+                # print(start_date)
             if record.end_date:
                 end_date =  datetime.datetime.strftime(record.end_date, "%Y-%m-%d")
                 endStr = record.end_date.strftime("%X")
 
-                print(end_date)
+                # print(end_date)
 
             vals_dict = {
                 'id':str(record.id),

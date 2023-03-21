@@ -1215,6 +1215,19 @@
 
 
 <!--                      $('input#start_date').on('change', function(){-->
+<!--                      var currentDate = $('this').val();-->
+<!--                        if(currentDate == null || currentDate == ''){-->
+<!--                      currentDate = new Date();-->
+<!--                      }-->
+<!--                      console.log('currentDate.....111111');-->
+<!--                      console.log(currentDate);-->
+
+<!--                      $('#calendar').fullCalendar('gotoDate',  currentDate);-->
+<!--                      console.log('currentDate.....3333333333');-->
+
+<!--                        })-->
+
+<!--                      $('input#start_date').on('change', function(){-->
 <!--                        var date = $(this).val();-->
 <!--                      console.log(date)-->
 <!--                        var venue = $('select#venue_id').val();-->
@@ -1234,45 +1247,73 @@
 <!--                        }-->
 <!--                    })-->
 
+
+<!--                      $('.submit-btn').on('click', function(){-->
+<!--                      info.jsEvent.preventDefault(); // prevents browser from following link in current tab.-->
+<!--                      console.log("Stored Everything................................")-->
+
+<!--                        var venue_id = $('select#venue_id').val();-->
+<!--                        var username = $('input#username').val();-->
+<!--                        var type_id = $('select#type_id').val();-->
+<!--                        var district_id = $('select#district_id').val();-->
+<!--                        var useremail = $('select#useremail').val();-->
+<!--                        var place_id = $('select#place_id').val();-->
+<!--                        var address = $('select#address').val();-->
+<!--                        var mobile = $('select#mobile').val();-->
+
+<!--                       localStorage.setItem("venue_id", venue_id);-->
+<!--                       localStorage.setItem("username", username);-->
+<!--                       localStorage.setItem("type_id", type_id);-->
+<!--                       localStorage.setItem("district_id", district_id);-->
+<!--                       localStorage.setItem("place_id", place_id);-->
+<!--                       localStorage.setItem("useremail", useremail);-->
+<!--                       localStorage.setItem("address", address);-->
+<!--                       localStorage.setItem("mobile", mobile);-->
+
+<!--                        window.location.href = "/booking/confirm";-->
+
+<!--                      })-->
+
                       document.getElementById("venue_id").addEventListener("change",function() {
-            var calendarEl = document.getElementById('calendar');
-            var currentDate = $('input#start_date').val();
-            var venue =  $('select#venue_id').val();
-<!--            console.log('currentDate');-->
-<!--            console.log(currentDate);-->
-<!--            console.log('venue');-->
-<!--            console.log(venue);-->
-        if(currentDate != '' || currentDate != null){
-            currentDate = new Date();
-        }
-<!--        if(venue == '' || venue == null){-->
-<!--           var string = window.location.search;-->
-<!--           if (string != '' || string != null){-->
-<!--                venue = string.split("?")[1]-->
-<!--           }-->
-<!--        }-->
-          var calendar = new FullCalendar.Calendar(calendarEl, {
-            eventClick: function(info) {
-              var eventObj = info.event;
-              if (eventObj.start) {
-                alert(
-                  'Start Time :-' + eventObj.startStr +  ' : ' + eventObj.extendedProps.startStr + '.\n' +
-                  'End Time :-' + eventObj.endStr +  ' : '  + eventObj.extendedProps.endStr
-                );
-                info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
-              }
-            },
+                                    var calendarEl = document.getElementById('calendar');
+                                    var currentDate = $('input#start_date').val();
+                                    var venue =  $('select#venue_id').val();
+                                    console.log('currentDate.....');
+                                    console.log(currentDate);
+                        <!--            console.log('venue');-->
+                        <!--            console.log(venue);-->
+                                if(currentDate != '' || currentDate != null){
+                                    currentDate = new Date();
+                                }
+                        <!--        if(venue == '' || venue == null){-->
+                        <!--           var string = window.location.search;-->
+                        <!--           if (string != '' || string != null){-->
+                        <!--                venue = string.split("?")[1]-->
+                        <!--           }-->
+                        <!--        }-->
+                                  var calendar = new FullCalendar.Calendar(calendarEl, {
+                                    eventClick: function(info) {
+                                      var eventObj = info.event;
+                                      if (eventObj.start) {
+                                        alert(
+                                          'Start Time :-' + eventObj.startStr +  ' : ' + eventObj.extendedProps.startStr + '.\n' +
+                                          'End Time :-' + eventObj.endStr +  ' : '  + eventObj.extendedProps.endStr
+                                        );
+                                        info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+                                      }
+                                    },
 
-            initialDate: currentDate,
-            events: {
-                url: '/ajax/reservations/get/' + venue,
-                method: 'POST',
-                color: '#5aaaff',
-           },
-          });
+                                    initialDate: currentDate,
+                                    events: {
+                                        url: '/ajax/reservations/get/' + venue,
+                                        method: 'POST',
+                                        color: '#5aaaff',
+                                   },
+                                  });
 
-  calendar.render();
-})
+                          calendar.render();
+                        })
+
 
 
                   </script>

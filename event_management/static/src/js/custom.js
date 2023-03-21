@@ -160,7 +160,14 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
         $('#LoginModal').modal('toggle')
         if(getParameterByName('error') == 'true'){
             $('div#LoginModal .form-group.form-button').after('<div class="d-block"><p class="alert alert-danger" role="alert">Wrong login/password</p></div>')
+               window.history.pushState(null, '', '/booking');
+
         }
+    }
+    if(window.location.search == '?error'){
+    alert('Event already exists for this date, Please choose another date.');
+    console.log('EVENT UNDEEEE.....');
+    window.history.pushState(null, '', '/booking');
     }
  })
 
