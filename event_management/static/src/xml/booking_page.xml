@@ -1164,6 +1164,7 @@
                   </div>
                 </div>
                   <script>
+                          var calendar
                       $( document ).ready(function() {
                       $('#start_date').datetimepicker({
                             minDate: 0,  // disable past date
@@ -1222,8 +1223,8 @@
                       currentDate = new Date(currentDate);
                       console.log(currentDate);
 <!--                      var calendar = document.getElementById('calendar');-->
-<!--                      calendar.gotoDate(currentDate)-->
-                      $('#calendar').fullCalendar("gotoDate", currentDate);
+                      calendar.gotoDate(currentDate)
+<!--                      $('#calendar').fullCalendar("gotoDate", currentDate);-->
 
 
 
@@ -1305,7 +1306,7 @@
                         <!--                venue = string.split("?")[1]-->
                         <!--           }-->
                         <!--        }-->
-                                  var calendar = new FullCalendar.Calendar(calendarEl, {
+                                  calendar = new FullCalendar.Calendar(calendarEl, {
                                     eventClick: function(info) {
                                       var eventObj = info.event;
                                       if (eventObj.start) {
