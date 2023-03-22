@@ -1214,16 +1214,18 @@
                     })
 
 
-<!--                      $('input#start_date').on('change', function(){-->
-<!--                      var currentDate = $('this').val();-->
-<!--                      console.log('currentDate.....111111');-->
-<!--                      console.log(currentDate);-->
+                      $('input#start_date').on('change', function(){
+                      var currentDate = $('this').val();
+                      console.log('currentDate.....111111 date change start date');
+                      console.log(currentDate);
+                      $("#calendar").fullCalendar( 'gotoDate', currentDate );
+
 <!--                      var calendarEl = document.getElementById('calendar');-->
 
 <!--                      calendarEl.fullCalendar('gotoDate',  currentDate);-->
-<!--                      console.log('currentDate.....3333333333');-->
+                      console.log('currentDate.....3333333333');
 
-<!--                        })-->
+                        })
 
 <!--                      $('input#start_date').on('change', function(){-->
 <!--                        var date = $(this).val();-->
@@ -1283,7 +1285,11 @@
                         <!--            console.log(venue);-->
                                 if(currentDate == '' || currentDate == null){
                                     currentDate = new Date();
-                                }
+                                }else{
+                                    new Date(currentDate);
+
+                                    }
+
                         <!--        if(venue == '' || venue == null){-->
                         <!--           var string = window.location.search;-->
                         <!--           if (string != '' || string != null){-->
@@ -1302,7 +1308,7 @@
                                       }
                                     },
 
-<!--                                    initialDate: currentDate,-->
+                                    initialDate: currentDate,
                                     events: {
                                         url: '/ajax/reservations/get/' + venue,
                                         method: 'POST',
