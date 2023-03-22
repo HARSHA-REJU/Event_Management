@@ -1,4 +1,5 @@
 
+        var calendar
 
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -11,7 +12,7 @@
         if(currentDate != '' || currentDate != null){
             currentDate = new Date();
         }
-          var calendar = new FullCalendar.Calendar(calendarEl, {
+          calendar = new FullCalendar.Calendar(calendarEl, {
             eventClick: function(info) {
               var eventObj = info.event;
               if (eventObj.start) {
