@@ -1222,7 +1222,7 @@
                       currentDate = new Date(currentDate);
                       console.log(currentDate);
                       var calendar = document.getElementById('calendar');
-                      calendar.gotoDate( date )
+                      calendar.gotoDate(currentDate)
 
 
 <!--                      $("#calendar").fullCalendar( 'gotoDate', currentDate );-->
