@@ -1221,8 +1221,10 @@
                       console.log(currentDate);
                       currentDate = new Date(currentDate);
                       console.log(currentDate);
-                      var calendar = document.getElementById('calendar');
-                      calendar.gotoDate(currentDate)
+<!--                      var calendar = document.getElementById('calendar');-->
+<!--                      calendar.gotoDate(currentDate)-->
+                      $('#calendar').fullCalendar("gotoDate", currentDate);
+
 
 
 <!--                      $("#calendar").fullCalendar( 'gotoDate', currentDate );-->
