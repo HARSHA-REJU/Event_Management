@@ -1286,7 +1286,7 @@
                                 if(currentDate == '' || currentDate == null){
                                     currentDate = new Date();
                                 }else{
-                                    new Date(currentDate);
+                                    currentDate = new Date(currentDate);
 
                                     }
 
