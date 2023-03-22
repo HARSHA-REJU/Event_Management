@@ -1218,6 +1218,8 @@
                       var currentDate = $('this').val();
                       console.log('currentDate.....111111 date change start date');
                       console.log(currentDate);
+                      currentDate = new Date(currentDate);
+                      console.log(currentDate);
                       $("#calendar").fullCalendar( 'gotoDate', currentDate );
 
 <!--                      var calendarEl = document.getElementById('calendar');-->
