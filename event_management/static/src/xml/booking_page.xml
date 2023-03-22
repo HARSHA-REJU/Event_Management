@@ -1215,7 +1215,7 @@
 
 
                       $('input#start_date').on('change', function(){
-                      var currentDate = $('this').val();
+                      var currentDate = $('input#start_date').val();
                       console.log('currentDate.....111111 date change start date');
                       console.log(currentDate);
                       currentDate = new Date(currentDate);
