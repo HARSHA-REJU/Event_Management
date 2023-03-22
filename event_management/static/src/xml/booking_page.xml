@@ -1214,20 +1214,67 @@
                     })
 
 
-                      $('input#start_date').on('change', function(){
-                      var currentDate = $('input#start_date').val();
-                      console.log('currentDate.....111111 date change start date');
-                      console.log(currentDate);
-                      currentDate = new Date(currentDate);
-                      console.log(currentDate);
-                      $("#calendar").fullCalendar( 'gotoDate', currentDate );
+                      document.getElementById("start_date").addEventListener("change",function() {
+                                    var calendarEl = document.getElementById('calendar');
+                                    var currentDate = $('input#start_date').val();
+                                    var venue =  $('select#venue_id').val();
+                                    console.log('currentDate calendar.....');
+                                    console.log(currentDate);
+                                    console.log(new Date());
+                        <!--            console.log('venue');-->
+                        <!--            console.log(venue);-->
+                                if(currentDate == '' || currentDate == null){
+                                    currentDate = new Date();
+                                }else{
+                                    currentDate = new Date(currentDate);
 
-<!--                      var calendarEl = document.getElementById('calendar');-->
+                                    }
 
-<!--                      calendarEl.fullCalendar('gotoDate',  currentDate);-->
-                      console.log('currentDate.....3333333333');
+                        <!--        if(venue == '' || venue == null){-->
+                        <!--           var string = window.location.search;-->
+                        <!--           if (string != '' || string != null){-->
+                        <!--                venue = string.split("?")[1]-->
+                        <!--           }-->
+                        <!--        }-->
+                                  var calendar = new FullCalendar.Calendar(calendarEl, {
+                                    eventClick: function(info) {
+                                      var eventObj = info.event;
+                                      if (eventObj.start) {
+                                        alert(
+                                          'Start Time :-' + eventObj.startStr +  ' : ' + eventObj.extendedProps.startStr + '.\n' +
+                                          'End Time :-' + eventObj.endStr +  ' : '  + eventObj.extendedProps.endStr
+                                        );
+                                        info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+                                      }
+                                    },
 
+                                    initialDate: currentDate,
+                                    events: {
+                                        url: '/ajax/reservations/get/' + venue,
+                                        method: 'POST',
+                                        color: '#5aaaff',
+                                   },
+                                  });
+
+                          calendar.render();
                         })
+
+
+
+<!--                      $('input#start_date').on('change', function(){-->
+<!--                      var currentDate = $('input#start_date').val();-->
+<!--                      console.log('currentDate.....111111 date change start date');-->
+<!--                      console.log(currentDate);-->
+<!--                      currentDate = new Date(currentDate);-->
+<!--                      console.log(currentDate);-->
+<!--                      $("#calendar").fullCalendar( 'gotoDate', currentDate );-->
+
+<!--&lt;!&ndash;                      var calendarEl = document.getElementById('calendar');&ndash;&gt;-->
+
+<!--&lt;!&ndash;                      calendarEl.fullCalendar('gotoDate',  currentDate);&ndash;&gt;-->
+<!--                      console.log('currentDate.....3333333333');-->
+
+<!--                        })-->
 
 <!--                      $('input#start_date').on('change', function(){-->
 <!--                        var date = $(this).val();-->
