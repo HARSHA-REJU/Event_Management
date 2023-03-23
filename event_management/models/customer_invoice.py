@@ -9,8 +9,8 @@ INTEGRITY_HASH_LINE_FIELDS = ('debit', 'credit', 'account_id', 'partner_id')
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    booking_id = fields.Many2one('event.management',required=True)
-    auditorium_id = fields.Many2one('res.partner', related='booking_id.venue_id')
+    booking_id = fields.Many2one('event.management')
+    auditorium_id = fields.Many2one('res.partner', default=lambda self: self.env.user.auditorium.id, compute = '_auditorium_set')
     fortuna_discount = fields.Float()
     auditorium_discount = fields.Float()
     address = fields.Text()
@@ -27,6 +27,13 @@ class AccountMove(models.Model):
         ],default="unregistered", string="GST Treatment", compute="_compute_l10n_in_gst_treatment", store=True, readonly=False)
     number2 = fields.Char()
     payment_done = fields.Boolean()
+    
+    def _auditorium_set(self):
+        for rec in self:
+            if rec.booking_id:
+                rec.auditorium_id = rec.booking_id.venue_id
+            else:
+                rec.auditorium_id = self.env.user.auditorium
 
     # total_advance = fields.Float(compute="_compute_total_advance_amount",store=True)
     # @api.depends('line_ids.advance')
@@ -69,10 +76,10 @@ class AccountMove(models.Model):
                 # payment.reconciled_invoice_ids = [rec.id]
                 if not rec.payment_done:
                     rec.payment_done = True
-                if rec.payment_state == 'not_paid':
-                    rec.payment_state = 'partial'
                 if rec.state == 'draft':
                     rec.action_post()
+                if rec.payment_state == 'not_paid':
+                    rec.payment_state = 'partial'
         return
 
     @api.depends(
