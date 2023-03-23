@@ -24,10 +24,9 @@ class CustomerEnquiryDetails(models.Model):
     # venue_ids = fields.Many2many('res.partner', string="Venues")
     # auditorium_id = fields.Many2one('res.partner',string="Venue")
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
-    event_date = fields.Date(string="Event Date", default=fields.Date.today, required=True)
-    start_date = fields.Datetime(string="Start date",
-                                 default=lambda self: fields.datetime.now(),)
-    end_date = fields.Datetime(string="End date")
+    event_date = fields.Date(string="Event Date", default=fields.Date.today, required=True, compute = '_event_date_set')
+    start_date = fields.Datetime(string="Start date", default=lambda self: fields.datetime.now(),required=True)
+    end_date = fields.Datetime(string="End date", required=True)
     no_of_attendees = fields.Integer(string='Total Persons')
     note = fields.Text('Terms and conditions')
     state = fields.Selection(
@@ -47,7 +46,9 @@ class CustomerEnquiryDetails(models.Model):
     decoration = fields.Boolean()
     entertainment = fields.Boolean()
 
-
+    def _event_date_set(self):
+        for rec in self:
+            rec.event_date = rec.start_date
 
     @api.onchange('district_id')
     def onchange_district_id(self):

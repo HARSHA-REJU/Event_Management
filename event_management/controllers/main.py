@@ -244,7 +244,8 @@ class ContactUsPage(http.Controller):
         venue_id = int(args.get('venue_id'))
         type_id = int(args.get('type_id'))
         email = args.get('email')
-        date = args.get('date')
+        start_date = args.get('start_date').split("/")
+        end_date = args.get('end_date').split("/")
         mobile = args.get('mobile')
         name = args.get('name')
         # surname = args.get('surname')
@@ -256,6 +257,7 @@ class ContactUsPage(http.Controller):
         photography = args.get('option4')
         decoration = args.get('option5')
         entertainment = args.get('option6')
+        
 
 
         vals = {
@@ -263,7 +265,8 @@ class ContactUsPage(http.Controller):
             'type_of_event_id':type_id,
             'email':email,
             'date':fields.Date.today(),
-            'event_date':date,
+            'start_date':start_date[0]+"-"+start_date[1]+"-"+start_date[2]+":00",
+            'end_date':end_date[0]+"-"+end_date[1]+"-"+end_date[2]+":00",
             'mobile':mobile,
             'customer_name':name,
             'address':address,
