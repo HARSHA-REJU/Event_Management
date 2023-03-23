@@ -240,8 +240,18 @@ class ContactUsPage(http.Controller):
         "event_management.contact_page",values)
     @http.route(['/enquiry/confirm'], type='http', auth="public",website=True)
     def contact_page_confirm(self, **args):
+        current_user = request.env.user
+        auditorium_id = False
+        venue_id = args.get('venue_id')
+        if venue_id:
+            auditorium_id = request.env['res.partner'].sudo().browse(int(venue_id)).id
+        if current_user.has_group('event_management.group_auditorium_manager'):
+            auditorium_id = current_user.auditorium.id
+
         # district_id = int(args.get('district_id'))
-        venue_id = int(args.get('venue_id'))
+        print(args.get('venue_id'))
+        print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+        # venue_id = int(args.get('venue_id'))
         type_id = int(args.get('type_id'))
         email = args.get('email')
         start_date = args.get('start_date').split("/")
@@ -261,7 +271,7 @@ class ContactUsPage(http.Controller):
 
 
         vals = {
-            'venue_id':venue_id,
+            'venue_id':auditorium_id,
             'type_of_event_id':type_id,
             'email':email,
             'date':fields.Date.today(),

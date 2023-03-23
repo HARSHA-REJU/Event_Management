@@ -1165,7 +1165,7 @@ label.valid {
                                                 <th class="venue_show">Place</th>
                                                 <th class="venue_show">Auditorium</th>
                                                 <th>Event Type</th>
-                                                <th>Services Selected</th>
+<!--                                                <th>Services Selected</th>-->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1182,13 +1182,13 @@ label.valid {
                                                     <td class="venue_show"><span t-esc="record.district_id.name"/></td>
                                                     <td class="venue_show"><span t-esc="record.venue_id.name"/></td>
                                                     <td><span t-esc="record.type_of_event_id.name"/></td>
-                                                    <td><t t-if="record.auditorium">Auditorium</t>
-                                                        <t t-if="record.makeup">,Makeup</t>
-                                                        <t t-if="record.catering">,Food &amp; Caterers</t>
-                                                        <t t-if="record.photography">,Photo &amp; Video</t>
-                                                        <t t-if="record.entertainment">,Entertainment</t>
-                                                        <t t-if="record.decoration">,Decoration</t>
-                                                    </td>
+<!--                                                    <td><t t-if="record.auditorium">Auditorium</t>-->
+<!--                                                        <t t-if="record.makeup">,Makeup</t>-->
+<!--                                                        <t t-if="record.catering">,Food &amp; Caterers</t>-->
+<!--                                                        <t t-if="record.photography">,Photo &amp; Video</t>-->
+<!--                                                        <t t-if="record.entertainment">,Entertainment</t>-->
+<!--                                                        <t t-if="record.decoration">,Decoration</t>-->
+<!--                                                    </td>-->
                                                 </tr>
                                             </t>
                                         </tbody>
