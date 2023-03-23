@@ -36,7 +36,7 @@ class ReportHotelManagement(models.AbstractModel):
         self.env.cr.execute("""
                 SELECT e.name as event, t.name as type, r.name as partner, d.name as district, p.name as place,v.name as venue,
                 e.state, e.date,e.email,e.mobile,e.address,
-                e.event_date, e.event_date
+                e.start_date, e.end_date
                 from event_management e inner join 
                 res_partner r on e.partner_id = r.id
                 inner join event_management_type t on 

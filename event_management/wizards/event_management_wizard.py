@@ -144,7 +144,7 @@ class HotelManagementWizard(models.TransientModel):
         self.env.cr.execute("""
                 SELECT e.name as event, t.name as type, r.name as partner, 
                 e.state, e.date,
-                e.event_date, e.event_date
+                e.start_date, e.end_date
                 from event_management e inner join 
                 res_partner r on e.partner_id = r.id
                 inner join event_management_type t on 

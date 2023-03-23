@@ -47,7 +47,8 @@
                                         <th>Place</th>
                                         <th>District</th>
                                         <th>Venue</th>
-                                        <th>Event Date</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
                                         <th>Event Type</th>
                                     </tr>
                                 </thead>
@@ -79,7 +80,10 @@
                                                 <span t-esc="l['venue']"/>
                                             </td>
                                             <td>
-                                                <span t-esc="l['event_date']"/>
+                                                <span t-esc="l['start_date']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="l['end_date']"/>
                                             </td>
                                             <td>
                                                 <span t-esc="l['type']"/>
