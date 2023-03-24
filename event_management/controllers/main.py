@@ -78,7 +78,6 @@ class HomePage(http.Controller):
             'name':name,
             'password':password,
         }
-        # print(vals)
         if password==re_password:
             new_user = request.env['res.users'].sudo().create(vals)
             # customer_group = request.env['res.users'].sudo().search([('')])
@@ -249,8 +248,7 @@ class ContactUsPage(http.Controller):
             auditorium_id = current_user.auditorium.id
 
         # district_id = int(args.get('district_id'))
-        print(args.get('venue_id'))
-        print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+        # print(args.get('venue_id'))
         # venue_id = int(args.get('venue_id'))
         type_id = int(args.get('type_id'))
         email = args.get('email')
@@ -570,19 +568,12 @@ class BookingPage(http.Controller):
             'address': address,
             'email': email,
         }
-        # print("start.....................................")
-        # print("end.....................................")
         start_date_time = datetime.datetime.strptime(vals['start_date'], "%Y-%m-%d %H:%M:%S")
         end_date_time = datetime.datetime.strptime(vals['end_date'], "%Y-%m-%d %H:%M:%S")
         events_count_start = request.env['event.management'].sudo().search([('start_date', '<=', start_date_time), ('end_date','>=',start_date_time),('venue_id','=',auditorium.id)])
         events_count_end = request.env['event.management'].sudo().search([('start_date', '<=', end_date_time), ('end_date','>=',end_date_time),('venue_id','=',auditorium.id)])
         events_count = len(events_count_start) + len(events_count_end)
-        print("events_count_start....................................")
-        print(events_count_start.ids)
-        print(events_count_end.ids)
         if events_count>0:
-            print("Ayyoooo Event undeeeeeeend.....................................")
-
             return http.redirect_with_hash("/booking?error")
             # raise UserError('Please change the dates because there is an event with in same time')
         else:
@@ -634,12 +625,10 @@ class BookingPage(http.Controller):
             if record.start_date:
                 start_date = datetime.datetime.strftime(record.start_date, "%Y-%m-%d")
                 startStr = record.start_date.strftime("%X")
-                # print(start_date)
             if record.end_date:
                 end_date =  datetime.datetime.strftime(record.end_date, "%Y-%m-%d")
                 endStr = record.end_date.strftime("%X")
 
-                # print(end_date)
 
             vals_dict = {
                 'id':str(record.id),
@@ -667,7 +656,6 @@ class BookingPage(http.Controller):
     #         bookings = request.env['event.management'].sudo().search([('venue_id', '=', auditorium.id)])
     #     if venue_id:
     #         bookings = request.env['event.management'].sudo().search([('venue_id', '=', venue_id)])
-    #     print("bookings......................")
     #     values = []
     #
     #     for record in bookings:
@@ -816,7 +804,6 @@ class AllVenueListPage(http.Controller):
         event_type_string = (request.httprequest.url).split('?')
         venues = request.env['res.partner'].sudo().search([('venue','=',True)])
         # districts = request.env['place.district'].sudo().search(district_domain)
-        # print("keeeeeeeeeeeeeeeeeeeeeeeejhukgggggggggggggggggggggggggggggggggggggggggggg")
         event_type = event_type_string[1]
         if event_type == 'Reception':
             event_type = 'Wedding Reception'

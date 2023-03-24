@@ -166,7 +166,6 @@ $('nav.dropdown > a#menu_service_div_id').on('click', function(e){
     }
     if(window.location.search == '?error'){
     alert('Event already exists for this date, Please choose another date.');
-    console.log('EVENT UNDEEEE.....');
     window.history.pushState(null, '', '/booking');
     }
  })
