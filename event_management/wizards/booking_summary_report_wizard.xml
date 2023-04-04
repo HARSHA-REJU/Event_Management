@@ -34,9 +34,13 @@
         <field name="target">new</field>
     </record>
 
-    <report id="report_booking_summary_report" string="Event Booking Summary"
-			model="booking.summary.wizard" report_type="qweb-pdf"
-			name="event_management.report_booking_summary"/>
+    <report id="report_booking_summary_report"
+            string="Event Booking Summary"
+			model="booking.summary.wizard"
+            report_type="qweb-pdf"
+			name="event_management.report_booking_summary"
+    />
+
             <menuitem id="booking_summary_menu_do_stuff"
                       name="Booking Summary Report"
                        parent="event_management.reports_root_menu" action="booking_summary_wizard_action_view_form" sequence="3"/>
