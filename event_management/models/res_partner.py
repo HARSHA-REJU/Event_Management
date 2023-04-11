@@ -16,7 +16,7 @@ class Facilities(models.Model):
     @api.depends("total","price","quantity")
     def _compute_total(self):
         for rec in self:
-            print("inside compute")
+            # print("inside compute")
             rec.total = rec.price * rec.quantity
 
 

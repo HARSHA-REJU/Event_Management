@@ -1175,10 +1175,10 @@ label.valid {
                                                     <td><span t-esc="sl_no"/><t t-set="sl_no" t-value="sl_no+1"/></td>
                                                     <td class="enquiry_no"><a href="#"><p style="display:none;" id="enquiry_value"><t t-esc="record.id"/></p><span t-esc="record.reference"/></a></td>
                                                     <td><span t-esc="record.customer_name"/></td>
-                                                    <td><span t-esc="record.start_date"/></td>
-                                                    <td><span t-esc="record.end_date"/></td>
                                                     <td><span t-esc="record.mobile"/></td>
                                                     <td><span t-esc="record.address"/></td>
+                                                    <td><span t-esc="record.start_date"/></td>
+                                                    <td><span t-esc="record.end_date"/></td>
                                                     <td class="venue_show"><span t-esc="record.district_id.name"/></td>
                                                     <td class="venue_show"><span t-esc="record.venue_id.name"/></td>
                                                     <td><span t-esc="record.type_of_event_id.name"/></td>

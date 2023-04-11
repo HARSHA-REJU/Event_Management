@@ -19,7 +19,7 @@ class FacilitiesEvent(models.Model):
     @api.depends("total", "price", "quantity")
     def _compute_total(self):
         for rec in self:
-            print("inside compute")
+            # print("inside compute")
             rec.total = rec.price * rec.quantity
 
 
@@ -255,7 +255,7 @@ class EventManagement(models.Model):
     def _event_date_set(self):
         for rec in self:
             rec.event_date = rec.start_date
-            print(str(rec.event_date))
+            # print(str(rec.event_date))
 
 
     # @api.onchange('total_amt', 'rent', 'makeup_rate', 'mehndi_rate', 'photography_rate','entert_rate','catering_rate','no_people')
@@ -316,7 +316,7 @@ class EventManagement(models.Model):
         sequence_number = self.env['ir.sequence'].next_by_code(sequence_code)
         values['ref'] = sequence_number
         res = super(EventManagement, self).create(values)
-        print(res.id)
+        # print(res.id)
         return res
 
     def action_event_confirm(self):

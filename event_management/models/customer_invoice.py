@@ -8,7 +8,7 @@ INTEGRITY_HASH_MOVE_FIELDS = ('date', 'journal_id', 'company_id')
 INTEGRITY_HASH_LINE_FIELDS = ('debit', 'credit', 'account_id', 'partner_id')
 class AccountMove(models.Model):
     _inherit = "account.move"
-
+    _or
     booking_id = fields.Many2one('event.management')
     auditorium_id = fields.Many2one('res.partner', default=lambda self: self.env.user.auditorium.id, compute = '_auditorium_set')
     fortuna_discount = fields.Float()
@@ -413,12 +413,6 @@ class AccountMove(models.Model):
                     if not record.number2:
                         sequence_number = self.env['ir.sequence'].next_by_code('account.move.sequence')
                         vals['number2'] = sequence_number
-                        vals['name'] = sequence_number
-                    print(vals['name'])
-                    print(record.number2)
-        print(vals)
-        print(self.id)
-        print("vals.................")
         return super(AccountMove,self).write(vals)
 
     # @api.multi
@@ -474,11 +468,11 @@ class AccountMoveLine(models.Model):
         for vals in vals_list:
             move = self.env['account.move'].browse(vals['move_id'])
             discount = vals.get('discount', 0.0)
-            print (discount)
+            # print (discount)
             if discount == 0 or not discount:
                 vals['discount'] = vals.get('fortuna_discount_line',0.0) + vals.get('auditorium_discount',0.0)
-                print("...........................vals['discount']")
-                print(vals['discount'])
+                # print("...........................vals['discount']")
+                # print(vals['discount'])
         lines = super(AccountMoveLine, self).create(vals_list)
         for line in lines:
             line.price_subtotal = line.quantity * (line.price_unit * (1 - (line.discount / 100.0)))
@@ -957,8 +951,8 @@ class AccountPaymentRegister(models.TransientModel):
             batches = wizard._get_batches()
             batch_result = batches[0]
             wizard_values_from_batch = wizard._get_wizard_values_from_batch(batch_result)
-            print("Batchesss...............................................")
-            print(batches)
+            # print("Batchesss...............................................")
+            # print(batches)
             if len(batches) == 1:
                 # == Single batch to be mounted on the view ==
                 wizard.update(wizard_values_from_batch)

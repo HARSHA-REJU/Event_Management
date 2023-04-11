@@ -48,7 +48,7 @@ class BookingSummaryWizard(models.TransientModel):
             domain2 += [('district_id', '=', self.district_id.id)]
         if self.date_from :
             dt = datetime.combine(self.date_from, datetime.min.time())
-            print(dt)
+            # print(dt)
             # domain += [('start_date', '>=', dt), ('end_date', '<=', dt)]
             # domain += [('start_date', '>=', dt)]
             domain += [('event_date', '>=', dt)]
@@ -64,8 +64,8 @@ class BookingSummaryWizard(models.TransientModel):
         for items in aud:
             audi_count = audi_count +1
             audi.append(items)
-        print("total auditorium",len(audi))
-        print("Auditoriums",aud)
+        # print("total auditorium",len(audi))
+        # print("Auditoriums",aud)
         for rec in res:
             if rec.district_id.id not in district:
                 vals={
