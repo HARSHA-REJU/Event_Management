@@ -8,7 +8,9 @@ INTEGRITY_HASH_MOVE_FIELDS = ('date', 'journal_id', 'company_id')
 INTEGRITY_HASH_LINE_FIELDS = ('debit', 'credit', 'account_id', 'partner_id')
 class AccountMove(models.Model):
     _inherit = "account.move"
-    _or
+    _order = 'number2 desc'
+    _rec_name = 'number2'
+
     booking_id = fields.Many2one('event.management')
     auditorium_id = fields.Many2one('res.partner', default=lambda self: self.env.user.auditorium.id, compute = '_auditorium_set')
     fortuna_discount = fields.Float()
